@@ -1,30 +1,44 @@
 # ARIA — Global AI Super App
 
-> Repository bootstrap for the ARIA Android application. This commit initializes the empty GitHub repository; it does **not** contain the full ARIA 32 source package yet.
+> ARIA 32 source-package status and repository bootstrap.
 
 ## Current release candidate
 
-The current source package is named `ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip`. Its SHA-256 checksum is:
+Source archive: `ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip`
+
+SHA-256:
 
 ```
 9dcbb34ef98e4f11e661bd32bbd0573d4de7a3058743f45aa126322f44264f9f
 ```
 
-The package is available in the ChatGPT file/library workspace, but this GitHub integration supports creating UTF-8 text files and Git objects; it does not provide a local-file-to-repository binary upload operation. Therefore the ZIP has not been committed here.
+The source archive exists in the ChatGPT working workspace, but the full archive has **not** been imported into this repository. The current GitHub connection does not expose a direct local-file/binary upload action.
 
-## Required before a genuine Android build
+## Verification performed on the local source archive (2026-10-20)
 
-1. Import the complete contents of the release ZIP into this repository (including `app/`, root Gradle files, backend, tests, and documentation).
-2. Restore or generate a valid Gradle Wrapper and verify the configured Gradle/Android Gradle Plugin compatibility.
-3. Configure Android SDK/build tools in CI.
-4. Run unit tests and `assembleDebug`; then configure protected signing secrets for a release build.
-5. Connect and validate real backend/payment/provider credentials separately; never commit secrets.
+- 11 selected JavaScript unit/gate scripts executed successfully.
+- JavaScript syntax checks passed for 82 files under `backend/src`.
+- `app/src/main/assets/aria_module_registry.json` parsed successfully and declares 639 modules.
+- These checks are useful static/unit evidence, but they do not prove a production build, live integrations, or end-to-end behavior.
 
-## Status
+## Release blockers
 
-- Repository initialized: pending verification after first commit.
-- Full source imported: **No**.
-- Android APK/AAB built: **No**.
-- Production deployment: **Not verified**.
+1. Import all source files from the archive into this repository.
+2. Restore or generate the Gradle Wrapper JAR (the wrapper properties and script alone are insufficient for a standalone wrapper).
+3. Run the Android build in CI with Java 17, Android SDK platform 36 and build-tools 35.0.0.
+4. Fix any compile/test failures discovered by the actual Android build.
+5. Configure release signing through protected CI secrets, never committed to source control.
+6. Verify backend/database, notifications, and any external provider integrations in a controlled test environment before production.
 
-Do not treat this repository as a release-ready app until the full source and successful build artifacts are present.
+## Current status
+
+| Item | Status |
+|---|---|
+| Repository scaffold (`README`, workflow, `.gitignore`) | Committed |
+| Full ARIA 32 source imported to GitHub | **No** |
+| Selected local static/unit checks | **Pass** |
+| Android APK/AAB built and tested | **Not yet** |
+| Release-signed app | **Not yet** |
+| Production deployment and live integrations | **Not verified** |
+
+Do not treat this repository as a release-ready app until the full source is present and the Android build and required integration tests pass.
