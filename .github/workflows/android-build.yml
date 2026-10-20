@@ -1,0 +1,60 @@
+name: ARIA Android build
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Verify complete Android source is present
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in settings.gradle build.gradle app/build.gradle app/src/main/AndroidManifest.xml; do
+            if [ ! -s "$f" ]; then
+              echo "::error::Required source file is missing: $f"
+              echo "Import the complete ARIA 32 source package before running this workflow."
+              exit 1
+            fi
+          done
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android SDK packages
+        run: sdkmanager "platform-tools" "platforms;android-36" "build-tools;35.0.0"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.13'
+
+      - name: Run tests and assemble debug APK
+        env:
+          ARIA_API_BASE_URL: ${{ secrets.ARIA_API_BASE_URL }}
+          FIREBASE_ANDROID_API_KEY: ${{ secrets.FIREBASE_ANDROID_API_KEY }}
+          FIREBASE_ANDROID_APP_ID: ${{ secrets.FIREBASE_ANDROID_APP_ID }}
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+          FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}
+        run: gradle --no-daemon test assembleDebug
+
+      - name: Upload debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: aria-debug-apk
+          path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
