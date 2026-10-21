@@ -2,10 +2,13 @@
 const http = require("node:http");
 const fs = require("node:fs");
 const path = require("node:path");
-const root = __dirname;
-const port = Number(process.env.PORT || 3000);
-const types = {".html":"text/html; charset=utf-8",".css":"text/css; charset=utf-8",".js":"text/javascript; charset=utf-8",".json":"application/json; charset=utf-8",".svg":"image/svg+xml"};
-const modules = [
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const {Pool}=require("pg");
+const root=__dirname;
+const port=Number(process.env.PORT||3000);
+const types={".html":"text/html; charset=utf-8",".css":"text/css; charset=utf-8",".js":"text/javascript; charset=utf-8",".json":"application/json; charset=utf-8",".svg":"image/svg+xml"};
+const modules=[
  {id:"command-center",name:"مرکز فرمان هوشمند",status:"available",description:"ورودی یکپارچه برای درخواست‌ها و مسیرهای اقدام"},
  {id:"idea-to-value",name:"ایده تا ارزش",status:"prototype",description:"تبدیل ایده به مراحل اجرایی قابل پیگیری"},
  {id:"opportunities",name:"رشد و فرصت‌ها",status:"prototype",description:"ثبت و اولویت‌بندی فرصت‌ها"},
@@ -13,112 +16,144 @@ const modules = [
  {id:"workflows",name:"گردش‌کارها",status:"prototype",description:"طراحی فرایندها و نقاط تأیید"},
  {id:"trust-control",name:"اعتماد و کنترل",status:"available",description:"اعتبارسنجی ورودی‌ها و مرزبندی اجرای امن"}
 ];
-const rateBuckets = new Map();
-function json(res,status,data,extra={}) { res.writeHead(status,{"content-type":"application/json; charset=utf-8","cache-control":"no-store","x-content-type-options":"nosniff",...extra}); res.end(JSON.stringify(data)); }
-function securityHeaders(res) { res.setHeader("x-content-type-options","nosniff"); res.setHeader("referrer-policy","strict-origin-when-cross-origin"); res.setHeader("x-frame-options","DENY"); res.setHeader("permissions-policy","camera=(), microphone=(), geolocation=()"); res.setHeader("content-security-policy","default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"); }
-function rateLimited(req) {
- const now=Date.now(), key=req.headers["x-railway-edge"] ? (req.headers["x-forwarded-for"]||req.socket.remoteAddress||"unknown").toString().split(",")[0].trim() : (req.socket.remoteAddress||"unknown");
- let bucket=rateBuckets.get(key);
- if(!bucket || now-bucket.start>60000) bucket={start:now,count:0};
- bucket.count++; rateBuckets.set(key,bucket);
- if(rateBuckets.size>5000) for(const [k,v] of rateBuckets) if(now-v.start>60000) rateBuckets.delete(k);
+const rateBuckets=new Map();
+const pool=process.env.DATABASE_URL?new Pool({connectionString:process.env.DATABASE_URL,max:10,idleTimeoutMillis:30000,connectionTimeoutMillis:5000,ssl:process.env.DATABASE_SSL==="true"?{rejectUnauthorized:false}:undefined}):null;
+let dbInitPromise=null,dbConnected=false;
+async function initDb(){
+ if(!pool)throw new Error("DATABASE_URL is not configured");
+ if(dbConnected)return true;
+ if(!dbInitPromise)dbInitPromise=(async()=>{
+  await pool.query(`CREATE TABLE IF NOT EXISTS aria_users(
+   id BIGSERIAL PRIMARY KEY,email TEXT NOT NULL UNIQUE,password_hash TEXT NOT NULL,created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),disabled BOOLEAN NOT NULL DEFAULT FALSE
+  )`);
+  await pool.query(`CREATE TABLE IF NOT EXISTS aria_plans(
+   id BIGSERIAL PRIMARY KEY,user_id BIGINT NOT NULL REFERENCES aria_users(id) ON DELETE CASCADE,intent TEXT NOT NULL,plan JSONB NOT NULL,created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  )`);
+  await pool.query("CREATE INDEX IF NOT EXISTS aria_plans_user_created_idx ON aria_plans(user_id,created_at DESC)");
+  dbConnected=true;return true;
+ })().catch(err=>{dbInitPromise=null;dbConnected=false;throw err;});
+ return dbInitPromise;
+}
+function json(res,status,data,extra={}){res.writeHead(status,{"content-type":"application/json; charset=utf-8","cache-control":"no-store","x-content-type-options":"nosniff",...extra});res.end(JSON.stringify(data));}
+function securityHeaders(res){res.setHeader("x-content-type-options","nosniff");res.setHeader("referrer-policy","strict-origin-when-cross-origin");res.setHeader("x-frame-options","DENY");res.setHeader("permissions-policy","camera=(), microphone=(), geolocation=()");res.setHeader("content-security-policy","default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; base-uri 'self'; frame-ancestors 'none'; form-action 'self'");}
+function rateLimited(req){
+ const now=Date.now(),key=(req.headers["x-forwarded-for"]||req.socket.remoteAddress||"unknown").toString().split(",")[0].trim();
+ let bucket=rateBuckets.get(key);if(!bucket||now-bucket.start>60000)bucket={start:now,count:0};
+ bucket.count++;rateBuckets.set(key,bucket);
+ if(rateBuckets.size>5000)for(const[k,v]of rateBuckets)if(now-v.start>60000)rateBuckets.delete(k);
  return bucket.count>60;
 }
-function readJson(req,res) {
- return new Promise(resolve=>{
-  let body="", done=false;
-  req.on("data",chunk=>{
-   if(done)return;
-   body+=chunk.toString("utf8");
-   if(Buffer.byteLength(body)>12000){done=true;json(res,413,{error:"حجم درخواست بیش از حد مجاز است."});resolve(null);req.destroy();}
-  });
-  req.on("end",()=>{
-   if(done)return;
-   try { resolve(JSON.parse(body || "{}")); }
-   catch { json(res,400,{error:"بدنهٔ درخواست باید JSON معتبر باشد."}); resolve(null); }
-  });
+function readJson(req,res){
+ return new Promise(resolve=>{let body="",done=false;
+  req.on("data",chunk=>{if(done)return;body+=chunk.toString("utf8");if(Buffer.byteLength(body)>12000){done=true;json(res,413,{error:"حجم درخواست بیش از حد مجاز است."});resolve(null);req.destroy();}});
+  req.on("end",()=>{if(done)return;try{resolve(JSON.parse(body||"{}"));}catch{json(res,400,{error:"بدنهٔ درخواست باید JSON معتبر باشد."});resolve(null);}});
   req.on("error",()=>{if(!done){done=true;resolve(null);}});
  });
 }
-function makeLocalPlan(intent) {
+function makeLocalPlan(intent){
  const cleaned=intent.trim().slice(0,2000);
  const kind=/محتوا|اینستاگرام|ویدئو|پست|آموزش/.test(cleaned)?"content":/کسب.?و.?کار|درآمد|فروش|محصول|ایده/.test(cleaned)?"business":"general";
- const phases = kind==="content" ? [
+ const phases=kind==="content"?[
   {step:1,title:"تعریف مخاطب و هدف",tasks:["مخاطب اصلی را مشخص کن","هدف محتوا و اقدام مورد انتظار را بنویس"],checkpoint:"هدف و مخاطب روشن باشد"},
   {step:2,title:"طراحی محتوا",tasks:["موضوع و پیام اصلی را تعیین کن","قالب متن، تصویر یا ویدئو را انتخاب کن"],checkpoint:"پیش‌نویس محتوا آماده باشد"},
   {step:3,title:"بازبینی و انتشار",tasks:["دقت، حقوق محتوا و حریم خصوصی را بررسی کن","زمان انتشار و معیار سنجش را ثبت کن"],checkpoint:"تأیید نهایی پیش از انتشار"}
- ] : kind==="business" ? [
+ ]:kind==="business"?[
   {step:1,title:"تعریف مسئله و مشتری",tasks:["نیاز مشخص مشتری را تعریف کن","گروه مشتری و جایگزین‌های موجود را بررسی کن"],checkpoint:"مسئله و مشتری هدف قابل سنجش باشد"},
   {step:2,title:"آزمون کم‌هزینه",tasks:["یک نمونهٔ ساده از راه‌حل بساز","با چند مشتری بالقوه بازخورد بگیر"],checkpoint:"شواهد اولیهٔ تقاضا ثبت شود"},
   {step:3,title:"مدل درآمد و اجرا",tasks:["هزینه، قیمت و منبع درآمد را برآورد کن","مسئول، زمان‌بندی و شاخص موفقیت تعیین کن"],checkpoint:"فرضیه‌های مالی و ریسک‌ها مستند باشند"}
- ] : [
+ ]:[
   {step:1,title:"شفاف‌سازی نتیجه",tasks:["نتیجهٔ نهایی را در یک جمله تعریف کن","محدودیت‌ها و معیار موفقیت را بنویس"],checkpoint:"نتیجه قابل بررسی باشد"},
   {step:2,title:"تقسیم به گام‌ها",tasks:["کار را به سه تا پنج اقدام کوچک تقسیم کن","برای هر اقدام مسئول و موعد تعیین کن"],checkpoint:"هر اقدام خروجی مشخص داشته باشد"},
   {step:3,title:"اجرا و ارزیابی",tasks:["اولین گام کم‌ریسک را اجرا کن","نتیجه را با معیار موفقیت مقایسه کن"],checkpoint:"تصمیم بعدی بر اساس نتیجه گرفته شود"}
  ];
- return {planId:"local-"+Date.now().toString(36),intent:cleaned,category:kind,createdAt:new Date().toISOString(),phases,source:"rule-based",disclaimer:"این برنامه با قواعد محلی ساخته شده و خروجی مدل هوش مصنوعی نیست. پیش از اقدامات حساس، انسانی آن را بررسی کنید."};
+ return{planId:"local-"+Date.now().toString(36),intent:cleaned,category:kind,createdAt:new Date().toISOString(),phases,source:"rule-based",disclaimer:"این برنامه با قواعد محلی ساخته شده و خروجی مدل هوش مصنوعی نیست. پیش از اقدامات حساس، انسانی آن را بررسی کنید."};
 }
-async function makePlan(intent) {
- const apiKey=process.env.OPENAI_API_KEY;
- if(!apiKey) return makeLocalPlan(intent);
- const base=(process.env.OPENAI_BASE_URL||"https://api.openai.com/v1").replace(/\/$/,"");
- const model=process.env.OPENAI_MODEL||"gpt-4.1-mini";
- const controller=new AbortController();
- const timeout=setTimeout(()=>controller.abort(),20000);
- try {
-  const response=await fetch(base+"/chat/completions",{method:"POST",signal:controller.signal,headers:{"authorization":"Bearer "+apiKey,"content-type":"application/json"},body:JSON.stringify({
-   model,temperature:0.2,response_format:{type:"json_object"},
-   messages:[
-    {role:"system",content:"You are ARIA, a careful planning assistant. Produce a practical plan in Persian. Return only valid JSON with keys category, phases, disclaimer. category must be one of general, business, content. phases must contain exactly three objects, each with step (1-3), title, tasks (array of 2-4 short strings), checkpoint. Do not claim actions were executed. For medical, legal, financial or safety-sensitive requests, recommend qualified review. Never request secrets."},
-    {role:"user",content:intent.slice(0,2000)}
-   ]
-  })});
-  if(!response.ok) throw new Error("AI provider returned HTTP "+response.status);
-  const payload=await response.json();
-  const raw=payload.choices?.[0]?.message?.content;
-  if(typeof raw!=="string") throw new Error("AI provider returned no content");
-  const parsed=JSON.parse(raw);
-  if(!["general","business","content"].includes(parsed.category)||!Array.isArray(parsed.phases)||parsed.phases.length!==3) throw new Error("AI response schema invalid");
-  const phases=parsed.phases.map((p,i)=>{
-   if(typeof p.title!=="string"||!Array.isArray(p.tasks)||p.tasks.length<1||typeof p.checkpoint!=="string") throw new Error("AI response phase invalid");
-   return {step:i+1,title:p.title.slice(0,180),tasks:p.tasks.filter(t=>typeof t==="string").slice(0,4).map(t=>t.slice(0,300)),checkpoint:p.checkpoint.slice(0,300)};
-  });
-  if(phases.some(p=>p.tasks.length===0)) throw new Error("AI response tasks invalid");
-  return {planId:"ai-"+Date.now().toString(36),intent:intent.slice(0,2000),category:parsed.category,createdAt:new Date().toISOString(),phases,source:"ai",model,disclaimer:typeof parsed.disclaimer==="string"?parsed.disclaimer.slice(0,500):"این برنامه پیشنهاد اولیه است؛ پیش از اقدامات حساس آن را بررسی کنید."};
- } catch(error) {
-  console.error("ARIA AI provider error:",error.name==="AbortError"?"timeout":error.message);
-  return {...makeLocalPlan(intent),source:"rule-based-fallback",disclaimer:"سرویس هوش مصنوعی در دسترس نبود؛ این برنامه با قواعد محلی ساخته شد. نتیجهٔ هوش مصنوعی نیست."};
- } finally {clearTimeout(timeout);}
+async function makePlan(intent){
+ const apiKey=process.env.OPENAI_API_KEY;if(!apiKey)return makeLocalPlan(intent);
+ const base=(process.env.OPENAI_BASE_URL||"https://api.openai.com/v1").replace(/\/$/,""),model=process.env.OPENAI_MODEL||"gpt-4.1-mini";
+ const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),20000);
+ try{
+  const response=await fetch(base+"/chat/completions",{method:"POST",signal:controller.signal,headers:{"authorization":"Bearer "+apiKey,"content-type":"application/json"},body:JSON.stringify({model,temperature:0.2,response_format:{type:"json_object"},messages:[
+   {role:"system",content:"You are ARIA, a careful planning assistant. Produce a practical plan in Persian. Return only valid JSON with keys category, phases, disclaimer. category must be one of general, business, content. phases must contain exactly three objects, each with title, tasks (array of 2-4 short strings), checkpoint. Do not claim actions were executed. For medical, legal, financial or safety-sensitive requests, recommend qualified review. Never request secrets."},
+   {role:"user",content:intent.slice(0,2000)}
+  ]})});
+  if(!response.ok)throw new Error("AI provider HTTP "+response.status);
+  const payload=await response.json(),raw=payload.choices?.[0]?.message?.content;if(typeof raw!=="string")throw new Error("AI provider returned no content");
+  const parsed=JSON.parse(raw);if(!["general","business","content"].includes(parsed.category)||!Array.isArray(parsed.phases)||parsed.phases.length!==3)throw new Error("AI schema invalid");
+  const phases=parsed.phases.map((p,i)=>{if(typeof p.title!=="string"||!Array.isArray(p.tasks)||typeof p.checkpoint!=="string")throw new Error("AI phase invalid");const tasks=p.tasks.filter(t=>typeof t==="string").slice(0,4).map(t=>t.slice(0,300));if(!tasks.length)throw new Error("AI tasks invalid");return{step:i+1,title:p.title.slice(0,180),tasks,checkpoint:p.checkpoint.slice(0,300)};});
+  return{planId:"ai-"+Date.now().toString(36),intent:intent.slice(0,2000),category:parsed.category,createdAt:new Date().toISOString(),phases,source:"ai",model,disclaimer:typeof parsed.disclaimer==="string"?parsed.disclaimer.slice(0,500):"این برنامه پیشنهاد اولیه است؛ پیش از اقدامات حساس آن را بررسی کنید."};
+ }catch(err){console.error("ARIA AI provider error:",err.name==="AbortError"?"timeout":err.message);return{...makeLocalPlan(intent),source:"rule-based-fallback",disclaimer:"سرویس هوش مصنوعی در دسترس نبود؛ این برنامه با قواعد محلی ساخته شد. خروجی هوش مصنوعی نیست."};}
+ finally{clearTimeout(timeout);}
 }
-const server=http.createServer(async(req,res)=>{
- securityHeaders(res);
- let url;
- try { url=new URL(req.url || "/", "http://localhost"); }
- catch { return json(res,400,{error:"نشانی نامعتبر است."}); }
- if(req.method==="OPTIONS"){res.writeHead(204,{"access-control-allow-methods":"GET, POST, OPTIONS","access-control-allow-headers":"content-type"});return res.end();}
- if(url.pathname==="/health" || url.pathname==="/api/health"){
+function authUser(req){
+ const header=req.headers.authorization||"";if(!header.startsWith("Bearer "))return null;
+ const secret=process.env.ARIA_JWT_SECRET;if(!secret)return null;
+ try{return jwt.verify(header.slice(7),secret,{issuer:"aria-web",audience:"aria-user"});}catch{return null;}
+}
+function tokenFor(user){const secret=process.env.ARIA_JWT_SECRET;if(!secret)throw new Error("Authentication secret unavailable");return jwt.sign({sub:String(user.id),email:user.email},secret,{expiresIn:"2h",issuer:"aria-web",audience:"aria-user"});}
+async function requireDb(res){try{await initDb();return true;}catch(err){console.error("ARIA database unavailable:",err.message);json(res,503,{error:"پایگاه داده هنوز آماده نیست. کمی بعد دوباره تلاش کنید."});return false;}}
+async function handle(req,res,url){
+ if(url.pathname==="/health"||url.pathname==="/api/health"){
   if(req.method!=="GET")return json(res,405,{error:"روش درخواست پشتیبانی نمی‌شود."});
-  return json(res,200,{ok:true,service:"aria-web",version:"0.3.0",mode:process.env.OPENAI_API_KEY?"ai-enabled-prototype":"rule-based-prototype",aiConfigured:Boolean(process.env.OPENAI_API_KEY),productionIntegrations:false});
+  return json(res,200,{ok:true,service:"aria-web",version:"0.4.0",mode:process.env.OPENAI_API_KEY?"ai-enabled-prototype":"rule-based-prototype",aiConfigured:Boolean(process.env.OPENAI_API_KEY),databaseConfigured:Boolean(pool),databaseConnected:dbConnected,authenticationConfigured:Boolean(process.env.ARIA_JWT_SECRET),productionIntegrations:false});
  }
- if(url.pathname.startsWith("/api/") && rateLimited(req)) return json(res,429,{error:"تعداد درخواست‌ها زیاد است. یک دقیقه دیگر دوباره تلاش کنید."},{"retry-after":"60"});
- if(url.pathname==="/api/modules" && req.method==="GET") return json(res,200,{modules});
- if((url.pathname==="/api/plan"||url.pathname==="/api/intent") && req.method==="POST"){
-  const data=await readJson(req,res); if(data===null)return;
+ if(url.pathname.startsWith("/api/")&&rateLimited(req))return json(res,429,{error:"تعداد درخواست‌ها زیاد است. یک دقیقه دیگر دوباره تلاش کنید."},{"retry-after":"60"});
+ if(url.pathname==="/api/modules"&&req.method==="GET")return json(res,200,{modules});
+ if(url.pathname==="/api/auth/register"&&req.method==="POST"){
+  const data=await readJson(req,res);if(data===null)return;
+  const email=typeof data.email==="string"?data.email.trim().toLowerCase():"",password=typeof data.password==="string"?data.password:"";
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||email.length>254)return json(res,400,{error:"ایمیل معتبر وارد کنید."});
+  if(password.length<12||password.length>128)return json(res,400,{error:"رمز عبور باید بین ۱۲ تا ۱۲۸ نویسه باشد."});
+  if(!process.env.ARIA_JWT_SECRET)return json(res,503,{error:"تنظیم امن احراز هویت کامل نشده است."});
+  if(!await requireDb(res))return;
+  try{const hash=await bcrypt.hash(password,12);const q=await pool.query("INSERT INTO aria_users(email,password_hash) VALUES($1,$2) RETURNING id,email,created_at",[email,hash]);const user=q.rows[0];return json(res,201,{user:{id:String(user.id),email:user.email,createdAt:user.created_at},token:tokenFor(user)});}
+  catch(err){if(err.code==="23505")return json(res,409,{error:"برای این ایمیل قبلاً حساب ساخته شده است."});console.error("ARIA register failed:",err.message);return json(res,500,{error:"ساخت حساب انجام نشد."});}
+ }
+ if(url.pathname==="/api/auth/login"&&req.method==="POST"){
+  const data=await readJson(req,res);if(data===null)return;
+  const email=typeof data.email==="string"?data.email.trim().toLowerCase():"",password=typeof data.password==="string"?data.password:"";
+  if(!email||!password)return json(res,400,{error:"ایمیل و رمز عبور الزامی است."});
+  if(!process.env.ARIA_JWT_SECRET)return json(res,503,{error:"تنظیم امن احراز هویت کامل نشده است."});
+  if(!await requireDb(res))return;
+  try{const q=await pool.query("SELECT id,email,password_hash,disabled FROM aria_users WHERE email=$1",[email]);const user=q.rows[0];if(!user||user.disabled||!(await bcrypt.compare(password,user.password_hash)))return json(res,401,{error:"ایمیل یا رمز عبور صحیح نیست."});return json(res,200,{user:{id:String(user.id),email:user.email},token:tokenFor(user)});}
+  catch(err){console.error("ARIA login failed:",err.message);return json(res,500,{error:"ورود انجام نشد."});}
+ }
+ if(url.pathname==="/api/auth/me"&&req.method==="GET"){
+  const user=authUser(req);if(!user)return json(res,401,{error:"برای ادامه وارد حساب شوید."});
+  if(!await requireDb(res))return;
+  const q=await pool.query("SELECT id,email,created_at FROM aria_users WHERE id=$1 AND disabled=FALSE",[user.sub]);
+  if(!q.rowCount)return json(res,401,{error:"حساب معتبر نیست."});
+  return json(res,200,{user:{id:String(q.rows[0].id),email:q.rows[0].email,createdAt:q.rows[0].created_at}});
+ }
+ if(url.pathname==="/api/plans"&&req.method==="GET"){
+  const user=authUser(req);if(!user)return json(res,401,{error:"برای مشاهدهٔ برنامه‌های ذخیره‌شده وارد حساب شوید."});
+  if(!await requireDb(res))return;
+  const q=await pool.query("SELECT id,plan,created_at FROM aria_plans WHERE user_id=$1 ORDER BY created_at DESC LIMIT 50",[user.sub]);
+  return json(res,200,{plans:q.rows.map(r=>({id:String(r.id),...r.plan,savedAt:r.created_at}))});
+ }
+ if((url.pathname==="/api/plan"||url.pathname==="/api/intent")&&req.method==="POST"){
+  const data=await readJson(req,res);if(data===null)return;
   const intent=typeof data.intent==="string"?data.intent.trim():"";
   if(!intent)return json(res,400,{error:"لطفاً درخواست خود را بنویسید."});
   if(intent.length>2000)return json(res,400,{error:"درخواست نباید بیشتر از ۲۰۰۰ نویسه باشد."});
-  if(url.pathname==="/api/intent") return json(res,200,{accepted:true,intent,status:"received",message:"درخواست دریافت شد. برای ساخت برنامه از مسیر /api/plan استفاده کنید."});
-  return json(res,200,{ok:true,plan:await makePlan(intent)});
+  if(url.pathname==="/api/intent")return json(res,200,{accepted:true,intent,status:"received",message:"درخواست دریافت شد. برای ساخت برنامه از مسیر /api/plan استفاده کنید."});
+  const plan=await makePlan(intent),user=authUser(req);
+  if(req.headers.authorization&&!user)return json(res,401,{error:"نشست معتبر نیست؛ دوباره وارد شوید."});
+  if(user){
+   if(!await requireDb(res))return;
+   try{const q=await pool.query("INSERT INTO aria_plans(user_id,intent,plan) VALUES($1,$2,$3::jsonb) RETURNING id,created_at",[user.sub,intent,JSON.stringify(plan)]);plan.saved=true;plan.savedId=String(q.rows[0].id);}
+   catch(err){console.error("ARIA plan save failed:",err.message);return json(res,500,{error:"برنامه ساخته شد اما ذخیره‌سازی آن ناموفق بود."});}
+  }else plan.saved=false;
+  return json(res,200,{ok:true,plan});
  }
- if(url.pathname.startsWith("/api/")) return json(res,404,{error:"مسیر API پیدا نشد."});
- if(req.method!=="GET" && req.method!=="HEAD")return json(res,405,{error:"روش درخواست پشتیبانی نمی‌شود."});
- let requested;
- try { requested=decodeURIComponent(url.pathname==="/"?"/index.html":url.pathname); }
- catch { return json(res,400,{error:"مسیر نامعتبر است."}); }
+ if(url.pathname.startsWith("/api/"))return json(res,404,{error:"مسیر API پیدا نشد."});
+ if(req.method!=="GET"&&req.method!=="HEAD")return json(res,405,{error:"روش درخواست پشتیبانی نمی‌شود."});
+ let requested;try{requested=decodeURIComponent(url.pathname==="/"?"/index.html":url.pathname);}catch{return json(res,400,{error:"مسیر نامعتبر است."});}
  const file=path.resolve(root,"."+requested);
  if(!file.startsWith(root+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile())return json(res,404,{error:"صفحه پیدا نشد."});
  res.writeHead(200,{"content-type":types[path.extname(file)]||"application/octet-stream","cache-control":path.extname(file)===".html"?"no-cache":"public, max-age=300"});
- if(req.method==="HEAD")return res.end();
- fs.createReadStream(file).pipe(res);
-});
-server.listen(port,"0.0.0.0",()=>console.log("ARIA web listening on "+port));
+ if(req.method==="HEAD")return res.end();fs.createReadStream(file).pipe(res);
+}
+const server=http.createServer((req,res)=>{securityHeaders(res);let url;try{url=new URL(req.url||"/","http://localhost");}catch{return json(res,400,{error:"نشانی نامعتبر است."});}handle(req,res,url).catch(err=>{console.error("ARIA request failed:",err.message);if(!res.headersSent)json(res,500,{error:"خطای داخلی رخ داد."});else res.destroy();});});
+server.listen(port,"0.0.0.0",()=>{console.log("ARIA web listening on "+port);if(pool)initDb().catch(err=>console.error("ARIA database init pending:",err.message));});
+process.on("SIGTERM",async()=>{server.close();if(pool)await pool.end().catch(()=>{});process.exit(0);});
