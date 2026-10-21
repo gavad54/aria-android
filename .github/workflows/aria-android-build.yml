@@ -1,0 +1,107 @@
+name: ARIA 32 Android build
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip'
+      - '.github/workflows/aria-android-build.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build-android:
+    name: Verify source and build Android artifacts
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check source archive is present
+        shell: bash
+        run: |
+          set -euo pipefail
+          ARCHIVE="release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip"
+          if [[ ! -f "$ARCHIVE" ]]; then
+            echo "::error::Missing $ARCHIVE. The full ARIA 32 archive must be uploaded to this path before building."
+            exit 2
+          fi
+
+      - name: Verify archive checksum
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "4899f744d96a5258f1f17842775006557b97cdfa63686b6ea6b42938b7b57e64  release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip" | sha256sum --check -
+
+      - name: Extract source archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/aria32"
+          unzip -q release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip -d "$RUNNER_TEMP/aria32"
+          test -f "$RUNNER_TEMP/aria32/app/build.gradle"
+          test -f "$RUNNER_TEMP/aria32/gradle/wrapper/gradle-wrapper.properties"
+          test -f "$RUNNER_TEMP/aria32/RELEASE_GATE.sh"
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install required Android SDK packages
+        shell: bash
+        run: |
+          set -euo pipefail
+          yes | sdkmanager --licenses >/dev/null
+          sdkmanager "platform-tools" "platforms;android-36" "build-tools;35.0.0" "build-tools;36.0.0"
+
+      - name: Provision and verify Gradle Wrapper JAR
+        shell: bash
+        working-directory: ${{ runner.temp }}/aria32
+        run: |
+          set -euo pipefail
+          bash scripts/provision_gradle_wrapper.sh
+          test -s gradle/wrapper/gradle-wrapper.jar
+          sha256sum gradle/wrapper/gradle-wrapper.jar
+          chmod +x gradlew
+
+      - name: Run ARIA static and contract gates
+        shell: bash
+        working-directory: ${{ runner.temp }}/aria32
+        run: |
+          set -euo pipefail
+          bash scripts/aria32_static_gate.sh
+          node --check backend/src/server.js
+          node --check backend/src/worker.js
+
+      - name: Build debug APK and release bundle
+        shell: bash
+        working-directory: ${{ runner.temp }}/aria32
+        env:
+          ARIA_API_BASE_URL: ${{ vars.ARIA_API_BASE_URL }}
+          FIREBASE_ANDROID_API_KEY: ${{ secrets.FIREBASE_ANDROID_API_KEY }}
+          FIREBASE_ANDROID_APP_ID: ${{ secrets.FIREBASE_ANDROID_APP_ID }}
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+          FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}
+        run: |
+          set -euo pipefail
+          ./gradlew --no-daemon --stacktrace clean testDebugUnitTest assembleDebug bundleRelease
+
+      - name: Upload Android build outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aria32-android-build-outputs
+          if-no-files-found: warn
+          retention-days: 14
+          path: |
+            ${{ runner.temp }}/aria32/app/build/outputs/apk/**
+            ${{ runner.temp }}/aria32/app/build/outputs/bundle/**
+            ${{ runner.temp }}/aria32/app/build/reports/**
+            ${{ runner.temp }}/aria32/app/build/test-results/**
