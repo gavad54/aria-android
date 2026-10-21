@@ -32,7 +32,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          echo "6c67901ddaff48381c2c6ef957ee29460b4553704260838994df898fa2440d86  release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip" | sha256sum --check -
+          echo "75c9826bd5de01f84d0429addeb49639a432006624b30a378581c349c3186f03  release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip" | sha256sum --check -
 
       - name: Extract source archive
         shell: bash
@@ -49,6 +49,11 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.14.0'
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
@@ -75,7 +80,7 @@ jobs:
         working-directory: ${{ runner.temp }}/aria32
         run: |
           set -euo pipefail
-          bash scripts/aria32_static_gate.sh
+          (cd backend && npm test)
           node --check backend/src/server.js
           node --check backend/src/worker.js
 
