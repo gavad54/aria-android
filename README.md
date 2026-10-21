@@ -1,8 +1,25 @@
 # ARIA — Global AI Super App
 
-> ARIA 32 source-package status and repository bootstrap.
+ARIA is a general-purpose AI super-app project. It is **not an accounting/ERP product**; that product is separate as ARIANA.
 
-## Current release candidate
+## Live web prototype
+
+- Web URL: https://aria-web-production-12ba.up.railway.app
+- Health endpoint: https://aria-web-production-12ba.up.railway.app/health
+- Repository: https://github.com/gavad54/aria-android
+
+The web service is deployed from the `main` branch through Railway. The latest source adds:
+- Responsive Persian RTL mobile-first interface.
+- `GET /health` and `GET /api/health` service checks.
+- `GET /api/modules` module registry for the web prototype.
+- `POST /api/plan` deterministic three-stage starter plan based on the user's text.
+- `POST /api/intent` request validation for compatibility.
+- Request-size limits, basic per-IP rate limiting, security headers, safe static-path resolution, and API smoke tests.
+- GitHub Actions Node.js CI workflow at `.github/workflows/web-ci.yml`.
+
+**Important:** `/api/plan` currently uses local rule-based templates, not a live AI model. User accounts, durable database, personal memory, multilingual voice, billing, notifications, provider integrations, and the Android app are not yet production-ready. Do not enter confidential information into the prototype.
+
+## ARIA 32 source-package status
 
 Source archive: `ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip`
 
@@ -12,7 +29,7 @@ Latest locally verified archive SHA-256:
 4899f744d96a5258f1f17842775006557b97cdfa63686b6ea6b42938b7b57e64
 ```
 
-The archive includes a refreshed static verification script and a Persian execution audit. The full archive has **not** been imported into this repository because the available GitHub connection does not expose a direct local-file/binary upload action.
+The full archive has **not** been imported into this repository because the available GitHub connection does not expose a direct local-file/binary upload action.
 
 ## Verification performed on the local source archive (2026-10-20)
 
@@ -24,7 +41,7 @@ The archive includes a refreshed static verification script and a Persian execut
 
 These checks are static/unit evidence only. They do not prove a production build, live integrations, or end-to-end behavior.
 
-## Release blockers
+## Android release blockers
 
 1. Import all source files from the archive into this repository.
 2. Restore or generate the Gradle Wrapper JAR (the wrapper properties and script alone are insufficient for a standalone wrapper).
@@ -37,11 +54,14 @@ These checks are static/unit evidence only. They do not prove a production build
 
 | Item | Status |
 |---|---|
-| Repository scaffold (`README`, workflow, `.gitignore`) | Committed |
+| Web prototype deployed | Railway deployment reported successful; verify live access in browser |
+| Rule-based planning API | Committed; deployment/CI verification in progress |
+| API smoke tests + Node CI | Committed |
+| Live AI model | Not connected |
+| Authentication and durable database | Not implemented |
 | Full ARIA 32 source imported to GitHub | **No** |
-| Local static/unit gates | **Pass** |
 | Android APK/AAB built and tested | **Not yet** |
-| Release-signed app | **Not yet** |
-| Production deployment and live integrations | **Not verified** |
+| Release-signed Android app | **Not yet** |
+| Production integrations | **Not verified** |
 
-Do not treat this repository as a release-ready app until the full source is present and the Android build and required integration tests pass.
+Do not treat ARIA as a fully complete or release-ready product until the full source is present, live AI and secure persistence are configured, and Android and end-to-end tests pass.
