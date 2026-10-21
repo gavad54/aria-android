@@ -44,14 +44,18 @@ Latest locally reported archive SHA-256:
 4899f744d96a5258f1f17842775006557b97cdfa63686b6ea6b42938b7b57e64
 ```
 
-The full archive has **not** been imported into this repository because the available GitHub connection does not expose a direct local-file/binary upload action. The archive is also not currently present in the active local execution workspace, so its contents cannot be imported or independently reverified in this turn.
+The archive was recovered from the user's Library and its SHA-256 was independently verified in the current workspace. It contains 505 ZIP entries (458 files) and approximately 8.3 MB uncompressed. The full archive has **not** been imported into this repository because the available GitHub connection exposes text-file and Git-object operations but no direct local-file/binary upload action; the container has no GitHub credentials for a direct push.
 
-## Prior static checks on the source archive (reported 2026-10-20)
+## Static checks on the source archive (rerun 2026-10-21)
 
 - Backend JavaScript syntax checks passed.
 - 12 selected unit/contract/runtime gate scripts passed.
 - Android/backend module registries reportedly match at 639 modules for version 32.0.0.
-- Static checks do not prove a production build, live integrations, or end-to-end behavior.
+- `bash scripts/aria32_static_gate.sh` passed in the current workspace (`ARIA32_STATIC_GATE_PASS`).
+- All JavaScript files under `backend/src` passed `node --check`.
+- `bash RELEASE_GATE.sh` did **not** pass end-to-end: it stopped at `FAIL: missing gradle` during release preflight. The Gradle Wrapper JAR is absent, system Gradle is absent, and Android SDK/`android.jar` are not installed in this workspace.
+- GitHub Actions Node.js CI passed on commit `ab343a95e72a0a068b91e8cac322876dfae593f1` after adding dependency installation and fixing the test process shutdown race.
+- Static checks do not prove an Android production build, live integrations, or end-to-end behavior.
 
 ## Android release blockers
 
@@ -68,9 +72,9 @@ The full archive has **not** been imported into this repository because the avai
 |---|---|
 | Web UI and starter-plan API | Implemented in repository |
 | PostgreSQL service | Provisioned; connectivity must be verified |
-| Account and private plan API | Implemented in source; runtime configuration/testing pending |
+| Account and private plan API | Implemented in source; Railway configured; database connectivity and live account flow not independently exercised |
 | Live AI | Adapter implemented; provider key not configured/verified |
-| Automated Node.js tests | Committed; latest run must pass before release |
+| Automated Node.js tests | **Pass** on commit `ab343a95e72a0a068b91e8cac322876dfae593f1` |
 | Full ARIA 32 source imported | No |
 | Android APK/AAB built and tested | No |
 | Signed Android release | No |
