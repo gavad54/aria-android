@@ -5,7 +5,6 @@ on:
   push:
     paths:
       - 'release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip'
-      - '.github/workflows/aria-android-build.yml'
 
 permissions:
   contents: read
