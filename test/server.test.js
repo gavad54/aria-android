@@ -25,5 +25,5 @@ test("ARIA API health, modules, validation, planning and auth boundaries",async(
   const register=await fetch(base+"/api/auth/register",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({email:"test@example.com",password:"123456789012"})});assert.equal(register.status,503);
   const malformed=await fetch(base+"/api/plan",{method:"POST",headers:{"content-type":"application/json"},body:"{bad json"});assert.equal(malformed.status,400);
   const notFound=await fetch(base+"/api/nope");assert.equal(notFound.status,404);
- }finally{child.kill();await once(child,"exit").catch(()=>{});}
+ }finally{await new Promise(resolve=>{if(child.exitCode!==null||child.signalCode!==null)return resolve();child.once("exit",resolve);child.kill();});}
 });
