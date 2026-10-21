@@ -1,10 +1,19 @@
 {
   "name": "aria-super-app-web",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "description": "ARIA responsive web application shell and health endpoint",
+  "description": "ARIA personal AI platform prototype",
   "scripts": {
     "start": "node server.js",
-    "test": "node --test"
+    "test": "node --test",
+    "check": "node --check server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.16.3"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }
