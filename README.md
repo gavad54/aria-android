@@ -41,10 +41,14 @@ Source archive: `ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip`
 Latest locally reported archive SHA-256:
 
 ```
-4899f744d96a5258f1f17842775006557b97cdfa63686b6ea6b42938b7b57e64
+75c9826bd5de01f84d0429addeb49639a432006624b30a378581c349c3186f03
 ```
 
-The archive was recovered from the user's Library and its SHA-256 was independently verified in the current workspace. It contains 505 ZIP entries (458 files) and approximately 8.3 MB uncompressed. The full archive has **not** been imported into this repository because the available GitHub connection exposes text-file and Git-object operations but no direct local-file/binary upload action; the container has no GitHub credentials for a direct push.
+The archive was recovered from the user's Library and its SHA-256 was independently verified in the current workspace on 2026-10-21. The current file is 3.3 MiB and contains 505 ZIP entries (458 files) and approximately 8.3 MB uncompressed. The full archive has **not** been imported into this repository because the available GitHub connection exposes text-file and Git-object operations but no direct local-file/binary upload action; the container has no GitHub credentials for a direct push.
+
+## Hosting status inspected 2026-10-21
+
+Railway reports the `aria-web` service and PostgreSQL service as online, with the latest web deployment marked `SUCCESS` and no current Railway alert counts. This is infrastructure status only; the public `/api/health` endpoint could not be independently queried from the current environment, so database query success, login flow, and provider configuration are not claimed as verified.
 
 ## Static checks on the source archive (rerun 2026-10-21)
 
