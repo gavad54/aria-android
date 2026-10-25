@@ -2,6 +2,10 @@
 
 ARIA is a general-purpose AI super-app project. It is **not an accounting/ERP product**; that product is separate as ARIANA.
 
+## Unified app direction
+
+ARIA is intended to be one comprehensive app. The 369-module ARIA 25 report, the 639-module ARIA 32 source archive, and the 50 ideas from the reference image are different-version/different-purpose inventories and must not be summed. Use the [unified merge plan](docs/ARIA_UNIFIED_APP_MERGE_PLAN_FA.md) to reconcile IDs, map duplicate capabilities to shared engines, and keep web and Android on one versioned registry. The merge is not yet fully implemented: the complete Android source archive has not been imported into this repository, and Android build/device verification remains blocked.
+
 ## Web prototype
 
 - Web URL: https://aria-web-production-12ba.up.railway.app
