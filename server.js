@@ -58,13 +58,12 @@ const modules=[
  {id:"seo-content",name:"سئو و بهینه‌سازی محتوا",status:"planned",description:"ممیزی محتوا و پیشنهادهای قابل بررسی برای سئو",revenueModel:"اشتراک"},
  {id:"product-copy",name:"توضیحات محصول",status:"planned",description:"متن محصول با ویژگی‌های تأییدشده و بدون ادعاهای ساختگی",revenueModel:"اعتبار متنی؛ بستهٔ فروشگاهی"},
  {id:"digital-products",name:"کتاب الکترونیکی و فایل دیجیتال",status:"planned",description:"تولید و بسته‌بندی فایل دیجیتال با بررسی حقوق محتوا",revenueModel:"کارمزد بازارگاه؛ فروش قالب"},
- {id:"audio-transcription",name:"تبدیل صدا به متن",status:"planned",description:"رونویسی فایل صوتی و تفکیک گوینده در صورت پشتیبانی",revenueModel:"دقیقهٔ پردازش"},
  {id:"photo-restoration",name:"ترمیم عکس قدیمی",status:"planned",description:"ترمیم تصویر با مشخص‌کردن ماهیت بازسازی‌شده",revenueModel:"اعتبار تصویر"},
  {id:"workflow-automation",name:"طراحی گردش‌کار و اتوماسیون",status:"planned",description:"اتصال مراحل تکراری با ثبت مجوز، گزارش و تأیید انسانی",revenueModel:"اشتراک تیمی؛ راه‌اندازی سازمانی"},
- {id:"reels-script",name:"سناریونویسی ریلز","status":"planned","description":"سناریوی کوتاه با قلاب، روایت، دعوت به اقدام و کنترل ادعاها","revenueModel":"اعتبار متنی؛ اشتراک سازندگان"},,
- {id:"ad-copywriting",name:"بازنویسی متن تبلیغاتی","status":"planned","description":"نسخه‌های تبلیغاتی برای کانال‌های مختلف با کنترل ادعا و مخاطب","revenueModel":"اعتبار متنی؛ اشتراک کسب‌وکار"},,
- {id:"educational-content",name:"ساخت محتوای آموزشی","status":"planned","description":"طرح درس، اهداف یادگیری، مثال و ارزیابی بر پایه منابع مشخص","revenueModel":"اشتراک آموزشی؛ فروش قالب"},,
- {id:"ai-sales-assistant",name:"دستیار فروش هوشمند","status":"planned","description":"پیش‌نویس پیگیری مشتری و پیشنهاد بعدی با تأیید انسان و ثبت سوابق","revenueModel":"اشتراک تیم فروش؛ هزینه راه‌اندازی"},,
+ {id:"reels-script",name:"سناریونویسی ریلز","status":"planned","description":"سناریوی کوتاه با قلاب، روایت، دعوت به اقدام و کنترل ادعاها","revenueModel":"اعتبار متنی؛ اشتراک سازندگان"},
+ {id:"ad-copywriting",name:"بازنویسی متن تبلیغاتی","status":"planned","description":"نسخه‌های تبلیغاتی برای کانال‌های مختلف با کنترل ادعا و مخاطب","revenueModel":"اعتبار متنی؛ اشتراک کسب‌وکار"},
+ {id:"educational-content",name:"ساخت محتوای آموزشی","status":"planned","description":"طرح درس، اهداف یادگیری، مثال و ارزیابی بر پایه منابع مشخص","revenueModel":"اشتراک آموزشی؛ فروش قالب"},
+ {id:"ai-sales-assistant",name:"دستیار فروش هوشمند","status":"planned","description":"پیش‌نویس پیگیری مشتری و پیشنهاد بعدی با تأیید انسان و ثبت سوابق","revenueModel":"اشتراک تیم فروش؛ هزینه راه‌اندازی"},
  {id:"ai-voiceover",name:"گویندگی و نریشن با AI","status":"planned","description":"تبدیل متن مجاز به نریشن با رضایت و مجوز صدای لازم","revenueModel":"دقیقهٔ تولید؛ اشتراک"}
 ];
 const rateBuckets=new Map();
