@@ -90,7 +90,10 @@ async function initDb(){
    id BIGSERIAL PRIMARY KEY,user_id BIGINT NOT NULL REFERENCES aria_users(id) ON DELETE CASCADE,intent TEXT NOT NULL,plan JSONB NOT NULL,created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
   )`);
   await pool.query("CREATE INDEX IF NOT EXISTS aria_plans_user_created_idx ON aria_plans(user_id,created_at DESC)");
-  await pool.query(`CREATE TABLE IF NOT EXISTS aria_pages(\n   id BIGSERIAL PRIMARY KEY,user_id BIGINT NOT NULL REFERENCES aria_users(id) ON DELETE CASCADE,prompt TEXT NOT NULL,page JSONB NOT NULL,created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()\n  )`);\n  await pool.query("CREATE INDEX IF NOT EXISTS aria_pages_user_updated_idx ON aria_pages(user_id,updated_at DESC)");
+  await pool.query(`CREATE TABLE IF NOT EXISTS aria_pages(
+   id BIGSERIAL PRIMARY KEY,user_id BIGINT NOT NULL REFERENCES aria_users(id) ON DELETE CASCADE,prompt TEXT NOT NULL,page JSONB NOT NULL,created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  )`);
+  await pool.query("CREATE INDEX IF NOT EXISTS aria_pages_user_updated_idx ON aria_pages(user_id,updated_at DESC)");
   dbConnected=true;return true;
  })().catch(err=>{dbInitPromise=null;dbConnected=false;throw err;});
  return dbInitPromise;
