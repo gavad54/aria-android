@@ -34,6 +34,10 @@ Current source includes a Persian RTL mobile-first web interface, a Node.js API,
 
 The PostgreSQL service has been provisioned in the Railway project, and the web service has been configured to reference its `DATABASE_URL`. Confirm the latest deployment and `/api/health` before treating database connectivity as operational. Never enter a real provider key in source code or chat.
 
+## Engineering readiness audit (2026-11-07)
+
+See [the cross-functional engineering readiness audit](docs/ARIA_ENGINEERING_READINESS_AUDIT_FA.md) for the verified release state, security findings, Android blockers, Railway topology observations, and prioritized delivery backlog. The current feature branch is not a production release. Do not infer a live ARIA web deployment from the historic URL below; re-verify the current Railway service and deployed commit before launch.
+
 ## Important limitations
 
 This is an early web prototype, not a completed global super-app. Email verification, password reset, MFA, abuse monitoring beyond basic rate limiting, full privacy/legal review, durable audit trails, payments, notifications, voice, multilingual production UX, agent orchestration, external integrations, and the Android app/release package are not yet complete. The AI adapter cannot provide live AI until a valid provider key is configured in the hosting environment. Account and saved-plan endpoints require the database and JWT secret to be configured and verified.
