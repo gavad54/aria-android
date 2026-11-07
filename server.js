@@ -99,7 +99,7 @@ async function initDb(){
  return dbInitPromise;
 }
 function json(res,status,data,extra={}){res.writeHead(status,{"content-type":"application/json; charset=utf-8","cache-control":"no-store","x-content-type-options":"nosniff",...extra});res.end(JSON.stringify(data));}
-function securityHeaders(res){res.setHeader("x-content-type-options","nosniff");res.setHeader("referrer-policy","strict-origin-when-cross-origin");res.setHeader("x-frame-options","DENY");res.setHeader("permissions-policy","camera=(), microphone=(), geolocation=()");res.setHeader("content-security-policy","default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; base-uri 'self'; frame-ancestors 'none'; form-action 'self'");}
+function securityHeaders(res){res.setHeader("x-content-type-options","nosniff");res.setHeader("referrer-policy","strict-origin-when-cross-origin");res.setHeader("x-frame-options","DENY");res.setHeader("permissions-policy","camera=(), microphone=(), geolocation=()");res.setHeader("content-security-policy","default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; base-uri 'self'; frame-ancestors 'none'; form-action 'self'");}
 function rateLimited(req){
  const now=Date.now(),key=(req.headers["x-forwarded-for"]||req.socket.remoteAddress||"unknown").toString().split(",")[0].trim();
  let bucket=rateBuckets.get(key);if(!bucket||now-bucket.start>60000)bucket={start:now,count:0};
