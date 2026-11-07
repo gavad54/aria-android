@@ -21,6 +21,8 @@ test("ARIA API health, modules, validation, planning and auth boundaries",async(
   const pd=await plan.json();assert.equal(plan.status,200);assert.equal(pd.ok,true);assert.equal(pd.plan.phases.length,3);assert.equal(pd.plan.category,"business");assert.equal(pd.plan.source,"rule-based");
   const legacy=await fetch(base+"/api/intent",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({intent:"برنامه‌ریزی"})});assert.equal(legacy.status,200);assert.equal((await legacy.json()).accepted,true);
   const unauth=await fetch(base+"/api/plans");assert.equal(unauth.status,401);
+  const pagesUnauth=await fetch(base+"/api/pages");assert.equal(pagesUnauth.status,401);
+  const createPageUnauth=await fetch(base+"/api/pages",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({prompt:"برای فروشگاه پوشاک صفحه بساز"})});assert.equal(createPageUnauth.status,401);
   const invalidEmail=await fetch(base+"/api/auth/register",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({email:"not-an-email",password:"123456789012"})});assert.equal(invalidEmail.status,400);
   const register=await fetch(base+"/api/auth/register",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({email:"test@example.com",password:"123456789012"})});assert.equal(register.status,503);
   const malformed=await fetch(base+"/api/plan",{method:"POST",headers:{"content-type":"application/json"},body:"{bad json"});assert.equal(malformed.status,400);
