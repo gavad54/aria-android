@@ -15,7 +15,7 @@ test("ARIA API health, modules, validation, planning and auth boundaries",async(
   const base="http://127.0.0.1:"+port;
   const h=await fetch(base+"/api/health");const hd=await h.json();assert.equal(h.status,200);assert.equal(hd.ok,true);assert.equal(hd.databaseConfigured,false);
   const home=await fetch(base+"/");const homeHtml=await home.text();assert.equal(home.status,200);const csp=home.headers.get("content-security-policy")||"";assert.match(csp,/script-src 'self'/);assert.doesNotMatch(csp,/script-src[^;]*unsafe-inline/);assert.match(homeHtml,/<script src="\/app\.js" defer><\/script>/);
-  const appJs=await fetch(base+"/app.js");assert.equal(appJs.status,200);assert.match(appJs.headers.get("content-type")||"",/javascript/);assert.match(await appJs.text(),/ARIA PAGE AI/);
+  const appJs=await fetch(base+"/app.js");assert.equal(appJs.status,200);assert.match(appJs.headers.get("content-type")||"",/javascript/);assert.match(await appJs.text(),/page-generate/);
   const m=await fetch(base+"/api/modules");const md=await m.json();assert.equal(m.status,200);assert.ok(md.modules.length>=5);
   const bad=await fetch(base+"/api/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({intent:" "})});assert.equal(bad.status,400);
   const long=await fetch(base+"/api/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({intent:"x".repeat(2001)})});assert.equal(long.status,400);
