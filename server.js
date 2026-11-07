@@ -53,7 +53,7 @@ const modules=[
  {id:"reports-dashboards",name:"گزارش و داشبورد",status:"planned",description:"تبدیل دادهٔ معتبر به گزارش و نمودار",revenueModel:"اشتراک حرفه‌ای"},
  {id:"data-cleaning",name:"پاکسازی و مرتب‌سازی داده",status:"planned",description:"تشخیص دادهٔ تکراری، ناهماهنگی و خطا با پیش‌نمایش قبل از تغییر",revenueModel:"پردازش؛ اشتراک"},
  {id:"no-code-site",name:"ساخت سایت بدون کدنویسی",status:"planned",description:"تولید پیش‌نویس سایت و نشر پس از تأیید کاربر",revenueModel:"اشتراک؛ میزبانی"},
- {id:"landing-page",name:"ساخت لندینگ‌پیج",status:"planned",description:"صفحهٔ فرود با متن، CTA و معیارهای تبدیل",revenueModel:"اشتراک؛ قالب پولی"},
+ {id:"landing-page",name:"صفحه‌ساز هوشمند",status:"prototype",description:"ساخت پیش‌نویس صفحهٔ فرود فارسی، ویرایش متن و پیش‌نمایش؛ انتشار عمومی هنوز فعال نیست",revenueModel:"اشتراک حرفه‌ای؛ قالب‌های تخصصی"},
  {id:"no-code-app",name:"ساخت اپلیکیشن No-Code",status:"planned",description:"تولید نمونهٔ اولیهٔ اپ و گردش‌کار؛ انتشار نیازمند آزمون جداگانه",revenueModel:"اشتراک حرفه‌ای"},
  {id:"seo-content",name:"سئو و بهینه‌سازی محتوا",status:"planned",description:"ممیزی محتوا و پیشنهادهای قابل بررسی برای سئو",revenueModel:"اشتراک"},
  {id:"product-copy",name:"توضیحات محصول",status:"planned",description:"متن محصول با ویژگی‌های تأییدشده و بدون ادعاهای ساختگی",revenueModel:"اعتبار متنی؛ بستهٔ فروشگاهی"},
