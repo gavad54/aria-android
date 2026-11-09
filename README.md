@@ -46,13 +46,19 @@ This is an early web prototype, not a completed global super-app. Email verifica
 
 Source archive: `ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip`
 
-Latest locally reported archive SHA-256:
+Original Library source archive SHA-256 (verified 2026-11-09):
 
 ```
-75c9826bd5de01f84d0429addeb49639a432006624b30a378581c349c3186f03
+9dcbb34ef98e4f11e661bd32bbd0573d4de7a3058743f45aa126322f44264f9f
 ```
 
-The archive was recovered from the user's Library and its SHA-256 was independently verified in the current workspace on 2026-10-21. The current file is 3.3 MiB and contains 505 ZIP entries (458 files) and approximately 8.3 MB uncompressed. The full archive has **not** been imported into this repository because the available GitHub connection exposes text-file and Git-object operations but no direct local-file/binary upload action; the container has no GitHub credentials for a direct push.
+A separate static-gate-repaired candidate was created and verified in the isolated workspace:
+
+```
+97cf5d9e1c3e9b3446861bc848ccfa8c682940d6d59b85655917c6412a8ce02a
+```
+
+The candidate preserves ARIA 32.0.0 source and fixes two stale/incorrect verification gates. It contains 504 ZIP entries and approximately 8.3 MB uncompressed. It is not an APK/AAB and is not imported into this repository. The Android workflow now pins the candidate checksum but still requires the archive to be uploaded to `release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip` before a build can run. The connected GitHub tools do not provide a binary upload action, so this upload remains an external prerequisite.
 
 ## Hosting status inspected 2026-10-21
 
