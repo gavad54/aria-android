@@ -14,6 +14,8 @@ test("ARIA API health, modules, validation, planning and auth boundaries",async(
   assert.equal(ready,true,"server should start");
   const base="http://127.0.0.1:"+port;
   const h=await fetch(base+"/api/health");const hd=await h.json();assert.equal(h.status,200);assert.equal(hd.ok,true);assert.equal(hd.databaseConfigured,false);
+  const home=await fetch(base+"/");const homeHtml=await home.text();assert.equal(home.status,200);const csp=home.headers.get("content-security-policy")||"";assert.match(csp,/script-src 'self'/);assert.doesNotMatch(csp,/script-src[^;]*unsafe-inline/);assert.match(homeHtml,/<script src="\/app\.js" defer><\/script>/);
+  const appJs=await fetch(base+"/app.js");assert.equal(appJs.status,200);assert.match(appJs.headers.get("content-type")||"",/javascript/);assert.match(await appJs.text(),/page-generate/);
   const m=await fetch(base+"/api/modules");const md=await m.json();assert.equal(m.status,200);assert.ok(md.modules.length>=5);
   const bad=await fetch(base+"/api/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({intent:" "})});assert.equal(bad.status,400);
   const long=await fetch(base+"/api/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({intent:"x".repeat(2001)})});assert.equal(long.status,400);
@@ -21,6 +23,8 @@ test("ARIA API health, modules, validation, planning and auth boundaries",async(
   const pd=await plan.json();assert.equal(plan.status,200);assert.equal(pd.ok,true);assert.equal(pd.plan.phases.length,3);assert.equal(pd.plan.category,"business");assert.equal(pd.plan.source,"rule-based");
   const legacy=await fetch(base+"/api/intent",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({intent:"برنامه‌ریزی"})});assert.equal(legacy.status,200);assert.equal((await legacy.json()).accepted,true);
   const unauth=await fetch(base+"/api/plans");assert.equal(unauth.status,401);
+  const pagesUnauth=await fetch(base+"/api/pages");assert.equal(pagesUnauth.status,401);
+  const createPageUnauth=await fetch(base+"/api/pages",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({prompt:"برای فروشگاه پوشاک صفحه بساز"})});assert.equal(createPageUnauth.status,401);
   const invalidEmail=await fetch(base+"/api/auth/register",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({email:"not-an-email",password:"123456789012"})});assert.equal(invalidEmail.status,400);
   const register=await fetch(base+"/api/auth/register",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({email:"test@example.com",password:"123456789012"})});assert.equal(register.status,503);
   const malformed=await fetch(base+"/api/plan",{method:"POST",headers:{"content-type":"application/json"},body:"{bad json"});assert.equal(malformed.status,400);

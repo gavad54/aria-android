@@ -80,7 +80,7 @@ jobs:
         working-directory: ${{ runner.temp }}/aria32
         run: |
           set -euo pipefail
-          (cd backend && npm test)
+          (cd backend && npm install --no-audit --no-fund && npm run quality-gate)
           node --check backend/src/server.js
           node --check backend/src/worker.js
 

@@ -53,7 +53,7 @@ const modules=[
  {id:"reports-dashboards",name:"گزارش و داشبورد",status:"planned",description:"تبدیل دادهٔ معتبر به گزارش و نمودار",revenueModel:"اشتراک حرفه‌ای"},
  {id:"data-cleaning",name:"پاکسازی و مرتب‌سازی داده",status:"planned",description:"تشخیص دادهٔ تکراری، ناهماهنگی و خطا با پیش‌نمایش قبل از تغییر",revenueModel:"پردازش؛ اشتراک"},
  {id:"no-code-site",name:"ساخت سایت بدون کدنویسی",status:"planned",description:"تولید پیش‌نویس سایت و نشر پس از تأیید کاربر",revenueModel:"اشتراک؛ میزبانی"},
- {id:"landing-page",name:"ساخت لندینگ‌پیج",status:"planned",description:"صفحهٔ فرود با متن، CTA و معیارهای تبدیل",revenueModel:"اشتراک؛ قالب پولی"},
+ {id:"landing-page",name:"صفحه‌ساز هوشمند",status:"prototype",description:"ساخت پیش‌نویس صفحهٔ فرود فارسی، ویرایش متن و پیش‌نمایش؛ انتشار عمومی هنوز فعال نیست",revenueModel:"اشتراک حرفه‌ای؛ قالب‌های تخصصی"},
  {id:"no-code-app",name:"ساخت اپلیکیشن No-Code",status:"planned",description:"تولید نمونهٔ اولیهٔ اپ و گردش‌کار؛ انتشار نیازمند آزمون جداگانه",revenueModel:"اشتراک حرفه‌ای"},
  {id:"seo-content",name:"سئو و بهینه‌سازی محتوا",status:"planned",description:"ممیزی محتوا و پیشنهادهای قابل بررسی برای سئو",revenueModel:"اشتراک"},
  {id:"product-copy",name:"توضیحات محصول",status:"planned",description:"متن محصول با ویژگی‌های تأییدشده و بدون ادعاهای ساختگی",revenueModel:"اعتبار متنی؛ بستهٔ فروشگاهی"},
@@ -90,12 +90,16 @@ async function initDb(){
    id BIGSERIAL PRIMARY KEY,user_id BIGINT NOT NULL REFERENCES aria_users(id) ON DELETE CASCADE,intent TEXT NOT NULL,plan JSONB NOT NULL,created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
   )`);
   await pool.query("CREATE INDEX IF NOT EXISTS aria_plans_user_created_idx ON aria_plans(user_id,created_at DESC)");
+  await pool.query(`CREATE TABLE IF NOT EXISTS aria_pages(
+   id BIGSERIAL PRIMARY KEY,user_id BIGINT NOT NULL REFERENCES aria_users(id) ON DELETE CASCADE,prompt TEXT NOT NULL,page JSONB NOT NULL,created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  )`);
+  await pool.query("CREATE INDEX IF NOT EXISTS aria_pages_user_updated_idx ON aria_pages(user_id,updated_at DESC)");
   dbConnected=true;return true;
  })().catch(err=>{dbInitPromise=null;dbConnected=false;throw err;});
  return dbInitPromise;
 }
 function json(res,status,data,extra={}){res.writeHead(status,{"content-type":"application/json; charset=utf-8","cache-control":"no-store","x-content-type-options":"nosniff",...extra});res.end(JSON.stringify(data));}
-function securityHeaders(res){res.setHeader("x-content-type-options","nosniff");res.setHeader("referrer-policy","strict-origin-when-cross-origin");res.setHeader("x-frame-options","DENY");res.setHeader("permissions-policy","camera=(), microphone=(), geolocation=()");res.setHeader("content-security-policy","default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; base-uri 'self'; frame-ancestors 'none'; form-action 'self'");}
+function securityHeaders(res){res.setHeader("x-content-type-options","nosniff");res.setHeader("referrer-policy","strict-origin-when-cross-origin");res.setHeader("x-frame-options","DENY");res.setHeader("permissions-policy","camera=(), microphone=(), geolocation=()");res.setHeader("content-security-policy","default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; base-uri 'self'; frame-ancestors 'none'; form-action 'self'");}
 function rateLimited(req){
  const now=Date.now(),key=(req.headers["x-forwarded-for"]||req.socket.remoteAddress||"unknown").toString().split(",")[0].trim();
  let bucket=rateBuckets.get(key);if(!bucket||now-bucket.start>60000)bucket={start:now,count:0};
@@ -145,6 +149,27 @@ async function makePlan(intent){
  }catch(err){console.error("ARIA AI provider error:",err.name==="AbortError"?"timeout":err.message);return{...makeLocalPlan(intent),source:"rule-based-fallback",disclaimer:"سرویس هوش مصنوعی در دسترس نبود؛ این برنامه با قواعد محلی ساخته شد. خروجی هوش مصنوعی نیست."};}
  finally{clearTimeout(timeout);}
 }
+async function makePageDraft(prompt){
+ const fallback=()=>{
+  const clean=prompt.replace(/[<>]/g,"").trim(),title=clean.length>72?clean.slice(0,72).trim():clean;
+  return{title:title||"صفحه اختصاصی شما",subtitle:"راهکاری ساده و حرفه‌ای برای آشنایی با خدمات و محصولات ما؛ جزئیات را ویرایش کنید تا دقیقاً با کسب‌وکار شما هماهنگ شود.",cta:"دریافت اطلاعات بیشتر",sections:[{heading:"چرا ما؟",body:"مزیت‌ها و تفاوت‌های واقعی کسب‌وکار خود را اینجا توضیح دهید."},{heading:"خدمات و محصولات",body:"خدمات یا محصولات خود را با اطلاعات دقیق، قیمت و شرایط شفاف معرفی کنید."},{heading:"راه‌های ارتباطی",body:"روش تماس یا ثبت درخواست مورد تأیید خود را اضافه کنید."}],goal:"معرفی و جذب درخواست",audience:"مخاطبان هدف شما",source:"rule-based"};
+ };
+ const apiKey=process.env.OPENAI_API_KEY;if(!apiKey)return fallback();
+ const base=(process.env.OPENAI_BASE_URL||"https://api.openai.com/v1").replace(/\/$/,""),model=process.env.OPENAI_MODEL||"gpt-4.1-mini";
+ const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),20000);
+ try{
+  const response=await fetch(base+"/chat/completions",{method:"POST",signal:controller.signal,headers:{"authorization":"Bearer "+apiKey,"content-type":"application/json"},body:JSON.stringify({model,temperature:0.35,response_format:{type:"json_object"},messages:[
+   {role:"system",content:"You are ARIA PAGE AI. Create Persian landing-page copy. Return JSON only: title (max 90 chars), subtitle (max 300), cta (max 50), goal (max 100), audience (max 100), sections (3 to 5 objects with heading max 80 and body max 400). Do not invent business facts, prices, guarantees, testimonials, certifications, addresses or contact details. Use placeholders/instructions where facts are missing. No deceptive claims. Never request secrets."},
+   {role:"user",content:prompt.slice(0,1600)}
+  ]})});
+  if(!response.ok)throw new Error("AI provider HTTP "+response.status);
+  const payload=await response.json(),raw=payload.choices?.[0]?.message?.content;if(typeof raw!=="string")throw new Error("AI provider returned no content");
+  const p=JSON.parse(raw);if(typeof p.title!=="string"||typeof p.subtitle!=="string"||typeof p.cta!=="string"||!Array.isArray(p.sections)||p.sections.length<3||p.sections.length>5)throw new Error("AI page schema invalid");
+  const safe=(v,max)=>String(v).replace(/[<>]/g,"").trim().slice(0,max);
+  return{title:safe(p.title,90),subtitle:safe(p.subtitle,300),cta:safe(p.cta,50),goal:safe(p.goal||"معرفی کسب‌وکار",100),audience:safe(p.audience||"مخاطبان هدف",100),sections:p.sections.map(x=>({heading:safe(x.heading||"بخش جدید",80),body:safe(x.body||"اطلاعات این بخش را تکمیل کنید.",400)})),source:"ai"};
+ }catch(err){console.error("ARIA PAGE AI provider error:",err.name==="AbortError"?"timeout":err.message);return{...fallback(),source:"rule-based-fallback"};}
+ finally{clearTimeout(timeout);}
+}
 function authUser(req){
  const header=req.headers.authorization||"";if(!header.startsWith("Bearer "))return null;
  const secret=process.env.ARIA_JWT_SECRET;if(!secret)return null;
@@ -190,6 +215,41 @@ async function handle(req,res,url){
   if(!await requireDb(res))return;
   const q=await pool.query("SELECT id,plan,created_at FROM aria_plans WHERE user_id=$1 ORDER BY created_at DESC LIMIT 50",[user.sub]);
   return json(res,200,{plans:q.rows.map(r=>({id:String(r.id),...r.plan,savedAt:r.created_at}))});
+ }
+ if(url.pathname==="/api/pages"&&req.method==="GET"){
+  const user=authUser(req);if(!user)return json(res,401,{error:"برای مشاهدهٔ صفحات ذخیره‌شده وارد حساب شوید."});
+  if(!await requireDb(res))return;
+  const q=await pool.query("SELECT id,prompt,page,created_at,updated_at FROM aria_pages WHERE user_id=$1 ORDER BY updated_at DESC LIMIT 50",[user.sub]);
+  return json(res,200,{pages:q.rows.map(r=>({id:String(r.id),prompt:r.prompt,...r.page,createdAt:r.created_at,updatedAt:r.updated_at}))});
+ }
+ if(url.pathname==="/api/pages"&&req.method==="POST"){
+  const user=authUser(req);if(!user)return json(res,401,{error:"برای ساخت و ذخیرهٔ صفحه وارد حساب شوید."});
+  const data=await readJson(req,res);if(data===null)return;
+  const prompt=typeof data.prompt==="string"?data.prompt.trim():"";
+  if(prompt.length<8||prompt.length>1600)return json(res,400,{error:"توضیح صفحه باید بین ۸ تا ۱۶۰۰ نویسه باشد."});
+  if(!await requireDb(res))return;
+  const page=await makePageDraft(prompt);
+  try{const q=await pool.query("INSERT INTO aria_pages(user_id,prompt,page) VALUES($1,$2,$3::jsonb) RETURNING id,created_at,updated_at",[user.sub,prompt,JSON.stringify(page)]);return json(res,201,{ok:true,page:{id:String(q.rows[0].id),prompt,...page,createdAt:q.rows[0].created_at,updatedAt:q.rows[0].updated_at}});}
+  catch(err){console.error("ARIA page create failed:",err.message);return json(res,500,{error:"ذخیرهٔ صفحه انجام نشد."});}
+ }
+ const pageMatch=url.pathname.match(/^\/api\/pages\/(\d+)$/);
+ if(pageMatch&&req.method==="PATCH"){
+  const user=authUser(req);if(!user)return json(res,401,{error:"برای ویرایش صفحه وارد حساب شوید."});
+  const data=await readJson(req,res);if(data===null)return;
+  const safe=(v,max)=>typeof v==="string"?v.replace(/[<>]/g,"").trim().slice(0,max):null;
+  const title=safe(data.title,90),subtitle=safe(data.subtitle,300),cta=safe(data.cta,50);
+  if(!title||!subtitle||!cta||!Array.isArray(data.sections)||data.sections.length<3||data.sections.length>5)return json(res,400,{error:"عنوان، توضیح، دکمه و ۳ تا ۵ بخش معتبر الزامی است."});
+  const sections=data.sections.map(x=>({heading:safe(x.heading,80),body:safe(x.body,400)}));
+  if(sections.some(x=>!x.heading||!x.body))return json(res,400,{error:"عنوان و متن همهٔ بخش‌ها باید تکمیل شوند."});
+  if(!await requireDb(res))return;
+  try{const q=await pool.query("UPDATE aria_pages SET page=page || $1::jsonb,updated_at=NOW() WHERE id=$2 AND user_id=$3 RETURNING id,prompt,page,created_at,updated_at",[JSON.stringify({title,subtitle,cta,sections}),pageMatch[1],user.sub]);if(!q.rowCount)return json(res,404,{error:"صفحه پیدا نشد."});const r=q.rows[0];return json(res,200,{ok:true,page:{id:String(r.id),prompt:r.prompt,...r.page,createdAt:r.created_at,updatedAt:r.updated_at}});}
+  catch(err){console.error("ARIA page update failed:",err.message);return json(res,500,{error:"ویرایش صفحه ذخیره نشد."});}
+ }
+ if(pageMatch&&req.method==="DELETE"){
+  const user=authUser(req);if(!user)return json(res,401,{error:"برای حذف صفحه وارد حساب شوید."});
+  if(!await requireDb(res))return;
+  try{const q=await pool.query("DELETE FROM aria_pages WHERE id=$1 AND user_id=$2",[pageMatch[1],user.sub]);if(!q.rowCount)return json(res,404,{error:"صفحه پیدا نشد."});return json(res,200,{ok:true});}
+  catch(err){console.error("ARIA page delete failed:",err.message);return json(res,500,{error:"حذف صفحه انجام نشد."});}
  }
  if((url.pathname==="/api/plan"||url.pathname==="/api/intent")&&req.method==="POST"){
   const data=await readJson(req,res);if(data===null)return;
