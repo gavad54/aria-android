@@ -18,6 +18,8 @@ test("ARIA API health, modules, validation, planning and auth boundaries",async(
   const appJs=await fetch(base+"/app.js");assert.equal(appJs.status,200);assert.match(appJs.headers.get("content-type")||"",/javascript/);assert.match(await appJs.text(),/page-generate/);
   const m=await fetch(base+"/api/modules");const md=await m.json();assert.equal(m.status,200);assert.equal(md.catalogVersion,"web-prototype-0.5.0");assert.equal(md.modules.length,72);
   const moduleIds=md.modules.map(x=>x.id);assert.equal(new Set(moduleIds).size,moduleIds.length,"module IDs must be unique");
+  assert.ok(md.modules.every(x=>!Object.prototype.hasOwnProperty.call(x,"legacyProduct")),"retired product labels must not leak into the public API");
+  assert.doesNotMatch(JSON.stringify(md.modules),/ARVAND|CHARSU|GANJINEH|NEGAH|SEPEHR|NAMA|PAYAM/i,"retired sub-product names must not appear in the public API");
   assert.ok(md.modules.every(x=>x.product==="ARIA"&&x.domain!=="unclassified"),"every current module must have an ARIA domain");
   assert.ok(md.modules.every(x=>x.status==="active"&&x.runtimeState==="ACTIVE_LOCAL_WORKFLOW"),"all catalog local workflows must be active");
   assert.ok(md.modules.every(x=>Number.isInteger(x.capabilityContractId)&&x.capabilityContractId>=651&&x.capabilityContractId<=722),"every catalog record must link to a contract");
