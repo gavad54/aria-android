@@ -1,6 +1,7 @@
 "use strict";
 (async function(){
  const summaryEl=document.getElementById("expansion-summary");
+ const maturityEl=document.getElementById("expansion-maturity");
  const domainsEl=document.getElementById("expansion-domains");
  const problemsEl=document.getElementById("expansion-problems");
  const newIdeasEl=document.getElementById("expansion-new-ideas");
@@ -11,14 +12,38 @@
  const node=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e;};
  const savePlanButton=(container,moduleId,title,plan)=>{const save=node("button","btn btn-quiet","ثبت برنامه در کارهای من");save.type="button";save.addEventListener("click",async()=>{if(!window.ariaToken){save.textContent="برای ذخیره ابتدا وارد حساب شوید";return;}save.disabled=true;save.textContent="در حال ثبت…";try{const headers={"content-type":"application/json",authorization:"Bearer "+window.ariaToken};const response=await fetch("/api/aria-expansion/work-items",{method:"POST",headers,body:JSON.stringify({moduleId,title,details:JSON.stringify(plan)})});const data=await response.json();if(!response.ok)throw new Error(data.error||"ثبت برنامه انجام نشد");save.textContent="برنامه ثبت شد · "+data.item.id;}catch(error){save.textContent=error.message;}finally{save.disabled=false;}});container.append(save);};
  try{
-  const [s,m,c,r,e]=await Promise.all([
+  const [s,m,c,r,e,matrix]=await Promise.all([
    fetch("/api/aria-expansion/summary").then(x=>x.json()),
    fetch("/api/aria-expansion/modules").then(x=>x.json()),
    fetch("/api/aria-expansion/candidates").then(x=>x.json()),
    fetch("/api/aria-expansion/revenue-models").then(x=>x.json()),
-   fetch("/api/aria-expansion/engines").then(x=>x.json())
+   fetch("/api/aria-expansion/engines").then(x=>x.json()),
+   fetch("/api/aria-expansion/capability-matrix").then(x=>x.json())
   ]);
   status(summaryEl,"۶۳۹ ماژول canonical حفظ‌شده · ۷۲ ورودی قابل مشاهده در ARIA · ۱۱۱ رکورد تاریخی در lineage · ۳۶ ماژول منتقل‌شده · ۲ سرویس مشترک باقی‌مانده · "+e.total+" موتور طراحی‌شده در ARIA · درآمد زنده فعال نیست.");
+  if(maturityEl){
+   const summary=node("div","expansion-summary");
+   summary.append(node("strong","","ماتریس بلوغ واقعی قابلیت‌های ARIA"));
+   summary.append(node("p","expansion-muted","خط پایه "+matrix.canonicalBaseline+" · آرشیو حفظ‌شده "+matrix.preservedHistoricalOverlay+" · کاتالوگ عمومی "+matrix.publicCatalog.total+" · موتورهای طراحی‌شده "+matrix.engines.total));
+   summary.append(node("p","expansion-muted","برنامه‌ریزی محلی: "+matrix.publicCatalog.localPlanAvailable+" · تأیید اجرایی مستقل: "+matrix.publicCatalog.runtimeVerified+" · تأیید Production: "+matrix.publicCatalog.productionVerified+" · فاقد تأیید Production: "+matrix.publicCatalog.notProductionVerified));
+   summary.append(node("p","expansion-alias","وضعیت اتصال بیرونی: غیرفعال · درآمد زنده: غیرفعال. ساخت برنامه محلی به معنی انجام عملیات بیرونی نیست."));
+   const details=node("details","expansion-maturity-details");
+   details.append(node("summary","","نمایش جزئیات ۷۲ ورودی و وضعیت هر ماژول"));
+   const controls=node("div","expansion-maturity-controls");
+   const search=node("input","search");search.type="search";search.placeholder="جست‌وجوی نام یا شناسه ماژول";search.setAttribute("aria-label","جست‌وجوی ماژول‌ها");
+   const filter=node("select","search");filter.setAttribute("aria-label","فیلتر نوع ماژول");
+   [["","همه انواع"],["HISTORICAL_PROBLEM_MODULE","۳۹ مسئله تاریخی"],["NEW_IDEA_PRODUCT_MODULE","۲۵ ایده"],["CONTROL_AND_GOVERNANCE_MODULE","۴ مرکز کنترل"],["MERGED_LEGACY_APP_DOMAIN_MODULE","۴ دامنه داخلی"]].forEach(([value,label])=>{const option=node("option","",label);option.value=value;filter.append(option);});
+   controls.append(search,filter);
+   const scroll=node("div","expansion-maturity-scroll");scroll.style.overflowX="auto";
+   const table=node("table","expansion-maturity-table");table.style.width="100%";table.style.borderCollapse="collapse";
+   const thead=node("thead",""),head=node("tr","");
+   ["شناسه","ماژول","نوع","دامنه مالک","نگاشت canonical","وضعیت پیاده‌سازی","وضعیت تولید"].forEach(label=>{const th=node("th","",label);th.scope="col";th.style.textAlign="right";th.style.padding="8px";head.append(th);});
+   thead.append(head);const tbody=node("tbody","");table.append(thead,tbody);scroll.append(table);
+   const typeLabels={HISTORICAL_PROBLEM_MODULE:"مسئله تاریخی",NEW_IDEA_PRODUCT_MODULE:"ایده جدید",CONTROL_AND_GOVERNANCE_MODULE:"کنترل و حاکمیت",MERGED_LEGACY_APP_DOMAIN_MODULE:"دامنه داخلی"};
+   const renderRows=()=>{tbody.replaceChildren();const q=search.value.trim().toLocaleLowerCase();const rows=matrix.modules.filter(x=>(!filter.value||x.moduleType===filter.value)&&(!q||(x.moduleId+" "+x.name).toLocaleLowerCase().includes(q)));for(const item of rows){const tr=node("tr","");[item.moduleId,item.name,typeLabels[item.moduleType]||item.moduleType,item.ownerDomain,item.canonicalMappingStatus,item.implementationStatus,item.productionStatus].forEach(value=>{const td=node("td","",String(value??"—"));td.style.padding="8px";td.style.borderTop="1px solid var(--line, rgba(255,255,255,.12))";td.style.verticalAlign="top";tr.append(td);});tbody.append(tr);}if(!rows.length){const tr=node("tr",""),td=node("td","","موردی مطابق جست‌وجو پیدا نشد.");td.colSpan=7;tr.append(td);tbody.append(tr);}};
+   search.addEventListener("input",renderRows);filter.addEventListener("change",renderRows);renderRows();
+   details.append(controls,scroll);summary.append(details);maturityEl.replaceChildren(summary);
+  }
   for(const d of m.parents){
    const card=node("article","glass expansion-domain");
    card.append(node("h3","",d.name),node("p","","۱۰ ماژول در این حوزه"));
