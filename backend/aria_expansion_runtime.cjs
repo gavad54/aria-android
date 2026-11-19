@@ -3,7 +3,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const serviceDelivery = require("./aria-service-delivery.cjs");
 const moduleRegistryRuntime = require("./modules");
-if (moduleRegistryRuntime.MODULES.length !== 197) throw new Error("ARIA_INDEPENDENT_MODULE_COUNT_INVALID");
+if (moduleRegistryRuntime.MODULES.length !== 201) throw new Error("ARIA_INDEPENDENT_MODULE_COUNT_INVALID");
 const registry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_expansion_registry.json"), "utf8"));
 const moduleRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_111_module_expansion_registry.json"), "utf8"));
 const commercialRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_commercial_module_registry.json"), "utf8"));
@@ -659,14 +659,14 @@ async function handle(req, res, url, deps) {
     return json(res, 200, {
       product: "ARIA",
       independentBackendModuleCount: moduleRegistryRuntime.MODULES.length,
-      counts: { ideas: 50, governanceControls: 4, commercialCatalog: 72, childEngines: 71 },
+      counts: { ideas: 50, governanceControls: 4, commercialCatalog: 72, childEngines: 71, serviceDeliveryEngines: 4 },
       modules: moduleRegistryRuntime.MODULES.map(module => module.manifest),
       productionVerifiedCount: 0,
       externalExecutionEnabled: false,
       paymentExecuted: false
     });
   }
-  const modularWorkItemsMatch = p.match(/^\\/api\\/aria-modules\\/([^/]+)\\/work-items$/);
+  const modularWorkItemsMatch = p.match(/^\/api\/aria-modules\/([^/]+)\/work-items$/);
   if (modularWorkItemsMatch && req.method === "GET") {
     const user = requireUser(req, json, res, authUser); if (!user) return true;
     if (!await requireDb(res)) return true;
@@ -682,7 +682,7 @@ async function handle(req, res, url, deps) {
       return json(res, 500, { error: "دریافت سوابق ماژول انجام نشد." });
     }
   }
-  const modularExecuteMatch = p.match(/^\\/api\\/aria-modules\\/([^/]+)\\/execute$/);
+  const modularExecuteMatch = p.match(/^\/api\/aria-modules\/([^/]+)\/execute$/);
   if (modularExecuteMatch && req.method === "POST") {
     const user = requireUser(req, json, res, authUser); if (!user) return true;
     const moduleId = decodeURIComponent(modularExecuteMatch[1]);
@@ -703,6 +703,13 @@ async function handle(req, res, url, deps) {
       const tenantId = String(user.sub);
       const existing = await pool.query("SELECT result,status FROM aria_modular_work_items WHERE user_id=$1 AND tenant_id=$2 AND module_id=$3 AND idempotency_key=$4", [user.sub, tenantId, moduleId, idempotencyKey]);
       if (existing.rowCount) return json(res, 200, { ...existing.rows[0].result, idempotentReplay: true });
+      if (moduleId === "ARIA-SVC-SUPPORT") {
+        if (typeof data.serviceCaseId !== "string" || !/^[0-9a-f-]{36}$/i.test(data.serviceCaseId)) {
+          return json(res, 400, { error: "شناسه پرونده خدمت معتبر نیست." });
+        }
+        const parentCase = await pool.query("SELECT id FROM aria_service_cases WHERE id=$1::uuid AND user_id=$2 AND tenant_id=$3", [data.serviceCaseId, user.sub, tenantId]);
+        if (!parentCase.rowCount) return json(res, 404, { error: "پرونده خدمت متعلق به این حساب پیدا نشد." });
+      }
       const result = await moduleRegistryRuntime.executeModule(moduleId, data, { actorId: String(user.sub), tenantId });
       await pool.query("INSERT INTO aria_modular_work_items(id,user_id,tenant_id,module_id,idempotency_key,input_digest,result,status) VALUES($1::uuid,$2,$3,$4,$5,$6,$7::jsonb,$8)", [
         result.workItemId, user.sub, tenantId, moduleId, idempotencyKey,
