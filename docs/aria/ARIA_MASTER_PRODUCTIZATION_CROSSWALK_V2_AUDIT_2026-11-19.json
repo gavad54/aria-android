@@ -1,0 +1,49 @@
+{
+  "title": "ARIA Master Productization Crosswalk v2",
+  "date": "2026-11-19",
+  "row_count": 1232,
+  "row_type_counts": {
+    "CANONICAL_MODULE": 305,
+    "MASTER_MODULE_SNAPSHOT": 120,
+    "BENCHMARK_MODULE_SNAPSHOT": 25,
+    "MODULE_REGISTRY_SNAPSHOT": 231,
+    "MODULE_ENGINEERING_CONTRACT": 232,
+    "HISTORICAL_MODULE_KEY": 109,
+    "SHARED_ENGINE_KEY": 66,
+    "COMMERCIAL_CATALOG_ENTRY": 72,
+    "CANONICAL_BRIDGE_REFERENCE": 72
+  },
+  "expected_type_counts": {
+    "CANONICAL_MODULE": 639,
+    "COMMERCIAL_CATALOG_ENTRY": 72,
+    "CANONICAL_BRIDGE_REFERENCE": 72,
+    "HISTORICAL_MODULE_KEY": 109,
+    "SHARED_ENGINE_KEY": 81,
+    "MODULE_ENGINEERING_CONTRACT": 232,
+    "MASTER_MODULE_SNAPSHOT": 120,
+    "MODULE_REGISTRY_SNAPSHOT": 231,
+    "BENCHMARK_MODULE_SNAPSHOT": 25,
+    "HISTORICAL_20_MODULE_EXPANSION": 20,
+    "HISTORICAL_12_REVENUE_ENGINE": 12,
+    "VALUE_PATH": 11,
+    "ARCHIVE_SOURCE_GAP": 1
+  },
+  "canonical_modules": 305,
+  "historical_module_keys": 109,
+  "module_key_dispositions": {
+    "SEMANTIC_MATCH": 15,
+    "EXACT_MATCH": 90,
+    "UNRESOLVED": 4
+  },
+  "shared_engines": 81,
+  "commercial_offers": 72,
+  "bridge_rows": 72,
+  "bridge_unique_canonical_targets": 47,
+  "historical_lineage_rows": 783,
+  "revenue_engines": 12,
+  "value_paths": 0,
+  "unresolved_source_gaps": 0,
+  "all_ids_preserved": true,
+  "no_existing_file_overwritten": true,
+  "operational_claim": "DESIGN_AND_MAPPING_ONLY; no claim of E2E, payment provider, production or live revenue."
+}
