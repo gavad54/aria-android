@@ -708,6 +708,7 @@ async function handle(req, res, url, deps) {
       item = serviceDelivery.transitionServiceCase(item, "SUBMIT_QA", { userId: String(user.sub) });
       const quality = serviceDelivery.evaluateDeliveryQuality(data);
       item = serviceDelivery.transitionServiceCase(item, quality.passed ? "PASS_QA" : "FAIL_QA", { userId: String(user.sub) });
+      item.quality = quality;
       await pool.query("UPDATE aria_service_cases SET status=$1,payload=$2::jsonb,quality=$3::jsonb,updated_at=NOW() WHERE id=$4::uuid AND user_id=$5 AND tenant_id=$6",
         [item.status, JSON.stringify(item), JSON.stringify(quality), serviceQualityMatch[1], user.sub, tenantId]);
       return json(res, 200, { case: item, quality, deliverable: quality.deliverable });
