@@ -20,7 +20,7 @@ test("module execution requires actor and tenant context and returns an auditabl
   const module = MODULES.find(x => x.manifest.moduleId === "ARIA-IDEA-BACKLOG-001");
   assert.ok(module);
   await assert.rejects(() => executeModule(module.manifest.moduleId, { goal: "test", context: {} }, {}), /MODULE_ACTOR_REQUIRED/);
-  const result = await executeModule(module.manifest.moduleId, { goal: "test", context: {} }, { actorId: "user-1", tenantId: "tenant-1" });
+  const result = await executeModule(module.manifest.moduleId, { goal: "test", context: {}, consent: true }, { actorId: "user-1", tenantId: "tenant-1" });
   assert.equal(result.moduleId, module.manifest.moduleId);
   assert.equal(result.tenantId, "tenant-1");
   assert.equal(result.status, "LOCAL_RESULT_READY");
@@ -57,4 +57,16 @@ test("four service delivery engines execute their domain functions through the m
   }, actor);
   assert.equal(economics.artifact.serviceResult.contributionMargin, 81000);
   assert.equal(economics.artifact.serviceResult.principalRevenueRecognized, false);
+});
+
+test("every independent module accepts its declared contract and returns a local artifact", async () => {
+  for (const module of MODULES) {
+    const input = Object.fromEntries(module.manifest.requiredInputs.map(key => [key, key === "consent" ? true : "sample-value"]));
+    const result = await module.execute(input, { actorId: "test-user", tenantId: "test-tenant" });
+    assert.equal(result.moduleId, module.manifest.moduleId);
+    assert.equal(result.status, "LOCAL_RESULT_READY");
+    assert.equal(result.externalExecutionPerformed, false);
+    assert.equal(result.paymentExecuted, false);
+    assert.equal(result.productionVerified, false);
+  }
 });
