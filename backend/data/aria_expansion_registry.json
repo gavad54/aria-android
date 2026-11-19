@@ -2531,7 +2531,20 @@
       "ariaApplication": "اشتراک فردی، سازنده، تیمی",
       "state": "DESIGNED_NOT_MONETIZED",
       "paymentProviderState": "NOT_CONNECTED",
-      "hostCanonicalContractId": 8
+      "hostCanonicalContractId": 8,
+      "calculation": {
+        "requiredInputs": [
+          "activeSubscribers",
+          "monthlyPrice"
+        ],
+        "formula": "activeSubscribers × monthlyPrice",
+        "optionalInputs": [
+          "fixedCosts",
+          "variableCosts"
+        ],
+        "engine": "LOCAL_REVENUE_SIMULATION_ENGINE",
+        "state": "SIMULATION_ONLY"
+      }
     },
     {
       "id": "revenue-model-02",
@@ -2542,7 +2555,21 @@
       "ariaApplication": "جذب کاربر و تبدیل به اشتراک",
       "state": "DESIGNED_NOT_MONETIZED",
       "paymentProviderState": "NOT_CONNECTED",
-      "hostCanonicalContractId": 8
+      "hostCanonicalContractId": 8,
+      "calculation": {
+        "requiredInputs": [
+          "freeUsers",
+          "conversionRate",
+          "monthlyPrice"
+        ],
+        "formula": "freeUsers × conversionRate × monthlyPrice",
+        "optionalInputs": [
+          "fixedCosts",
+          "variableCosts"
+        ],
+        "engine": "LOCAL_REVENUE_SIMULATION_ENGINE",
+        "state": "SIMULATION_ONLY"
+      }
     },
     {
       "id": "revenue-model-03",
@@ -2553,7 +2580,20 @@
       "ariaApplication": "فروش قالب، فایل و خدمات",
       "state": "DESIGNED_NOT_MONETIZED",
       "paymentProviderState": "NOT_CONNECTED",
-      "hostCanonicalContractId": 8
+      "hostCanonicalContractId": 8,
+      "calculation": {
+        "requiredInputs": [
+          "grossMerchandiseValue",
+          "commissionRate"
+        ],
+        "formula": "grossMerchandiseValue × commissionRate",
+        "optionalInputs": [
+          "fixedCosts",
+          "variableCosts"
+        ],
+        "engine": "LOCAL_REVENUE_SIMULATION_ENGINE",
+        "state": "SIMULATION_ONLY"
+      }
     },
     {
       "id": "revenue-model-04",
@@ -2564,7 +2604,20 @@
       "ariaApplication": "فروش مستقیم یا فروشگاه سازندگان",
       "state": "DESIGNED_NOT_MONETIZED",
       "paymentProviderState": "NOT_CONNECTED",
-      "hostCanonicalContractId": 8
+      "hostCanonicalContractId": 8,
+      "calculation": {
+        "requiredInputs": [
+          "orders",
+          "averageOrderValue"
+        ],
+        "formula": "orders × averageOrderValue",
+        "optionalInputs": [
+          "fixedCosts",
+          "variableCosts"
+        ],
+        "engine": "LOCAL_REVENUE_SIMULATION_ENGINE",
+        "state": "SIMULATION_ONLY"
+      }
     },
     {
       "id": "revenue-model-05",
@@ -2575,7 +2628,20 @@
       "ariaApplication": "فروش قالب/محصول دیجیتال ARIA",
       "state": "DESIGNED_NOT_MONETIZED",
       "paymentProviderState": "NOT_CONNECTED",
-      "hostCanonicalContractId": 8
+      "hostCanonicalContractId": 8,
+      "calculation": {
+        "requiredInputs": [
+          "unitsSold",
+          "sellingPrice"
+        ],
+        "formula": "unitsSold × sellingPrice",
+        "optionalInputs": [
+          "fixedCosts",
+          "variableCosts"
+        ],
+        "engine": "LOCAL_REVENUE_SIMULATION_ENGINE",
+        "state": "SIMULATION_ONLY"
+      }
     },
     {
       "id": "revenue-model-06",
@@ -2586,7 +2652,20 @@
       "ariaApplication": "بسته اعتباری یا مجوز سازمانی",
       "state": "DESIGNED_NOT_MONETIZED",
       "paymentProviderState": "NOT_CONNECTED",
-      "hostCanonicalContractId": 8
+      "hostCanonicalContractId": 8,
+      "calculation": {
+        "requiredInputs": [
+          "wholesaleUnits",
+          "wholesalePrice"
+        ],
+        "formula": "wholesaleUnits × wholesalePrice",
+        "optionalInputs": [
+          "fixedCosts",
+          "variableCosts"
+        ],
+        "engine": "LOCAL_REVENUE_SIMULATION_ENGINE",
+        "state": "SIMULATION_ONLY"
+      }
     },
     {
       "id": "revenue-model-07",
@@ -2597,7 +2676,22 @@
       "ariaApplication": "فقط پس از بلوغ محصول و قرارداد حقوقی",
       "state": "DESIGNED_NOT_MONETIZED",
       "paymentProviderState": "NOT_CONNECTED",
-      "hostCanonicalContractId": 8
+      "hostCanonicalContractId": 8,
+      "calculation": {
+        "requiredInputs": [
+          "franchisees",
+          "monthlyFranchiseFee",
+          "royaltyBase",
+          "royaltyRate"
+        ],
+        "formula": "franchisees × monthlyFranchiseFee + royaltyBase × royaltyRate",
+        "optionalInputs": [
+          "fixedCosts",
+          "variableCosts"
+        ],
+        "engine": "LOCAL_REVENUE_SIMULATION_ENGINE",
+        "state": "SIMULATION_ONLY"
+      }
     },
     {
       "id": "revenue-model-08",
@@ -2608,7 +2702,20 @@
       "ariaApplication": "مجوز سازمانی و API؛ رعایت حقوق مالکیت",
       "state": "DESIGNED_NOT_MONETIZED",
       "paymentProviderState": "NOT_CONNECTED",
-      "hostCanonicalContractId": 8
+      "hostCanonicalContractId": 8,
+      "calculation": {
+        "requiredInputs": [
+          "activeLicenses",
+          "licenseFee"
+        ],
+        "formula": "activeLicenses × licenseFee",
+        "optionalInputs": [
+          "fixedCosts",
+          "variableCosts"
+        ],
+        "engine": "LOCAL_REVENUE_SIMULATION_ENGINE",
+        "state": "SIMULATION_ONLY"
+      }
     },
     {
       "id": "revenue-model-09",
@@ -2619,7 +2726,21 @@
       "ariaApplication": "معرفی ابزار/خدمت مرتبط با برچسب تبلیغ",
       "state": "DESIGNED_NOT_MONETIZED",
       "paymentProviderState": "NOT_CONNECTED",
-      "hostCanonicalContractId": 8
+      "hostCanonicalContractId": 8,
+      "calculation": {
+        "requiredInputs": [
+          "clicks",
+          "conversionRate",
+          "commissionPerConversion"
+        ],
+        "formula": "clicks × conversionRate × commissionPerConversion",
+        "optionalInputs": [
+          "fixedCosts",
+          "variableCosts"
+        ],
+        "engine": "LOCAL_REVENUE_SIMULATION_ENGINE",
+        "state": "SIMULATION_ONLY"
+      }
     },
     {
       "id": "revenue-model-10",
@@ -2630,7 +2751,20 @@
       "ariaApplication": "جایگاه تبلیغ مشخص؛ عدم فروش داده شخصی",
       "state": "DESIGNED_NOT_MONETIZED",
       "paymentProviderState": "NOT_CONNECTED",
-      "hostCanonicalContractId": 8
+      "hostCanonicalContractId": 8,
+      "calculation": {
+        "requiredInputs": [
+          "impressions",
+          "cpm"
+        ],
+        "formula": "impressions ÷ 1000 × CPM",
+        "optionalInputs": [
+          "fixedCosts",
+          "variableCosts"
+        ],
+        "engine": "LOCAL_REVENUE_SIMULATION_ENGINE",
+        "state": "SIMULATION_ONLY"
+      }
     },
     {
       "id": "revenue-model-11",
@@ -2641,7 +2775,20 @@
       "ariaApplication": "فروش فایل، قالب و بسته‌های خروجی",
       "state": "DESIGNED_NOT_MONETIZED",
       "paymentProviderState": "NOT_CONNECTED",
-      "hostCanonicalContractId": 8
+      "hostCanonicalContractId": 8,
+      "calculation": {
+        "requiredInputs": [
+          "unitsSold",
+          "retailPrice"
+        ],
+        "formula": "unitsSold × retailPrice",
+        "optionalInputs": [
+          "fixedCosts",
+          "variableCosts"
+        ],
+        "engine": "LOCAL_REVENUE_SIMULATION_ENGINE",
+        "state": "SIMULATION_ONLY"
+      }
     },
     {
       "id": "revenue-model-12",
@@ -2652,7 +2799,20 @@
       "ariaApplication": "شبکه توزیع خدمات/محتوا",
       "state": "DESIGNED_NOT_MONETIZED",
       "paymentProviderState": "NOT_CONNECTED",
-      "hostCanonicalContractId": 8
+      "hostCanonicalContractId": 8,
+      "calculation": {
+        "requiredInputs": [
+          "distributionVolume",
+          "marginPerUnit"
+        ],
+        "formula": "distributionVolume × marginPerUnit",
+        "optionalInputs": [
+          "fixedCosts",
+          "variableCosts"
+        ],
+        "engine": "LOCAL_REVENUE_SIMULATION_ENGINE",
+        "state": "SIMULATION_ONLY"
+      }
     },
     {
       "id": "revenue-model-13",
@@ -2663,7 +2823,20 @@
       "ariaApplication": "خدمات تولید محتوا و خدمات محلی",
       "state": "DESIGNED_NOT_MONETIZED",
       "paymentProviderState": "NOT_CONNECTED",
-      "hostCanonicalContractId": 8
+      "hostCanonicalContractId": 8,
+      "calculation": {
+        "requiredInputs": [
+          "completedJobs",
+          "platformFeePerJob"
+        ],
+        "formula": "completedJobs × platformFeePerJob",
+        "optionalInputs": [
+          "fixedCosts",
+          "variableCosts"
+        ],
+        "engine": "LOCAL_REVENUE_SIMULATION_ENGINE",
+        "state": "SIMULATION_ONLY"
+      }
     },
     {
       "id": "revenue-model-14",
@@ -2674,7 +2847,20 @@
       "ariaApplication": "متن/تصویر/صوت/ویدئو بر اساس مصرف",
       "state": "DESIGNED_NOT_MONETIZED",
       "paymentProviderState": "NOT_CONNECTED",
-      "hostCanonicalContractId": 8
+      "hostCanonicalContractId": 8,
+      "calculation": {
+        "requiredInputs": [
+          "usageUnits",
+          "pricePerUnit"
+        ],
+        "formula": "usageUnits × pricePerUnit",
+        "optionalInputs": [
+          "fixedCosts",
+          "variableCosts"
+        ],
+        "engine": "LOCAL_REVENUE_SIMULATION_ENGINE",
+        "state": "SIMULATION_ONLY"
+      }
     },
     {
       "id": "revenue-model-15",
@@ -2685,7 +2871,21 @@
       "ariaApplication": "اجاره ابزار یا دسترسی محدود به منابع",
       "state": "DESIGNED_NOT_MONETIZED",
       "paymentProviderState": "NOT_CONNECTED",
-      "hostCanonicalContractId": 8
+      "hostCanonicalContractId": 8,
+      "calculation": {
+        "requiredInputs": [
+          "leasedAssets",
+          "monthlyLeasePrice",
+          "months"
+        ],
+        "formula": "leasedAssets × monthlyLeasePrice × months",
+        "optionalInputs": [
+          "fixedCosts",
+          "variableCosts"
+        ],
+        "engine": "LOCAL_REVENUE_SIMULATION_ENGINE",
+        "state": "SIMULATION_ONLY"
+      }
     },
     {
       "id": "revenue-model-16",
@@ -2696,7 +2896,20 @@
       "ariaApplication": "قالب، دوره، گزارش و فایل تولیدی",
       "state": "DESIGNED_NOT_MONETIZED",
       "paymentProviderState": "NOT_CONNECTED",
-      "hostCanonicalContractId": 12
+      "hostCanonicalContractId": 12,
+      "calculation": {
+        "requiredInputs": [
+          "productsSold",
+          "pricePerProduct"
+        ],
+        "formula": "productsSold × pricePerProduct",
+        "optionalInputs": [
+          "fixedCosts",
+          "variableCosts"
+        ],
+        "engine": "LOCAL_REVENUE_SIMULATION_ENGINE",
+        "state": "SIMULATION_ONLY"
+      }
     },
     {
       "id": "revenue-model-17",
@@ -2707,7 +2920,20 @@
       "ariaApplication": "مشاوره، پیاده‌سازی، طراحی و آموزش",
       "state": "DESIGNED_NOT_MONETIZED",
       "paymentProviderState": "NOT_CONNECTED",
-      "hostCanonicalContractId": 26
+      "hostCanonicalContractId": 26,
+      "calculation": {
+        "requiredInputs": [
+          "billableHours",
+          "hourlyRate"
+        ],
+        "formula": "billableHours × hourlyRate",
+        "optionalInputs": [
+          "fixedCosts",
+          "variableCosts"
+        ],
+        "engine": "LOCAL_REVENUE_SIMULATION_ENGINE",
+        "state": "SIMULATION_ONLY"
+      }
     },
     {
       "id": "revenue-model-18",
@@ -2718,7 +2944,20 @@
       "ariaApplication": "اکوسیستم سازندگان و ارائه‌دهندگان",
       "state": "DESIGNED_NOT_MONETIZED",
       "paymentProviderState": "NOT_CONNECTED",
-      "hostCanonicalContractId": 12
+      "hostCanonicalContractId": 12,
+      "calculation": {
+        "requiredInputs": [
+          "platformTransactions",
+          "platformFeePerTransaction"
+        ],
+        "formula": "platformTransactions × platformFeePerTransaction",
+        "optionalInputs": [
+          "fixedCosts",
+          "variableCosts"
+        ],
+        "engine": "LOCAL_REVENUE_SIMULATION_ENGINE",
+        "state": "SIMULATION_ONLY"
+      }
     },
     {
       "id": "revenue-model-19",
@@ -2729,7 +2968,20 @@
       "ariaApplication": "گزارش تحلیلی تجمیعی؛ هرگز فروش داده شخصی بدون مبنای مجاز",
       "state": "DESIGNED_NOT_MONETIZED",
       "paymentProviderState": "NOT_CONNECTED",
-      "hostCanonicalContractId": 87
+      "hostCanonicalContractId": 87,
+      "calculation": {
+        "requiredInputs": [
+          "reportLicenses",
+          "pricePerReport"
+        ],
+        "formula": "reportLicenses × pricePerReport",
+        "optionalInputs": [
+          "fixedCosts",
+          "variableCosts"
+        ],
+        "engine": "LOCAL_REVENUE_SIMULATION_ENGINE",
+        "state": "SIMULATION_ONLY"
+      }
     },
     {
       "id": "revenue-model-20",
@@ -2740,7 +2992,20 @@
       "ariaApplication": "عضویت ممتاز، رویداد و جامعه تخصصی",
       "state": "DESIGNED_NOT_MONETIZED",
       "paymentProviderState": "NOT_CONNECTED",
-      "hostCanonicalContractId": 12
+      "hostCanonicalContractId": 12,
+      "calculation": {
+        "requiredInputs": [
+          "payingMembers",
+          "monthlyMembershipFee"
+        ],
+        "formula": "payingMembers × monthlyMembershipFee",
+        "optionalInputs": [
+          "fixedCosts",
+          "variableCosts"
+        ],
+        "engine": "LOCAL_REVENUE_SIMULATION_ENGINE",
+        "state": "SIMULATION_ONLY"
+      }
     }
   ],
   "guardrails": {
