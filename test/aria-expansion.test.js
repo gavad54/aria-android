@@ -22,6 +22,7 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(summary.parentDomains,5);
   assert.equal(summary.historicalCandidates,4);
   assert.equal(summary.revenueModels,20);
+  assert.equal(summary.engines,53);
   assert.equal(summary.liveRevenueEnabled,false);
 
   const modulesResponse=await fetch(base+"/api/aria-expansion/modules");
@@ -35,6 +36,14 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   const petTravel=modules.problems.find(x=>x.sourceProblemNumber===48);
   const petHome=modules.problems.find(x=>x.sourceProblemNumber===29);
   assert.equal(petTravel.aliasOf,petHome.id,"travel pet-care entry must reuse the home pet-care capability");
+
+  const enginesResponse=await fetch(base+"/api/aria-expansion/engines");
+  const engines=await enginesResponse.json();
+  assert.equal(enginesResponse.status,200);
+  assert.equal(engines.engines.length,53);
+  assert.equal(engines.problemEngines,49);
+  assert.equal(engines.candidateEngines,4);
+  assert.ok(engines.engines.every(x=>x.contract&&Array.isArray(x.contract.operations)));
 
   const candidatesResponse=await fetch(base+"/api/aria-expansion/candidates");
   const candidates=await candidatesResponse.json();
