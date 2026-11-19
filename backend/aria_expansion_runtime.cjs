@@ -1,6 +1,7 @@
 "use strict";
 const fs = require("node:fs");
 const path = require("node:path");
+const serviceDelivery = require("./aria-service-delivery.cjs");
 const registry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_expansion_registry.json"), "utf8"));
 const moduleRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_111_module_expansion_registry.json"), "utf8"));
 const commercialRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_commercial_module_registry.json"), "utf8"));
@@ -195,6 +196,19 @@ async function ensureTables(pool) {
       updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
     )`);
     await pool.query("CREATE INDEX IF NOT EXISTS aria_expansion_providers_match_idx ON aria_expansion_providers(category, verification_status, contact_visible)");
+    await pool.query(`CREATE TABLE IF NOT EXISTS aria_service_cases (
+      id UUID PRIMARY KEY,
+      user_id BIGINT NOT NULL REFERENCES aria_users(id) ON DELETE CASCADE,
+      tenant_id TEXT NOT NULL,
+      module_id TEXT NOT NULL,
+      status TEXT NOT NULL,
+      payload JSONB NOT NULL,
+      quote JSONB,
+      quality JSONB,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+      updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    )`);
+    await pool.query("CREATE INDEX IF NOT EXISTS aria_service_cases_tenant_updated_idx ON aria_service_cases(user_id, tenant_id, updated_at DESC)");
     schemaReady = true;
   })().catch(err => { schemaPromise = null; schemaReady = false; throw err; });
   return schemaPromise;
@@ -623,6 +637,105 @@ async function handle(req, res, url, deps) {
     if(!await requireDb(res))return true;
     try{await ensureTables(pool);const q=await pool.query("UPDATE aria_expansion_work_items SET status=$1,updated_at=NOW() WHERE id=$2 AND user_id=$3 RETURNING id,module_id,title,details,status,created_at,updated_at",[status,workItemMatch[1],user.sub]);if(!q.rowCount)return json(res,404,{error:"کار پیدا نشد."});return json(res,200,{item:{...q.rows[0],id:String(q.rows[0].id)}});}
     catch(err){console.error("ARIA expansion work item update failed:",err.message);return json(res,500,{error:"به‌روزرسانی کار انجام نشد."});}
+  }
+
+  if (p === "/api/aria-expansion/service-delivery/catalog" && req.method === "GET") {
+    return json(res, 200, {
+      product: "ARIA", modules: serviceDelivery.SERVICE_MODULES,
+      persistence: "DATABASE_BACKED_PER_USER_SCOPE",
+      tenantBoundary: "PERSONAL_ACCOUNT_SCOPE_UNTIL_ORGANIZATION_TENANCY_IS_IMPLEMENTED",
+      externalExecutionPerformed: false, paymentExecuted: false, productionVerified: false
+    });
+  }
+  if (p === "/api/aria-expansion/service-cases" && (req.method === "GET" || req.method === "POST")) {
+    const user = requireUser(req, json, res, authUser); if (!user) return true;
+    if (!await requireDb(res)) return true;
+    try {
+      await ensureTables(pool);
+      const tenantId = String(user.sub);
+      if (req.method === "GET") {
+        const q = await pool.query("SELECT payload FROM aria_service_cases WHERE user_id=$1 AND tenant_id=$2 ORDER BY updated_at DESC LIMIT 100", [user.sub, tenantId]);
+        return json(res, 200, { cases: q.rows.map(row => row.payload), tenantBoundary: "PERSONAL_ACCOUNT_SCOPE" });
+      }
+      const data = await readJson(req, res); if (data === null) return true;
+      const item = serviceDelivery.createServiceCase(data, { userId: String(user.sub), tenantId });
+      await pool.query("INSERT INTO aria_service_cases(id,user_id,tenant_id,module_id,status,payload) VALUES($1::uuid,$2,$3,$4,$5,$6::jsonb)",
+        [item.id, user.sub, tenantId, item.moduleId, item.status, JSON.stringify(item)]);
+      return json(res, 201, { case: item, persistence: "DATABASE_SAVED", externalExecutionPerformed: false });
+    } catch (err) {
+      if (err.message === "SERVICE_MODULE_UNKNOWN" || err.message === "SERVICE_CASE_INPUT_INVALID") return json(res, 400, { error: err.message });
+      console.error("ARIA service case create failed:", err.message);
+      return json(res, 500, { error: "ثبت پرونده خدمت انجام نشد." });
+    }
+  }
+  const serviceQuoteMatch = p.match(/^\/api\/aria-expansion\/service-cases\/([0-9a-f-]{36})\/quote$/i);
+  if (serviceQuoteMatch && req.method === "POST") {
+    const user = requireUser(req, json, res, authUser); if (!user) return true;
+    const data = await readJson(req, res); if (data === null) return true;
+    if (!await requireDb(res)) return true;
+    try {
+      await ensureTables(pool);
+      const tenantId = String(user.sub);
+      const current = await pool.query("SELECT payload FROM aria_service_cases WHERE id=$1::uuid AND user_id=$2 AND tenant_id=$3", [serviceQuoteMatch[1], user.sub, tenantId]);
+      if (!current.rowCount) return json(res, 404, { error: "پرونده خدمت پیدا نشد." });
+      const item = current.rows[0].payload;
+      if (item.status !== "QUALIFIED") return json(res, 409, { error: "برای تهیه پیشنهاد، ابتدا پرونده باید ارزیابی و تأیید شود." });
+      const quote = serviceDelivery.buildQuote(data);
+      const updated = serviceDelivery.transitionServiceCase(item, "ISSUE_QUOTE", { userId: String(user.sub) });
+      updated.quoteState = "QUOTE_PENDING_OWNER_APPROVAL";
+      await pool.query("UPDATE aria_service_cases SET status=$1,payload=$2::jsonb,quote=$3::jsonb,updated_at=NOW() WHERE id=$4::uuid AND user_id=$5 AND tenant_id=$6",
+        [updated.status, JSON.stringify(updated), JSON.stringify(quote), serviceQuoteMatch[1], user.sub, tenantId]);
+      return json(res, 201, { case: updated, quote, paymentExecuted: false });
+    } catch (err) {
+      if (err.message === "QUOTE_INPUT_INVALID") return json(res, 400, { error: err.message });
+      console.error("ARIA service quote failed:", err.message);
+      return json(res, 500, { error: "ساخت پیشنهاد انجام نشد." });
+    }
+  }
+  const serviceQualityMatch = p.match(/^\/api\/aria-expansion\/service-cases\/([0-9a-f-]{36})\/quality$/i);
+  if (serviceQualityMatch && req.method === "POST") {
+    const user = requireUser(req, json, res, authUser); if (!user) return true;
+    const data = await readJson(req, res); if (data === null) return true;
+    if (!await requireDb(res)) return true;
+    try {
+      await ensureTables(pool);
+      const tenantId = String(user.sub);
+      const current = await pool.query("SELECT payload FROM aria_service_cases WHERE id=$1::uuid AND user_id=$2 AND tenant_id=$3", [serviceQualityMatch[1], user.sub, tenantId]);
+      if (!current.rowCount) return json(res, 404, { error: "پرونده خدمت پیدا نشد." });
+      let item = current.rows[0].payload;
+      if (item.status !== "IN_PROGRESS") return json(res, 409, { error: "کنترل کیفیت فقط پس از شروع تحویل قابل ثبت است." });
+      item = serviceDelivery.transitionServiceCase(item, "SUBMIT_QA", { userId: String(user.sub) });
+      const quality = serviceDelivery.evaluateDeliveryQuality(data);
+      item = serviceDelivery.transitionServiceCase(item, quality.passed ? "PASS_QA" : "FAIL_QA", { userId: String(user.sub) });
+      await pool.query("UPDATE aria_service_cases SET status=$1,payload=$2::jsonb,quality=$3::jsonb,updated_at=NOW() WHERE id=$4::uuid AND user_id=$5 AND tenant_id=$6",
+        [item.status, JSON.stringify(item), JSON.stringify(quality), serviceQualityMatch[1], user.sub, tenantId]);
+      return json(res, 200, { case: item, quality, deliverable: quality.deliverable });
+    } catch (err) {
+      if (err.message === "QUALITY_CHECKLIST_INVALID") return json(res, 400, { error: err.message });
+      console.error("ARIA service quality failed:", err.message);
+      return json(res, 500, { error: "ثبت کنترل کیفیت انجام نشد." });
+    }
+  }
+  const serviceTransitionMatch = p.match(/^\/api\/aria-expansion\/service-cases\/([0-9a-f-]{36})\/transitions$/i);
+  if (serviceTransitionMatch && req.method === "POST") {
+    const user = requireUser(req, json, res, authUser); if (!user) return true;
+    const data = await readJson(req, res); if (data === null) return true;
+    if (!await requireDb(res)) return true;
+    try {
+      await ensureTables(pool);
+      const tenantId = String(user.sub);
+      const current = await pool.query("SELECT payload FROM aria_service_cases WHERE id=$1::uuid AND user_id=$2 AND tenant_id=$3", [serviceTransitionMatch[1], user.sub, tenantId]);
+      if (!current.rowCount) return json(res, 404, { error: "پرونده خدمت پیدا نشد." });
+      const isOwner = Boolean(process.env.ARIA_OWNER_USER_ID && String(user.sub) === String(process.env.ARIA_OWNER_USER_ID));
+      const item = serviceDelivery.transitionServiceCase(current.rows[0].payload, data.action, { userId: String(user.sub), isOwner });
+      await pool.query("UPDATE aria_service_cases SET status=$1,payload=$2::jsonb,updated_at=NOW() WHERE id=$3::uuid AND user_id=$4 AND tenant_id=$5",
+        [item.status, JSON.stringify(item), serviceTransitionMatch[1], user.sub, tenantId]);
+      return json(res, 200, { case: item, externalExecutionPerformed: false, paymentExecuted: false });
+    } catch (err) {
+      if (["SERVICE_CASE_INVALID","SERVICE_TRANSITION_NOT_ALLOWED","OWNER_APPROVAL_REQUIRED","SERVICE_ACTOR_REQUIRED"].includes(err.message)) return json(res, 403, { error: err.message });
+      console.error("ARIA service transition failed:", err.message);
+      return json(res, 500, { error: "تغییر وضعیت پرونده انجام نشد." });
+    }
   }
   if(p==="/api/aria-expansion/providers"&&(req.method==="GET"||req.method==="POST")){
     const providerUser=req.method==="POST"?requireUser(req,json,res,authUser):null;if(req.method==="POST"&&!providerUser)return true;
