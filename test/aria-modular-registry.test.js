@@ -1,10 +1,12 @@
 "use strict";
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { MODULES, MODULE_BY_ID, MODULE_COUNTS, executeModule } = require("../backend/modules");
+const { MODULES, MODULE_BY_ID, MODULE_COUNTS, MANIFEST, executeModule } = require("../backend/modules");
 
 test("all 201 requested modules have unique independent IDs and executable handlers", () => {
   assert.equal(MODULES.length, 201);
+  assert.equal(MANIFEST.independentBackendModuleCount, 201);
+  assert.equal(MANIFEST.canonicalBaselinePreserved, 639);
   assert.equal(new Set(MODULES.map(x => x.manifest.moduleId)).size, 201);
   assert.equal(MODULE_BY_ID.size, 201);
   assert.deepEqual(MODULE_COUNTS, { ideas: 50, governanceControls: 4, commercialCatalog: 72, childEngines: 71, serviceDeliveryEngines: 4 });
