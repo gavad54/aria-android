@@ -10,6 +10,8 @@ const ds=source.indexOf('const MODULE_DOMAIN_BY_ID = Object.freeze({'),de=source
 assert.ok(ds>=0&&de>ds,'domain map source must exist');
 const domains=vm.runInNewContext('('+source.slice(ds+'const MODULE_DOMAIN_BY_ID = Object.freeze('.length,de+2)+')');
 assert.equal(modules.length,72);
+assert.ok(!/ARVAND|CHARSU|GANJINEH|NEGAH|SEPEHR|NAMA|PAYAM/i.test(JSON.stringify(modules)),'retired sub-product names must not appear in the public ARIA catalog');
+assert.ok(manifest.records.every(r=>!Object.prototype.hasOwnProperty.call(r,'legacyProduct')),'legacy product labels must not be exposed in the public catalog');
 assert.equal(manifest.records.length,72);
 assert.equal(new Set(modules.map(x=>x.id)).size,72);
 assert.equal(new Set(manifest.records.map(x=>x.id)).size,72);
