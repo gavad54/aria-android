@@ -15,7 +15,7 @@
 
 ## آزمون‌های اجراشده
 - `ARIA_WEB_CATALOG_MANIFEST_PASS records=72 contract_ids=651-722`
-- GitHub Actions run `44531245367`: موفق؛ بررسی syntax اسکریپت overlay، تطبیق کاتالوگ و آزمون API وب همگی PASS.
+- GitHub Actions run `44531450321`: موفق؛ بررسی syntax اسکریپت overlay، تطبیق کاتالوگ و آزمون API وب همگی PASS. هر شش مرحله اصلی job شامل نصب وابستگی‌ها، اعتبارسنجی اسکریپت، تطبیق manifest و تست API موفق بوده‌اند.
 - آزمون جدید، عدم بازگشت هفت نام محصولی قدیمی به کاتالوگ عمومی و حذف فیلد `legacyProduct` از رکوردهای عمومی را نیز کنترل می‌کند.
 - تست API بررسی می‌کند که ۷۲ رکورد لینک قرارداد دارند، هرکدام برنامه محلی می‌سازند، ورودی نامعتبر رد می‌شود، شناسه ناموجود 404 می‌دهد و اقدام بیرونی اجرا نشده اعلام می‌شود.
 
@@ -23,6 +23,11 @@
 1. فایل ZIP اندروید موردنیاز در مسیر مخزن `release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip` موجود نیست؛ بنابراین workflow اندروید هنوز اجرا نشده است.
 2. تا اجرای overlay روی candidate و موفقیت runtime/no-loss/Android build tests، عدد ۷۱۱ در رجیستری واقعی candidate تأییدشده محسوب نمی‌شود؛ فعلاً قراردادهای ۶۵۱–۷۲۲ در manifest و overlay تعریف شده‌اند.
 3. APK/AAB امضاشده، آزمون روی دستگاه واقعی، اتصال providerهای بیرونی، پرداخت و انتشار Production اثبات نشده‌اند.
+
+## وضعیت فعلی شاخه و PR
+- آخرین HEAD بررسی‌شده: `ecc7619c4d9cf85108ee3c1f5a1ba8527ad0524e`.
+- PR #3 باز، Draft و ادغام‌نشده است؛ شاخه مقصد `engineering/aria-functional-redesign-2026-11-19` است.
+- CI موفق فعلی فقط CI کاتالوگ وب است؛ این نتیجه، آزمون candidate اندروید یا انتشار Production محسوب نمی‌شود.
 
 ## پیوند تغییرات
 - PR: https://github.com/gavad54/aria-android/pull/3
