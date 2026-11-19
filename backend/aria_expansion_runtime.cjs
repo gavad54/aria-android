@@ -667,7 +667,7 @@ async function handle(req, res, url, deps) {
     });
   }
 
-  const modularActionMatch = p.match(/^\\/api\\/aria-modules\\/([^/]+)\\/work-items\\/([0-9a-f-]{36})\\/actions$/i);
+  const modularActionMatch = p.match(/^\/api\/aria-modules\/([^/]+)\/work-items\/([0-9a-f-]{36})\/actions$/i);
   if (modularActionMatch && req.method === "POST") {
     const user = requireUser(req, json, res, authUser); if (!user) return true;
     const moduleId = decodeURIComponent(modularActionMatch[1]);
