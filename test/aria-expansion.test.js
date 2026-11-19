@@ -29,6 +29,8 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(summary.revenueModels,20);
   assert.equal(summary.engines,71);
   assert.equal(summary.totalModuleInventory,893);
+  assert.equal(summary.localWorkflowLaunchers,854);
+  assert.equal(summary.lineageOnlyHistoricalRecords,39);
   assert.equal(summary.moduleInventory.canonicalModules,639);
   assert.equal(summary.moduleInventory.preservedHistoricalOverlayModules,111);
   assert.equal(summary.moduleInventory.commercialCatalogModules,72);
