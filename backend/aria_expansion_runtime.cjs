@@ -17,9 +17,10 @@ let schemaPromise = null;
 if (registry.baselineCanonicalModuleCount !== 639 || registry.problems.length !== 50 ||
     registry.domains.length !== 5 || registry.candidates.length !== 4 ||
     registry.revenueModels.length !== 20 || new Set(registry.problems.map(x => x.id)).size !== 50 || problemEngines.length !== 49 || candidateEngines.length !== 4 ||
-    moduleCatalog.length !== 54 || new Set(moduleCatalog.map(x => x.moduleId)).size !== 54 ||
+    moduleCatalog.length !== 61 || new Set(moduleCatalog.map(x => x.moduleId)).size !== 61 ||
     moduleCatalog.filter(x => x.moduleType === "IDEA_DERIVED_PRODUCT_MODULE").length !== 50 ||
     moduleCatalog.filter(x => x.moduleType === "CONTROL_AND_GOVERNANCE_MODULE").length !== 4 ||
+    moduleCatalog.filter(x => x.moduleType === "MERGED_LEGACY_APP_DOMAIN_MODULE").length !== 7 ||
     moduleRegistry.moduleCatalogSummary?.canonicalBaseline !== 639 || moduleRegistry.moduleCatalogSummary?.canonicalBaselineChanged !== false) {
   throw new Error("ARIA_EXPANSION_REGISTRY_INVALID");
 }
@@ -157,7 +158,7 @@ async function handle(req, res, url, deps) {
     return json(res, 200, {
       product: "ARIA", canonicalModuleCount: 639, canonicalCountChanged: false,
       parentDomains: registry.domains.length, problemRecords: registry.problems.length,
-      ideaModules: 50, controlModules: 4, totalModules: 54,
+      ideaModules: 50, controlModules: 4, legacyAppModules: 7, totalModules: 61,
       uniqueProblemCapabilities: registry.problems.length - 1,
       historicalCandidates: registry.candidates.length, engines: engineCatalog.length, revenueModels: registry.revenueModels.length,
       liveRevenueEnabled: false, externalExecutionEnabled: false,
@@ -167,7 +168,7 @@ async function handle(req, res, url, deps) {
   }
   if (p === "/api/aria-expansion/modules" && req.method === "GET") {
     const moduleBySource = new Map(moduleCatalog.filter(x => x.sourceProblemId).map(x => [x.sourceProblemId, x]));
-    return json(res, 200, { parents: registry.domains, problems: registry.problems.map(x => ({ ...x, moduleId: moduleBySource.get(x.id)?.moduleId, parentDomain: x.parentModuleId })), modules: moduleCatalog, mergedDomainPacks: moduleRegistry.mergedDomainPacks, familyArchitecture: moduleRegistry.familyArchitecture, totalProblemRecords: 50, ideaModules: 50, controlModules: 4, totalModules: 54, uniqueProblemCapabilities: 49, canonicalModuleCount: 639, canonicalCountChanged: false });
+    return json(res, 200, { parents: registry.domains, problems: registry.problems.map(x => ({ ...x, moduleId: moduleBySource.get(x.id)?.moduleId, parentDomain: x.parentModuleId })), modules: moduleCatalog, mergedDomainPacks: moduleRegistry.mergedDomainPacks, familyArchitecture: moduleRegistry.familyArchitecture, totalProblemRecords: 50, ideaModules: 50, controlModules: 4, legacyAppModules: 7, totalModules: 61, uniqueProblemCapabilities: 49, canonicalModuleCount: 639, canonicalCountChanged: false });
   }
   if (p === "/api/aria-expansion/engines" && req.method === "GET") {
     return json(res, 200, { engines: engineCatalog, total: engineCatalog.length, problemEngines: problemEngines.length, candidateEngines: candidateEngines.length, canonicalModuleCount: 639 });
@@ -201,7 +202,7 @@ async function handle(req, res, url, deps) {
   if (p === "/api/aria-expansion/revenue-models" && req.method === "GET") {
     return json(res, 200, { models: registry.revenueModels, total: 20, state: "DESIGNED_NOT_MONETIZED", paymentProviderState: "NOT_CONNECTED", liveRevenueEnabled: false });
   }
-  const planMatch = p.match(/^\/api\/aria-expansion\/modules\/(problem-\d{2}|ARIA-(?:IDEA|CONTROL)-MODULE-\d{3})\/plan$/);
+  const planMatch = p.match(/^\/api\/aria-expansion\/modules\/(problem-\d{2}|ARIA-(?:IDEA|CONTROL|LEGACY-APP)-MODULE-\d{3})\/plan$/);
   if (planMatch && req.method === "POST") {
     const legacyModule = problemById.get(planMatch[1]);
     const catalogModule = moduleCatalogById.get(planMatch[1]);
@@ -210,7 +211,7 @@ async function handle(req, res, url, deps) {
     const data = await readJson(req, res); if (data === null) return true;
     const goal = cleanText(data.goal, 4, 1200);
     if (!goal) return json(res, 400, { error: "هدف باید بین ۴ تا ۱۲۰۰ نویسه باشد." });
-    const module = legacyModule ? source : { ...source, id: source.moduleId, problem: source.sourceTitle || source.purpose, capability: source.name, deliverable: source.deliverable || source.purpose, parentModuleId: source.parentDomainId || "aria-control-governance", engine: { id: source.engineId, name: source.engineId }, sourceProblemNumber: source.sourceProblemNumber };
+    const module = legacyModule ? source : { ...source, id: source.moduleId, problem: source.sourceTitle || source.purpose, capability: source.name, deliverable: source.deliverable || source.purpose, parentModuleId: source.parentDomainId || "aria-control-governance", engine: { id: source.engineId || source.moduleId, name: source.engineId || source.name }, sourceProblemNumber: source.sourceProblemNumber };
     return json(res, 200, { ok: true, plan: modulePlan(module, goal) });
   }
   if (p === "/api/aria-expansion/scenarios/simulate" && req.method === "POST") {
