@@ -359,7 +359,7 @@ async function handle(req, res, url, deps) {
         pool.query("SELECT COUNT(*)::int AS count FROM aria_autonomy_policies"),
         pool.query("SELECT verification_status,COUNT(*)::int AS count FROM aria_expansion_providers GROUP BY verification_status")
       ]);
-      return json(res,200,{canonicalModuleCount:639,expansion:{problemRecords:50,uniqueProblemCapabilities:49,historicalCandidates:4,revenueModels:20},workItems:work.rows,intents:intents.rows,autonomyPolicies:policies.rows[0].count,providers:providers.rows,liveRevenueEnabled:false,externalExecutionEnabled:false});
+      return json(res,200,{canonicalModuleCount:639,expansion:{problemRecords:publicProblemRecords.length,uniqueProblemCapabilities:publicProblemRecords.length-1,historicalOverlayModules:allModuleCatalog.length,transferredModules:transferredIds.size,sharedAriaServices:ownership.sharedAriaModuleIds.length,historicalCandidates:registry.candidates.length,revenueModels:registry.revenueModels.length},workItems:work.rows,intents:intents.rows,autonomyPolicies:policies.rows[0].count,providers:providers.rows,liveRevenueEnabled:false,externalExecutionEnabled:false});
     }catch(err){console.error("ARIA owner overview failed:",err.message);return json(res,500,{error:"گزارش مالک دریافت نشد."});}
   }
   return false;
