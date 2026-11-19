@@ -57,22 +57,22 @@ const commercialModules = commercialRegistry.records.map(item => ({
   productionStatus: "NOT_PRODUCTION_VERIFIED"
 }));
 const moduleInventory = {
-  canonicalModules: 639,
+  canonicalModules: canonicalModules.length,
   preservedHistoricalOverlayModules: allModuleCatalog.length,
   commercialCatalogModules: commercialModules.length,
   engineSubmodules: engineSubmodules.length,
-  totalModuleAndSubmoduleRecords: 639 + allModuleCatalog.length + commercialModules.length + engineSubmodules.length,
+  totalModuleAndSubmoduleRecords: canonicalModules.length + allModuleCatalog.length + commercialModules.length + engineSubmodules.length,
   countingRule: "Hierarchical inventory: canonical modules + preserved historical overlay + commercial catalog modules + separately identified engine submodules. Parent/host mappings remain explicit; this is not a claim of 893 independent production execution contracts."
 };
 const overlayModuleIds = new Set(allModuleCatalog.map(item => item.moduleId));
-if (engineSubmodules.some(engine => engine.parentModuleIds.length === 0 || engine.parentModuleIds.some(id => !overlayModuleIds.has(id)))) {
+if (engineSubmodules.some(engine => engine.parentModuleIds.length === 0 || engine.parentModuleIds.some(id => !overlayModuleIds.has(id) || !moduleCatalogById.has(id)))) {
   throw new Error("ARIA_ENGINE_SUBMODULE_HOST_MAPPING_INVALID");
 }
 const safeAutonomyActions = new Set(["draft", "summarize", "classify", "plan", "analyze_readonly"]);
 let schemaReady = false;
 let schemaPromise = null;
 
-if (commercialRegistry.records.length !== 72 || new Set(commercialRegistry.records.map(x => x.catalogEntryId)).size !== 72 || engineSubmodules.length !== 71 || new Set(engineSubmodules.map(x => x.moduleId)).size !== 71 || moduleInventory.totalModuleAndSubmoduleRecords !== 893 || registry.baselineCanonicalModuleCount !== 639 || registry.problems.length !== 50 ||
+if (canonicalRegistry.count !== 639 || canonicalModules.length !== 639 || canonicalModuleById.size !== 639 || new Set(canonicalModules.map(x => x.canonicalId)).size !== 639 || commercialExecutionManifest.recordCount !== 72 || commercialExecutionManifest.records.length !== 72 || commercialExecutionById.size !== 72 || commercialExecutionManifest.records.some(x => !canonicalModuleById.has(x.parentCanonicalContractId) || !x.executionContract?.handlerKey || !Array.isArray(x.executionContract.operations) || x.executionContract.operations.length === 0) || commercialRegistry.records.length !== 72 || new Set(commercialRegistry.records.map(x => x.catalogEntryId)).size !== 72 || engineSubmodules.length !== 71 || new Set(engineSubmodules.map(x => x.moduleId)).size !== 71 || moduleInventory.totalModuleAndSubmoduleRecords !== 893 || registry.baselineCanonicalModuleCount !== 639 || registry.problems.length !== 50 ||
     registry.domains.length !== 5 || registry.candidates.length !== 4 ||
     registry.revenueModels.length !== 20 || new Set(registry.problems.map(x => x.id)).size !== 50 ||
     allModuleCatalog.length !== 111 || new Set(allModuleCatalog.map(x => x.moduleId)).size !== 111 ||
@@ -266,7 +266,7 @@ async function handle(req, res, url, deps) {
   const p = url.pathname;
   if (p === "/api/aria-expansion/summary" && req.method === "GET") {
     return json(res, 200, {
-      product: "ARIA", canonicalModuleCount: 639, canonicalCountChanged: false, moduleInventory, totalModuleInventory: moduleInventory.totalModuleAndSubmoduleRecords, commercialCatalogModules: commercialModules.length, engineSubmodules: engineSubmodules.length,
+      product: "ARIA", canonicalModuleCount: canonicalModules.length, canonicalCountChanged: false, moduleInventory, totalModuleInventory: moduleInventory.totalModuleAndSubmoduleRecords, commercialCatalogModules: commercialModules.length, engineSubmodules: engineSubmodules.length, localWorkflowLaunchers: canonicalModules.length + moduleCatalog.length + commercialModules.length + engineSubmodules.length, lineageOnlyHistoricalRecords: allModuleCatalog.length - moduleCatalog.length,
       parentDomains: registry.domains.length, problemRecords: publicProblemRecords.length,
       historicalProblemModules: publicProblemRecords.length, ideaModules: 25, controlModules: 4, legacyAppModules: 4, totalModules: moduleCatalog.length,
       historicalOverlayModules: allModuleCatalog.length, transferredModules: transferredIds.size, archivedDomainPackages: archivedDomainIds.size, sharedAriaServices: ownership.sharedAriaModuleIds.length,
