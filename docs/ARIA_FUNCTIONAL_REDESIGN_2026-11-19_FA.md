@@ -132,6 +132,10 @@ ARIA جایگزین تمام اپ‌های VAYRO نیست و مسئولیت حس
 
 بنابراین 639 یعنی تعداد قراردادهای ثبت‌شده است، نه تعداد قابلیت‌های کامل. گزارش repair در docs/ARIA_32_SOURCE_REPAIR_REPORT_FA.md ناسازگاری versionCode و verifierهای قدیمی را مستند کرده است. Candidate مستقل static gates را PASS کرده اما هنوز وارد مخزن canonical، build اندروید، امضا، device UAT یا Production نشده است.
 
+## 9B. ممیزی اجرای واقعی handlerها
+
+آزمون مستقیم تمام 639 capability با moduleDomainHandlers نتیجه داد: 639 پاسخ PLANNED، صفر پاسخ COMPLETED. در moduleAdapters فقط 5 interface با وضعیت INTERFACE_ONLY وجود دارد. moduleRuntime رویدادهای PLANNED را ثبت می‌کند و فقط در صورت وجود handler تخصصی و نتیجه COMPLETED وضعیت SUCCEEDED می‌دهد؛ هیچ handler فعلی این شرط را محقق نمی‌کند. بنابراین رجیستری و runtime routing موجودند، اما اجرای end-to-end همه ماژول‌ها عملیاتی نیست. جزئیات در docs/ARIA_32_RUNTIME_REALITY_AUDIT_FA.md آمده است.
+
 ## 10. برنامه تحویل و معیار پذیرش
 ### P0 — تثبیت منبع
 - بازیابی آرشیو رسمی Android و تطبیق checksum با release manifest مورد تأیید.
