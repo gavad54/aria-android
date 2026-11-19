@@ -44,7 +44,7 @@ function createDomainModule(definition) {
       throw error;
     }
 
-    if (manifest.accessPolicy?.includes("consent_and_purpose_limitation") && manifest.requiredInputs.includes("consent") && !input.consent) {
+    if ((manifest.accessPolicy?.includes("consent_and_purpose_limitation") || manifest.accessPolicy?.includes("explicit_contact_consent")) && manifest.requiredInputs.includes("consent") && !input.consent) {
       throw new Error("MODULE_CONSENT_REQUIRED");
     }
     if (context.tenantId !== String(context.tenantId)) throw new Error("MODULE_TENANT_INVALID");
