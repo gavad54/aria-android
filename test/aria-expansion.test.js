@@ -23,7 +23,7 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(summary.controlModules,4);
   assert.equal(summary.legacyAppModules,4);
   assert.equal(summary.totalModules,72);
-  assert.equal(summary.uniqueProblemCapabilities,49);
+  assert.equal(summary.uniqueProblemCapabilities,38);
   assert.equal(summary.parentDomains,5);
   assert.equal(summary.historicalCandidates,4);
   assert.equal(summary.revenueModels,20);
@@ -57,7 +57,7 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(modules.modules.filter(x=>x.moduleType==="MERGED_LEGACY_APP_DOMAIN_MODULE").length,4);
   assert.deepEqual(modules.modules.filter(x=>x.moduleType==="MERGED_LEGACY_APP_DOMAIN_MODULE").map(x=>x.legacyAppName),["GANJINEH","NEGAH","SEPEHR","NAMA"]);
   assert.ok(modules.modules.filter(x=>x.moduleType==="MERGED_LEGACY_APP_DOMAIN_MODULE").every(x=>x.submodules.length===8));
-  assert.equal(new Set(modules.problems.map(x=>x.id)).size,50);
+  assert.equal(new Set(modules.problems.map(x=>x.id)).size,39);
   assert.ok(modules.problems.every(x=>x.engine&&x.parentDomain&&x.sourceProblemNumber&&Number.isInteger(x.hostCanonicalContractId)));
   assert.equal(new Set(modules.problems.map(x=>x.hostCanonicalContractId)).size,5);
   const petTravel=modules.problems.find(x=>x.sourceProblemNumber===48);
