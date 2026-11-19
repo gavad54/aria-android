@@ -17,6 +17,7 @@ on:
       - 'docs/ARIA_FOUR_CANDIDATE_MODULES_AND_50_IDEA_INTAKE_2026-11-19_FA.md'
       - 'docs/ARIA_UNIFIED_PRESERVATION_REVENUE_AND_OPERATIONAL_DESIGN_FA.md'
       - 'docs/ARIA_GLOBAL_CAPABILITY_BLUEPRINT_2026-11-19_FA.md'
+      - 'docs/ARIA32_CANDIDATE_REBUILD_REPORT_2026-11-19_FA.md'
       - 'scripts/aria_expansion_manifest_test.cjs'
       - 'scripts/aria_web_catalog_manifest_test.js'
       - 'scripts/aria32_apply_web_catalog_bridge.js'
@@ -38,6 +39,7 @@ on:
       - 'docs/ARIA_FOUR_CANDIDATE_MODULES_AND_50_IDEA_INTAKE_2026-11-19_FA.md'
       - 'docs/ARIA_UNIFIED_PRESERVATION_REVENUE_AND_OPERATIONAL_DESIGN_FA.md'
       - 'docs/ARIA_GLOBAL_CAPABILITY_BLUEPRINT_2026-11-19_FA.md'
+      - 'docs/ARIA32_CANDIDATE_REBUILD_REPORT_2026-11-19_FA.md'
       - 'scripts/aria_expansion_manifest_test.cjs'
       - '.github/workflows/aria-web-catalog-ci.yml'
 
