@@ -16,7 +16,7 @@
    fetch("/api/aria-expansion/revenue-models").then(x=>x.json()),
    fetch("/api/aria-expansion/engines").then(x=>x.json())
   ]);
-  status(summaryEl,"۶۳۹ ماژول پایه حفظ‌شده · "+s.ideaModules+" ماژول ایده + "+s.controlModules+" ماژول کنترلی = "+s.totalModules+" ماژول تکمیلی · "+s.revenueModels+" مدل درآمدی · "+e.total+" موتور تخصصی · درآمد زنده فعال نیست.");
+  status(summaryEl,"۶۳۹ ماژول پایه حفظ‌شده · "+s.ideaModules+" ماژول ایده + "+s.controlModules+" ماژول کنترلی + "+s.legacyAppModules+" ماژول اپ ادغام‌شده = "+s.totalModules+" ماژول تکمیلی · "+s.revenueModels+" مدل درآمدی · "+e.total+" موتور تخصصی · درآمد زنده فعال نیست.");
   for(const d of m.parents){
    const card=node("article","glass expansion-domain");
    card.append(node("h3","",d.name),node("p","","۱۰ ماژول در این حوزه"));
@@ -24,7 +24,8 @@
   }
   for(const d of (m.mergedDomainPacks||[])){
    const card=node("article","glass expansion-domain");
-   card.append(node("div","expansion-kicker","دامنه داخلی ARIA · "+d.id),node("h3","",d.name),node("p","","ماژول‌های مرتبط: "+d.moduleIds.length),node("p","expansion-muted",d.additionalCapabilityAreas.join("، ")));
+   card.append(node("div","expansion-kicker","ماژول اپ ادغام‌شده · "+d.moduleId),node("h3","",d.name),node("p","","ماژول‌های ایده مرتبط: "+d.moduleIds.length+" · زیرماژول‌های دامنه: "+d.submodules.length),node("p","expansion-muted",d.submodules.join("، ")));
+   const domainPlan=node("button","btn btn-quiet","ساخت برنامه این ماژول");domainPlan.type="button";domainPlan.addEventListener("click",async()=>{domainPlan.disabled=true;try{const response=await fetch("/api/aria-expansion/modules/"+d.moduleId+"/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:d.name})});const result=await response.json();if(!response.ok)throw new Error(result.error||"ساخت برنامه انجام نشد");const out=node("div","expansion-plan");for(const step of result.plan.steps)out.append(node("p","","گام "+step.step+": "+step.title+" — "+step.checkpoint));out.append(node("small","expansion-muted",result.plan.disclaimer));card.append(out);}catch(error){status(summaryEl,error.message);}finally{domainPlan.disabled=false;}});card.append(domainPlan);
    domainsEl.append(card);
   }
   for(const item of m.problems){
