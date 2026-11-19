@@ -49,3 +49,15 @@ assert.equal(moduleRegistry.familyArchitecture.parent,"VAYRO");
 assert.deepEqual(moduleRegistry.familyArchitecture.directProducts,["ARIA","ARIANA","LEADORA","ARMIN MARKET","DANA"]);
 assert.equal(moduleRegistry.familyArchitecture.accountingErpOwner,"ARIANA");
 console.log("ARIA_111_MODULE_CATALOG_PASS historical=50 new_ideas=50 control=4 merged_legacy_apps=7 canonical=639");
+
+const freshIdeas=moduleRegistry.moduleCatalog.filter(x=>x.moduleType==="NEW_IDEA_PRODUCT_MODULE").sort((a,b)=>a.sequence-b.sequence);
+assert.deepEqual(freshIdeas.map(x=>x.sequence),Array.from({length:50},(_,i)=>i+1));
+assert.equal(new Set(freshIdeas.map(x=>x.name)).size,50);
+assert.ok(freshIdeas.every(x=>x.moduleId.startsWith("ARIA-IDEA-MODULE-")&&x.inputContract.length>0&&x.outputContract.length>0&&x.workflow.length>0&&x.dataEntities.length>0&&x.monetizationModel&&x.acceptanceCriteria.length>0));
+const legacyModules=moduleRegistry.moduleCatalog.filter(x=>x.moduleType==="MERGED_LEGACY_APP_DOMAIN_MODULE");
+assert.ok(legacyModules.every(x=>x.submodules.length===8&&x.linkedIdeaModuleIds.length>0));
+assert.equal(moduleRegistry.moduleCatalogSummary.totalModules,111);
+assert.equal(moduleRegistry.moduleCatalogSummary.totalUniqueEngines,110);
+assert.deepEqual(moduleRegistry.familyArchitecture.independentSiblings,["ARIANA","LEADORA","ARMIN MARKET","DANA"]);
+assert.equal(moduleRegistry.familyArchitecture.ariaRole,"Consolidated application containing all legacy apps except the four independent siblings.");
+assert.ok(moduleRegistry.moduleCatalog.filter(x=>x.moduleType==="HISTORICAL_PROBLEM_MODULE").every(x=>x.moduleId.startsWith("ARIA-PROBLEM-MODULE-")));
