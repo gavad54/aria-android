@@ -7195,10 +7195,587 @@
       "implementationStatus": "DESIGNED_PENDING_CANONICAL_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "HISTORICAL_CANDIDATE_PRESERVED"
+    },
+    {
+      "moduleId": "ARIA-LEGACY-APP-MODULE-001",
+      "sequence": 55,
+      "moduleType": "MERGED_LEGACY_APP_DOMAIN_MODULE",
+      "name": "بازرگانی و تجارت بین‌الملل",
+      "legacyAppName": "ARVAND",
+      "sourceAppId": "ARVAND",
+      "purpose": "تبدیل ARVAND به ماژول جامع تجارت بین‌الملل در ARIA.",
+      "submodules": [
+        "پروفایل بازار و کشور مقصد",
+        "کشف و ارزیابی تأمین‌کننده",
+        "درخواست پیشنهاد قیمت و RFQ",
+        "مقایسه پیشنهادها و شرایط تجاری",
+        "مدیریت اسناد و چک‌لیست صادرات/واردات",
+        "هماهنگی لجستیک و رهگیری وضعیت",
+        "کنترل کیفیت و ارزیابی ریسک معامله",
+        "مدیریت ارتباطات خریدار و فروشنده"
+      ],
+      "inputContract": [
+        "product_specification",
+        "origin_destination",
+        "quantity",
+        "supplier_criteria",
+        "documents",
+        "consent"
+      ],
+      "outputContract": [
+        "supplier_shortlist",
+        "rfq_package",
+        "comparison_matrix",
+        "document_checklist",
+        "logistics_plan",
+        "risk_report"
+      ],
+      "workflow": [
+        "validate_tenant_and_permissions",
+        "validate_inputs_and_consent",
+        "execute_internal_workflow",
+        "quality_and_policy_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": [
+        "trade_opportunity",
+        "supplier_profile",
+        "rfq",
+        "supplier_quote",
+        "trade_document",
+        "shipment",
+        "quality_check"
+      ],
+      "accessPolicy": [
+        "strict_tenant_isolation",
+        "least_privilege",
+        "consent_and_rights_enforcement",
+        "audit_log",
+        "human_approval_for_external_or_sensitive_actions"
+      ],
+      "monetizationModel": "اشتراک تجاری، ابزار RFQ، گزارش بازار و معرفی شفاف تأمین‌کننده",
+      "kpis": [
+        "module_activation_rate",
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "revenue_per_active_tenant"
+      ],
+      "acceptanceCriteria": [
+        "تمام قابلیت‌های منبع در crosswalk ثبت شوند",
+        "داده و شناسه‌های قدیمی قابل ردیابی باقی بمانند",
+        "API و UI هر زیرماژول مشخص باشد",
+        "دسترسی و tenant isolation آزموده شود",
+        "اقدام بیرونی تا اتصال رسمی و تأیید لازم مسدود بماند",
+        "تست و rollback برای مهاجرت داده وجود داشته باشد"
+      ],
+      "linkedIdeaModuleIds": [
+        "ARIA-IDEA-MODULE-014",
+        "ARIA-IDEA-MODULE-042",
+        "ARIA-IDEA-MODULE-045",
+        "ARIA-IDEA-MODULE-047",
+        "ARIA-IDEA-MODULE-049"
+      ],
+      "implementationStatus": "DESIGNED_PENDING_LEGACY_SOURCE_CROSSWALK",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "LEGACY_APP_IDENTITY_AND_CAPABILITIES_PRESERVED_AS_INTERNAL_MODULE"
+    },
+    {
+      "moduleId": "ARIA-LEGACY-APP-MODULE-002",
+      "sequence": 56,
+      "moduleType": "MERGED_LEGACY_APP_DOMAIN_MODULE",
+      "name": "هوشمندی بازار و کشف فرصت",
+      "legacyAppName": "CHARSU",
+      "sourceAppId": "CHARSU",
+      "purpose": "تبدیل CHARSU به موتورهای تحلیل بازار و کشف فرصت در ARIA.",
+      "submodules": [
+        "پایش رقبا",
+        "تحلیل تقاضا و روند بازار",
+        "کشف شکاف بازار و فرصت محصول",
+        "امتیازدهی جذابیت فرصت",
+        "پایش قیمت و شاخص‌ها",
+        "هشدار تغییرات مهم",
+        "گزارش تصمیم و شواهد منبع",
+        "مقایسه بازارهای جغرافیایی"
+      ],
+      "inputContract": [
+        "market_scope",
+        "product_category",
+        "competitor_list_optional",
+        "time_window",
+        "source_constraints"
+      ],
+      "outputContract": [
+        "market_snapshot",
+        "trend_analysis",
+        "opportunity_score",
+        "price_watch",
+        "alerts",
+        "evidence_report"
+      ],
+      "workflow": [
+        "validate_tenant_and_permissions",
+        "validate_inputs_and_consent",
+        "execute_internal_workflow",
+        "quality_and_policy_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": [
+        "market_watch",
+        "competitor_snapshot",
+        "trend_signal",
+        "opportunity",
+        "price_observation",
+        "market_report"
+      ],
+      "accessPolicy": [
+        "strict_tenant_isolation",
+        "least_privilege",
+        "consent_and_rights_enforcement",
+        "audit_log",
+        "human_approval_for_external_or_sensitive_actions"
+      ],
+      "monetizationModel": "اشتراک تحلیل بازار، گزارش ممتاز، هشدار حرفه‌ای و پلن تیمی",
+      "kpis": [
+        "module_activation_rate",
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "revenue_per_active_tenant"
+      ],
+      "acceptanceCriteria": [
+        "تمام قابلیت‌های منبع در crosswalk ثبت شوند",
+        "داده و شناسه‌های قدیمی قابل ردیابی باقی بمانند",
+        "API و UI هر زیرماژول مشخص باشد",
+        "دسترسی و tenant isolation آزموده شود",
+        "اقدام بیرونی تا اتصال رسمی و تأیید لازم مسدود بماند",
+        "تست و rollback برای مهاجرت داده وجود داشته باشد"
+      ],
+      "linkedIdeaModuleIds": [
+        "ARIA-IDEA-MODULE-011",
+        "ARIA-IDEA-MODULE-012",
+        "ARIA-IDEA-MODULE-013",
+        "ARIA-IDEA-MODULE-038",
+        "ARIA-IDEA-MODULE-040"
+      ],
+      "implementationStatus": "DESIGNED_PENDING_LEGACY_SOURCE_CROSSWALK",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "LEGACY_APP_IDENTITY_AND_CAPABILITIES_PRESERVED_AS_INTERNAL_MODULE"
+    },
+    {
+      "moduleId": "ARIA-LEGACY-APP-MODULE-003",
+      "sequence": 57,
+      "moduleType": "MERGED_LEGACY_APP_DOMAIN_MODULE",
+      "name": "فروشگاه، کاتالوگ و بازار خدمات",
+      "legacyAppName": "GANJINEH",
+      "sourceAppId": "GANJINEH",
+      "purpose": "تبدیل GANJINEH به ماژول فروشگاه و مدیریت عرضه در ARIA.",
+      "submodules": [
+        "مدیریت فروشگاه و غرفه",
+        "کاتالوگ و مشخصات محصول",
+        "مدیریت خدمات و بسته‌های قابل فروش",
+        "موجودی و ظرفیت نمایشی",
+        "ثبت و پیگیری سفارش",
+        "قیمت‌گذاری و تخفیف",
+        "مرجوعی و ضمانت",
+        "تحلیل عملکرد فروش و تبدیل"
+      ],
+      "inputContract": [
+        "merchant_profile",
+        "catalog_items",
+        "price",
+        "inventory_or_capacity",
+        "order_policy",
+        "fulfillment_terms"
+      ],
+      "outputContract": [
+        "published_catalog_draft",
+        "order_state",
+        "inventory_alerts",
+        "sales_analytics",
+        "return_case"
+      ],
+      "workflow": [
+        "validate_tenant_and_permissions",
+        "validate_inputs_and_consent",
+        "execute_internal_workflow",
+        "quality_and_policy_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": [
+        "storefront",
+        "catalog_item",
+        "service_offer",
+        "inventory_record",
+        "order",
+        "return_case",
+        "promotion"
+      ],
+      "accessPolicy": [
+        "strict_tenant_isolation",
+        "least_privilege",
+        "consent_and_rights_enforcement",
+        "audit_log",
+        "human_approval_for_external_or_sensitive_actions"
+      ],
+      "monetizationModel": "اشتراک فروشنده، ابزارهای فروش، کارمزد شفاف مجاز و خدمات ممتاز",
+      "kpis": [
+        "module_activation_rate",
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "revenue_per_active_tenant"
+      ],
+      "acceptanceCriteria": [
+        "تمام قابلیت‌های منبع در crosswalk ثبت شوند",
+        "داده و شناسه‌های قدیمی قابل ردیابی باقی بمانند",
+        "API و UI هر زیرماژول مشخص باشد",
+        "دسترسی و tenant isolation آزموده شود",
+        "اقدام بیرونی تا اتصال رسمی و تأیید لازم مسدود بماند",
+        "تست و rollback برای مهاجرت داده وجود داشته باشد"
+      ],
+      "linkedIdeaModuleIds": [
+        "ARIA-IDEA-MODULE-001",
+        "ARIA-IDEA-MODULE-002",
+        "ARIA-IDEA-MODULE-006",
+        "ARIA-IDEA-MODULE-007",
+        "ARIA-IDEA-MODULE-009",
+        "ARIA-IDEA-MODULE-014",
+        "ARIA-IDEA-MODULE-015",
+        "ARIA-IDEA-MODULE-016",
+        "ARIA-IDEA-MODULE-017",
+        "ARIA-IDEA-MODULE-018",
+        "ARIA-IDEA-MODULE-019",
+        "ARIA-IDEA-MODULE-020",
+        "ARIA-IDEA-MODULE-039"
+      ],
+      "implementationStatus": "DESIGNED_PENDING_LEGACY_SOURCE_CROSSWALK",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "LEGACY_APP_IDENTITY_AND_CAPABILITIES_PRESERVED_AS_INTERNAL_MODULE"
+    },
+    {
+      "moduleId": "ARIA-LEGACY-APP-MODULE-004",
+      "sequence": 58,
+      "moduleType": "MERGED_LEGACY_APP_DOMAIN_MODULE",
+      "name": "استودیوی خلاقیت و رسانه",
+      "legacyAppName": "NEGAH",
+      "sourceAppId": "NEGAH",
+      "purpose": "تبدیل NEGAH به استودیوی خلاقیت چندرسانه‌ای در ARIA.",
+      "submodules": [
+        "مدیریت هویت برند",
+        "بریف و ایده خلاق",
+        "طراحی گرافیک و دارایی تصویری",
+        "سناریونویسی و ویدئوی کوتاه",
+        "تولید محتوای متنی و تبلیغاتی",
+        "تقویم و گردش تأیید محتوا",
+        "مدیریت نسخه و حقوق دارایی",
+        "کتابخانه خروجی و قالب برند"
+      ],
+      "inputContract": [
+        "creative_brief",
+        "brand_guidelines",
+        "audience",
+        "channel",
+        "asset_rights",
+        "approval_constraints"
+      ],
+      "outputContract": [
+        "creative_concepts",
+        "draft_assets",
+        "content_variants",
+        "approval_package",
+        "rights_manifest"
+      ],
+      "workflow": [
+        "validate_tenant_and_permissions",
+        "validate_inputs_and_consent",
+        "execute_internal_workflow",
+        "quality_and_policy_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": [
+        "brand_kit",
+        "creative_brief",
+        "asset",
+        "asset_version",
+        "rights_record",
+        "approval_task"
+      ],
+      "accessPolicy": [
+        "strict_tenant_isolation",
+        "least_privilege",
+        "consent_and_rights_enforcement",
+        "audit_log",
+        "human_approval_for_external_or_sensitive_actions"
+      ],
+      "monetizationModel": "اشتراک سازنده، اعتبار تولید، بسته برند و خدمات خلاقیت",
+      "kpis": [
+        "module_activation_rate",
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "revenue_per_active_tenant"
+      ],
+      "acceptanceCriteria": [
+        "تمام قابلیت‌های منبع در crosswalk ثبت شوند",
+        "داده و شناسه‌های قدیمی قابل ردیابی باقی بمانند",
+        "API و UI هر زیرماژول مشخص باشد",
+        "دسترسی و tenant isolation آزموده شود",
+        "اقدام بیرونی تا اتصال رسمی و تأیید لازم مسدود بماند",
+        "تست و rollback برای مهاجرت داده وجود داشته باشد"
+      ],
+      "linkedIdeaModuleIds": [
+        "ARIA-IDEA-MODULE-018",
+        "ARIA-IDEA-MODULE-019",
+        "ARIA-IDEA-MODULE-034"
+      ],
+      "implementationStatus": "DESIGNED_PENDING_LEGACY_SOURCE_CROSSWALK",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "LEGACY_APP_IDENTITY_AND_CAPABILITIES_PRESERVED_AS_INTERNAL_MODULE"
+    },
+    {
+      "moduleId": "ARIA-LEGACY-APP-MODULE-005",
+      "sequence": 59,
+      "moduleType": "MERGED_LEGACY_APP_DOMAIN_MODULE",
+      "name": "زیرساخت ابری و دارایی دیجیتال",
+      "legacyAppName": "SEPEHR",
+      "sourceAppId": "SEPEHR",
+      "purpose": "تبدیل SEPEHR به ماژول زیرساخت و ذخیره‌سازی کنترل‌شده ARIA.",
+      "submodules": [
+        "مدیریت فضای ذخیره‌سازی و سهمیه",
+        "آپلود و دانلود کنترل‌شده",
+        "نسخه‌بندی و بازیابی فایل",
+        "جست‌وجو و فراداده دارایی",
+        "اشتراک‌گذاری با مجوز و انقضا",
+        "پایش سلامت سرویس و مصرف",
+        "سیاست نگهداری و حذف داده",
+        "گزارش پشتیبان‌گیری و بازیابی"
+      ],
+      "inputContract": [
+        "tenant_context",
+        "file_metadata",
+        "storage_policy",
+        "retention_policy",
+        "sharing_grant"
+      ],
+      "outputContract": [
+        "asset_reference",
+        "version_history",
+        "access_audit",
+        "quota_report",
+        "backup_restore_evidence"
+      ],
+      "workflow": [
+        "validate_tenant_and_permissions",
+        "validate_inputs_and_consent",
+        "execute_internal_workflow",
+        "quality_and_policy_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": [
+        "digital_asset",
+        "asset_version",
+        "storage_quota",
+        "share_grant",
+        "retention_rule",
+        "backup_job"
+      ],
+      "accessPolicy": [
+        "strict_tenant_isolation",
+        "least_privilege",
+        "consent_and_rights_enforcement",
+        "audit_log",
+        "human_approval_for_external_or_sensitive_actions"
+      ],
+      "monetizationModel": "پلن فضای ذخیره‌سازی، سهمیه مصرف و قابلیت سازمانی",
+      "kpis": [
+        "module_activation_rate",
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "revenue_per_active_tenant"
+      ],
+      "acceptanceCriteria": [
+        "تمام قابلیت‌های منبع در crosswalk ثبت شوند",
+        "داده و شناسه‌های قدیمی قابل ردیابی باقی بمانند",
+        "API و UI هر زیرماژول مشخص باشد",
+        "دسترسی و tenant isolation آزموده شود",
+        "اقدام بیرونی تا اتصال رسمی و تأیید لازم مسدود بماند",
+        "تست و rollback برای مهاجرت داده وجود داشته باشد"
+      ],
+      "linkedIdeaModuleIds": [
+        "ARIA-IDEA-MODULE-004",
+        "ARIA-IDEA-MODULE-025",
+        "ARIA-IDEA-MODULE-038"
+      ],
+      "implementationStatus": "DESIGNED_PENDING_LEGACY_SOURCE_CROSSWALK",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "LEGACY_APP_IDENTITY_AND_CAPABILITIES_PRESERVED_AS_INTERNAL_MODULE"
+    },
+    {
+      "moduleId": "ARIA-LEGACY-APP-MODULE-006",
+      "sequence": 60,
+      "moduleType": "MERGED_LEGACY_APP_DOMAIN_MODULE",
+      "name": "سایت‌ساز و صفحه‌ساز",
+      "legacyAppName": "NAMA",
+      "sourceAppId": "NAMA",
+      "purpose": "تبدیل NAMA به ماژول ساخت و مدیریت وب‌سایت مشتری در ARIA.",
+      "submodules": [
+        "ساخت سایت و صفحه با قالب",
+        "ویرایشگر بلوکی و واکنش‌گرا",
+        "فرم و دریافت سرنخ",
+        "مدیریت محتوا و رسانه",
+        "مدیریت دامنه و DNS",
+        "انتشار نسخه و بازگشت",
+        "سئوی پایه و داده ساختاریافته",
+        "تحلیل بازدید و تبدیل"
+      ],
+      "inputContract": [
+        "site_brief",
+        "brand_kit",
+        "page_content",
+        "domain_authorization",
+        "publish_approval"
+      ],
+      "outputContract": [
+        "site_draft",
+        "page_tree",
+        "form_schema",
+        "publish_manifest",
+        "seo_report",
+        "analytics_summary"
+      ],
+      "workflow": [
+        "validate_tenant_and_permissions",
+        "validate_inputs_and_consent",
+        "execute_internal_workflow",
+        "quality_and_policy_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": [
+        "site_project",
+        "page",
+        "theme",
+        "form_submission",
+        "domain_binding",
+        "deployment_version"
+      ],
+      "accessPolicy": [
+        "strict_tenant_isolation",
+        "least_privilege",
+        "consent_and_rights_enforcement",
+        "audit_log",
+        "human_approval_for_external_or_sensitive_actions"
+      ],
+      "monetizationModel": "اشتراک سایت‌ساز، میزبانی، دامنه و خدمات راه‌اندازی",
+      "kpis": [
+        "module_activation_rate",
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "revenue_per_active_tenant"
+      ],
+      "acceptanceCriteria": [
+        "تمام قابلیت‌های منبع در crosswalk ثبت شوند",
+        "داده و شناسه‌های قدیمی قابل ردیابی باقی بمانند",
+        "API و UI هر زیرماژول مشخص باشد",
+        "دسترسی و tenant isolation آزموده شود",
+        "اقدام بیرونی تا اتصال رسمی و تأیید لازم مسدود بماند",
+        "تست و rollback برای مهاجرت داده وجود داشته باشد"
+      ],
+      "linkedIdeaModuleIds": [
+        "ARIA-IDEA-MODULE-005",
+        "ARIA-IDEA-MODULE-036"
+      ],
+      "implementationStatus": "DESIGNED_PENDING_LEGACY_SOURCE_CROSSWALK",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "LEGACY_APP_IDENTITY_AND_CAPABILITIES_PRESERVED_AS_INTERNAL_MODULE"
+    },
+    {
+      "moduleId": "ARIA-LEGACY-APP-MODULE-007",
+      "sequence": 61,
+      "moduleType": "MERGED_LEGACY_APP_DOMAIN_MODULE",
+      "name": "بازاریابی، ارتباطات و رشد",
+      "legacyAppName": "PAYAM",
+      "sourceAppId": "PAYAM",
+      "purpose": "تبدیل PAYAM به موتور بازاریابی و رشد چندکاناله در ARIA.",
+      "submodules": [
+        "تقویم و برنامه کمپین",
+        "بخش‌بندی مبتنی بر رضایت",
+        "مدیریت سرنخ و قیف فروش",
+        "پیش‌نویس پیام و محتوای کمپین",
+        "زمان‌بندی و صف انتشار مجاز",
+        "تحلیل عملکرد کانال و کمپین",
+        "آزمایش نسخه و بهینه‌سازی",
+        "گزارش بازده بازاریابی"
+      ],
+      "inputContract": [
+        "campaign_goal",
+        "audience_consent",
+        "channel_permissions",
+        "content_assets",
+        "budget_limits",
+        "measurement_plan"
+      ],
+      "outputContract": [
+        "campaign_plan",
+        "audience_segment",
+        "message_draft",
+        "publishing_queue",
+        "performance_report"
+      ],
+      "workflow": [
+        "validate_tenant_and_permissions",
+        "validate_inputs_and_consent",
+        "execute_internal_workflow",
+        "quality_and_policy_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": [
+        "campaign",
+        "audience_segment",
+        "consent_record",
+        "lead",
+        "message_draft",
+        "channel_connection",
+        "campaign_metric"
+      ],
+      "accessPolicy": [
+        "strict_tenant_isolation",
+        "least_privilege",
+        "consent_and_rights_enforcement",
+        "audit_log",
+        "human_approval_for_external_or_sensitive_actions"
+      ],
+      "monetizationModel": "اشتراک بازاریابی، مدیریت کمپین، اعتبار مصرفی و خدمات رشد",
+      "kpis": [
+        "module_activation_rate",
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "revenue_per_active_tenant"
+      ],
+      "acceptanceCriteria": [
+        "تمام قابلیت‌های منبع در crosswalk ثبت شوند",
+        "داده و شناسه‌های قدیمی قابل ردیابی باقی بمانند",
+        "API و UI هر زیرماژول مشخص باشد",
+        "دسترسی و tenant isolation آزموده شود",
+        "اقدام بیرونی تا اتصال رسمی و تأیید لازم مسدود بماند",
+        "تست و rollback برای مهاجرت داده وجود داشته باشد"
+      ],
+      "linkedIdeaModuleIds": [
+        "ARIA-IDEA-MODULE-034",
+        "ARIA-IDEA-MODULE-035",
+        "ARIA-IDEA-MODULE-037",
+        "ARIA-IDEA-MODULE-040"
+      ],
+      "implementationStatus": "DESIGNED_PENDING_LEGACY_SOURCE_CROSSWALK",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "LEGACY_APP_IDENTITY_AND_CAPABILITIES_PRESERVED_AS_INTERNAL_MODULE"
     }
   ],
   "moduleCatalogSummary": {
-    "totalModules": 54,
+    "totalModules": 61,
     "ideaDerivedModules": 50,
     "controlModules": 4,
     "canonicalBaseline": 639,
@@ -7207,7 +7784,9 @@
     "controlEngines": 4,
     "totalUniqueEngines": 53,
     "aliasPolicy": "IDEA 048 is retained as its own module/entry point and uses the shared pet-care engine of IDEA 029; no source record is removed.",
-    "note": "Module catalog entries are designed product modules; they are not proof of production runtime."
+    "note": "Module catalog entries are designed product modules; they are not proof of production runtime.",
+    "mergedLegacyAppModules": 7,
+    "totalCatalogEntries": 61
   },
   "mergedDomainPacks": [
     {
@@ -7228,7 +7807,19 @@
         "مدارک تجاری",
         "لجستیک",
         "کنترل کیفیت"
-      ]
+      ],
+      "moduleId": "ARIA-LEGACY-APP-MODULE-001",
+      "submodules": [
+        "پروفایل بازار و کشور مقصد",
+        "کشف و ارزیابی تأمین‌کننده",
+        "درخواست پیشنهاد قیمت و RFQ",
+        "مقایسه پیشنهادها و شرایط تجاری",
+        "مدیریت اسناد و چک‌لیست صادرات/واردات",
+        "هماهنگی لجستیک و رهگیری وضعیت",
+        "کنترل کیفیت و ارزیابی ریسک معامله",
+        "مدیریت ارتباطات خریدار و فروشنده"
+      ],
+      "moduleType": "MERGED_LEGACY_APP_DOMAIN_MODULE"
     },
     {
       "id": "CHARSU",
@@ -7247,7 +7838,19 @@
         "روند بازار",
         "هشدار فرصت",
         "امتیازدهی بازار"
-      ]
+      ],
+      "moduleId": "ARIA-LEGACY-APP-MODULE-002",
+      "submodules": [
+        "پایش رقبا",
+        "تحلیل تقاضا و روند بازار",
+        "کشف شکاف بازار و فرصت محصول",
+        "امتیازدهی جذابیت فرصت",
+        "پایش قیمت و شاخص‌ها",
+        "هشدار تغییرات مهم",
+        "گزارش تصمیم و شواهد منبع",
+        "مقایسه بازارهای جغرافیایی"
+      ],
+      "moduleType": "MERGED_LEGACY_APP_DOMAIN_MODULE"
     },
     {
       "id": "GANJINEH",
@@ -7275,7 +7878,19 @@
         "سفارش",
         "تخفیف",
         "تحلیل فروش"
-      ]
+      ],
+      "moduleId": "ARIA-LEGACY-APP-MODULE-003",
+      "submodules": [
+        "مدیریت فروشگاه و غرفه",
+        "کاتالوگ و مشخصات محصول",
+        "مدیریت خدمات و بسته‌های قابل فروش",
+        "موجودی و ظرفیت نمایشی",
+        "ثبت و پیگیری سفارش",
+        "قیمت‌گذاری و تخفیف",
+        "مرجوعی و ضمانت",
+        "تحلیل عملکرد فروش و تبدیل"
+      ],
+      "moduleType": "MERGED_LEGACY_APP_DOMAIN_MODULE"
     },
     {
       "id": "NEGAH",
@@ -7292,7 +7907,19 @@
         "تصویر و ویدئو",
         "سناریو",
         "مدیریت حقوق و نسخه"
-      ]
+      ],
+      "moduleId": "ARIA-LEGACY-APP-MODULE-004",
+      "submodules": [
+        "مدیریت هویت برند",
+        "بریف و ایده خلاق",
+        "طراحی گرافیک و دارایی تصویری",
+        "سناریونویسی و ویدئوی کوتاه",
+        "تولید محتوای متنی و تبلیغاتی",
+        "تقویم و گردش تأیید محتوا",
+        "مدیریت نسخه و حقوق دارایی",
+        "کتابخانه خروجی و قالب برند"
+      ],
+      "moduleType": "MERGED_LEGACY_APP_DOMAIN_MODULE"
     },
     {
       "id": "SEPEHR",
@@ -7309,7 +7936,19 @@
         "جست‌وجو",
         "سهمیه",
         "پایش سلامت سرویس"
-      ]
+      ],
+      "moduleId": "ARIA-LEGACY-APP-MODULE-005",
+      "submodules": [
+        "مدیریت فضای ذخیره‌سازی و سهمیه",
+        "آپلود و دانلود کنترل‌شده",
+        "نسخه‌بندی و بازیابی فایل",
+        "جست‌وجو و فراداده دارایی",
+        "اشتراک‌گذاری با مجوز و انقضا",
+        "پایش سلامت سرویس و مصرف",
+        "سیاست نگهداری و حذف داده",
+        "گزارش پشتیبان‌گیری و بازیابی"
+      ],
+      "moduleType": "MERGED_LEGACY_APP_DOMAIN_MODULE"
     },
     {
       "id": "NAMA",
@@ -7326,7 +7965,19 @@
         "SEO",
         "تحلیل بازدید",
         "بازگشت نسخه"
-      ]
+      ],
+      "moduleId": "ARIA-LEGACY-APP-MODULE-006",
+      "submodules": [
+        "ساخت سایت و صفحه با قالب",
+        "ویرایشگر بلوکی و واکنش‌گرا",
+        "فرم و دریافت سرنخ",
+        "مدیریت محتوا و رسانه",
+        "مدیریت دامنه و DNS",
+        "انتشار نسخه و بازگشت",
+        "سئوی پایه و داده ساختاریافته",
+        "تحلیل بازدید و تبدیل"
+      ],
+      "moduleType": "MERGED_LEGACY_APP_DOMAIN_MODULE"
     },
     {
       "id": "PAYAM",
@@ -7344,7 +7995,19 @@
         "جذب سرنخ",
         "پیام‌رسانی مجاز",
         "تحلیل عملکرد"
-      ]
+      ],
+      "moduleId": "ARIA-LEGACY-APP-MODULE-007",
+      "submodules": [
+        "تقویم و برنامه کمپین",
+        "بخش‌بندی مبتنی بر رضایت",
+        "مدیریت سرنخ و قیف فروش",
+        "پیش‌نویس پیام و محتوای کمپین",
+        "زمان‌بندی و صف انتشار مجاز",
+        "تحلیل عملکرد کانال و کمپین",
+        "آزمایش نسخه و بهینه‌سازی",
+        "گزارش بازده بازاریابی"
+      ],
+      "moduleType": "MERGED_LEGACY_APP_DOMAIN_MODULE"
     }
   ],
   "familyArchitecture": {
@@ -7370,8 +8033,24 @@
       "DANA"
     ],
     "accountingErpOwner": "ARIANA",
-    "mergedLegacyAppsInventoryStatus": "PARTIAL_SOURCE_INVENTORY",
+    "mergedLegacyAppsInventoryStatus": "SEVEN_NAMED_LEGACY_APPS_CONVERTED_TO_INTERNAL_MODULES; SOURCE CROSSWALK STILL REQUIRED FOR FULL HISTORICAL DETAIL",
     "missingLegacyAppNamesMustBe": "SOURCE_PENDING_NOT_GUESSED",
-    "rule": "All other legacy apps merge into ARIA as internal modules, workspaces, engines, domain packs, or aliases; they do not become additional VAYRO apps."
+    "rule": "All other legacy apps merge into ARIA as internal modules, workspaces, engines, domain packs, or aliases; they do not become additional VAYRO apps.",
+    "mergedLegacyApps": [
+      "ARVAND",
+      "CHARSU",
+      "GANJINEH",
+      "NEGAH",
+      "SEPEHR",
+      "NAMA",
+      "PAYAM"
+    ],
+    "moduleCatalogCounts": {
+      "ideaModules": 50,
+      "controlModules": 4,
+      "legacyAppDomainModules": 7,
+      "total": 61,
+      "canonicalBaseline": 639
+    }
   }
 }
