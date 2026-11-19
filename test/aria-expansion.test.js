@@ -53,6 +53,19 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   const sampleSpecJson=await sampleSpec.json();
   assert.equal(sampleSpec.status,200);
   assert.equal(sampleSpecJson.record.unitId,"ARIA-CANONICAL-MODULE-001");
+  const engineEntry=executionRegistry.records.find(x=>x.recordType==="ENGINE_SUBMODULE");
+  const engineSpec=await fetch(base+"/api/aria-expansion/execution-registry/"+encodeURIComponent(engineEntry.launchId));
+  assert.equal(engineSpec.status,200);
+  assert.equal((await engineSpec.json()).record.unitId,engineEntry.unitId);
+  const transferredEntry=executionRegistry.records.find(x=>x.ownerStatus==="TRANSFERRED_LINEAGE");
+  assert.ok(["ARVAND","ARMIN_MARKET","LEADORA"].includes(transferredEntry.ownerProduct));
+  assert.equal(transferredEntry.executionState,"LINEAGE_ONLY");
+  const archivedEntry=executionRegistry.records.find(x=>x.ownerStatus==="ARCHIVED_LINEAGE");
+  assert.equal(archivedEntry.executionState,"LINEAGE_ONLY");
+  assert.equal(executionRegistry.counts.canonical,639);
+  assert.equal(executionRegistry.counts.overlay,111);
+  assert.equal(executionRegistry.counts.commercial,72);
+  assert.equal(executionRegistry.counts.engines,71);
   const missingSpec=await fetch(base+"/api/aria-expansion/execution-registry/UNKNOWN-MODULE");
   assert.equal(missingSpec.status,404);
 
