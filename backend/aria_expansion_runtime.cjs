@@ -88,6 +88,46 @@ function modulePlan(module, goal) {
   };
 }
 
+function simulateRevenue(model, assumptions) {
+  const input = assumptions && typeof assumptions === "object" && !Array.isArray(assumptions) ? assumptions : {};
+  const required = model.calculation.requiredInputs;
+  for (const key of required) {
+    const value = input[key];
+    if (typeof value !== "number" || !Number.isFinite(value) || value < 0 || value > 1e12) return { error: "ورودی عددی معتبر برای " + key + " الزامی است." };
+    if ((key === "conversionRate" || key === "commissionRate" || key === "royaltyRate") && value > 1) return { error: "نرخ‌ها باید بین صفر و یک باشند." };
+  }
+  for (const key of ["fixedCosts","variableCosts"]) {
+    if (input[key] !== undefined && (typeof input[key] !== "number" || !Number.isFinite(input[key]) || input[key] < 0 || input[key] > 1e12)) return { error: "هزینه‌ها باید عددی و غیرمنفی باشند." };
+  }
+  const a=input; let gross=0;
+  switch(model.sourceNumber){
+    case 1: gross=a.activeSubscribers*a.monthlyPrice; break;
+    case 2: gross=a.freeUsers*a.conversionRate*a.monthlyPrice; break;
+    case 3: gross=a.grossMerchandiseValue*a.commissionRate; break;
+    case 4: gross=a.orders*a.averageOrderValue; break;
+    case 5: gross=a.unitsSold*a.sellingPrice; break;
+    case 6: gross=a.wholesaleUnits*a.wholesalePrice; break;
+    case 7: gross=a.franchisees*a.monthlyFranchiseFee+a.royaltyBase*a.royaltyRate; break;
+    case 8: gross=a.activeLicenses*a.licenseFee; break;
+    case 9: gross=a.clicks*a.conversionRate*a.commissionPerConversion; break;
+    case 10: gross=a.impressions/1000*a.cpm; break;
+    case 11: gross=a.unitsSold*a.retailPrice; break;
+    case 12: gross=a.distributionVolume*a.marginPerUnit; break;
+    case 13: gross=a.completedJobs*a.platformFeePerJob; break;
+    case 14: gross=a.usageUnits*a.pricePerUnit; break;
+    case 15: gross=a.leasedAssets*a.monthlyLeasePrice*a.months; break;
+    case 16: gross=a.productsSold*a.pricePerProduct; break;
+    case 17: gross=a.billableHours*a.hourlyRate; break;
+    case 18: gross=a.platformTransactions*a.platformFeePerTransaction; break;
+    case 19: gross=a.reportLicenses*a.pricePerReport; break;
+    case 20: gross=a.payingMembers*a.monthlyMembershipFee; break;
+    default: return { error: "فرمول این مدل درآمدی تعریف نشده است." };
+  }
+  const fixedCosts=input.fixedCosts||0, variableCosts=input.variableCosts||0;
+  const round=x=>Math.round((x+Number.EPSILON)*100)/100;
+  return { modelId:model.id, modelName:model.name, state:"SIMULATED_NOT_ACTUAL", grossRevenueEstimate:round(gross), fixedCosts:round(fixedCosts), variableCosts:round(variableCosts), netContributionEstimate:round(gross-fixedCosts-variableCosts), currency:null, taxesIncluded:false, paymentExecuted:false, disclaimer:"این فقط شبیه‌سازی بر اساس فرض‌های واردشده است؛ درآمد واقعی، سود قطعی، مالیات، بازپرداخت، کارمزد پرداخت و هزینه‌های اعلام‌نشده را اثبات نمی‌کند." };
+}
+
 async function handle(req, res, url, deps) {
   const { json, readJson, authUser, requireDb, pool } = deps;
   const p = url.pathname;
@@ -110,6 +150,15 @@ async function handle(req, res, url, deps) {
   }
   if (p === "/api/aria-expansion/candidates" && req.method === "GET") {
     return json(res, 200, { candidates: registry.candidates, total: 4, canonicalModuleCount: 639 });
+  }
+  if (p === "/api/aria-expansion/revenue-models/simulate" && req.method === "POST") {
+    const data = await readJson(req, res); if (data === null) return true;
+    const modelId = cleanText(data.modelId, 1, 80);
+    const model = registry.revenueModels.find(x => x.id === modelId);
+    if (!model) return json(res, 404, { error: "مدل درآمدی پیدا نشد." });
+    const result = simulateRevenue(model, data.assumptions);
+    if (result.error) return json(res, 400, { error: result.error });
+    return json(res, 200, { simulation: result });
   }
   if (p === "/api/aria-expansion/revenue-models" && req.method === "GET") {
     return json(res, 200, { models: registry.revenueModels, total: 20, state: "DESIGNED_NOT_MONETIZED", paymentProviderState: "NOT_CONNECTED", liveRevenueEnabled: false });
