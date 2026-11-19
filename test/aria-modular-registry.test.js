@@ -3,9 +3,9 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const { MODULES, MODULE_BY_ID, executeModule } = require("../backend/modules");
 
-test("all 197 requested modules have unique independent IDs and executable handlers", () => {
+test("all 201 requested modules have unique independent IDs and executable handlers", () => {
   assert.equal(MODULES.length, 201);
-  assert.equal(new Set(MODULES.map(x => x.moduleId)).size, 197);
+  assert.equal(new Set(MODULES.map(x => x.manifest.moduleId)).size, 201);
   assert.equal(MODULE_BY_ID.size, 201);
   for (const module of MODULES) {
     assert.equal(typeof module.execute, "function", module.manifest.moduleId);
