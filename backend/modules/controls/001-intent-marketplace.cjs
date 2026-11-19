@@ -22,7 +22,8 @@ module.exports = createDomainModule({
   ],
   "requiredInputs": [
     "request_payload",
-    "policy_or_assumptions"
+    "policy_or_assumptions",
+    "consent"
   ],
   "operations": [
     "validate",
@@ -31,6 +32,7 @@ module.exports = createDomainModule({
     "review"
   ],
   "accessPolicy": [
+    "explicit_contact_consent",
     "deny_by_default",
     "least_privilege",
     "human_approval_for_sensitive_actions",
