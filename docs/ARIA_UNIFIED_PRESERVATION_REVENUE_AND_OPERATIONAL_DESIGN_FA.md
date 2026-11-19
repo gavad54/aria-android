@@ -28,23 +28,34 @@ ARIA یک محصول مستقل و زیرمجموعه VAYRO است. ARIA حسا�
 ## 3) دارایی‌های تاریخی که باید صریحاً حفظ شوند
 ### 3.1 خانواده مادر 120تایی و توسعه 145تایی
 نام‌ها و دامنه‌های نسخه‌های 15.4/15.5 و 15.6 همچنان مرجع محصولی‌اند: NEXUS، GOVERNOR، SECURITY & CONTINUITY، TRUST/GUARD، RISK BRAIN، HUMAN SAFETY، SUPPORT & CONTINUITY، MONEY ENGINE/REVENUE OS، AI GUARD، MARKET/B2B، DIRECT MARKET، PRODUCER HUB، CONSUMER DIRECT، DEMAND EXCHANGE، OPPORTUNITY، IDEA MARKET، CAPACITY، FLOW، LEAD، DEAL ROOM، FAIR DEAL، RETURN & DISPUTE، REPEAT، VALUE BRAIN، RETENTION & GROWTH، SERVICES، FIX & LEARN، APPOINTMENT & TRUST، LOGISTICS، DELIVERY، DISTRIBUTION، PROCUREMENT، SUPPLY، SALES MASTER، MARKETING & SALES، REELS FACTORY، YOUTUBE MONEY ENGINE، GROWTH EXCHANGE، CUSTOMER PULSE، ADS، BUSINESS SUPER OS، TALENT & WORKFORCE، WORK، PROPERTY، AUTO، FARM، SCRAP، GREEN، ACADEMY، LANGUAGE، AI ENGINEERING، BUILDER، AGENT MARKET، CREATOR، STUDIO/DESIGN، BRAND & LOGO STUDIO، 3D WEB STUDIO، ANIMATION LAB، ENTERTAINMENT، HUMANITARIAN، COMMUNITY، KNOWLEDGE، CONSULTANT، TEACHER، PROFESSOR، SUPERVISOR، COMPANION & HELP، SOS/SAFETY، IDEA→PROJECT GUARD، DISCOVERY & MODULE FACTORY و FEEDBACK→PRODUCT FACTORY؛ همچنین همه موارد شماره‌دار 1 تا 120 در سندهای منبع حفظ می‌شوند.
-توسعه نسخه 15.6 شامل 25 مورد 121 تا 145 است و به‌جای 120 مورد قبلی نمی‌نشیند:
-- Loyalty Engine
-- Smart Order Router
-- Service Dispatch Engine
-- Live Status & ETA Engine
-- Capacity & Route Optimizer
-- Business Subscription
-- Ad Marketplace
-- Lead Market
-- Quote Competition
-- Service Bundle
-- Local Discovery
-- Customer Care Automation
-- Provider Performance Engine
-- Cross-Service Upsell Brain
-- Platform Revenue Optimizer
-و سایر موارد دقیقاً مطابق فهرست منبع نسخه 15.6. نام، شناسه و شرح کامل هر مورد از فایل منبع باید در Crosswalk ثبت شود؛ این خلاصه جایگزین فهرست اصلی نیست.
+توسعه نسخه 15.6 شامل 25 مورد 121 تا 145 است و به‌جای 120 مورد قبلی نمی‌نشیند؛ فهرست کامل عیناً حفظ می‌شود:
+121. ARIA SMART LISTING ENGINE
+122. ARIA LISTING BOOST ENGINE
+123. ARIA PROFESSIONAL BUSINESS HUB
+124. ARIA SMART SEARCH & DISCOVERY
+125. ARIA SAFE CHAT & CONTACT
+126. ARIA TRUSTED TRANSACTION GUIDE
+127. ARIA SHOP / STALL BUILDER
+128. ARIA SOCIAL COMMERCE ENGINE
+129. ARIA COUPON & PROMOTION ENGINE
+130. ARIA SELLER ANALYTICS BRAIN
+131. ARIA CUSTOMER LOYALTY ENGINE
+132. ARIA SMART ORDER ROUTER
+133. ARIA SERVICE DISPATCH ENGINE
+134. ARIA LIVE STATUS & ETA ENGINE
+135. ARIA ROUTE & CAPACITY OPTIMIZER
+136. ARIA BUSINESS SUBSCRIPTION HUB
+137. ARIA AD MARKETPLACE
+138. ARIA LEAD MARKET
+139. ARIA QUOTE COMPETITION ENGINE
+140. ARIA SERVICE BUNDLE ENGINE
+141. ARIA LOCAL DISCOVERY ENGINE
+142. ARIA CUSTOMER CARE AUTOMATION
+143. ARIA PROVIDER PERFORMANCE ENGINE
+144. ARIA CROSS-SERVICE UPSELL BRAIN
+145. ARIA PLATFORM REVENUE OPTIMIZER
+
+نام، شناسه و شرح کامل هر مورد از فایل منبع باید در Crosswalk ثبت شود؛ این فهرست، 25 مورد تاریخی را بدون حذف نام می‌برد و به‌تنهایی ادعای پیاده‌سازی یا Production نیست.
 
 ### 3.2 خانواده 15.18.x و بنچمارک‌های بازار
 تمام 231 رکورد و رکوردهای بنچمارک بعدی حفظ می‌شوند؛ از جمله Smart Listing، Listing Boost، Professional Business Hub، Smart Search & Discovery، Safe Chat & Contact، Trusted Transaction Guide، Shop/Stall Builder، Social Commerce، Coupon & Promotion، Seller Analytics، Customer Loyalty، Smart Order Router، Service Dispatch و ETA. همچنین خانواده Marketplace شامل Listing Lifecycle، Seller Mini CRM، Safe Contact Gate، Listing Insight، Smart Repost، Listing Packs، Store Home، Product Card، Story-to-Listing، Follow & Save Graph، Promotion Center، Platform Fee Gate، Optional Boost Revenue، Professional Plan، Lead Pricing، Ad Inventory، Digital Delivery Revenue، Service Commission Gate و Business Tools Market است.
