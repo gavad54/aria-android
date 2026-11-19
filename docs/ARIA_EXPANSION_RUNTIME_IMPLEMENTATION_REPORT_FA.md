@@ -15,7 +15,7 @@
 - GET /api/aria-expansion/summary — شمارش و وضعیت.
 - GET /api/aria-expansion/modules — پنج حوزه و ۵۰ مسئله.
 - GET /api/aria-expansion/candidates — چهار نامزد.
-- GET /api/aria-expansion/engines — ۵۳ قرارداد موتور تخصصی.
+- GET /api/aria-expansion/engines — ۵۳ قرارداد موتور تخصصی؛ کاتالوگ آن در رابط وب نمایش داده می‌شود.\n- رابط هر مسئله امکان تولید برنامه اقدام و ثبت آن در فهرست کارهای کاربر را دارد؛ ذخیره‌سازی نیازمند ورود و پایگاه داده است.
 - GET /api/aria-expansion/revenue-models — بیست مدل درآمدی با وضعیت DESIGNED_NOT_MONETIZED.
 - POST /api/aria-expansion/modules/{problem-id}/plan — برنامه اقدام محلی اختصاصی برای مسئله.
 - POST /api/aria-expansion/scenarios/simulate — مقایسه محاسباتی ۲ تا ۱۰ سناریو بر اساس اعداد ورودی؛ بدون پیش‌بینی قطعی یا اقدام بیرونی.
