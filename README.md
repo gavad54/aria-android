@@ -6,6 +6,8 @@
 >
 > **وضعیت واقعی:** PR #3 باز و Draft است. آخرین CI وب‌کاتالوگ شماره 201 (run 44560252148) روی commit `d7c3930367bdc953a1fd86815d01a5cddfc2e571` موفق شده است؛ این فقط آزمون‌های وب/Node است و build اندروید یا آمادگی Production را اثبات نمی‌کند. سورس کامل Android 32 هنوز در مخزن وارد نشده؛ build/signing/device proof، E2E همه دامنه‌ها، providerهای واقعی، MFA، پرداخت واقعی و backup/restore تأییدشده باز هستند. بنابراین این پروژه هنوز انتشار Production تأییدشده نیست.
 >
+> **کاتالوگ تجربه کاربری ARIA:** [ARIA_USER_EXPERIENCE_CATALOG_2026-11-19_FA.md](docs/ARIA_USER_EXPERIENCE_CATALOG_2026-11-19_FA.md)
+>
 > **سند تغییر جدید مرزبندی محصولات:** [VAYRO_PRODUCT_BOUNDARY_CHANGE_2026-11-19_FA.md](docs/VAYRO_PRODUCT_BOUNDARY_CHANGE_2026-11-19_FA.md)
 >
 > **سند بازطراحی و معیار پذیرش:** [ARIA_MASTER_REDESIGN_OPERATIONALIZATION_2026-11-19_FA.md](docs/ARIA_MASTER_REDESIGN_OPERATIONALIZATION_2026-11-19_FA.md)
