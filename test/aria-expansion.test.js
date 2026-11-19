@@ -30,7 +30,8 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(modules.parents.length,5);
   assert.equal(modules.problems.length,50);
   assert.equal(new Set(modules.problems.map(x=>x.id)).size,50);
-  assert.ok(modules.problems.every(x=>x.engine&&x.parentDomain&&x.sourceProblemNumber&&Number.isInteger(x.hostCanonicalContractId)));\n  assert.equal(new Set(modules.problems.map(x=>x.hostCanonicalContractId)).size,5);
+  assert.ok(modules.problems.every(x=>x.engine&&x.parentDomain&&x.sourceProblemNumber&&Number.isInteger(x.hostCanonicalContractId)));
+  assert.equal(new Set(modules.problems.map(x=>x.hostCanonicalContractId)).size,5);
   const petTravel=modules.problems.find(x=>x.sourceProblemNumber===48);
   const petHome=modules.problems.find(x=>x.sourceProblemNumber===29);
   assert.equal(petTravel.aliasOf,petHome.id,"travel pet-care entry must reuse the home pet-care capability");
@@ -71,7 +72,15 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   const authz=await authzResponse.json();
   assert.equal(authzResponse.status,200);
   assert.equal(authz.decision,"DENY");
-  assert.equal(authz.reason,"AUTH_OR_POLICY_STORE_UNAVAILABLE");\n\n  const unauthWork=await fetch(base+"/api/aria-expansion/work-items");assert.equal(unauthWork.status,401);\n  const unauthIntents=await fetch(base+"/api/aria-expansion/intents");assert.equal(unauthIntents.status,401);\n  const unauthOwner=await fetch(base+"/api/aria-expansion/owner/overview");assert.equal(unauthOwner.status,401);\n  const unauthPolicy=await fetch(base+"/api/aria-expansion/autonomy/policies",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({agentId:"agent-1",action:"draft",decision:"ALLOW"})});assert.equal(unauthPolicy.status,401);\n\n  const home=await fetch(base+"/");const homeHtml=await home.text();assert.match(homeHtml,/id="aria-expansion"/);assert.match(homeHtml,/aria-expansion.js/);\n  const expansionJs=await fetch(base+"/aria-expansion.js");assert.equal(expansionJs.status,200);assert.match(await expansionJs.text(),/api\/aria-expansion\/modules/);
+  assert.equal(authz.reason,"AUTH_OR_POLICY_STORE_UNAVAILABLE");
+
+  const unauthWork=await fetch(base+"/api/aria-expansion/work-items");assert.equal(unauthWork.status,401);
+  const unauthIntents=await fetch(base+"/api/aria-expansion/intents");assert.equal(unauthIntents.status,401);
+  const unauthOwner=await fetch(base+"/api/aria-expansion/owner/overview");assert.equal(unauthOwner.status,401);
+  const unauthPolicy=await fetch(base+"/api/aria-expansion/autonomy/policies",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({agentId:"agent-1",action:"draft",decision:"ALLOW"})});assert.equal(unauthPolicy.status,401);
+
+  const home=await fetch(base+"/");const homeHtml=await home.text();assert.match(homeHtml,/id="aria-expansion"/);assert.match(homeHtml,/aria-expansion.js/);
+  const expansionJs=await fetch(base+"/aria-expansion.js");assert.equal(expansionJs.status,200);assert.match(await expansionJs.text(),/api\/aria-expansion\/modules/);
  }finally{
   await new Promise(resolve=>{if(child.exitCode!==null||child.signalCode!==null)return resolve();child.once("exit",resolve);child.kill();});
  }
