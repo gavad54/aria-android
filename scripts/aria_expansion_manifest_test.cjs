@@ -46,7 +46,7 @@ assert.equal(moduleRegistry.moduleCatalogSummary.canonicalBaseline,639);
 assert.equal(moduleRegistry.moduleCatalogSummary.canonicalBaselineChanged,false);
 assert.ok(moduleRegistry.moduleCatalog.filter(x=>x.moduleType==="NEW_IDEA_PRODUCT_MODULE").every(x=>x.canonicalMappingStatus==="PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639"&&Array.isArray(x.dataEntities)&&x.monetizationModel));
 assert.equal(moduleRegistry.familyArchitecture.parent,"VAYRO");
-assert.deepEqual(moduleRegistry.familyArchitecture.directProducts,["ARIA","ARIANA","LEADORA","ARMIN MARKET","DANA"]);
+assert.deepEqual(moduleRegistry.familyArchitecture.directProducts,["ARIA","ARIANA","LEADORA","ARMIN MARKET","DANA","ARVAND"]);
 assert.equal(moduleRegistry.familyArchitecture.accountingErpOwner,"ARIANA");
 console.log("ARIA_111_MODULE_CATALOG_PASS historical=50 new_ideas=50 control=4 merged_legacy_apps=7 canonical=639");
 
@@ -56,14 +56,14 @@ assert.equal(new Set(freshIdeas.map(x=>x.name)).size,50);
 assert.ok(freshIdeas.every(x=>x.moduleId.startsWith("ARIA-IDEA-MODULE-")&&x.inputContract.length>0&&x.outputContract.length>0&&x.workflow.length>0&&x.dataEntities.length>0&&x.monetizationModel&&x.acceptanceCriteria.length>0));
 const legacyModules=moduleRegistry.moduleCatalog.filter(x=>x.moduleType==="MERGED_LEGACY_APP_DOMAIN_MODULE");
 assert.ok(legacyModules.every(x=>x.submodules.length===8&&x.linkedIdeaModuleIds.length>0));
-assert.equal(moduleRegistry.moduleCatalogSummary.totalModules,111);
+assert.equal(moduleRegistry.moduleCatalogSummary.totalModules,111);\nconst ownership=JSON.parse(fs.readFileSync(path.join(root,"backend/data/aria_product_ownership_migration.json"),"utf8"));\nassert.equal(ownership.canonicalBaseline,639);\nassert.equal(ownership.archivedOverlayTotal,111);\nassert.equal(ownership.publicAriaOverlayTarget,72);\nassert.deepEqual(Object.fromEntries(Object.entries(ownership.products).map(([k,v])=>[k,v.ownedModuleIds.length])),{ARVAND:14,ARMIN_MARKET:11,LEADORA:11});\nassert.equal(new Set(Object.values(ownership.products).flatMap(x=>x.ownedModuleIds)).size,36);\nassert.equal(ownership.sharedAriaModuleIds.length,2);
 assert.equal(moduleRegistry.moduleCatalogSummary.totalUniqueEngines,110);
-assert.deepEqual(moduleRegistry.familyArchitecture.independentSiblings,["ARIANA","LEADORA","ARMIN MARKET","DANA"]);
-assert.equal(moduleRegistry.familyArchitecture.ariaRole,"Consolidated application containing all legacy apps except the four independent siblings.");
+assert.deepEqual(moduleRegistry.familyArchitecture.independentSiblings,["ARIANA","LEADORA","ARMIN MARKET","DANA","ARVAND"]);
+assert.equal(moduleRegistry.familyArchitecture.ariaRole,"General AI assistant and digital work environment; transferred domains are owned by ARVAND, ARMIN MARKET and LEADORA.");
 assert.ok(moduleRegistry.moduleCatalog.filter(x=>x.moduleType==="HISTORICAL_PROBLEM_MODULE").every(x=>x.moduleId.startsWith("ARIA-PROBLEM-MODULE-")));
 
 const expansionUi=fs.readFileSync(path.join(root,"aria-expansion.js"),"utf8");
 assert.ok(expansionUi.includes("const savePlanButton="));
 assert.ok(expansionUi.includes('authorization:"Bearer "+window.ariaToken'));
 assert.ok((expansionUi.match(/savePlanButton\(/g)||[]).length>=4);
-console.log("ARIA_MODULE_PLAN_PERSISTENCE_UI_PASS historical=50 ideas=50 control=4 legacy_domains=7");
+console.log("ARIA_MODULE_PLAN_PERSISTENCE_UI_PASS historical=50 ideas=50 control=4 legacy_domains=4");
