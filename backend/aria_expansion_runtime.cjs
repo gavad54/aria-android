@@ -100,7 +100,8 @@ function modulePlan(module, goal) {
   return {
     planId: "aria-expansion-" + module.id + "-" + Date.now().toString(36),
     moduleId: module.moduleId || module.id, sourceProblemNumber: module.sourceProblemNumber,
-    parentModuleId: module.parentModuleId, engine: module.engine,
+    parentModuleId: module.parentModuleId, hostCanonicalContractId: module.hostCanonicalContractId || null,
+    entryPointCanonicalContractId: module.entryPointCanonicalContractId || null, engine: module.engine,
     goal, steps, executionStatus: "LOCAL_PLAN_CREATED",
     externalExecution: { status: "NOT_CONNECTED", executed: false },
     revenueState: "DESIGNED_NOT_MONETIZED",
