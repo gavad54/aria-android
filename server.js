@@ -76,6 +76,36 @@ const modules=[
  {id:"on-demand-local-services",name:"بازار خدمات درخواستی و محلی",status:"planned",description:"ثبت درخواست، تطبیق متخصص، دریافت پیشنهاد، زمان‌بندی، امتیازدهی و پیگیری خدمات خانه و زندگی؛ احراز ارائه‌دهنده و رسیدگی به شکایت لازم است",revenueModel:"کارمزد سرنخ یا سفارش با افشای شفاف؛ اشتراک متخصص؛ جایگاه تبلیغاتی مشخص"}
 
 ];
+const MODULE_DOMAIN_BY_ID = Object.freeze({
+ "command-center":"workspace","idea-to-value":"workspace","opportunities":"workspace","workflows":"workspace",
+ "trust-control":"trust",
+ "learning-creator":"learning","flashcards-quizzes":"learning","ai-tool-tutorials":"learning","career-learning-productivity":"learning",
+ "ai-instagram":"creative","image-editing":"creative","profile-photo":"creative","product-photo":"creative","image-to-image":"creative","ad-banner":"creative","social-post-story":"creative","youtube-thumbnail":"creative","avatar":"creative","logo-design":"creative","product-packaging":"creative","professional-catalog":"creative","mockup-maker":"creative","character-design":"creative","photo-restoration":"creative",
+ "face-reel":"media","voice-video":"media","subtitles-captions":"media","text-to-video":"media","podcast-clips":"media","product-video-ad":"media",
+ "business-prompts":"content","prompt-pack":"content","instagram-caption":"content","content-ideas":"content","content-calendar":"content","content-management":"content","resume-portfolio":"content","translation-localization":"content","seo-content":"content","product-copy":"content","reels-script":"content","ad-copywriting":"content","educational-content":"content",
+ "pdf-summary":"knowledge","chatbot-builder":"knowledge","customer-support":"knowledge","faq-builder":"knowledge",
+ "data-analysis":"data","reports-dashboards":"data","data-cleaning":"data",
+ "no-code-site":"web-builder","landing-page":"web-builder","no-code-app":"web-builder",
+ "workflow-automation":"automation",
+ "life-home-assistant":"personal","smart-shopping-household":"personal","family-health-wellbeing":"personal","travel-leisure-planner":"personal",
+ "business-model-studio":"business","revenue-commerce-engine":"business",
+ "creator-platform-community":"community","on-demand-local-services":"community"
+});
+const MODULE_DOMAIN_LABELS = Object.freeze({
+ workspace:"فضای کار و فرماندهی",trust:"اعتماد و کنترل",learning:"یادگیری و رشد",
+ creative:"استودیوی خلاقیت و تصویر",media:"صوت و ویدئو",content:"محتوا و بازاریابی",
+ knowledge:"دانش و پشتیبانی",data:"داده و تحلیل", "web-builder":"ساخت وب و محصول",
+ automation:"اتوماسیون",personal:"دستیار زندگی و امور شخصی",business:"کسب‌وکار و درآمد",
+ community:"جامعه و خدمات"
+});
+const catalogModules = modules.map((module) => ({
+ ...module,
+ product: "ARIA",
+ domain: MODULE_DOMAIN_BY_ID[module.id] || "unclassified",
+ domainLabel: MODULE_DOMAIN_LABELS[MODULE_DOMAIN_BY_ID[module.id]] || "نیازمند طبقه‌بندی",
+ executionState: module.status === "available" ? "foundation" : module.status,
+ source: "aria-web-catalog-v0.4.0"
+}));
 const rateBuckets=new Map();
 const pool=process.env.DATABASE_URL?new Pool({connectionString:process.env.DATABASE_URL,max:10,idleTimeoutMillis:30000,connectionTimeoutMillis:5000,ssl:process.env.DATABASE_SSL==="true"?{rejectUnauthorized:false}:undefined}):null;
 let dbInitPromise=null,dbConnected=false;
@@ -183,7 +213,11 @@ async function handle(req,res,url){
   return json(res,200,{ok:true,service:"aria-web",version:"0.4.0",mode:process.env.OPENAI_API_KEY?"ai-enabled-prototype":"rule-based-prototype",aiConfigured:Boolean(process.env.OPENAI_API_KEY),databaseConfigured:Boolean(pool),databaseConnected:dbConnected,authenticationConfigured:Boolean(process.env.ARIA_JWT_SECRET),productionIntegrations:false});
  }
  if(url.pathname.startsWith("/api/")&&rateLimited(req))return json(res,429,{error:"تعداد درخواست‌ها زیاد است. یک دقیقه دیگر دوباره تلاش کنید."},{"retry-after":"60"});
- if(url.pathname==="/api/modules"&&req.method==="GET")return json(res,200,{modules});
+ if(url.pathname==="/api/modules/summary"&&req.method==="GET"){
+  const counts=catalogModules.reduce((acc,module)=>{acc[module.executionState]=(acc[module.executionState]||0)+1;acc.byDomain[module.domain]=(acc.byDomain[module.domain]||0)+1;return acc;},{byDomain:{}});
+  return json(res,200,{product:"ARIA",catalogVersion:"web-prototype-0.4.0",source:"current server.js catalogue",total:catalogModules.length,executionStates:{foundation:counts.foundation||0,prototype:counts.prototype||0,planned:counts.planned||0},domains:counts.byDomain,limitations:["This is the current web catalogue, not the full ARIA 32 Android registry.","foundation means code-level foundation only; it does not imply production readiness.","planned modules are not executable capabilities."]});
+ }
+ if(url.pathname==="/api/modules"&&req.method==="GET")return json(res,200,{catalogVersion:"web-prototype-0.4.0",modules:catalogModules});
  if(url.pathname==="/api/auth/register"&&req.method==="POST"){
   const data=await readJson(req,res);if(data===null)return;
   const email=typeof data.email==="string"?data.email.trim().toLowerCase():"",password=typeof data.password==="string"?data.password:"";
