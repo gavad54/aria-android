@@ -7,6 +7,7 @@ on:
       - 'test/server.test.js'
       - 'backend/data/aria_web_catalog_bridge.json'
       - 'scripts/aria_web_catalog_manifest_test.js'
+      - 'scripts/aria32_apply_web_catalog_bridge.js'
       - '.github/workflows/aria-web-catalog-ci.yml'
   push:
     branches:
@@ -16,6 +17,7 @@ on:
       - 'test/server.test.js'
       - 'backend/data/aria_web_catalog_bridge.json'
       - 'scripts/aria_web_catalog_manifest_test.js'
+      - 'scripts/aria32_apply_web_catalog_bridge.js'
       - '.github/workflows/aria-web-catalog-ci.yml'
 
 permissions:
@@ -32,6 +34,8 @@ jobs:
           node-version: '22.14.0'
       - name: Install dependencies
         run: npm install --no-audit --no-fund
+      - name: Validate engineering scripts
+        run: node --check scripts/aria32_apply_web_catalog_bridge.js
       - name: Validate catalog-to-contract manifest
         run: node scripts/aria_web_catalog_manifest_test.js
       - name: Run web API tests
