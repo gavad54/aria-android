@@ -144,7 +144,7 @@ function createSupportTicket(input, actor) {
 
 function evaluateCustomerSuccess(input) {
   const { period, activeDays, completedTasks, targetTasks, unresolvedTickets } = input || {};
-  if (typeof period !== "string" || !/^\\d{4}-\\d{2}$/.test(period) ||
+  if (typeof period !== "string" || !/^\d{4}-\d{2}$/.test(period) ||
       !Number.isInteger(activeDays) || activeDays < 0 || activeDays > 31 ||
       !Number.isInteger(completedTasks) || completedTasks < 0 ||
       !Number.isInteger(targetTasks) || targetTasks < 0 ||
