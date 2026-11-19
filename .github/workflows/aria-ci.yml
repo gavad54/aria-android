@@ -1,0 +1,36 @@
+name: ARIA CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches:
+      - main
+      - engineering/aria-preserve-all-capabilities-2026-11-19
+
+permissions:
+  contents: read
+
+concurrency:
+  group: aria-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: npm install --ignore-scripts
+      - name: Syntax checks
+        run: |
+          npm run check
+          node --check backend/aria_expansion_runtime.cjs
+      - name: API and registry tests
+        run: npm test
