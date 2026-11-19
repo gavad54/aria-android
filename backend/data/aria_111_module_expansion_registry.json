@@ -7370,11 +7370,20 @@
         "تست و rollback برای مهاجرت داده وجود داشته باشد"
       ],
       "linkedIdeaModuleIds": [
+        "ARIA-PROBLEM-MODULE-014",
+        "ARIA-PROBLEM-MODULE-042",
+        "ARIA-PROBLEM-MODULE-045",
+        "ARIA-PROBLEM-MODULE-047",
+        "ARIA-PROBLEM-MODULE-049",
+        "ARIA-IDEA-MODULE-001",
+        "ARIA-IDEA-MODULE-002",
+        "ARIA-IDEA-MODULE-005",
+        "ARIA-IDEA-MODULE-007",
+        "ARIA-IDEA-MODULE-008",
+        "ARIA-IDEA-MODULE-009",
         "ARIA-IDEA-MODULE-014",
-        "ARIA-IDEA-MODULE-042",
-        "ARIA-IDEA-MODULE-045",
-        "ARIA-IDEA-MODULE-047",
-        "ARIA-IDEA-MODULE-049"
+        "ARIA-IDEA-MODULE-021",
+        "ARIA-IDEA-MODULE-050"
       ],
       "implementationStatus": "DESIGNED_PENDING_LEGACY_SOURCE_CROSSWALK",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
@@ -7452,11 +7461,19 @@
         "تست و rollback برای مهاجرت داده وجود داشته باشد"
       ],
       "linkedIdeaModuleIds": [
-        "ARIA-IDEA-MODULE-011",
-        "ARIA-IDEA-MODULE-012",
-        "ARIA-IDEA-MODULE-013",
-        "ARIA-IDEA-MODULE-038",
-        "ARIA-IDEA-MODULE-040"
+        "ARIA-PROBLEM-MODULE-011",
+        "ARIA-PROBLEM-MODULE-012",
+        "ARIA-PROBLEM-MODULE-013",
+        "ARIA-PROBLEM-MODULE-038",
+        "ARIA-PROBLEM-MODULE-040",
+        "ARIA-IDEA-MODULE-004",
+        "ARIA-IDEA-MODULE-019",
+        "ARIA-IDEA-MODULE-025",
+        "ARIA-IDEA-MODULE-029",
+        "ARIA-IDEA-MODULE-034",
+        "ARIA-IDEA-MODULE-036",
+        "ARIA-IDEA-MODULE-037",
+        "ARIA-IDEA-MODULE-039"
       ],
       "implementationStatus": "DESIGNED_PENDING_LEGACY_SOURCE_CROSSWALK",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
@@ -7535,19 +7552,27 @@
         "تست و rollback برای مهاجرت داده وجود داشته باشد"
       ],
       "linkedIdeaModuleIds": [
-        "ARIA-IDEA-MODULE-001",
-        "ARIA-IDEA-MODULE-002",
+        "ARIA-PROBLEM-MODULE-001",
+        "ARIA-PROBLEM-MODULE-002",
+        "ARIA-PROBLEM-MODULE-006",
+        "ARIA-PROBLEM-MODULE-007",
+        "ARIA-PROBLEM-MODULE-009",
+        "ARIA-PROBLEM-MODULE-014",
+        "ARIA-PROBLEM-MODULE-015",
+        "ARIA-PROBLEM-MODULE-016",
+        "ARIA-PROBLEM-MODULE-017",
+        "ARIA-PROBLEM-MODULE-018",
+        "ARIA-PROBLEM-MODULE-019",
+        "ARIA-PROBLEM-MODULE-020",
+        "ARIA-PROBLEM-MODULE-039",
+        "ARIA-IDEA-MODULE-003",
         "ARIA-IDEA-MODULE-006",
-        "ARIA-IDEA-MODULE-007",
-        "ARIA-IDEA-MODULE-009",
-        "ARIA-IDEA-MODULE-014",
-        "ARIA-IDEA-MODULE-015",
-        "ARIA-IDEA-MODULE-016",
-        "ARIA-IDEA-MODULE-017",
-        "ARIA-IDEA-MODULE-018",
-        "ARIA-IDEA-MODULE-019",
-        "ARIA-IDEA-MODULE-020",
-        "ARIA-IDEA-MODULE-039"
+        "ARIA-IDEA-MODULE-010",
+        "ARIA-IDEA-MODULE-011",
+        "ARIA-IDEA-MODULE-012",
+        "ARIA-IDEA-MODULE-013",
+        "ARIA-IDEA-MODULE-023",
+        "ARIA-IDEA-MODULE-028"
       ],
       "implementationStatus": "DESIGNED_PENDING_LEGACY_SOURCE_CROSSWALK",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
@@ -7625,9 +7650,13 @@
         "تست و rollback برای مهاجرت داده وجود داشته باشد"
       ],
       "linkedIdeaModuleIds": [
-        "ARIA-IDEA-MODULE-018",
-        "ARIA-IDEA-MODULE-019",
-        "ARIA-IDEA-MODULE-034"
+        "ARIA-PROBLEM-MODULE-018",
+        "ARIA-PROBLEM-MODULE-019",
+        "ARIA-PROBLEM-MODULE-034",
+        "ARIA-IDEA-MODULE-031",
+        "ARIA-IDEA-MODULE-041",
+        "ARIA-IDEA-MODULE-043",
+        "ARIA-IDEA-MODULE-044"
       ],
       "implementationStatus": "DESIGNED_PENDING_LEGACY_SOURCE_CROSSWALK",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
@@ -7704,9 +7733,21 @@
         "تست و rollback برای مهاجرت داده وجود داشته باشد"
       ],
       "linkedIdeaModuleIds": [
-        "ARIA-IDEA-MODULE-004",
-        "ARIA-IDEA-MODULE-025",
-        "ARIA-IDEA-MODULE-038"
+        "ARIA-PROBLEM-MODULE-004",
+        "ARIA-PROBLEM-MODULE-025",
+        "ARIA-PROBLEM-MODULE-038",
+        "ARIA-IDEA-MODULE-015",
+        "ARIA-IDEA-MODULE-026",
+        "ARIA-IDEA-MODULE-027",
+        "ARIA-IDEA-MODULE-030",
+        "ARIA-IDEA-MODULE-032",
+        "ARIA-IDEA-MODULE-033",
+        "ARIA-IDEA-MODULE-035",
+        "ARIA-IDEA-MODULE-040",
+        "ARIA-IDEA-MODULE-046",
+        "ARIA-IDEA-MODULE-047",
+        "ARIA-IDEA-MODULE-048",
+        "ARIA-IDEA-MODULE-049"
       ],
       "implementationStatus": "DESIGNED_PENDING_LEGACY_SOURCE_CROSSWALK",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
@@ -7784,8 +7825,9 @@
         "تست و rollback برای مهاجرت داده وجود داشته باشد"
       ],
       "linkedIdeaModuleIds": [
-        "ARIA-IDEA-MODULE-005",
-        "ARIA-IDEA-MODULE-036"
+        "ARIA-PROBLEM-MODULE-005",
+        "ARIA-PROBLEM-MODULE-036",
+        "ARIA-IDEA-MODULE-042"
       ],
       "implementationStatus": "DESIGNED_PENDING_LEGACY_SOURCE_CROSSWALK",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
@@ -7864,10 +7906,18 @@
         "تست و rollback برای مهاجرت داده وجود داشته باشد"
       ],
       "linkedIdeaModuleIds": [
-        "ARIA-IDEA-MODULE-034",
-        "ARIA-IDEA-MODULE-035",
-        "ARIA-IDEA-MODULE-037",
-        "ARIA-IDEA-MODULE-040"
+        "ARIA-PROBLEM-MODULE-034",
+        "ARIA-PROBLEM-MODULE-035",
+        "ARIA-PROBLEM-MODULE-037",
+        "ARIA-PROBLEM-MODULE-040",
+        "ARIA-IDEA-MODULE-016",
+        "ARIA-IDEA-MODULE-017",
+        "ARIA-IDEA-MODULE-018",
+        "ARIA-IDEA-MODULE-020",
+        "ARIA-IDEA-MODULE-022",
+        "ARIA-IDEA-MODULE-024",
+        "ARIA-IDEA-MODULE-038",
+        "ARIA-IDEA-MODULE-045"
       ],
       "implementationStatus": "DESIGNED_PENDING_LEGACY_SOURCE_CROSSWALK",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
@@ -11522,7 +11572,9 @@
     "totalCatalogEntries": 111,
     "historicalProblemModules": 50,
     "uniqueHistoricalProblemEngines": 49,
-    "uniqueLegacyDomainEngines": 7
+    "uniqueLegacyDomainEngines": 7,
+    "domainPackCount": 7,
+    "ideaModuleLinks": 85
   },
   "mergedDomainPacks": [
     {
@@ -11530,11 +11582,20 @@
       "name": "بازرگانی و تجارت بین‌الملل",
       "type": "INTERNAL_ARIA_DOMAIN",
       "moduleIds": [
+        "ARIA-PROBLEM-MODULE-014",
+        "ARIA-PROBLEM-MODULE-042",
+        "ARIA-PROBLEM-MODULE-045",
+        "ARIA-PROBLEM-MODULE-047",
+        "ARIA-PROBLEM-MODULE-049",
+        "ARIA-IDEA-MODULE-001",
+        "ARIA-IDEA-MODULE-002",
+        "ARIA-IDEA-MODULE-005",
+        "ARIA-IDEA-MODULE-007",
+        "ARIA-IDEA-MODULE-008",
+        "ARIA-IDEA-MODULE-009",
         "ARIA-IDEA-MODULE-014",
-        "ARIA-IDEA-MODULE-042",
-        "ARIA-IDEA-MODULE-045",
-        "ARIA-IDEA-MODULE-047",
-        "ARIA-IDEA-MODULE-049"
+        "ARIA-IDEA-MODULE-021",
+        "ARIA-IDEA-MODULE-050"
       ],
       "additionalCapabilityAreas": [
         "سورسینگ",
@@ -11562,11 +11623,19 @@
       "name": "هوشمندی بازار و کشف فرصت",
       "type": "INTERNAL_ARIA_DOMAIN",
       "moduleIds": [
-        "ARIA-IDEA-MODULE-011",
-        "ARIA-IDEA-MODULE-012",
-        "ARIA-IDEA-MODULE-013",
-        "ARIA-IDEA-MODULE-038",
-        "ARIA-IDEA-MODULE-040"
+        "ARIA-PROBLEM-MODULE-011",
+        "ARIA-PROBLEM-MODULE-012",
+        "ARIA-PROBLEM-MODULE-013",
+        "ARIA-PROBLEM-MODULE-038",
+        "ARIA-PROBLEM-MODULE-040",
+        "ARIA-IDEA-MODULE-004",
+        "ARIA-IDEA-MODULE-019",
+        "ARIA-IDEA-MODULE-025",
+        "ARIA-IDEA-MODULE-029",
+        "ARIA-IDEA-MODULE-034",
+        "ARIA-IDEA-MODULE-036",
+        "ARIA-IDEA-MODULE-037",
+        "ARIA-IDEA-MODULE-039"
       ],
       "additionalCapabilityAreas": [
         "پایش رقبا",
@@ -11593,19 +11662,27 @@
       "name": "فروشگاه و تجارت خدمات/کالا",
       "type": "INTERNAL_ARIA_DOMAIN",
       "moduleIds": [
-        "ARIA-IDEA-MODULE-001",
-        "ARIA-IDEA-MODULE-002",
+        "ARIA-PROBLEM-MODULE-001",
+        "ARIA-PROBLEM-MODULE-002",
+        "ARIA-PROBLEM-MODULE-006",
+        "ARIA-PROBLEM-MODULE-007",
+        "ARIA-PROBLEM-MODULE-009",
+        "ARIA-PROBLEM-MODULE-014",
+        "ARIA-PROBLEM-MODULE-015",
+        "ARIA-PROBLEM-MODULE-016",
+        "ARIA-PROBLEM-MODULE-017",
+        "ARIA-PROBLEM-MODULE-018",
+        "ARIA-PROBLEM-MODULE-019",
+        "ARIA-PROBLEM-MODULE-020",
+        "ARIA-PROBLEM-MODULE-039",
+        "ARIA-IDEA-MODULE-003",
         "ARIA-IDEA-MODULE-006",
-        "ARIA-IDEA-MODULE-007",
-        "ARIA-IDEA-MODULE-009",
-        "ARIA-IDEA-MODULE-014",
-        "ARIA-IDEA-MODULE-015",
-        "ARIA-IDEA-MODULE-016",
-        "ARIA-IDEA-MODULE-017",
-        "ARIA-IDEA-MODULE-018",
-        "ARIA-IDEA-MODULE-019",
-        "ARIA-IDEA-MODULE-020",
-        "ARIA-IDEA-MODULE-039"
+        "ARIA-IDEA-MODULE-010",
+        "ARIA-IDEA-MODULE-011",
+        "ARIA-IDEA-MODULE-012",
+        "ARIA-IDEA-MODULE-013",
+        "ARIA-IDEA-MODULE-023",
+        "ARIA-IDEA-MODULE-028"
       ],
       "additionalCapabilityAreas": [
         "کاتالوگ",
@@ -11633,9 +11710,13 @@
       "name": "استودیوی خلاقیت و رسانه",
       "type": "INTERNAL_ARIA_DOMAIN",
       "moduleIds": [
-        "ARIA-IDEA-MODULE-018",
-        "ARIA-IDEA-MODULE-019",
-        "ARIA-IDEA-MODULE-034"
+        "ARIA-PROBLEM-MODULE-018",
+        "ARIA-PROBLEM-MODULE-019",
+        "ARIA-PROBLEM-MODULE-034",
+        "ARIA-IDEA-MODULE-031",
+        "ARIA-IDEA-MODULE-041",
+        "ARIA-IDEA-MODULE-043",
+        "ARIA-IDEA-MODULE-044"
       ],
       "additionalCapabilityAreas": [
         "هویت برند",
@@ -11662,9 +11743,21 @@
       "name": "زیرساخت ابری و مدیریت دارایی دیجیتال",
       "type": "INTERNAL_ARIA_DOMAIN",
       "moduleIds": [
-        "ARIA-IDEA-MODULE-004",
-        "ARIA-IDEA-MODULE-025",
-        "ARIA-IDEA-MODULE-038"
+        "ARIA-PROBLEM-MODULE-004",
+        "ARIA-PROBLEM-MODULE-025",
+        "ARIA-PROBLEM-MODULE-038",
+        "ARIA-IDEA-MODULE-015",
+        "ARIA-IDEA-MODULE-026",
+        "ARIA-IDEA-MODULE-027",
+        "ARIA-IDEA-MODULE-030",
+        "ARIA-IDEA-MODULE-032",
+        "ARIA-IDEA-MODULE-033",
+        "ARIA-IDEA-MODULE-035",
+        "ARIA-IDEA-MODULE-040",
+        "ARIA-IDEA-MODULE-046",
+        "ARIA-IDEA-MODULE-047",
+        "ARIA-IDEA-MODULE-048",
+        "ARIA-IDEA-MODULE-049"
       ],
       "additionalCapabilityAreas": [
         "ذخیره‌سازی",
@@ -11691,8 +11784,9 @@
       "name": "سایت‌ساز و صفحه‌ساز",
       "type": "INTERNAL_ARIA_DOMAIN",
       "moduleIds": [
-        "ARIA-IDEA-MODULE-005",
-        "ARIA-IDEA-MODULE-036"
+        "ARIA-PROBLEM-MODULE-005",
+        "ARIA-PROBLEM-MODULE-036",
+        "ARIA-IDEA-MODULE-042"
       ],
       "additionalCapabilityAreas": [
         "قالب",
@@ -11720,10 +11814,18 @@
       "name": "بازاریابی و رشد",
       "type": "INTERNAL_ARIA_DOMAIN",
       "moduleIds": [
-        "ARIA-IDEA-MODULE-034",
-        "ARIA-IDEA-MODULE-035",
-        "ARIA-IDEA-MODULE-037",
-        "ARIA-IDEA-MODULE-040"
+        "ARIA-PROBLEM-MODULE-034",
+        "ARIA-PROBLEM-MODULE-035",
+        "ARIA-PROBLEM-MODULE-037",
+        "ARIA-PROBLEM-MODULE-040",
+        "ARIA-IDEA-MODULE-016",
+        "ARIA-IDEA-MODULE-017",
+        "ARIA-IDEA-MODULE-018",
+        "ARIA-IDEA-MODULE-020",
+        "ARIA-IDEA-MODULE-022",
+        "ARIA-IDEA-MODULE-024",
+        "ARIA-IDEA-MODULE-038",
+        "ARIA-IDEA-MODULE-045"
       ],
       "additionalCapabilityAreas": [
         "کمپین",
