@@ -150,3 +150,10 @@
 
 ## 10. خارج از اختیار این شاخه
 ادغام PR، deploy، انتشار عمومی، اتصال پرداخت زنده، اجرای migration روی داده واقعی، چرخش/انتشار secrets و حذف فایل/داده/شناسه خارج از اختیار این برنامه هستند و نیازمند مجوز و release gate مستقل‌اند.
+
+
+## 11. وضعیت تکمیلی پس از ساخت Crosswalk v2 — 2026-11-19
+موجودی و طراحی محصول‌سازی کامل‌تر در سه بخش ثبت شد: 639 canonical، 842 lineage آرشیوی/مهندسی و 144 تجاری/Bridge؛ جمع 1625 ردیف. رجیستری 109 کلید ماژول 26.0 به 90 exact، 15 semantic و 4 unresolved تعیین تکلیف شد. هر 81 موتور نیز میزبان پیشنهادی و نقش درآمدی/هزینه‌ای دارد. فایل‌های مرجع و قواعد بدون حذف در نمایه زیر ثبت شده‌اند:
+[ARIA Master Productization Crosswalk v2](https://github.com/gavad54/aria-android/blob/engineering/aria-preserve-all-capabilities-2026-11-19/docs/aria/ARIA_MASTER_PRODUCTIZATION_CROSSWALK_V2_INDEX_2026-11-19.md).
+
+این اقدام طراحی/تطبیق است؛ برای فعال‌سازی واقعی 639 handler تخصصی و 81 موتور هنوز باید پیاده‌سازی، اتصال داده، authorization، provider، E2E، امنیت و release evidence به‌صورت مرحله‌ای اثبات شود. 72 کاتالوگ در API وب local-workflow قابل مشاهده/برنامه‌ریزی‌اند، اما پرداخت واقعی و اجرای بیرونی فعال نیست.
