@@ -5,16 +5,18 @@
  const problemsEl=document.getElementById("expansion-problems");
  const candidatesEl=document.getElementById("expansion-candidates");
  const revenueEl=document.getElementById("expansion-revenue");
+ const enginesEl=document.getElementById("expansion-engines");
  const status=(el,msg)=>{if(el)el.textContent=msg;};
  const node=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e;};
  try{
-  const [s,m,c,r]=await Promise.all([
+  const [s,m,c,r,e]=await Promise.all([
    fetch("/api/aria-expansion/summary").then(x=>x.json()),
    fetch("/api/aria-expansion/modules").then(x=>x.json()),
    fetch("/api/aria-expansion/candidates").then(x=>x.json()),
-   fetch("/api/aria-expansion/revenue-models").then(x=>x.json())
+   fetch("/api/aria-expansion/revenue-models").then(x=>x.json()),
+   fetch("/api/aria-expansion/engines").then(x=>x.json())
   ]);
-  status(summaryEl,"۶۳۹ ماژول مرجع حفظ‌شده · "+s.problemRecords+" مسئله تاریخی · "+s.historicalCandidates+" نامزد · "+s.revenueModels+" مدل درآمدی · درآمد زنده فعال نیست.");
+  status(summaryEl,"۶۳۹ ماژول مرجع حفظ‌شده · "+s.problemRecords+" مسئله تاریخی · "+s.historicalCandidates+" نامزد · "+s.revenueModels+" مدل درآمدی · "+e.total+" موتور تخصصی · درآمد زنده فعال نیست.");
   for(const d of m.parents){
    const card=node("article","glass expansion-domain");
    card.append(node("h3","",d.name),node("p","","۱۰ مسئله در این حوزه"));
@@ -47,6 +49,7 @@
    card.append(node("div","expansion-kicker",item.legacyKey),node("h3","",item.name),node("p","",item.executionBoundary),node("p","expansion-muted","موتور: "+item.engine.name),node("p","expansion-alias","وضعیت: طراحی ثبت‌شده؛ فعال‌سازی تولیدی تأیید نشده است."));
    candidatesEl.append(card);
   }
+  for(const engine of e.engines){const card=node("article","glass expansion-card");card.append(node("div","expansion-kicker",engine.engineType==="PROBLEM_DOMAIN_ENGINE"?"موتور حوزه‌ای":"موتور کنترلی تاریخی"),node("h3","",engine.name),node("p","expansion-muted","شناسه: "+engine.id),node("p","","ورودی‌ها: "+engine.contract.input.join("، ")),node("p","","عملیات: "+engine.contract.operations.join("، ")),node("p","expansion-muted","حالت اجرا: "+engine.contract.runtimeMode+" · اتصال بیرونی: "+engine.contract.externalAdapterState));enginesEl.append(card);}
   const details=node("details","glass expansion-revenue");
   details.append(node("summary","","۲۰ مدل درآمدی طراحی‌شده — هیچ پرداختی فعال نیست"));
   const list=node("ol","");
