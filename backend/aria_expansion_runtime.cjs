@@ -2,7 +2,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const registry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_expansion_registry.json"), "utf8"));
-const moduleRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_54_module_expansion_registry.json"), "utf8"));
+const moduleRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_111_module_expansion_registry.json"), "utf8"));
 const moduleCatalog = moduleRegistry.moduleCatalog;
 const moduleCatalogById = new Map(moduleCatalog.map(x => [x.moduleId, x]));
 const problemById = new Map(registry.problems.map(x => [x.id, x]));
