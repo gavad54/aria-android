@@ -2,6 +2,9 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const registry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_expansion_registry.json"), "utf8"));
+const moduleRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_54_module_expansion_registry.json"), "utf8"));
+const moduleCatalog = moduleRegistry.moduleCatalog;
+const moduleCatalogById = new Map(moduleCatalog.map(x => [x.moduleId, x]));
 const problemById = new Map(registry.problems.map(x => [x.id, x]));
 const candidateById = new Map(registry.candidates.map(x => [x.moduleId, x]));
 const problemEngines = [...new Map(registry.problems.map(x => [x.engine.id, { ...x.engine, moduleIds: registry.problems.filter(p => p.engine.id === x.engine.id).map(p => p.id), engineType: "PROBLEM_DOMAIN_ENGINE" }])).values()];
@@ -13,7 +16,11 @@ let schemaPromise = null;
 
 if (registry.baselineCanonicalModuleCount !== 639 || registry.problems.length !== 50 ||
     registry.domains.length !== 5 || registry.candidates.length !== 4 ||
-    registry.revenueModels.length !== 20 || new Set(registry.problems.map(x => x.id)).size !== 50 || problemEngines.length !== 49 || candidateEngines.length !== 4) {
+    registry.revenueModels.length !== 20 || new Set(registry.problems.map(x => x.id)).size !== 50 || problemEngines.length !== 49 || candidateEngines.length !== 4 ||
+    moduleCatalog.length !== 54 || new Set(moduleCatalog.map(x => x.moduleId)).size !== 54 ||
+    moduleCatalog.filter(x => x.moduleType === "IDEA_DERIVED_PRODUCT_MODULE").length !== 50 ||
+    moduleCatalog.filter(x => x.moduleType === "CONTROL_AND_GOVERNANCE_MODULE").length !== 4 ||
+    moduleRegistry.moduleCatalogSummary?.canonicalBaseline !== 639 || moduleRegistry.moduleCatalogSummary?.canonicalBaselineChanged !== false) {
   throw new Error("ARIA_EXPANSION_REGISTRY_INVALID");
 }
 if (registry.problems.find(x => x.sourceProblemNumber === 48)?.aliasOf !== "problem-29") {
@@ -92,7 +99,7 @@ function modulePlan(module, goal) {
   ];
   return {
     planId: "aria-expansion-" + module.id + "-" + Date.now().toString(36),
-    moduleId: module.id, sourceProblemNumber: module.sourceProblemNumber,
+    moduleId: module.moduleId || module.id, sourceProblemNumber: module.sourceProblemNumber,
     parentModuleId: module.parentModuleId, engine: module.engine,
     goal, steps, executionStatus: "LOCAL_PLAN_CREATED",
     externalExecution: { status: "NOT_CONNECTED", executed: false },
@@ -149,6 +156,7 @@ async function handle(req, res, url, deps) {
     return json(res, 200, {
       product: "ARIA", canonicalModuleCount: 639, canonicalCountChanged: false,
       parentDomains: registry.domains.length, problemRecords: registry.problems.length,
+      ideaModules: 50, controlModules: 4, totalModules: 54,
       uniqueProblemCapabilities: registry.problems.length - 1,
       historicalCandidates: registry.candidates.length, engines: engineCatalog.length, revenueModels: registry.revenueModels.length,
       liveRevenueEnabled: false, externalExecutionEnabled: false,
@@ -157,7 +165,8 @@ async function handle(req, res, url, deps) {
     });
   }
   if (p === "/api/aria-expansion/modules" && req.method === "GET") {
-    return json(res, 200, { parents: registry.domains, problems: registry.problems.map(x => ({ ...x, parentDomain: x.parentModuleId })), totalProblemRecords: 50, uniqueProblemCapabilities: 49, canonicalModuleCount: 639 });
+    const moduleBySource = new Map(moduleCatalog.filter(x => x.sourceProblemId).map(x => [x.sourceProblemId, x]));
+    return json(res, 200, { parents: registry.domains, problems: registry.problems.map(x => ({ ...x, moduleId: moduleBySource.get(x.id)?.moduleId, parentDomain: x.parentModuleId })), modules: moduleCatalog, mergedDomainPacks: moduleRegistry.mergedDomainPacks, familyArchitecture: moduleRegistry.familyArchitecture, totalProblemRecords: 50, ideaModules: 50, controlModules: 4, totalModules: 54, uniqueProblemCapabilities: 49, canonicalModuleCount: 639, canonicalCountChanged: false });
   }
   if (p === "/api/aria-expansion/engines" && req.method === "GET") {
     return json(res, 200, { engines: engineCatalog, total: engineCatalog.length, problemEngines: problemEngines.length, candidateEngines: candidateEngines.length, canonicalModuleCount: 639 });
@@ -191,13 +200,16 @@ async function handle(req, res, url, deps) {
   if (p === "/api/aria-expansion/revenue-models" && req.method === "GET") {
     return json(res, 200, { models: registry.revenueModels, total: 20, state: "DESIGNED_NOT_MONETIZED", paymentProviderState: "NOT_CONNECTED", liveRevenueEnabled: false });
   }
-  const planMatch = p.match(/^\/api\/aria-expansion\/modules\/(problem-\d{2})\/plan$/);
+  const planMatch = p.match(/^\/api\/aria-expansion\/modules\/(problem-\d{2}|ARIA-(?:IDEA|CONTROL)-MODULE-\d{3})\/plan$/);
   if (planMatch && req.method === "POST") {
-    const module = problemById.get(planMatch[1]);
-    if (!module) return json(res, 404, { error: "زیرماژول پیدا نشد." });
+    const legacyModule = problemById.get(planMatch[1]);
+    const catalogModule = moduleCatalogById.get(planMatch[1]);
+    const source = legacyModule || catalogModule;
+    if (!source) return json(res, 404, { error: "ماژول پیدا نشد." });
     const data = await readJson(req, res); if (data === null) return true;
     const goal = cleanText(data.goal, 4, 1200);
     if (!goal) return json(res, 400, { error: "هدف باید بین ۴ تا ۱۲۰۰ نویسه باشد." });
+    const module = legacyModule ? source : { ...source, id: source.moduleId, problem: source.sourceTitle || source.purpose, capability: source.name, deliverable: source.deliverable || source.purpose, parentModuleId: source.parentDomainId || "aria-control-governance", engine: { id: source.engineId, name: source.engineId }, sourceProblemNumber: source.sourceProblemNumber };
     return json(res, 200, { ok: true, plan: modulePlan(module, goal) });
   }
   if (p === "/api/aria-expansion/scenarios/simulate" && req.method === "POST") {
@@ -255,7 +267,7 @@ async function handle(req, res, url, deps) {
       }
       const data=await readJson(req,res); if(data===null)return true;
       const moduleId=cleanText(data.moduleId,1,100),title=cleanText(data.title,3,160),details=cleanText(data.details||"",0,3000);
-      if(!moduleId||!title||details===null||(!problemById.has(moduleId)&&!candidateById.has(moduleId)))return json(res,400,{error:"moduleId معتبر و عنوان ۳ تا ۱۶۰ نویسه‌ای لازم است."});
+      if(!moduleId||!title||details===null||(!problemById.has(moduleId)&&!candidateById.has(moduleId)&&!moduleCatalogById.has(moduleId)))return json(res,400,{error:"moduleId معتبر و عنوان ۳ تا ۱۶۰ نویسه‌ای لازم است."});
       const q=await pool.query("INSERT INTO aria_expansion_work_items(user_id,module_id,title,details) VALUES($1,$2,$3,$4) RETURNING id,module_id,title,details,status,created_at,updated_at",[user.sub,moduleId,title,details]);
       return json(res,201,{item:{...q.rows[0],id:String(q.rows[0].id)}});
     } catch(err){console.error("ARIA expansion work item failed:",err.message);return json(res,500,{error:"ثبت کار انجام نشد."});}
