@@ -36,6 +36,8 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   const petTravel=modules.problems.find(x=>x.sourceProblemNumber===48);
   const petHome=modules.problems.find(x=>x.sourceProblemNumber===29);
   assert.equal(petTravel.aliasOf,petHome.id,"travel pet-care entry must reuse the home pet-care capability");
+  assert.equal(petTravel.hostCanonicalContractId,petHome.hostCanonicalContractId);
+  assert.equal(petTravel.entryPointCanonicalContractId,235);
 
   const enginesResponse=await fetch(base+"/api/aria-expansion/engines");
   const engines=await enginesResponse.json();
