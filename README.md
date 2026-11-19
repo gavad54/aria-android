@@ -72,13 +72,13 @@ Original Library source archive SHA-256 (verified 2026-11-09):
 9dcbb34ef98e4f11e661bd32bbd0573d4de7a3058743f45aa126322f44264f9f
 ```
 
-A separate static-gate-repaired candidate was created and verified in the isolated workspace:
+A repaired candidate was created from the verified source archive in an isolated workspace:
 
 ```
-97cf5d9e1c3e9b3446861bc848ccfa8c682940d6d59b85655917c6412a8ce02a
+0c45fb175fa6d44456ce33af5c975a2d74576096fae37aa4993a213759a5dbe8
 ```
 
-The candidate preserves ARIA 32.0.0 source and fixes two stale/incorrect verification gates. It contains 504 ZIP entries and approximately 8.3 MB uncompressed. It is not an APK/AAB and is not imported into this repository. The Android workflow now pins the candidate checksum but still requires the archive to be uploaded to `release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip` before a build can run. The connected GitHub tools do not provide a binary upload action, so this upload remains an external prerequisite.
+The candidate has 504 ZIP entries and 8.3 MB uncompressed. It fixes Android/Backend versionCode parity, stale project and capability verifiers, migration-sequence assertion and bounded-executor gate; the package quality-gate now runs the current 32.0.0 checks. It is not an APK/AAB and is not imported into this repository. The Android workflow pins this exact checksum and waits for the archive at release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip. The binary upload remains an external prerequisite.
 
 ## Hosting status inspected 2026-10-21
 
