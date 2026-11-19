@@ -111,6 +111,9 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(inventory.preservedHistoricalOverlay.length,111);
   assert.equal(inventory.commercialModules.length,72);
   assert.equal(inventory.engineSubmodules.length,71);
+  const preservedIds=new Set(inventory.preservedHistoricalOverlay.map(x=>x.moduleId));
+  assert.ok(inventory.engineSubmodules.every(x=>x.parentModuleIds.length>0&&x.parentModuleIds.every(id=>preservedIds.has(id))));
+  assert.equal(new Set(inventory.engineSubmodules.map(x=>x.engineId)).size,71);
   assert.equal(inventory.canonicalRegistry.immutable,true);
 
   const enginesResponse=await fetch(base+"/api/aria-expansion/engines");
