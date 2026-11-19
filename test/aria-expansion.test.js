@@ -19,6 +19,7 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(summary.canonicalModuleCount,639);
   assert.equal(summary.problemRecords,50);
   assert.equal(summary.historicalProblemModules,50);
+  assert.equal(summary.historicalProblemModules,50);
   assert.equal(summary.ideaModules,50);
   assert.equal(summary.controlModules,4);
   assert.equal(summary.legacyAppModules,7);
@@ -59,6 +60,7 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   const petHomeModule=modules.modules.find(x=>x.sourceProblemNumber===29&&x.moduleType==="HISTORICAL_PROBLEM_MODULE");
   assert.notEqual(petTravelModule.moduleId,petHomeModule.moduleId,"all 50 idea entries retain distinct module IDs");
   assert.equal(petTravelModule.moduleId,"ARIA-PROBLEM-MODULE-048");
+  assert.equal(petTravelModule.moduleId,"ARIA-PROBLEM-MODULE-048");
   assert.equal(petTravelModule.engineSharing,"SHARED_WITH_IDEA_029_DISTINCT_TRAVEL_ENTRYPOINT");
   assert.equal(petTravelModule.hostCanonicalContractId,233);
   assert.equal(petTravelModule.entryPointCanonicalContractId,235);
@@ -71,6 +73,8 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(engines.engines.length,110);
   assert.equal(engines.problemEngines,49);
   assert.equal(engines.candidateEngines,4);
+  assert.equal(engines.ideaEngines,50);
+  assert.equal(engines.legacyDomainEngines,7);
   assert.equal(engines.ideaEngines,50);
   assert.equal(engines.legacyDomainEngines,7);
   assert.ok(engines.engines.every(x=>x.contract&&Array.isArray(x.contract.operations)));
@@ -116,6 +120,10 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   const legacyDomainPlan=await legacyDomainPlanResponse.json();
   assert.equal(legacyDomainPlanResponse.status,200);
   assert.equal(legacyDomainPlan.plan.moduleId,"ARIA-LEGACY-APP-MODULE-001");
+  const historicModulePlanResponse=await fetch(base+"/api/aria-expansion/modules/ARIA-PROBLEM-MODULE-001/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"ارزیابی تعمیرکار"})});
+  const historicModulePlan=await historicModulePlanResponse.json();
+  assert.equal(historicModulePlanResponse.status,200);
+  assert.equal(historicModulePlan.plan.moduleId,"ARIA-PROBLEM-MODULE-001");
   const historicModulePlanResponse=await fetch(base+"/api/aria-expansion/modules/ARIA-PROBLEM-MODULE-001/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"ارزیابی تعمیرکار"})});
   const historicModulePlan=await historicModulePlanResponse.json();
   assert.equal(historicModulePlanResponse.status,200);
