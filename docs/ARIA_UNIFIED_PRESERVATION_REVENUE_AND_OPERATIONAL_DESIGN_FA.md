@@ -820,3 +820,13 @@ NEXUS هسته مسیریابی و orchestration است؛ نه مالک همه �
 - [ARIA_FOUR_CANDIDATE_MODULES_AND_50_IDEA_INTAKE_2026-11-19_FA.md](ARIA_FOUR_CANDIDATE_MODULES_AND_50_IDEA_INTAKE_2026-11-19_FA.md)
 
 این سند مکمل، baseline 639 را تغییر نمی‌دهد. فهرست ۵۰ ایده اصلی هنوز نیازمند بازیابی منبع اولیه است؛ ۵۰ ردیف صرفاً جایگاه‌های حفظ منبع هستند و ایده یا ماژول جدید محسوب نمی‌شوند.
+
+
+## گزارش نهایی کاتالوگ ۱۱۱ ماژولی — 2026-11-19
+- ۵۰ مسئله تاریخی به‌عنوان ۵۰ ورودی ماژول مستقل حفظ شدند؛ مسئله ۴۸ ورودی سفر مستقل دارد و موتور/میزبان آن با مسئله ۲۹ مشترک است.
+- به دستور کاربر، ۵۰ ایده جدید و متمایز نیز طراحی و به ۵۰ ورودی ماژول تبدیل شدند؛ این‌ها به‌عنوان ایده‌های تازه دستیار ثبت شده‌اند و با فهرست تاریخی ۵۰ مسئله خلط نشده‌اند.
+- چهار ماژول کنترلی و هفت ماژول دامنه‌ای برای اپ‌های ادغام‌شده ARVAND، CHARSU، GANJINEH، NEGAH، SEPEHR، NAMA و PAYAM ثبت شدند.
+- جمع کاتالوگ: ۵۰ تاریخی + ۵۰ ایده جدید + ۴ کنترلی + ۷ اپ ادغام‌شده = ۱۱۱ ورودی؛ baseline canonical همچنان ۶۳۹ است.
+- گزارش کامل: [ARIA_111_MODULE_CATALOG_AND_LEGACY_APP_MERGE_REPORT_FA.md](ARIA_111_MODULE_CATALOG_AND_LEGACY_APP_MERGE_REPORT_FA.md)
+- رجیستری: [aria_111_module_expansion_registry.json](../backend/data/aria_111_module_expansion_registry.json)
+- این کاتالوگ و API/UI آن به معنی تأیید Production یا اختصاص ۱۱۱ شناسه canonical جدید نیست؛ dedup، CI/E2E و crosswalk داده‌های قدیمی گیت مستقل‌اند.
