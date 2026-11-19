@@ -32,7 +32,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          echo "e50b919f6dc81fef5187e39368b7a59856524b3ea932280f3f577658c12fd864  release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip" | sha256sum --check -
+          echo "270c7abbee1e96ec466d7a2a906aab98943ebe3c015b4abb4e0b6b3ab8e5b8bf  release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip" | sha256sum --check -
 
       - name: Extract source archive
         shell: bash
@@ -82,6 +82,7 @@ jobs:
           set -euo pipefail
           (cd backend && npm install --no-audit --no-fund)
           node scripts/aria32_release_readiness.js
+          node scripts/aria32_no_loss_gate.js
           bash verify_project.sh
           bash ENGINEERING_FINAL_GATE_R9.sh
           bash scripts/verify_module_capability_matrix.sh
