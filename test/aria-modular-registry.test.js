@@ -65,6 +65,7 @@ test("every independent module accepts its declared contract and returns a local
   for (const module of MODULES) {
     if (module.manifest.moduleType === "SERVICE_DELIVERY_ENGINE") continue;
     const input = Object.fromEntries(module.manifest.requiredInputs.map(key => [key, key === "consent" ? true : "sample-value"]));
+    if (module.manifest.accessPolicy?.includes("consent_and_purpose_limitation") || module.manifest.accessPolicy?.includes("explicit_contact_consent")) input.consent = true;
     const result = await module.execute(input, { actorId: "test-user", tenantId: "test-tenant" });
     assert.equal(result.moduleId, module.manifest.moduleId);
     assert.equal(result.status, "LOCAL_RESULT_READY");
