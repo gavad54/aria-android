@@ -55,7 +55,7 @@ jobs:
         with:
           node-version: '22.14.0'
 
-      - name: Apply 72 web catalog contracts to the 639-module candidate
+      - name: Attach 72 catalog aliases to the 639 canonical contracts
         shell: bash
         run: |
           set -euo pipefail
