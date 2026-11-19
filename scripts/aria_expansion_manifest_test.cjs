@@ -34,7 +34,7 @@ assert.ok(referencedHosts.every(id=>canonicalIds.has(id)));
 assert.equal(registry.guardrails.canonicalCountChanges,false);
 console.log("ARIA_EXPANSION_MANIFEST_PASS canonical=639 problem_records=50 unique_problem_capabilities=49 domains=5 candidates=4 revenue_models=20");
 
-const moduleRegistry=JSON.parse(fs.readFileSync(path.join(root,"backend/data/aria_54_module_expansion_registry.json"),"utf8"));
+const moduleRegistry=JSON.parse(fs.readFileSync(path.join(root,"backend/data/aria_111_module_expansion_registry.json"),"utf8"));
 assert.equal(moduleRegistry.moduleCatalog.length,111);
 assert.equal(new Set(moduleRegistry.moduleCatalog.map(x=>x.moduleId)).size,111);
 assert.equal(moduleRegistry.moduleCatalog.filter(x=>x.moduleType==="HISTORICAL_PROBLEM_MODULE").length,50);
