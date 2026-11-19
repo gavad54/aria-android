@@ -6,7 +6,11 @@ const {
   createServiceCase,
   transitionServiceCase,
   buildQuote,
-  evaluateDeliveryQuality
+  evaluateDeliveryQuality,
+  createSupportTicket,
+  transitionSupportTicket,
+  createServicePackage,
+  transitionServicePackage
 } = require("../backend/aria-service-delivery.cjs");
 
 test("service delivery exposes eight additive commercial modules without claiming production readiness", () => {
@@ -80,4 +84,24 @@ test("service case transitions reject missing or cross-tenant actor context", ()
   assert.throws(() => transitionServiceCase(item, "QUALIFY", { userId: "42" }), /SERVICE_TENANT_ACCESS_DENIED/);
   assert.throws(() => transitionServiceCase(item, "QUALIFY", { userId: "42", tenantId: "tenant-2" }), /SERVICE_TENANT_ACCESS_DENIED/);
   assert.equal(transitionServiceCase(item, "QUALIFY", { userId: "42", tenantId: "tenant-1" }).status, "QUALIFIED");
+});
+
+
+test("support tickets and service packages enforce tenant ownership on state transitions", () => {
+  const actor = { userId: "42", tenantId: "tenant-1" };
+  const ticket = createSupportTicket({
+    serviceCaseId: "case-1", title: "پیگیری پشتیبانی",
+    description: "بررسی وضعیت تحویل خدمت", priority: "normal", responseHours: 24
+  }, actor);
+  assert.throws(() => transitionSupportTicket(ticket, "START_WORK", { userId: "42" }), /SUPPORT_TENANT_ACCESS_DENIED/);
+  assert.throws(() => transitionSupportTicket(ticket, "START_WORK", { userId: "42", tenantId: "tenant-2" }), /SUPPORT_TENANT_ACCESS_DENIED/);
+  assert.equal(transitionSupportTicket(ticket, "START_WORK", actor).status, "IN_PROGRESS");
+
+  const servicePackage = createServicePackage({
+    name: "بسته پایه", version: 1, serviceModuleIds: ["ARIA-SVC-INTAKE"],
+    steps: ["دریافت درخواست"], currency: "IRR"
+  }, actor);
+  assert.throws(() => transitionServicePackage(servicePackage, "SUBMIT_REVIEW", { userId: "42" }), /SERVICE_PACKAGE_TENANT_ACCESS_DENIED/);
+  assert.throws(() => transitionServicePackage(servicePackage, "SUBMIT_REVIEW", { userId: "42", tenantId: "tenant-2" }), /SERVICE_PACKAGE_TENANT_ACCESS_DENIED/);
+  assert.equal(transitionServicePackage(servicePackage, "SUBMIT_REVIEW", actor).state, "REVIEW_PENDING");
 });
