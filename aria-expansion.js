@@ -3,6 +3,7 @@
  const summaryEl=document.getElementById("expansion-summary");
  const domainsEl=document.getElementById("expansion-domains");
  const problemsEl=document.getElementById("expansion-problems");
+ const newIdeasEl=document.getElementById("expansion-new-ideas");
  const candidatesEl=document.getElementById("expansion-candidates");
  const revenueEl=document.getElementById("expansion-revenue");
  const enginesEl=document.getElementById("expansion-engines");
@@ -16,7 +17,7 @@
    fetch("/api/aria-expansion/revenue-models").then(x=>x.json()),
    fetch("/api/aria-expansion/engines").then(x=>x.json())
   ]);
-  status(summaryEl,"۶۳۹ ماژول پایه حفظ‌شده · "+s.ideaModules+" ماژول ایده + "+s.controlModules+" ماژول کنترلی + "+s.legacyAppModules+" ماژول اپ ادغام‌شده = "+s.totalModules+" ماژول تکمیلی · "+s.revenueModels+" مدل درآمدی · "+e.total+" موتور تخصصی · درآمد زنده فعال نیست.");
+  status(summaryEl,"۶۳۹ ماژول canonical حفظ‌شده · ۵۰ ماژول مسئله تاریخی + "+s.ideaModules+" ایده جدید + "+s.controlModules+" ماژول کنترلی + "+s.legacyAppModules+" ماژول اپ ادغام‌شده = "+s.totalModules+" ورودی کاتالوگ · "+e.total+" موتور طراحی‌شده · درآمد زنده فعال نیست.");
   for(const d of m.parents){
    const card=node("article","glass expansion-domain");
    card.append(node("h3","",d.name),node("p","","۱۰ ماژول در این حوزه"));
@@ -52,6 +53,13 @@
     }catch(error){status(summaryEl,error.message);}finally{button.disabled=false;button.textContent="ساخت برنامه اقدام";}
    });
    card.append(button);problemsEl.append(card);
+  }
+  for(const item of (m.modules||[]).filter(x=>x.moduleType==="NEW_IDEA_PRODUCT_MODULE")){
+   const card=node("article","glass expansion-card");
+   card.append(node("div","expansion-kicker",item.moduleId+" · "+item.domainPackId),node("h3","",item.name),node("p","",item.purpose),node("p","expansion-muted","زیرقابلیت‌ها: "+item.submodules.join("، ")),node("p","expansion-muted","مدل درآمدی پیشنهادی: "+item.monetizationModel),node("p","expansion-alias","وضعیت: طراحی جدید؛ نگاشت به ۶۳۹ قرارداد canonical در انتظار ممیزی هم‌پوشانی."));
+   const planButton=node("button","btn btn-quiet","ساخت برنامه این ماژول");planButton.type="button";
+   planButton.addEventListener("click",async()=>{planButton.disabled=true;try{const response=await fetch("/api/aria-expansion/modules/"+item.moduleId+"/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:item.name})});const result=await response.json();if(!response.ok)throw new Error(result.error||"ساخت برنامه انجام نشد");const out=node("div","expansion-plan");for(const step of result.plan.steps)out.append(node("p","","گام "+step.step+": "+step.title+" — "+step.checkpoint));out.append(node("small","expansion-muted",result.plan.disclaimer));card.append(out);}catch(error){status(summaryEl,error.message);}finally{planButton.disabled=false;}});
+   card.append(planButton);newIdeasEl.append(card);
   }
   for(let i=0;i<c.candidates.length;i++){
    const item=c.candidates[i], moduleId="ARIA-CONTROL-MODULE-"+String(i+1).padStart(3,"0");
