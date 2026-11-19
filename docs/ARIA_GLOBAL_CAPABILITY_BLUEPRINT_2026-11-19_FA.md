@@ -44,7 +44,7 @@ ARIA یکی از شش محصول مستقل و هم‌سطح زیر VAYRO است
 - الگوهای سایت‌ساز، ویرایشگر بلوکی، پیش‌نمایش واکنش‌گرا، SEO، انتشار نسخه‌ای و rollback را ضروری می‌کنند؛ این‌ها در NAMA قرار می‌گیرند.
 
 منابع نمونه برای پایش رقابتی (منابع بازار، نه تأیید کیفیت یا وابستگی ARIA):
-- TechRasa، گزارش بازار MarTech و فروش چندکاناله ایران: https://techrasa.com/fa/wp-content/uploads/2025/03/TechRasa-Insight-Iran-MarTech-2024-Report.pdf
+- TechRasa، گزارش بازار MarTech و فروش چندکاناله ایران: https://techrasa.com/fa/wp-content/uploads/2024/11/TechRasa-Insight-Iran-MarTech-2024-Report.pdf
 - SAMITIS، نمونه یکپارچگی ERP، دستیار فارسی و تأیید تغییرات AI: https://samitis.com/en
 - Tehran Index، نمایه اپ‌های ایرانی و دسته‌بندی بازار: https://tehranindex.com/analytics
 - SimaCMS، نمونه قابلیت‌های سایت‌ساز، پرداخت و اتصال‌های محلی: https://simacms.ir/en/
