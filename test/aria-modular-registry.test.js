@@ -33,3 +33,27 @@ test("module execution rejects cross-tenant context mismatch and missing require
   await assert.rejects(() => executeModule(module.manifest.moduleId, {}, { actorId: "user-1" }), /MODULE_TENANT_REQUIRED/);
   await assert.rejects(() => executeModule(module.manifest.moduleId, {}, { actorId: "user-1", tenantId: "tenant-1" }), /MODULE_INPUT_MISSING/);
 });
+
+test("four service delivery engines execute their domain functions through the module registry", async () => {
+  const { executeModule } = require("../backend/modules");
+  const actor = { actorId: "user-1", tenantId: "tenant-1" };
+  const support = await executeModule("ARIA-SVC-SUPPORT", {
+    serviceCaseId: "case-1", title: "پیگیری", description: "پیگیری وضعیت تحویل", priority: "normal", responseHours: 24
+  }, actor);
+  assert.equal(support.artifact.serviceResult.status, "OPEN");
+  assert.equal(support.artifact.serviceResult.externalNotificationSent, false);
+  const success = await executeModule("ARIA-SVC-SUCCESS", {
+    period: "2026-11", activeDays: 12, completedTasks: 30, targetTasks: 25, unresolvedTickets: 1
+  }, actor);
+  assert.equal(success.artifact.serviceResult.renewalExecuted, false);
+  const pack = await executeModule("ARIA-SVC-PACKAGES", {
+    name: "بسته محتوا", version: 1, serviceModuleIds: ["ARIA-SVC-INTAKE"], steps: ["دریافت brief"], currency: "IRR"
+  }, actor);
+  assert.equal(pack.artifact.serviceResult.entitlementActivated, false);
+  const economics = await executeModule("ARIA-SVC-UNIT-ECONOMICS", {
+    currency: "IRR", platformRevenue: 100000, principalFunds: 500000,
+    costs: { provider: 10000, model: 5000, storage: 1000, support: 2000, payment: 1000 }
+  }, actor);
+  assert.equal(economics.artifact.serviceResult.contributionMargin, 81000);
+  assert.equal(economics.artifact.serviceResult.principalRevenueRecognized, false);
+});
