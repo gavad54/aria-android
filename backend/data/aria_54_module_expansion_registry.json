@@ -3018,9 +3018,9 @@
   },
   "moduleCatalog": [
     {
-      "moduleId": "ARIA-IDEA-MODULE-001",
+      "moduleId": "ARIA-PROBLEM-MODULE-001",
       "sequence": 1,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "جست‌وجو، احراز و مقایسه تعمیرکار",
       "sourceProblemId": "problem-01",
       "sourceProblemNumber": 1,
@@ -3094,12 +3094,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 237,
       "entryPointCanonicalContractId": 237,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-002",
+      "moduleId": "ARIA-PROBLEM-MODULE-002",
       "sequence": 2,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "برآورد اولیه و مدیریت تعمیرات",
       "sourceProblemId": "problem-02",
       "sourceProblemNumber": 2,
@@ -3173,12 +3175,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 237,
       "entryPointCanonicalContractId": 237,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-003",
+      "moduleId": "ARIA-PROBLEM-MODULE-003",
       "sequence": 3,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "برنامه‌ریز و واگذاری کارها",
       "sourceProblemId": "problem-03",
       "sourceProblemNumber": 3,
@@ -3250,12 +3254,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 237,
       "entryPointCanonicalContractId": 237,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-004",
+      "moduleId": "ARIA-PROBLEM-MODULE-004",
       "sequence": 4,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "مدیریت موجودی خوراکی و تاریخ مصرف",
       "sourceProblemId": "problem-04",
       "sourceProblemNumber": 4,
@@ -3329,12 +3335,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 237,
       "entryPointCanonicalContractId": 237,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-005",
+      "moduleId": "ARIA-PROBLEM-MODULE-005",
       "sequence": 5,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "بهینه‌ساز فضای خانه",
       "sourceProblemId": "problem-05",
       "sourceProblemNumber": 5,
@@ -3408,12 +3416,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 237,
       "entryPointCanonicalContractId": 237,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-006",
+      "moduleId": "ARIA-PROBLEM-MODULE-006",
       "sequence": 6,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "بازار خدمات نظافت",
       "sourceProblemId": "problem-06",
       "sourceProblemNumber": 6,
@@ -3487,12 +3497,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 237,
       "entryPointCanonicalContractId": 237,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-007",
+      "moduleId": "ARIA-PROBLEM-MODULE-007",
       "sequence": 7,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "هماهنگی حمل و جابه‌جایی",
       "sourceProblemId": "problem-07",
       "sourceProblemNumber": 7,
@@ -3566,12 +3578,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 237,
       "entryPointCanonicalContractId": 237,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-008",
+      "moduleId": "ARIA-PROBLEM-MODULE-008",
       "sequence": 8,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "دستیار نگهداری گیاه",
       "sourceProblemId": "problem-08",
       "sourceProblemNumber": 8,
@@ -3643,12 +3657,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 237,
       "entryPointCanonicalContractId": 237,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-009",
+      "moduleId": "ARIA-PROBLEM-MODULE-009",
       "sequence": 9,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "راهنمای نصب و رزرو نصاب",
       "sourceProblemId": "problem-09",
       "sourceProblemNumber": 9,
@@ -3722,12 +3738,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 237,
       "entryPointCanonicalContractId": 237,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-010",
+      "moduleId": "ARIA-PROBLEM-MODULE-010",
       "sequence": 10,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "برنامه‌ریز وعده و آماده‌سازی غذا",
       "sourceProblemId": "problem-10",
       "sourceProblemNumber": 10,
@@ -3799,12 +3817,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 237,
       "entryPointCanonicalContractId": 237,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-011",
+      "moduleId": "ARIA-PROBLEM-MODULE-011",
       "sequence": 11,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "ارزیاب ارزش خرید",
       "sourceProblemId": "problem-11",
       "sourceProblemNumber": 11,
@@ -3878,12 +3898,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 11,
       "entryPointCanonicalContractId": 11,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-012",
+      "moduleId": "ARIA-PROBLEM-MODULE-012",
       "sequence": 12,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "مقایسه‌گر قیمت و مشخصات",
       "sourceProblemId": "problem-12",
       "sourceProblemNumber": 12,
@@ -3957,12 +3979,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 11,
       "entryPointCanonicalContractId": 11,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-013",
+      "moduleId": "ARIA-PROBLEM-MODULE-013",
       "sequence": 13,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "راهنمای کاهش ریسک خرید دست‌دوم",
       "sourceProblemId": "problem-13",
       "sourceProblemNumber": 13,
@@ -4036,12 +4060,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 11,
       "entryPointCanonicalContractId": 11,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-014",
+      "moduleId": "ARIA-PROBLEM-MODULE-014",
       "sequence": 14,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "جست‌وجوی قطعه و سازگاری",
       "sourceProblemId": "problem-14",
       "sourceProblemNumber": 14,
@@ -4116,12 +4142,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 11,
       "entryPointCanonicalContractId": 11,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-015",
+      "moduleId": "ARIA-PROBLEM-MODULE-015",
       "sequence": 15,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "مدیریت مرجوعی و ضمانت",
       "sourceProblemId": "problem-15",
       "sourceProblemNumber": 15,
@@ -4195,12 +4223,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 11,
       "entryPointCanonicalContractId": 11,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-016",
+      "moduleId": "ARIA-PROBLEM-MODULE-016",
       "sequence": 16,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "بودجه‌بند خانوار",
       "sourceProblemId": "problem-16",
       "sourceProblemNumber": 16,
@@ -4274,12 +4304,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 11,
       "entryPointCanonicalContractId": 11,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-017",
+      "moduleId": "ARIA-PROBLEM-MODULE-017",
       "sequence": 17,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "اجاره/اشتراک ابزار",
       "sourceProblemId": "problem-17",
       "sourceProblemNumber": 17,
@@ -4353,12 +4385,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 11,
       "entryPointCanonicalContractId": 11,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-018",
+      "moduleId": "ARIA-PROBLEM-MODULE-018",
       "sequence": 18,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "دستیار انتخاب پوشش و اجاره لباس",
       "sourceProblemId": "problem-18",
       "sourceProblemNumber": 18,
@@ -4433,12 +4467,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 11,
       "entryPointCanonicalContractId": 11,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-019",
+      "moduleId": "ARIA-PROBLEM-MODULE-019",
       "sequence": 19,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "پیشنهاددهنده هدیه",
       "sourceProblemId": "problem-19",
       "sourceProblemNumber": 19,
@@ -4513,12 +4549,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 11,
       "entryPointCanonicalContractId": 11,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-020",
+      "moduleId": "ARIA-PROBLEM-MODULE-020",
       "sequence": 20,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "هماهنگ‌کننده بازیافت",
       "sourceProblemId": "problem-20",
       "sourceProblemNumber": 20,
@@ -4592,12 +4630,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 11,
       "entryPointCanonicalContractId": 11,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-021",
+      "moduleId": "ARIA-PROBLEM-MODULE-021",
       "sequence": 21,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "برنامه‌ریز مراقبت کودک و فهرست مراقبان",
       "sourceProblemId": "problem-21",
       "sourceProblemNumber": 21,
@@ -4669,12 +4709,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 233,
       "entryPointCanonicalContractId": 233,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-022",
+      "moduleId": "ARIA-PROBLEM-MODULE-022",
       "sequence": 22,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "برنامه‌ریز تغذیه عمومی",
       "sourceProblemId": "problem-22",
       "sourceProblemNumber": 22,
@@ -4746,12 +4788,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 233,
       "entryPointCanonicalContractId": 233,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-023",
+      "moduleId": "ARIA-PROBLEM-MODULE-023",
       "sequence": 23,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "برنامه‌ریز فعالیت و عادت حرکتی",
       "sourceProblemId": "problem-23",
       "sourceProblemNumber": 23,
@@ -4823,12 +4867,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 233,
       "entryPointCanonicalContractId": 233,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-024",
+      "moduleId": "ARIA-PROBLEM-MODULE-024",
       "sequence": 24,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "ابزار عمومی آرام‌سازی و مدیریت فشار",
       "sourceProblemId": "problem-24",
       "sourceProblemNumber": 24,
@@ -4900,12 +4946,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 233,
       "entryPointCanonicalContractId": 233,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-025",
+      "moduleId": "ARIA-PROBLEM-MODULE-025",
       "sequence": 25,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "دفترچه و برنامه عادت خواب",
       "sourceProblemId": "problem-25",
       "sourceProblemNumber": 25,
@@ -4979,12 +5027,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 233,
       "entryPointCanonicalContractId": 233,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-026",
+      "moduleId": "ARIA-PROBLEM-MODULE-026",
       "sequence": 26,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "پیشنهادگر تفریح خانوادگی",
       "sourceProblemId": "problem-26",
       "sourceProblemNumber": 26,
@@ -5056,12 +5106,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 233,
       "entryPointCanonicalContractId": 233,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-027",
+      "moduleId": "ARIA-PROBLEM-MODULE-027",
       "sequence": 27,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "مربی عادت و مسیر یادگیری",
       "sourceProblemId": "problem-27",
       "sourceProblemNumber": 27,
@@ -5133,12 +5185,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 233,
       "entryPointCanonicalContractId": 233,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-028",
+      "moduleId": "ARIA-PROBLEM-MODULE-028",
       "sequence": 28,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "برنامه‌ریز تعادل کار و زندگی",
       "sourceProblemId": "problem-28",
       "sourceProblemNumber": 28,
@@ -5210,12 +5264,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 233,
       "entryPointCanonicalContractId": 233,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-029",
+      "moduleId": "ARIA-PROBLEM-MODULE-029",
       "sequence": 29,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "هماهنگ‌کننده مراقبت حیوان",
       "sourceProblemId": "problem-29",
       "sourceProblemNumber": 29,
@@ -5287,12 +5343,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 233,
       "entryPointCanonicalContractId": 233,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-030",
+      "moduleId": "ARIA-PROBLEM-MODULE-030",
       "sequence": 30,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "مربی زبان کاربردی",
       "sourceProblemId": "problem-30",
       "sourceProblemNumber": 30,
@@ -5364,12 +5422,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 233,
       "entryPointCanonicalContractId": 233,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-031",
+      "moduleId": "ARIA-PROBLEM-MODULE-031",
       "sequence": 31,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "راهنمای مسیر شغلی و جست‌وجوی فرصت",
       "sourceProblemId": "problem-31",
       "sourceProblemNumber": 31,
@@ -5441,12 +5501,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 169,
       "entryPointCanonicalContractId": 169,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-032",
+      "moduleId": "ARIA-PROBLEM-MODULE-032",
       "sequence": 32,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "نقشه مهارت و آموزش پروژه‌محور",
       "sourceProblemId": "problem-32",
       "sourceProblemNumber": 32,
@@ -5518,12 +5580,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 169,
       "entryPointCanonicalContractId": 169,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-033",
+      "moduleId": "ARIA-PROBLEM-MODULE-033",
       "sequence": 33,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "دستیار تمرکز و بهره‌وری",
       "sourceProblemId": "problem-33",
       "sourceProblemNumber": 33,
@@ -5595,12 +5659,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 169,
       "entryPointCanonicalContractId": 169,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-034",
+      "moduleId": "ARIA-PROBLEM-MODULE-034",
       "sequence": 34,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "استودیوی تولید محتوای حرفه‌ای",
       "sourceProblemId": "problem-34",
       "sourceProblemNumber": 34,
@@ -5675,12 +5741,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 169,
       "entryPointCanonicalContractId": 169,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-035",
+      "moduleId": "ARIA-PROBLEM-MODULE-035",
       "sequence": 35,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "موتور بازاریابی و جذب مشتری",
       "sourceProblemId": "problem-35",
       "sourceProblemNumber": 35,
@@ -5754,12 +5822,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 169,
       "entryPointCanonicalContractId": 169,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-036",
+      "moduleId": "ARIA-PROBLEM-MODULE-036",
       "sequence": 36,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "سازنده سایت و فروشگاه",
       "sourceProblemId": "problem-36",
       "sourceProblemNumber": 36,
@@ -5833,12 +5903,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 169,
       "entryPointCanonicalContractId": 169,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-037",
+      "moduleId": "ARIA-PROBLEM-MODULE-037",
       "sequence": 37,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "مدیریت شبکه اجتماعی",
       "sourceProblemId": "problem-37",
       "sourceProblemNumber": 37,
@@ -5912,12 +5984,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 169,
       "entryPointCanonicalContractId": 169,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-038",
+      "moduleId": "ARIA-PROBLEM-MODULE-038",
       "sequence": 38,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "تحلیلگر و گزارش‌ساز داده",
       "sourceProblemId": "problem-38",
       "sourceProblemNumber": 38,
@@ -5992,12 +6066,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 169,
       "entryPointCanonicalContractId": 169,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-039",
+      "moduleId": "ARIA-PROBLEM-MODULE-039",
       "sequence": 39,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "مدیریت دریافت و پیگیری پرداخت",
       "sourceProblemId": "problem-39",
       "sourceProblemNumber": 39,
@@ -6071,12 +6147,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 169,
       "entryPointCanonicalContractId": 169,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-040",
+      "moduleId": "ARIA-PROBLEM-MODULE-040",
       "sequence": 40,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "تحلیل بازده بازاریابی",
       "sourceProblemId": "problem-40",
       "sourceProblemNumber": 40,
@@ -6151,12 +6229,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 169,
       "entryPointCanonicalContractId": 169,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-041",
+      "moduleId": "ARIA-PROBLEM-MODULE-041",
       "sequence": 41,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "سازنده برنامه سفر",
       "sourceProblemId": "problem-41",
       "sourceProblemNumber": 41,
@@ -6228,12 +6308,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 235,
       "entryPointCanonicalContractId": 235,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-042",
+      "moduleId": "ARIA-PROBLEM-MODULE-042",
       "sequence": 42,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "جست‌وجو و مقایسه اقامتگاه",
       "sourceProblemId": "problem-42",
       "sourceProblemNumber": 42,
@@ -6307,12 +6389,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 235,
       "entryPointCanonicalContractId": 235,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-043",
+      "moduleId": "ARIA-PROBLEM-MODULE-043",
       "sequence": 43,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "بودجه‌بند سفر",
       "sourceProblemId": "problem-43",
       "sourceProblemNumber": 43,
@@ -6384,12 +6468,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 235,
       "entryPointCanonicalContractId": 235,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-044",
+      "moduleId": "ARIA-PROBLEM-MODULE-044",
       "sequence": 44,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "کاوشگر تجربه محلی",
       "sourceProblemId": "problem-44",
       "sourceProblemNumber": 44,
@@ -6461,12 +6547,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 235,
       "entryPointCanonicalContractId": 235,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-045",
+      "moduleId": "ARIA-PROBLEM-MODULE-045",
       "sequence": 45,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "مقایسه‌گر حمل‌ونقل",
       "sourceProblemId": "problem-45",
       "sourceProblemNumber": 45,
@@ -6540,12 +6628,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 235,
       "entryPointCanonicalContractId": 235,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-046",
+      "moduleId": "ARIA-PROBLEM-MODULE-046",
       "sequence": 46,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "راهنمای محلی هوشمند",
       "sourceProblemId": "problem-46",
       "sourceProblemNumber": 46,
@@ -6617,12 +6707,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 235,
       "entryPointCanonicalContractId": 235,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-047",
+      "moduleId": "ARIA-PROBLEM-MODULE-047",
       "sequence": 47,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "چک‌لیست مدارک سفر",
       "sourceProblemId": "problem-47",
       "sourceProblemNumber": 47,
@@ -6696,12 +6788,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 235,
       "entryPointCanonicalContractId": 235,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-048",
+      "moduleId": "ARIA-PROBLEM-MODULE-048",
       "sequence": 48,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "اتصال به زیرماژول مراقبت حیوان",
       "sourceProblemId": "problem-48",
       "sourceProblemNumber": 48,
@@ -6766,19 +6860,21 @@
       ],
       "engineId": "pet-care-coordination-engine",
       "engineSharing": "SHARED_WITH_IDEA_029_DISTINCT_TRAVEL_ENTRYPOINT",
-      "aliasOf": "ARIA-IDEA-MODULE-029",
+      "aliasOf": "ARIA-PROBLEM-MODULE-029",
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 233,
       "entryPointCanonicalContractId": 235,
-      "mappingStatus": "ALIAS_TO_PROBLEM_29_HOSTED_BY_CANONICAL_233"
+      "mappingStatus": "ALIAS_TO_PROBLEM_29_HOSTED_BY_CANONICAL_233",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-049",
+      "moduleId": "ARIA-PROBLEM-MODULE-049",
       "sequence": 49,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "راهنمای آداب و قوانین مقصد",
       "sourceProblemId": "problem-49",
       "sourceProblemNumber": 49,
@@ -6852,12 +6948,14 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 235,
       "entryPointCanonicalContractId": 235,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
-      "moduleId": "ARIA-IDEA-MODULE-050",
+      "moduleId": "ARIA-PROBLEM-MODULE-050",
       "sequence": 50,
-      "moduleType": "IDEA_DERIVED_PRODUCT_MODULE",
+      "moduleType": "HISTORICAL_PROBLEM_MODULE",
       "name": "جامعه همسفران",
       "sourceProblemId": "problem-50",
       "sourceProblemNumber": 50,
@@ -6929,7 +7027,9 @@
       "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
       "hostCanonicalContractId": 235,
       "entryPointCanonicalContractId": 235,
-      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "sourceType": "PRESERVED_HISTORICAL_PROBLEM_RECORD",
+      "sourceTextStatus": "RECOVERED_FROM_EXISTING_ARIA_REGISTRY"
     },
     {
       "moduleId": "ARIA-CONTROL-MODULE-001",
@@ -7772,21 +7872,3539 @@
       "implementationStatus": "DESIGNED_PENDING_LEGACY_SOURCE_CROSSWALK",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "LEGACY_APP_IDENTITY_AND_CAPABILITIES_PRESERVED_AS_INTERNAL_MODULE"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-001",
+      "sequence": 1,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "تأیید صلاحیت تأمین‌کننده",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ساخت پرونده ارزیابی تأمین‌کننده شامل مدارک، ظرفیت، سوابق و ریسک‌های قابل راستی‌آزمایی.",
+      "domainPackId": "ARVAND",
+      "submodules": [
+        "ثبت پروفایل",
+        "کنترل مدارک",
+        "امتیازدهی معیارمحور",
+        "بازبینی دوره‌ای"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "supplier_identity",
+        "documents",
+        "capacity",
+        "references"
+      ],
+      "outputContract": [
+        "qualification_scorecard",
+        "missing_documents",
+        "review_status"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک تأمین‌کننده و ارزیابی حرفه‌ای",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-001",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-002",
+      "sequence": 2,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "مدیریت مناقصه و پیشنهاد رقابتی",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "مدیریت بسته مناقصه، دریافت پیشنهادها، انطباق شرایط و مقایسه مستند.",
+      "domainPackId": "ARVAND",
+      "submodules": [
+        "ساخت بسته مناقصه",
+        "دعوت مجاز",
+        "ثبت پیشنهاد",
+        "مقایسه فنی/تجاری",
+        "ثبت تصمیم"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "tender_brief",
+        "criteria",
+        "supplier_quotes"
+      ],
+      "outputContract": [
+        "bid_comparison",
+        "compliance_matrix",
+        "decision_log"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "کارمزد بسته مناقصه و اشتراک سازمانی",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-002",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-003",
+      "sequence": 3,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "گردش تأیید درخواست خرید",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "کنترل چرخه درخواست خرید سازمانی با سقف اختیار، بودجه و تأییدهای چندمرحله‌ای.",
+      "domainPackId": "GANJINEH",
+      "submodules": [
+        "ثبت درخواست",
+        "کنترل سیاست",
+        "ارجاع تأیید",
+        "ثبت سفارش خرید",
+        "ردیابی"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "requester",
+        "items",
+        "budget_limit",
+        "approval_policy"
+      ],
+      "outputContract": [
+        "purchase_request",
+        "approval_chain",
+        "purchase_order_draft"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک مدیریت خرید",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-003",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-004",
+      "sequence": 4,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "تحلیل هزینه‌کرد تأمین",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "طبقه‌بندی و تحلیل هزینه‌های خرید از داده‌های مجاز برای کشف تمرکز و صرفه‌جویی.",
+      "domainPackId": "CHARSU",
+      "submodules": [
+        "ورود داده",
+        "طبقه‌بندی",
+        "تحلیل روند",
+        "کشف انحراف",
+        "گزارش"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "purchase_records",
+        "supplier",
+        "period"
+      ],
+      "outputContract": [
+        "spend_dashboard",
+        "savings_opportunities",
+        "anomaly_flags"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "گزارش تحلیلی و پلن سازمانی",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-004",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-005",
+      "sequence": 5,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "امتیاز عملکرد فروشنده B2B",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "سنجش کیفیت، تحویل، پاسخ‌گویی و پایبندی فروشنده با شواهد قابل ردیابی.",
+      "domainPackId": "ARVAND",
+      "submodules": [
+        "تعریف شاخص",
+        "ثبت رویداد",
+        "محاسبه امتیاز",
+        "اعتراض/بازبینی",
+        "گزارش"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "supplier_id",
+        "delivery_events",
+        "quality_events",
+        "sla"
+      ],
+      "outputContract": [
+        "supplier_score",
+        "trend",
+        "review_case"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک حرفه‌ای تأمین‌کنندگان",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-005",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-006",
+      "sequence": 6,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "رهگیری منشأ و بچ کالا",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ثبت زنجیره منشأ کالا و رویدادهای بچ برای شفافیت و پیگیری کیفیت.",
+      "domainPackId": "GANJINEH",
+      "submodules": [
+        "تعریف کالا/بچ",
+        "ثبت مبدأ",
+        "ثبت انتقال",
+        "ثبت کنترل کیفیت",
+        "رهگیری"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "product_id",
+        "batch_id",
+        "origin",
+        "custody_events"
+      ],
+      "outputContract": [
+        "traceability_timeline",
+        "origin_record",
+        "exception_alert"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک ردیابی و API سازمانی",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-006",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-007",
+      "sequence": 7,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "پرونده انطباق تجارت بین‌الملل",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "سامان‌دهی چک‌لیست‌ها و اسناد رسمی تجارت با پیوند به منابع معتبر؛ بدون مشاوره حقوقی قطعی.",
+      "domainPackId": "ARVAND",
+      "submodules": [
+        "انتخاب مقصد/کالا",
+        "بازیابی منبع رسمی",
+        "چک‌لیست",
+        "ثبت مدرک",
+        "هشدار تغییر"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "destination",
+        "product_category",
+        "official_sources",
+        "documents"
+      ],
+      "outputContract": [
+        "compliance_checklist",
+        "source_citations",
+        "document_gaps"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک اطلاعات و خدمات متخصص مجاز",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-007",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-008",
+      "sequence": 8,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "مدیریت استثنای لجستیک",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "مدیریت تأخیر، مغایرت و رخدادهای حمل با مالک، زمان و مسیر حل مشخص.",
+      "domainPackId": "ARVAND",
+      "submodules": [
+        "ثبت رخداد",
+        "طبقه‌بندی شدت",
+        "تخصیص مسئول",
+        "پیگیری",
+        "بستن رخداد"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "shipment_id",
+        "event",
+        "severity",
+        "owner"
+      ],
+      "outputContract": [
+        "exception_case",
+        "resolution_timeline",
+        "sla_alert"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک لجستیک و داشبورد",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-008",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-009",
+      "sequence": 9,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "پرونده وضعیت گمرکی",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "پیگیری مراحل و مدارک پرونده گمرکی با اتکا به داده و درگاه رسمی متصل‌شده.",
+      "domainPackId": "ARVAND",
+      "submodules": [
+        "ثبت پرونده",
+        "چک مدارک",
+        "ثبت وضعیت",
+        "یادآوری مهلت",
+        "گزارش"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "declaration_id",
+        "jurisdiction",
+        "documents",
+        "official_status"
+      ],
+      "outputContract": [
+        "customs_case",
+        "milestones",
+        "missing_items"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک پیگیری پرونده",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-009",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-010",
+      "sequence": 10,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "پرونده فنی و انطباق محصول",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "تجمیع مشخصات فنی، گواهی‌ها و محدودیت‌های عرضه محصول.",
+      "domainPackId": "GANJINEH",
+      "submodules": [
+        "ثبت مشخصات",
+        "بارگذاری گواهی",
+        "بررسی تاریخ اعتبار",
+        "تطبیق بازار مقصد",
+        "انتشار پرونده"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "sku",
+        "specifications",
+        "certificates",
+        "target_market"
+      ],
+      "outputContract": [
+        "product_dossier",
+        "expiry_alerts",
+        "market_readiness"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک کاتالوگ حرفه‌ای",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-010",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-011",
+      "sequence": 11,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "ثبت کیفیت سری تولید",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ثبت کنترل کیفیت و نتایج آزمون هر سری تولید و ردیابی عدم انطباق.",
+      "domainPackId": "GANJINEH",
+      "submodules": [
+        "تعریف معیار",
+        "ثبت نمونه",
+        "ثبت آزمون",
+        "ثبت عدم انطباق",
+        "اقدام اصلاحی"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "batch",
+        "inspection_plan",
+        "test_results"
+      ],
+      "outputContract": [
+        "quality_record",
+        "nonconformance",
+        "corrective_action"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک تولیدکننده",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-011",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-012",
+      "sequence": 12,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "آمادگی فراخوان محصول",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "آماده‌سازی فرآیند مستند فراخوان و اطلاع‌رسانی مجاز در صورت رخداد کیفیت.",
+      "domainPackId": "GANJINEH",
+      "submodules": [
+        "تعریف سناریو",
+        "شناسایی سری‌ها",
+        "تأیید مالک مسئول",
+        "ثبت اطلاعیه",
+        "گزارش نتیجه"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "product_batches",
+        "incident",
+        "approved_notice"
+      ],
+      "outputContract": [
+        "recall_case",
+        "affected_batch_list",
+        "notification_audit"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "پلن انطباق و مدیریت کیفیت",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-012",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-013",
+      "sequence": 13,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "مدیریت ادعای ضمانت سازمانی",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ثبت و پیگیری ادعاهای ضمانت با مدارک، وضعیت و مسئولیت طرفین.",
+      "domainPackId": "GANJINEH",
+      "submodules": [
+        "ثبت ادعا",
+        "اعتبارسنجی خرید",
+        "بررسی شرایط",
+        "ارجاع تعمیر/تعویض",
+        "بستن پرونده"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "order_reference",
+        "warranty_terms",
+        "evidence"
+      ],
+      "outputContract": [
+        "warranty_case",
+        "decision",
+        "service_history"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک خدمات پس از فروش",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-013",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-014",
+      "sequence": 14,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "اعزام و هماهنگی تکنسین میدانی",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "تخصیص نیروی خدمات میدانی بر اساس مهارت، منطقه، ظرفیت و زمان.",
+      "domainPackId": "ARVAND",
+      "submodules": [
+        "ثبت مأموریت",
+        "بررسی مهارت",
+        "تطبیق ظرفیت",
+        "تخصیص",
+        "تأیید انجام"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "service_ticket",
+        "skills",
+        "territory",
+        "availability"
+      ],
+      "outputContract": [
+        "dispatch_plan",
+        "assignment",
+        "completion_proof"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک اعزام و هزینه هر مأموریت",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-014",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-015",
+      "sequence": 15,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "مدیریت دستورکار نگهداری دارایی",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "برنامه‌ریزی نگهداری پیشگیرانه دارایی‌های سازمانی و ثبت سوابق.",
+      "domainPackId": "SEPEHR",
+      "submodules": [
+        "ثبت دارایی",
+        "تعریف دوره",
+        "ایجاد دستورکار",
+        "ثبت سرویس",
+        "تحلیل خرابی"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "asset_id",
+        "maintenance_policy",
+        "meter_readings"
+      ],
+      "outputContract": [
+        "work_order",
+        "maintenance_history",
+        "downtime_report"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک مدیریت دارایی",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-015",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-016",
+      "sequence": 16,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "فضای ورود مشتری سازمانی",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "هدایت مشتری جدید سازمانی از قرارداد تا فعال‌سازی سرویس با مراحل قابل پیگیری.",
+      "domainPackId": "PAYAM",
+      "submodules": [
+        "ساخت فضای مشتری",
+        "جمع‌آوری نیاز",
+        "تخصیص مسئول",
+        "تکمیل راه‌اندازی",
+        "تأیید شروع"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "customer_org",
+        "contract_scope",
+        "stakeholders"
+      ],
+      "outputContract": [
+        "onboarding_workspace",
+        "checklist",
+        "activation_status"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک مشتریان سازمانی",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-016",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-017",
+      "sequence": 17,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "شاخص سلامت مشتری",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ترکیب داده‌های مجاز تعامل و استفاده برای شناسایی نیاز به پشتیبانی یا آموزش.",
+      "domainPackId": "PAYAM",
+      "submodules": [
+        "تعریف سیگنال",
+        "تجمیع داده مجاز",
+        "محاسبه سلامت",
+        "بازبینی انسانی",
+        "اقدام پیشنهادی"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "account_id",
+        "usage_signals",
+        "support_events",
+        "consent"
+      ],
+      "outputContract": [
+        "health_score",
+        "risk_reasons",
+        "success_plan"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک Customer Success",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-017",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-018",
+      "sequence": 18,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "آمادگی تمدید قرارداد",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "مدیریت سررسید، تعهدات، رضایت و اقدامات لازم پیش از تمدید قرارداد.",
+      "domainPackId": "PAYAM",
+      "submodules": [
+        "ثبت قرارداد",
+        "استخراج تعهد",
+        "یادآوری سررسید",
+        "بازبینی نتیجه",
+        "تصمیم تمدید"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "contract_id",
+        "renewal_date",
+        "service_metrics"
+      ],
+      "outputContract": [
+        "renewal_workspace",
+        "obligation_status",
+        "renewal_brief"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک مدیریت تمدید",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-018",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-019",
+      "sequence": 19,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "تشخیص و پیگیری ریسک ریزش مشتری",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "شناسایی نشانه‌های کاهش تعامل و ایجاد پرونده پیگیری قابل توضیح.",
+      "domainPackId": "CHARSU",
+      "submodules": [
+        "تعریف شاخص",
+        "تحلیل روند",
+        "ثبت علت",
+        "تعیین اقدام",
+        "سنجش نتیجه"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "account_usage",
+        "engagement_events",
+        "support_feedback"
+      ],
+      "outputContract": [
+        "churn_signal",
+        "explanation",
+        "retention_action"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک تحلیل نگهداشت",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-019",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-020",
+      "sequence": 20,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "کشف فرصت توسعه حساب مشتری",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "شناسایی فرصت توسعه خدمت در حساب موجود بر پایه نیاز و مجوزهای ثبت‌شده.",
+      "domainPackId": "PAYAM",
+      "submodules": [
+        "تحلیل مصرف",
+        "شناسایی شکاف",
+        "پیشنهاد خدمت",
+        "بازبینی انسانی",
+        "ثبت نتیجه"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "account_profile",
+        "service_usage",
+        "consented_preferences"
+      ],
+      "outputContract": [
+        "expansion_opportunity",
+        "fit_explanation",
+        "proposal_draft"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک رشد حساب",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-020",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-021",
+      "sequence": 21,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "ورود و ارزیابی شریک تجاری",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ثبت و ارزیابی شریک کانال، نماینده یا همکار با بررسی مدارک و توافق‌ها.",
+      "domainPackId": "ARVAND",
+      "submodules": [
+        "ثبت درخواست",
+        "کنترل هویت سازمانی",
+        "ارزیابی صلاحیت",
+        "توافق نقش",
+        "فعال‌سازی محدود"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "partner_profile",
+        "business_documents",
+        "references"
+      ],
+      "outputContract": [
+        "partner_dossier",
+        "risk_flags",
+        "activation_scope"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک پورتال شریک",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-021",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-022",
+      "sequence": 22,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "پرتال توانمندسازی نمایندگان فروش",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ارائه محتوای مجاز، ابزار فروش و ارزیابی آمادگی نمایندگان.",
+      "domainPackId": "PAYAM",
+      "submodules": [
+        "ثبت نماینده",
+        "اختصاص محتوا",
+        "آزمون دانش",
+        "دسترسی ابزار",
+        "گزارش عملکرد"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "partner_id",
+        "training_content",
+        "sales_materials"
+      ],
+      "outputContract": [
+        "enablement_path",
+        "completion_status",
+        "readiness_score"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک شبکه نمایندگان",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-022",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-023",
+      "sequence": 23,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "ممیزی عملیات شعب و فرانچایز",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ارزیابی دوره‌ای اجرای استانداردهای شعب و ثبت اقدامات اصلاحی.",
+      "domainPackId": "GANJINEH",
+      "submodules": [
+        "تعریف استاندارد",
+        "چک‌لیست بازدید",
+        "ثبت شواهد",
+        "امتیازدهی",
+        "اقدام اصلاحی"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "branch_id",
+        "audit_template",
+        "evidence"
+      ],
+      "outputContract": [
+        "branch_audit",
+        "compliance_score",
+        "corrective_tasks"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک سازمان چندشعبه‌ای",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-023",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-024",
+      "sequence": 24,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "کیت کمپین محلی شعب",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ساخت بسته کمپین قابل بومی‌سازی برای شعب با تأیید مرکزی و کنترل برند.",
+      "domainPackId": "PAYAM",
+      "submodules": [
+        "انتخاب کمپین",
+        "بومی‌سازی",
+        "بازبینی برند",
+        "تأیید مرکزی",
+        "اندازه‌گیری"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "campaign_template",
+        "branch_context",
+        "brand_policy"
+      ],
+      "outputContract": [
+        "localized_campaign",
+        "approval_record",
+        "branch_metrics"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک بازاریابی چندشعبه‌ای",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-024",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-025",
+      "sequence": 25,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "دروازه تصمیم سبد پروژه",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "اولویت‌بندی سبد پروژه‌ها با معیار ارزش، هزینه، ریسک و ظرفیت.",
+      "domainPackId": "CHARSU",
+      "submodules": [
+        "ثبت پیشنهاد",
+        "امتیازدهی",
+        "مقایسه",
+        "جلسه تصمیم",
+        "ثبت دلیل"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "project_proposals",
+        "criteria",
+        "capacity",
+        "risk"
+      ],
+      "outputContract": [
+        "portfolio_scorecard",
+        "ranked_backlog",
+        "decision_log"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک مدیریت سبد پروژه",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-025",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-026",
+      "sequence": 26,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "کنترل وابستگی و نقاط عطف",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "مدیریت وابستگی‌ها، مهلت‌ها و اثر تغییر برنامه در پروژه‌های چندتیمی.",
+      "domainPackId": "SEPEHR",
+      "submodules": [
+        "تعریف ساختار",
+        "ثبت وابستگی",
+        "محاسبه مسیر",
+        "هشدار تعارض",
+        "گزارش پیشرفت"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "work_breakdown",
+        "dependencies",
+        "milestones"
+      ],
+      "outputContract": [
+        "dependency_graph",
+        "critical_path",
+        "change_impact"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک مدیریت پروژه",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-026",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-027",
+      "sequence": 27,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "تخصیص ظرفیت منابع تیمی",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "تخصیص ظرفیت نقش‌ها و تیم‌ها با لحاظ محدودیت و بار کاری.",
+      "domainPackId": "SEPEHR",
+      "submodules": [
+        "ثبت ظرفیت",
+        "ثبت تقاضا",
+        "تطبیق منابع",
+        "تحلیل کمبود",
+        "بازتنظیم"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "team_capacity",
+        "work_demand",
+        "skills",
+        "availability"
+      ],
+      "outputContract": [
+        "capacity_plan",
+        "utilization_view",
+        "shortage_alerts"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک برنامه‌ریزی منابع",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-027",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-028",
+      "sequence": 28,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "تأیید شواهد تحویل پروژه",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ثبت معیارهای پذیرش و شواهد تحویل مرحله‌ای برای تأیید ذی‌نفعان.",
+      "domainPackId": "GANJINEH",
+      "submodules": [
+        "تعریف معیار پذیرش",
+        "ثبت شواهد",
+        "بازبینی",
+        "ثبت تأیید/نقص",
+        "بستن مرحله"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "deliverable",
+        "acceptance_criteria",
+        "evidence",
+        "reviewer"
+      ],
+      "outputContract": [
+        "acceptance_record",
+        "open_gaps",
+        "signoff_history"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "هزینه هر پروژه و پلن سازمانی",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-028",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-029",
+      "sequence": 29,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "پیشگیری از نقض SLA",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "پایش تعهدات سطح خدمت و هشدار پیش از عبور از آستانه.",
+      "domainPackId": "CHARSU",
+      "submodules": [
+        "تعریف SLA",
+        "دریافت رویداد",
+        "محاسبه زمان",
+        "هشدار",
+        "گزارش"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "service_id",
+        "sla_policy",
+        "event_timestamps"
+      ],
+      "outputContract": [
+        "sla_clock",
+        "breach_risk",
+        "escalation"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک پایش SLA",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-029",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-030",
+      "sequence": 30,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "مدیریت رخداد و گزارش پس از حادثه",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ثبت رخداد عملیاتی، هماهنگی پاسخ و مستندسازی یادگیری پس از حادثه.",
+      "domainPackId": "SEPEHR",
+      "submodules": [
+        "ثبت رخداد",
+        "تعیین شدت",
+        "تخصیص فرمانده",
+        "ثبت timeline",
+        "تحلیل علت ریشه‌ای"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "incident",
+        "severity",
+        "events",
+        "owners"
+      ],
+      "outputContract": [
+        "incident_timeline",
+        "action_log",
+        "postmortem"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک مدیریت عملیات",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-030",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-031",
+      "sequence": 31,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "کیوریشن دانش سازمانی",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "تبدیل اسناد و تجربه‌های مجاز به دانش نسخه‌دار و قابل جست‌وجو.",
+      "domainPackId": "NEGAH",
+      "submodules": [
+        "ورود منبع",
+        "استخراج فراداده",
+        "بازبینی مالک",
+        "برچسب‌گذاری",
+        "انتشار داخلی"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "documents",
+        "owners",
+        "classification",
+        "access_policy"
+      ],
+      "outputContract": [
+        "knowledge_article",
+        "source_lineage",
+        "review_status"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک دانش سازمانی",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-031",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-004"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-032",
+      "sequence": 32,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "گردش تصویب اسناد سازمانی",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "مدیریت نسخه و مسیر تصویب اسناد با کنترل دسترسی و تاریخچه.",
+      "domainPackId": "SEPEHR",
+      "submodules": [
+        "ثبت سند",
+        "تعریف مسیر",
+        "ارسال برای بازبینی",
+        "ثبت اصلاح",
+        "تصویب نسخه"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "document",
+        "workflow_policy",
+        "reviewers"
+      ],
+      "outputContract": [
+        "document_version",
+        "approval_chain",
+        "audit_log"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک مدیریت اسناد",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-032",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-033",
+      "sequence": 33,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "سیاست نگهداری سوابق",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "تعریف دوره نگهداری و چرخه آرشیو/حذف مطابق سیاست و مجوز معتبر.",
+      "domainPackId": "SEPEHR",
+      "submodules": [
+        "طبقه‌بندی داده",
+        "تعریف مدت",
+        "اعلان سررسید",
+        "تأیید حذف/آرشیو",
+        "ثبت شواهد"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "record_type",
+        "retention_policy",
+        "legal_hold"
+      ],
+      "outputContract": [
+        "retention_schedule",
+        "archive_job",
+        "deletion_evidence"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "پلن انطباق و ذخیره‌سازی",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-033",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-034",
+      "sequence": 34,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "کاتالوگ داده و تبارشناسی",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ثبت منابع داده، مالک، مصرف‌کننده و زنجیره تبدیل برای قابلیت ردیابی.",
+      "domainPackId": "CHARSU",
+      "submodules": [
+        "ثبت منبع",
+        "تعریف مالک",
+        "ثبت lineage",
+        "جست‌وجو",
+        "گزارش اثر تغییر"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "data_source",
+        "schema",
+        "transformations",
+        "owners"
+      ],
+      "outputContract": [
+        "data_catalog",
+        "lineage_graph",
+        "impact_report"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک داده و API",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-034",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-035",
+      "sequence": 35,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "میز رسیدگی کیفیت داده",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ثبت، اولویت‌بندی و پیگیری خطاهای کیفیت داده در منابع متصل.",
+      "domainPackId": "SEPEHR",
+      "submodules": [
+        "تعریف قاعده",
+        "اجرای کنترل",
+        "ثبت issue",
+        "تخصیص مسئول",
+        "تأیید اصلاح"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "dataset",
+        "quality_rules",
+        "validation_results"
+      ],
+      "outputContract": [
+        "quality_issue",
+        "severity",
+        "resolution_evidence"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک کیفیت داده",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-035",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-036",
+      "sequence": 36,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "دفتر تعاریف KPI",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "یکسان‌سازی تعریف شاخص‌ها، مالکیت، فرمول و منبع داده در سازمان.",
+      "domainPackId": "CHARSU",
+      "submodules": [
+        "ثبت KPI",
+        "تعریف فرمول",
+        "تعیین مالک",
+        "تأیید منبع",
+        "انتشار فرهنگ شاخص"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "metric_name",
+        "formula",
+        "owner",
+        "source"
+      ],
+      "outputContract": [
+        "kpi_definition",
+        "version",
+        "lineage"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک تحلیل سازمانی",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-036",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-037",
+      "sequence": 37,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "دفتر شواهد آزمایش محصول",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ثبت فرضیه، طراحی آزمایش، نتایج و تصمیم محصول با شواهد قابل بازبینی.",
+      "domainPackId": "CHARSU",
+      "submodules": [
+        "ثبت فرضیه",
+        "تعریف معیار",
+        "ثبت آزمایش",
+        "تحلیل نتیجه",
+        "تصمیم و آرشیو"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "hypothesis",
+        "experiment_design",
+        "metrics",
+        "sample_scope"
+      ],
+      "outputContract": [
+        "experiment_record",
+        "result_summary",
+        "decision_evidence"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک محصول و تحلیل",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-037",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-038",
+      "sequence": 38,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "تبدیل بازخورد به پرونده رسیدگی",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "دسته‌بندی بازخوردها، تشخیص موضوع پرتکرار و ارجاع به مالک پاسخ‌گو.",
+      "domainPackId": "PAYAM",
+      "submodules": [
+        "ورود بازخورد",
+        "طبقه‌بندی",
+        "تشخیص تکرار",
+        "ارجاع",
+        "اعلام نتیجه"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "feedback",
+        "source",
+        "consent",
+        "product_area"
+      ],
+      "outputContract": [
+        "feedback_case",
+        "theme_cluster",
+        "owner_assignment"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک Voice of Customer",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-038",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-039",
+      "sequence": 39,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "اولویت‌بندی درخواست قابلیت",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ارزیابی درخواست قابلیت بر اساس ارزش، تعداد ذی‌نفع، هزینه و ریسک.",
+      "domainPackId": "CHARSU",
+      "submodules": [
+        "ثبت درخواست",
+        "ادغام موارد مشابه با حفظ مرجع",
+        "امتیازدهی",
+        "بازبینی",
+        "ثبت تصمیم"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "feature_request",
+        "evidence",
+        "impact",
+        "effort"
+      ],
+      "outputContract": [
+        "prioritized_backlog",
+        "score_explanation",
+        "decision_log"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک مدیریت محصول",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-039",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-040",
+      "sequence": 40,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "پرونده آمادگی انتشار نسخه",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "جمع‌آوری شواهد کیفیت، امنیت، مستندات و rollback پیش از انتشار.",
+      "domainPackId": "SEPEHR",
+      "submodules": [
+        "تعریف نسخه",
+        "جمع‌آوری CI",
+        "کنترل گیت‌ها",
+        "ثبت استثنا",
+        "تأیید انتشار"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "release_version",
+        "test_results",
+        "security_findings",
+        "rollback_plan"
+      ],
+      "outputContract": [
+        "release_dossier",
+        "gate_status",
+        "approval_record"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک DevOps سازمانی",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-040",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-041",
+      "sequence": 41,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "میز بازبینی بومی‌سازی",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "بازبینی ترجمه و سازگاری فرهنگی رابط و محتوا با حفظ معنای اصلی.",
+      "domainPackId": "NEGAH",
+      "submodules": [
+        "ثبت منبع",
+        "ترجمه پیشنهادی",
+        "بازبینی زبان",
+        "بازبینی منطقه",
+        "تأیید نهایی"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "source_text",
+        "locale",
+        "terminology",
+        "reviewer"
+      ],
+      "outputContract": [
+        "localized_copy",
+        "terminology_record",
+        "review_status"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک بومی‌سازی",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-041",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-004"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-042",
+      "sequence": 42,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "ممیزی دسترس‌پذیری محصول",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ارزیابی تجربه دیجیتال از منظر دسترس‌پذیری و ثبت موارد اصلاحی.",
+      "domainPackId": "NAMA",
+      "submodules": [
+        "انتخاب سطح/صفحه",
+        "اجرای چک‌لیست",
+        "ثبت مشکل",
+        "پیشنهاد اصلاح",
+        "بازآزمایی"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "ui_routes",
+        "accessibility_standard",
+        "test_evidence"
+      ],
+      "outputContract": [
+        "audit_report",
+        "issues",
+        "remediation_status"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "گزارش ممیزی و پلن حرفه‌ای",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-042",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-006"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-043",
+      "sequence": 43,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "ممیزی مجوز و حق استفاده",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ردیابی مجوز استفاده از دارایی‌ها و محدودیت‌های انتشار/صادرات.",
+      "domainPackId": "NEGAH",
+      "submodules": [
+        "ثبت دارایی",
+        "ثبت صاحب حق",
+        "ثبت مجوز",
+        "کنترل محدوده",
+        "هشدار انقضا"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "asset_id",
+        "rights_holder",
+        "license",
+        "territory",
+        "expiry"
+      ],
+      "outputContract": [
+        "license_record",
+        "usage_scope",
+        "expiry_alert"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک مدیریت حقوق دارایی",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-043",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-004"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-044",
+      "sequence": 44,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "دفتر منشأ و مالکیت دارایی فکری",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ثبت منشأ، مشارکت‌کنندگان و مدارک مالکیت آثار و دارایی‌های دیجیتال.",
+      "domainPackId": "NEGAH",
+      "submodules": [
+        "ثبت اثر",
+        "ثبت مشارکت",
+        "اتصال شواهد",
+        "ثبت نسخه",
+        "گزارش مالکیت"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "work_id",
+        "contributors",
+        "source_files",
+        "rights_evidence"
+      ],
+      "outputContract": [
+        "provenance_record",
+        "contributor_graph",
+        "rights_summary"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک حرفه‌ای سازندگان",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-044",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-004"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-045",
+      "sequence": 45,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "مدیریت گواهی مهارت و آموزش",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ثبت مسیر آموزش و گواهی مهارت با راستی‌آزمایی صادرکننده.",
+      "domainPackId": "PAYAM",
+      "submodules": [
+        "تعریف مهارت",
+        "ثبت مدرک",
+        "بررسی صادرکننده",
+        "تأیید مهارت",
+        "تمدید/انقضا"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "person_id",
+        "skill",
+        "credential",
+        "issuer"
+      ],
+      "outputContract": [
+        "verified_credential",
+        "skill_record",
+        "expiry_notice"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک آموزش سازمانی",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-045",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-046",
+      "sequence": 46,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "ماتریس مهارت و شایستگی نقش",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "مقایسه مهارت‌های موردنیاز نقش با شواهد و برنامه توسعه.",
+      "domainPackId": "SEPEHR",
+      "submodules": [
+        "تعریف نقش",
+        "تعریف مهارت",
+        "ارزیابی شواهد",
+        "تشخیص شکاف",
+        "برنامه توسعه"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "role_profile",
+        "skill_framework",
+        "evidence",
+        "employee_consent"
+      ],
+      "outputContract": [
+        "competency_matrix",
+        "skill_gap",
+        "development_plan"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک منابع انسانی",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-046",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-047",
+      "sequence": 47,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "برنامه پوشش شیفت و ظرفیت نیروی کار",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "برنامه‌ریزی پوشش شیفت بر اساس نقش، ظرفیت، محدودیت و دسترس‌پذیری.",
+      "domainPackId": "SEPEHR",
+      "submodules": [
+        "ثبت نیاز شیفت",
+        "ثبت دسترسی",
+        "تطبیق",
+        "رفع تعارض",
+        "انتشار برنامه"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "shift_demand",
+        "availability",
+        "role_requirements",
+        "constraints"
+      ],
+      "outputContract": [
+        "shift_roster",
+        "coverage_gaps",
+        "conflict_alerts"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک مدیریت نیروی کار",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-047",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-048",
+      "sequence": 48,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "چک‌لیست بازرسی ایمنی عملیات",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ثبت چک‌لیست بازرسی محیط کار و پیگیری اقدام اصلاحی با مسئول مشخص.",
+      "domainPackId": "SEPEHR",
+      "submodules": [
+        "تعریف چک‌لیست",
+        "ثبت بازدید",
+        "ثبت مورد",
+        "ارجاع اصلاح",
+        "تأیید رفع"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "site_id",
+        "inspection_template",
+        "observations",
+        "responsible_owner"
+      ],
+      "outputContract": [
+        "inspection_record",
+        "corrective_action",
+        "closure_evidence"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک انطباق و ایمنی",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-048",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-049",
+      "sequence": 49,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "ارزیابی اثر حریم خصوصی",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ثبت ارزیابی اولیه اثر پردازش داده و کنترل ضرورت/تناسب/دسترسی.",
+      "domainPackId": "SEPEHR",
+      "submodules": [
+        "تعریف پردازش",
+        "ثبت نوع داده",
+        "ارزیابی ضرورت",
+        "تعیین کنترل",
+        "تأیید مسئول"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "processing_purpose",
+        "data_categories",
+        "retention",
+        "recipients"
+      ],
+      "outputContract": [
+        "privacy_assessment",
+        "risk_register",
+        "mitigation_actions"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک انطباق سازمانی",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-049",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-050",
+      "sequence": 50,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "بازبینی امنیت و حریم خصوصی فروشنده",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "جمع‌آوری پاسخ و شواهد ارزیابی امنیتی/حریم خصوصی تأمین‌کننده بدون آزمون تهاجمی.",
+      "domainPackId": "ARVAND",
+      "submodules": [
+        "ارسال پرسش‌نامه",
+        "دریافت شواهد",
+        "بررسی کنترل",
+        "ثبت ریسک",
+        "تصمیم خرید"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "vendor_profile",
+        "security_questionnaire",
+        "evidence",
+        "data_access_scope"
+      ],
+      "outputContract": [
+        "vendor_risk_dossier",
+        "control_gaps",
+        "review_decision"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک ارزیابی فروشنده",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-050",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-051",
+      "sequence": 51,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "پایش سلامت اتصال و API",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "پایش وضعیت اتصال‌های مجاز، انقضا و خطاهای API بدون نمایش اسرار.",
+      "domainPackId": "SEPEHR",
+      "submodules": [
+        "ثبت اتصال",
+        "کنترل مجوز",
+        "health check",
+        "هشدار خطا",
+        "درخواست تمدید"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "connector_id",
+        "health_events",
+        "permission_scopes",
+        "expiry_metadata"
+      ],
+      "outputContract": [
+        "connection_health",
+        "failure_alert",
+        "renewal_task"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "پلن اتصال و مصرف API",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-051",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+    },
+    {
+      "moduleId": "ARIA-IDEA-MODULE-052",
+      "sequence": 52,
+      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
+      "name": "مدیریت رخدادهای یکپارچه‌سازی",
+      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
+      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
+      "purpose": "ثبت، بازپخش کنترل‌شده و ردیابی خطاهای رویداد میان سامانه‌های متصل.",
+      "domainPackId": "SEPEHR",
+      "submodules": [
+        "دریافت رخداد",
+        "اعتبارسنجی امضا/شناسه",
+        "ثبت وضعیت",
+        "بازپخش idempotent",
+        "گزارش"
+      ],
+      "inputContract": [
+        "authenticated_actor",
+        "tenant_context",
+        "connector_id",
+        "event_id",
+        "payload_reference",
+        "retry_policy"
+      ],
+      "outputContract": [
+        "integration_event",
+        "replay_record",
+        "delivery_status"
+      ],
+      "workflow": [
+        "validate_input",
+        "authorize_tenant_and_role",
+        "check_consent_and_policy",
+        "execute_scoped_workflow",
+        "quality_review",
+        "record_audit_and_outcome"
+      ],
+      "dataEntities": "اشتراک اتصال سازمانی",
+      "accessPolicy": [
+        "tenant_isolation",
+        "least_privilege",
+        "consent_and_purpose_limitation",
+        "audit_log",
+        "human_approval_for_sensitive_or_external_actions"
+      ],
+      "kpis": [
+        "workflow_completion_rate",
+        "time_to_value",
+        "quality_score",
+        "error_rate",
+        "cost_per_completed_task"
+      ],
+      "acceptanceCriteria": [
+        "قرارداد ورودی/خروجی و خطاها آزموده شود",
+        "دسترسی نقش و جداسازی tenant آزموده شود",
+        "منبع داده و فرض‌ها قابل ردیابی باشد",
+        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
+        "تست واحد، integration و E2E تعریف و اجرا شود",
+        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
+      ],
+      "engineId": "idea-expansion-engine-052",
+      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
+      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
+      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
+      "productionStatus": "NOT_PRODUCTION_VERIFIED",
+      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
     }
   ],
   "moduleCatalogSummary": {
-    "totalModules": 61,
+    "totalModules": 111,
     "ideaDerivedModules": 50,
     "controlModules": 4,
     "canonicalBaseline": 639,
     "canonicalBaselineChanged": false,
-    "uniqueIdeaEngines": 49,
+    "uniqueIdeaEngines": 50,
     "controlEngines": 4,
-    "totalUniqueEngines": 53,
-    "aliasPolicy": "IDEA 048 is retained as its own module/entry point and uses the shared pet-care engine of IDEA 029; no source record is removed.",
-    "note": "Module catalog entries are designed product modules; they are not proof of production runtime.",
+    "totalUniqueEngines": 103,
+    "aliasPolicy": "Historical problem 048 remains a separate travel entry/module and shares the pet-care engine/host of problem 029; no historical record is removed.",
+    "note": "111 catalog module entries: 50 recovered historical problem modules + 50 newly authored idea modules + 4 control modules + 7 merged legacy-app domain modules. These do not alter the 639 canonical baseline and are not proof of production runtime.",
     "mergedLegacyAppModules": 7,
-    "totalCatalogEntries": 61
+    "totalCatalogEntries": 111,
+    "historicalProblemModules": 50,
+    "uniqueHistoricalProblemEngines": 49
   },
   "mergedDomainPacks": [
     {
@@ -8046,10 +11664,11 @@
       "PAYAM"
     ],
     "moduleCatalogCounts": {
-      "ideaModules": 50,
+      "historicalProblemModules": 50,
+      "newIdeaModules": 50,
       "controlModules": 4,
       "legacyAppDomainModules": 7,
-      "total": 61,
+      "total": 111,
       "canonicalBaseline": 639
     }
   }
