@@ -80,9 +80,15 @@ jobs:
         working-directory: ${{ runner.temp }}/aria32
         run: |
           set -euo pipefail
-          (cd backend && npm install --no-audit --no-fund && npm run quality-gate)
-          node --check backend/src/server.js
-          node --check backend/src/worker.js
+          (cd backend && npm install --no-audit --no-fund)
+          node scripts/aria32_release_readiness.js
+          bash verify_project.sh
+          bash ENGINEERING_FINAL_GATE_R9.sh
+          bash scripts/verify_module_capability_matrix.sh
+          bash scripts/verify_schema.sh
+          node scripts/aria18_contract_test.js
+          node scripts/creative_media_contract_test.js
+          node scripts/owner_growth_test.js
 
       - name: Build debug APK and release bundle
         shell: bash
