@@ -114,11 +114,28 @@ const MODULE_DOMAIN_LABELS = Object.freeze({
  community:"جامعه و خدمات"
 });
 const EXTERNAL_EXECUTION_REQUIRED = new Set(["ai-instagram","image-editing","profile-photo","product-photo","image-to-image","ad-banner","social-post-story","youtube-thumbnail","face-reel","avatar","voice-video","text-to-video","podcast-clips","product-video-ad","logo-design","product-packaging","professional-catalog","mockup-maker","character-design","prompt-pack","no-code-site","no-code-app","workflow-automation","ai-voiceover","revenue-commerce-engine","creator-platform-community","on-demand-local-services","travel-leisure-planner","cloud-workspace-management","website-page-builder","growth-marketing-engine","digital-commerce-studio","creative-media-studio"]);
+// Product ownership routing is explicit: ARIA retains general workflows while specialist capabilities route to their VAYRO sibling or internal ARIA domain.
+const PRODUCT_OWNERSHIP_BY_CATALOG_ID = {
+ "international-trade-studio": { ownerProduct: "ARVAND", ownerDomain: "international_trade", executionBoundary: "ROUTE_TO_OWNER_PRODUCT", productRouteState: "PRODUCT_CONNECTOR_NOT_CONNECTED" },
+ "market-intelligence": { ownerProduct: "ARMIN MARKET", ownerDomain: "market_intelligence", executionBoundary: "ROUTE_TO_OWNER_PRODUCT", productRouteState: "PRODUCT_CONNECTOR_NOT_CONNECTED" },
+ "growth-marketing-engine": { ownerProduct: "LEADORA", ownerDomain: "marketing_growth", executionBoundary: "ROUTE_TO_OWNER_PRODUCT", productRouteState: "PRODUCT_CONNECTOR_NOT_CONNECTED" },
+ "ai-sales-assistant": { ownerProduct: "LEADORA", ownerDomain: "business_operations", executionBoundary: "ROUTE_TO_OWNER_PRODUCT", productRouteState: "PRODUCT_CONNECTOR_NOT_CONNECTED" },
+ "digital-commerce-studio": { ownerProduct: "ARIA", ownerDomain: "GANJINEH", executionBoundary: "ARIA_INTERNAL_DOMAIN" },
+ "creative-media-studio": { ownerProduct: "ARIA", ownerDomain: "NEGAH", executionBoundary: "ARIA_INTERNAL_DOMAIN" },
+ "cloud-workspace-management": { ownerProduct: "ARIA", ownerDomain: "SEPEHR", executionBoundary: "ARIA_INTERNAL_DOMAIN" },
+ "website-page-builder": { ownerProduct: "ARIA", ownerDomain: "NAMA", executionBoundary: "ARIA_INTERNAL_DOMAIN" }
+};
 const catalogModules = modules.map((module) => {
  const alias=bridgeByCatalogId.get(module.id);
  if(!alias||!Number.isInteger(alias.catalogEntryId)||!Number.isInteger(alias.capabilityContractId))throw new Error("ARIA_CATALOG_ALIAS_MAPPING_INVALID:"+module.id);
+ const ownership = PRODUCT_OWNERSHIP_BY_CATALOG_ID[module.id] || {
+  ownerProduct: "ARIA",
+  ownerDomain: MODULE_DOMAIN_BY_ID[module.id],
+  executionBoundary: "ARIA_LOCAL_WORKFLOW"
+ };
  return {
   ...module,
+  ...ownership,
   catalogStatus: module.status || "planned",
   status: "active",
   product: "ARIA",
