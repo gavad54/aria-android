@@ -134,7 +134,7 @@ ARIA جایگزین تمام اپ‌های VAYRO نیست و مسئولیت حس
 
 ## 9B. ممیزی اجرای واقعی handlerها
 
-آزمون مستقیم تمام 639 capability با moduleDomainHandlers نتیجه داد: 639 پاسخ PLANNED، صفر پاسخ COMPLETED. در moduleAdapters فقط 5 interface با وضعیت INTERFACE_ONLY وجود دارد. moduleRuntime رویدادهای PLANNED را ثبت می‌کند و فقط در صورت وجود handler تخصصی و نتیجه COMPLETED وضعیت SUCCEEDED می‌دهد؛ هیچ handler فعلی این شرط را محقق نمی‌کند. بنابراین رجیستری و runtime routing موجودند، اما اجرای end-to-end همه ماژول‌ها عملیاتی نیست. جزئیات در docs/ARIA_32_RUNTIME_REALITY_AUDIT_FA.md آمده است.
+آزمون مستقیم تمام 639 capability با moduleDomainHandlers نتیجه داد: 639 پاسخ PLANNED، صفر پاسخ COMPLETED. در moduleAdapters فقط 5 interface با وضعیت INTERFACE_ONLY وجود دارد. moduleRuntime رویدادهای PLANNED را ثبت می‌کند و فقط در صورت وجود handler تخصصی و نتیجه COMPLETED وضعیت SUCCEEDED می‌دهد؛ هیچ handler فعلی این شرط را محقق نمی‌کند. بنابراین رجیستری و runtime routing موجودند، اما اجرای end-to-end همه ماژول‌ها عملیاتی نیست. جزئیات در docs/ARIA_32.0.0_RUNTIME_REALITY_AUDIT_FA.md آمده است.
 
 ## 10. برنامه تحویل و معیار پذیرش
 ### P0 — تثبیت منبع
