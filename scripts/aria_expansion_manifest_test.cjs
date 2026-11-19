@@ -33,3 +33,19 @@ const referencedHosts=[...registry.problems.map(x=>x.hostCanonicalContractId),..
 assert.ok(referencedHosts.every(id=>canonicalIds.has(id)));
 assert.equal(registry.guardrails.canonicalCountChanges,false);
 console.log("ARIA_EXPANSION_MANIFEST_PASS canonical=639 problem_records=50 unique_problem_capabilities=49 domains=5 candidates=4 revenue_models=20");
+
+const moduleRegistry=JSON.parse(fs.readFileSync(path.join(root,"backend/data/aria_54_module_expansion_registry.json"),"utf8"));
+assert.equal(moduleRegistry.moduleCatalog.length,111);
+assert.equal(new Set(moduleRegistry.moduleCatalog.map(x=>x.moduleId)).size,111);
+assert.equal(moduleRegistry.moduleCatalog.filter(x=>x.moduleType==="HISTORICAL_PROBLEM_MODULE").length,50);
+assert.equal(moduleRegistry.moduleCatalog.filter(x=>x.moduleType==="NEW_IDEA_PRODUCT_MODULE").length,50);
+assert.equal(moduleRegistry.moduleCatalog.filter(x=>x.moduleType==="CONTROL_AND_GOVERNANCE_MODULE").length,4);
+assert.equal(moduleRegistry.moduleCatalog.filter(x=>x.moduleType==="MERGED_LEGACY_APP_DOMAIN_MODULE").length,7);
+assert.deepEqual(moduleRegistry.mergedDomainPacks.map(x=>x.id),["ARVAND","CHARSU","GANJINEH","NEGAH","SEPEHR","NAMA","PAYAM"]);
+assert.equal(moduleRegistry.moduleCatalogSummary.canonicalBaseline,639);
+assert.equal(moduleRegistry.moduleCatalogSummary.canonicalBaselineChanged,false);
+assert.ok(moduleRegistry.moduleCatalog.filter(x=>x.moduleType==="NEW_IDEA_PRODUCT_MODULE").every(x=>x.canonicalMappingStatus==="PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639"&&Array.isArray(x.dataEntities)&&x.monetizationModel));
+assert.equal(moduleRegistry.familyArchitecture.parent,"VAYRO");
+assert.deepEqual(moduleRegistry.familyArchitecture.directProducts,["ARIA","ARIANA","LEADORA","ARMIN MARKET","DANA"]);
+assert.equal(moduleRegistry.familyArchitecture.accountingErpOwner,"ARIANA");
+console.log("ARIA_111_MODULE_CATALOG_PASS historical=50 new_ideas=50 control=4 merged_legacy_apps=7 canonical=639");
