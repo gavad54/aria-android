@@ -1,7 +1,7 @@
 {
   "title": "ARIA Master Productization Crosswalk v2",
   "date": "2026-11-19",
-  "total_rows": 1769,
+  "total_rows": 1625,
   "breakdown": {
     "CANONICAL_MODULE": 639,
     "MASTER_MODULE_SNAPSHOT": 120,
@@ -14,11 +14,11 @@
     "HISTORICAL_12_REVENUE_ENGINE": 12,
     "VALUE_PATH": 11,
     "ARCHIVE_SOURCE_GAP": 1,
-    "COMMERCIAL_CATALOG_ENTRY": 144,
-    "CANONICAL_BRIDGE_REFERENCE": 144
+    "COMMERCIAL_CATALOG_ENTRY": 72,
+    "CANONICAL_BRIDGE_REFERENCE": 72
   },
-  "source_lineage_rows": 986,
   "canonical_modules": 639,
+  "complete_lineage_rows": 986,
   "commercial_offers": 72,
   "bridge_rows": 72,
   "bridge_unique_targets": 47,
@@ -30,7 +30,7 @@
   },
   "shared_engines": 81,
   "engineering_contracts": 232,
-  "historical_snapshots_120_231_25": 376,
+  "historical_snapshots": 376,
   "historical_20_expansion": 20,
   "historic_12_revenue_engines": 12,
   "value_paths": 11,
@@ -39,5 +39,5 @@
   "revenue_engine_operating_models": 12,
   "no_existing_design_or_registry_overwritten": true,
   "operational_claim": "MAPPING_AND_DESIGN_ONLY; no claim of E2E, live payment, production or live revenue.",
-  "key_decision": "888-row file is a partial working extract (639+72+72+24+81). The 24 historical keys are not the full 109-key module registry. Full master overlay = 639 canonical + 986 complete lineage = 1625 rows."
+  "key_decision": "The 888-row file is a partial working extract (639+72+72+24+81). The 24 historical keys are not the full 109-key module registry. Full master overlay = 639 canonical + 986 complete lineage = 1625 rows."
 }
