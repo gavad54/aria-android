@@ -28,6 +28,12 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(summary.historicalCandidates,4);
   assert.equal(summary.revenueModels,20);
   assert.equal(summary.engines,71);
+  assert.equal(summary.totalModuleInventory,893);
+  assert.equal(summary.moduleInventory.canonicalModules,639);
+  assert.equal(summary.moduleInventory.preservedHistoricalOverlayModules,111);
+  assert.equal(summary.moduleInventory.commercialCatalogModules,72);
+  assert.equal(summary.moduleInventory.engineSubmodules,71);
+  assert.equal(summary.moduleInventory.totalModuleAndSubmoduleRecords,893);
   assert.equal(summary.liveRevenueEnabled,false);
 
   const modulesResponse=await fetch(base+"/api/aria-expansion/modules");
@@ -55,6 +61,12 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(matrix.publicCatalog.productionVerified,0);
   assert.equal(matrix.publicCatalog.notProductionVerified,72);
   assert.equal(matrix.engines.total,71);
+  assert.equal(matrix.moduleInventory.totalModuleAndSubmoduleRecords,893);
+  assert.equal(matrix.commercialModules.length,72);
+  assert.equal(matrix.engineSubmodules.length,71);
+  assert.equal(new Set(matrix.commercialModules.map(x=>x.moduleId)).size,72);
+  assert.equal(new Set(matrix.engineSubmodules.map(x=>x.moduleId)).size,71);
+  assert.ok(matrix.engineSubmodules.every(x=>x.parentModuleIds.length>0));
   assert.equal(matrix.modules.length,72);
   assert.ok(matrix.modules.every(x=>x.productionStatus==="NOT_PRODUCTION_VERIFIED"));
   assert.ok(matrix.modules.every(x=>x.ownerProduct==="ARIA"));
@@ -91,6 +103,15 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(petTravelModule.entryPointCanonicalContractId,235);
   assert.equal(petTravel.hostCanonicalContractId,petHome.hostCanonicalContractId);
   assert.equal(petTravel.entryPointCanonicalContractId,235);
+
+  const inventoryResponse=await fetch(base+"/api/aria-expansion/inventory");
+  const inventory=await inventoryResponse.json();
+  assert.equal(inventoryResponse.status,200);
+  assert.equal(inventory.moduleInventory.totalModuleAndSubmoduleRecords,893);
+  assert.equal(inventory.preservedHistoricalOverlay.length,111);
+  assert.equal(inventory.commercialModules.length,72);
+  assert.equal(inventory.engineSubmodules.length,71);
+  assert.equal(inventory.canonicalRegistry.immutable,true);
 
   const enginesResponse=await fetch(base+"/api/aria-expansion/engines");
   const engines=await enginesResponse.json();
