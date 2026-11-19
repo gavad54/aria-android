@@ -1012,7 +1012,12 @@
         "تماس فقط با رضایت صریح",
         "ضداسپم و کنترل نرخ",
         "عدم نمایش اطلاعات خصوصی پیش‌فرض"
-      ]
+      ],
+      "candidateHostContractIds": [
+        26,
+        87
+      ],
+      "mappingStatus": "UNRESOLVED_CANDIDATE_HOST_REVIEW_REQUIRED"
     },
     {
       "id": "CAND-ARIA-002",
@@ -1029,7 +1034,12 @@
         "عامل حق افزایش اختیار خود را ندارد",
         "اقدامات حساس نیازمند تأیید انسانی",
         "لغو فوری اختیار و ثبت ممیزی"
-      ]
+      ],
+      "candidateHostContractIds": [
+        2,
+        4
+      ],
+      "mappingStatus": "UNRESOLVED_CANDIDATE_HOST_REVIEW_REQUIRED"
     },
     {
       "id": "CAND-ARIA-003",
@@ -1046,7 +1056,12 @@
         "نمایش عدم‌قطعیت و فرض‌ها",
         "ثبت منبع داده و نسخه مدل",
         "عدم اجرای اقدام بیرونی"
-      ]
+      ],
+      "candidateHostContractIds": [
+        1,
+        87
+      ],
+      "mappingStatus": "UNRESOLVED_CANDIDATE_HOST_REVIEW_REQUIRED"
     },
     {
       "id": "CAND-ARIA-004",
@@ -1063,7 +1078,13 @@
         "MFA و حداقل دسترسی",
         "تأیید دوگانه برای تغییر حساس",
         "عدم نمایش secrets در UI"
-      ]
+      ],
+      "candidateHostContractIds": [
+        1,
+        2,
+        3
+      ],
+      "mappingStatus": "UNRESOLVED_CANDIDATE_HOST_REVIEW_REQUIRED"
     }
   ],
   "revenueModels": [
@@ -1075,7 +1096,8 @@
       "requiredCapability": "طرح‌ها، تمدید، لغو، صورتحساب و entitlement",
       "ariaApplication": "اشتراک فردی، سازنده، تیمی",
       "state": "DESIGNED_NOT_MONETIZED",
-      "paymentProviderState": "NOT_CONNECTED"
+      "paymentProviderState": "NOT_CONNECTED",
+      "hostCanonicalContractId": 8
     },
     {
       "id": "revenue-model-02",
@@ -1085,7 +1107,8 @@
       "requiredCapability": "سهمیه رایگان، محدودیت مصرف و مسیر ارتقا",
       "ariaApplication": "جذب کاربر و تبدیل به اشتراک",
       "state": "DESIGNED_NOT_MONETIZED",
-      "paymentProviderState": "NOT_CONNECTED"
+      "paymentProviderState": "NOT_CONNECTED",
+      "hostCanonicalContractId": 8
     },
     {
       "id": "revenue-model-03",
@@ -1095,7 +1118,8 @@
       "requiredCapability": "فهرست، جست‌وجو، سفارش، ارزیابی، اختلاف و تسویه",
       "ariaApplication": "فروش قالب، فایل و خدمات",
       "state": "DESIGNED_NOT_MONETIZED",
-      "paymentProviderState": "NOT_CONNECTED"
+      "paymentProviderState": "NOT_CONNECTED",
+      "hostCanonicalContractId": 8
     },
     {
       "id": "revenue-model-04",
@@ -1105,7 +1129,8 @@
       "requiredCapability": "کاتالوگ، سبد، سفارش، موجودی، پرداخت و ارسال",
       "ariaApplication": "فروش مستقیم یا فروشگاه سازندگان",
       "state": "DESIGNED_NOT_MONETIZED",
-      "paymentProviderState": "NOT_CONNECTED"
+      "paymentProviderState": "NOT_CONNECTED",
+      "hostCanonicalContractId": 8
     },
     {
       "id": "revenue-model-05",
@@ -1115,7 +1140,8 @@
       "requiredCapability": "صفحه برند، CRM، سفارش و پشتیبانی",
       "ariaApplication": "فروش قالب/محصول دیجیتال ARIA",
       "state": "DESIGNED_NOT_MONETIZED",
-      "paymentProviderState": "NOT_CONNECTED"
+      "paymentProviderState": "NOT_CONNECTED",
+      "hostCanonicalContractId": 8
     },
     {
       "id": "revenue-model-06",
@@ -1125,7 +1151,8 @@
       "requiredCapability": "قیمت پلکانی، سفارش حجمی، حساب تجاری",
       "ariaApplication": "بسته اعتباری یا مجوز سازمانی",
       "state": "DESIGNED_NOT_MONETIZED",
-      "paymentProviderState": "NOT_CONNECTED"
+      "paymentProviderState": "NOT_CONNECTED",
+      "hostCanonicalContractId": 8
     },
     {
       "id": "revenue-model-07",
@@ -1135,7 +1162,8 @@
       "requiredCapability": "قرارداد، قلمرو، استاندارد، آموزش و ممیزی",
       "ariaApplication": "فقط پس از بلوغ محصول و قرارداد حقوقی",
       "state": "DESIGNED_NOT_MONETIZED",
-      "paymentProviderState": "NOT_CONNECTED"
+      "paymentProviderState": "NOT_CONNECTED",
+      "hostCanonicalContractId": 8
     },
     {
       "id": "revenue-model-08",
@@ -1145,7 +1173,8 @@
       "requiredCapability": "کلید مجوز، دامنه استفاده، تمدید و ممیزی",
       "ariaApplication": "مجوز سازمانی و API؛ رعایت حقوق مالکیت",
       "state": "DESIGNED_NOT_MONETIZED",
-      "paymentProviderState": "NOT_CONNECTED"
+      "paymentProviderState": "NOT_CONNECTED",
+      "hostCanonicalContractId": 8
     },
     {
       "id": "revenue-model-09",
@@ -1155,7 +1184,8 @@
       "requiredCapability": "لینک رهگیری، انتساب، افشای تبلیغ و ضدتقلب",
       "ariaApplication": "معرفی ابزار/خدمت مرتبط با برچسب تبلیغ",
       "state": "DESIGNED_NOT_MONETIZED",
-      "paymentProviderState": "NOT_CONNECTED"
+      "paymentProviderState": "NOT_CONNECTED",
+      "hostCanonicalContractId": 8
     },
     {
       "id": "revenue-model-10",
@@ -1165,7 +1195,8 @@
       "requiredCapability": "مدیریت کمپین، هدف‌گیری مجاز، رضایت و گزارش",
       "ariaApplication": "جایگاه تبلیغ مشخص؛ عدم فروش داده شخصی",
       "state": "DESIGNED_NOT_MONETIZED",
-      "paymentProviderState": "NOT_CONNECTED"
+      "paymentProviderState": "NOT_CONNECTED",
+      "hostCanonicalContractId": 8
     },
     {
       "id": "revenue-model-11",
@@ -1175,7 +1206,8 @@
       "requiredCapability": "کاتالوگ، قیمت مصرف‌کننده و خدمات پس از فروش",
       "ariaApplication": "فروش فایل، قالب و بسته‌های خروجی",
       "state": "DESIGNED_NOT_MONETIZED",
-      "paymentProviderState": "NOT_CONNECTED"
+      "paymentProviderState": "NOT_CONNECTED",
+      "hostCanonicalContractId": 8
     },
     {
       "id": "revenue-model-12",
@@ -1185,7 +1217,8 @@
       "requiredCapability": "مدیریت تأمین‌کننده، سفارش، سهم و تحویل",
       "ariaApplication": "شبکه توزیع خدمات/محتوا",
       "state": "DESIGNED_NOT_MONETIZED",
-      "paymentProviderState": "NOT_CONNECTED"
+      "paymentProviderState": "NOT_CONNECTED",
+      "hostCanonicalContractId": 8
     },
     {
       "id": "revenue-model-13",
@@ -1195,7 +1228,8 @@
       "requiredCapability": "درخواست، تخصیص، زمان‌بندی، وضعیت و ارزیابی",
       "ariaApplication": "خدمات تولید محتوا و خدمات محلی",
       "state": "DESIGNED_NOT_MONETIZED",
-      "paymentProviderState": "NOT_CONNECTED"
+      "paymentProviderState": "NOT_CONNECTED",
+      "hostCanonicalContractId": 8
     },
     {
       "id": "revenue-model-14",
@@ -1205,7 +1239,8 @@
       "requiredCapability": "متر مصرف، کیف اعتبار، نرخ، سقف و صورتحساب",
       "ariaApplication": "متن/تصویر/صوت/ویدئو بر اساس مصرف",
       "state": "DESIGNED_NOT_MONETIZED",
-      "paymentProviderState": "NOT_CONNECTED"
+      "paymentProviderState": "NOT_CONNECTED",
+      "hostCanonicalContractId": 8
     },
     {
       "id": "revenue-model-15",
@@ -1215,7 +1250,8 @@
       "requiredCapability": "دارایی/مجوز، مدت، ودیعه، تمدید و بازگشت",
       "ariaApplication": "اجاره ابزار یا دسترسی محدود به منابع",
       "state": "DESIGNED_NOT_MONETIZED",
-      "paymentProviderState": "NOT_CONNECTED"
+      "paymentProviderState": "NOT_CONNECTED",
+      "hostCanonicalContractId": 8
     },
     {
       "id": "revenue-model-16",
@@ -1225,7 +1261,8 @@
       "requiredCapability": "ساخت، نسخه‌بندی، مجوز، تحویل و به‌روزرسانی",
       "ariaApplication": "قالب، دوره، گزارش و فایل تولیدی",
       "state": "DESIGNED_NOT_MONETIZED",
-      "paymentProviderState": "NOT_CONNECTED"
+      "paymentProviderState": "NOT_CONNECTED",
+      "hostCanonicalContractId": 12
     },
     {
       "id": "revenue-model-17",
@@ -1235,7 +1272,8 @@
       "requiredCapability": "رزرو متخصص، شرح خدمت، قرارداد و تحویل",
       "ariaApplication": "مشاوره، پیاده‌سازی، طراحی و آموزش",
       "state": "DESIGNED_NOT_MONETIZED",
-      "paymentProviderState": "NOT_CONNECTED"
+      "paymentProviderState": "NOT_CONNECTED",
+      "hostCanonicalContractId": 26
     },
     {
       "id": "revenue-model-18",
@@ -1245,7 +1283,8 @@
       "requiredCapability": "API، نقش‌ها، توسعه‌دهنده، بازارگاه و کنترل",
       "ariaApplication": "اکوسیستم سازندگان و ارائه‌دهندگان",
       "state": "DESIGNED_NOT_MONETIZED",
-      "paymentProviderState": "NOT_CONNECTED"
+      "paymentProviderState": "NOT_CONNECTED",
+      "hostCanonicalContractId": 12
     },
     {
       "id": "revenue-model-19",
@@ -1255,7 +1294,8 @@
       "requiredCapability": "رضایت، ناشناس‌سازی، تحلیل و کنترل دسترسی",
       "ariaApplication": "گزارش تحلیلی تجمیعی؛ هرگز فروش داده شخصی بدون مبنای مجاز",
       "state": "DESIGNED_NOT_MONETIZED",
-      "paymentProviderState": "NOT_CONNECTED"
+      "paymentProviderState": "NOT_CONNECTED",
+      "hostCanonicalContractId": 87
     },
     {
       "id": "revenue-model-20",
@@ -1265,7 +1305,8 @@
       "requiredCapability": "گروه، رویداد، محتوا، مدیریت و ضدسوءاستفاده",
       "ariaApplication": "عضویت ممتاز، رویداد و جامعه تخصصی",
       "state": "DESIGNED_NOT_MONETIZED",
-      "paymentProviderState": "NOT_CONNECTED"
+      "paymentProviderState": "NOT_CONNECTED",
+      "hostCanonicalContractId": 12
     }
   ],
   "guardrails": {
