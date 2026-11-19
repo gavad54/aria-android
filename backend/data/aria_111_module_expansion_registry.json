@@ -5733,8 +5733,7 @@
       "engineSharing": "DEDICATED",
       "aliasOf": null,
       "linkedDomainPacks": [
-        "NEGAH",
-        "PAYAM"
+        "NEGAH"
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
@@ -6058,7 +6057,6 @@
       "engineSharing": "DEDICATED",
       "aliasOf": null,
       "linkedDomainPacks": [
-        "CHARSU",
         "SEPEHR"
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
@@ -11855,14 +11853,16 @@
       "ARIANA",
       "LEADORA",
       "ARMIN MARKET",
-      "DANA"
+      "DANA",
+      "ARVAND"
     ],
-    "ariaRole": "Consolidated application containing all legacy apps except the four independent siblings.",
+    "ariaRole": "General AI assistant and digital work environment; transferred domains are owned by ARVAND, ARMIN MARKET and LEADORA.",
     "independentSiblings": [
       "ARIANA",
       "LEADORA",
       "ARMIN MARKET",
-      "DANA"
+      "DANA",
+      "ARVAND"
     ],
     "excludedFromAria": [
       "ARIANA",
