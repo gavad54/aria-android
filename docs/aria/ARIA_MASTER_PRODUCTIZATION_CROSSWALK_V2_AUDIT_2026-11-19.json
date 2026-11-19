@@ -39,5 +39,17 @@
   "revenue_engine_operating_models": 12,
   "no_existing_design_or_registry_overwritten": true,
   "operational_claim": "MAPPING_AND_DESIGN_ONLY; no claim of E2E, live payment, production or live revenue.",
-  "key_decision": "The 888-row file is a partial working extract (639+72+72+24+81). The 24 historical keys are not the full 109-key module registry. Full master overlay = 639 canonical + 986 complete lineage = 1625 rows."
+  "key_decision": "The 888-row file is a partial working extract (639+72+72+24+81). The 24 historical keys are not the full 109-key module registry. Full master overlay = 639 canonical + 986 complete lineage = 1625 rows.",
+  "canonical_monetization_split": {
+    "plan_included_or_usage_metered": 557,
+    "disclosed_platform_revenue": 70,
+    "platform_fee_only_as_disclosed": 12
+  },
+  "engine_productization_split": {
+    "direct_revenue_engines": 12,
+    "plan_included_or_usage_metered": 13,
+    "shared_platform_indirect": 46,
+    "safety_security_compliance_baseline": 10
+  },
+  "engine_productization_file": "docs/aria/ARIA_81_ENGINE_PRODUCTIZATION_REVENUE_OVERLAY_2026-11-19.csv"
 }
