@@ -10,7 +10,9 @@ const {
   createSupportTicket,
   transitionSupportTicket,
   createServicePackage,
-  transitionServicePackage
+  transitionServicePackage,
+  evaluateCustomerSuccess,
+  approveCustomerRenewal
 } = require("../backend/aria-service-delivery.cjs");
 
 test("service delivery exposes eight additive commercial modules without claiming production readiness", () => {
@@ -104,4 +106,18 @@ test("support tickets and service packages enforce tenant ownership on state tra
   assert.throws(() => transitionServicePackage(servicePackage, "SUBMIT_REVIEW", { userId: "42" }), /SERVICE_PACKAGE_TENANT_ACCESS_DENIED/);
   assert.throws(() => transitionServicePackage(servicePackage, "SUBMIT_REVIEW", { userId: "42", tenantId: "tenant-2" }), /SERVICE_PACKAGE_TENANT_ACCESS_DENIED/);
   assert.equal(transitionServicePackage(servicePackage, "SUBMIT_REVIEW", actor).state, "REVIEW_PENDING");
+});
+
+
+test("customer success renewal approval is tenant-scoped and owner-gated", () => {
+  const report = evaluateCustomerSuccess({
+    period: "2026-11", activeDays: 12, completedTasks: 20,
+    targetTasks: 18, unresolvedTickets: 0
+  }, { userId: "staff-1", tenantId: "tenant-1" });
+  assert.throws(() => approveCustomerRenewal(report, { userId: "owner-2", isOwner: true, tenantId: "tenant-2" }), /CUSTOMER_SUCCESS_TENANT_ACCESS_DENIED/);
+  assert.throws(() => approveCustomerRenewal(report, { userId: "staff-1", tenantId: "tenant-1" }), /OWNER_APPROVAL_REQUIRED/);
+  const approved = approveCustomerRenewal(report, { userId: "owner-1", isOwner: true, tenantId: "tenant-1" });
+  assert.equal(approved.renewalDecision, "OWNER_APPROVED_RECOMMENDATION");
+  assert.equal(approved.renewalExecuted, false);
+  assert.equal(approved.paymentExecuted, false);
 });
