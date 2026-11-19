@@ -97,6 +97,9 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   const unauthWork=await fetch(base+"/api/aria-expansion/work-items");assert.equal(unauthWork.status,401);
   const unauthIntents=await fetch(base+"/api/aria-expansion/intents");assert.equal(unauthIntents.status,401);
   const unauthOwner=await fetch(base+"/api/aria-expansion/owner/overview");assert.equal(unauthOwner.status,401);
+  const unauthProvider=await fetch(base+"/api/aria-expansion/providers",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({displayName:"Provider",category:"repair",serviceArea:"Baku"})});assert.equal(unauthProvider.status,401);
+  const unauthProviderVerify=await fetch(base+"/api/aria-expansion/providers/1/verification",{method:"PATCH",headers:{"content-type":"application/json"},body:JSON.stringify({status:"verified"})});assert.equal(unauthProviderVerify.status,401);
+  const unauthMatches=await fetch(base+"/api/aria-expansion/intents/1/matches");assert.equal(unauthMatches.status,401);
   const unauthPolicy=await fetch(base+"/api/aria-expansion/autonomy/policies",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({agentId:"agent-1",action:"draft",decision:"ALLOW"})});assert.equal(unauthPolicy.status,401);
 
   const home=await fetch(base+"/");const homeHtml=await home.text();assert.match(homeHtml,/id="aria-expansion"/);assert.match(homeHtml,/aria-expansion.js/);
