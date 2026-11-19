@@ -69,6 +69,18 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(revenueResponse.status,200);
   assert.equal(revenue.models.length,20);
   assert.ok(revenue.models.every(x=>x.state==="DESIGNED_NOT_MONETIZED"));
+  for(const model of revenue.models){
+   const assumptions={};
+   for(const key of model.calculation.requiredInputs){
+    if(key.toLowerCase().includes("rate"))assumptions[key]=0.1;
+    else if(key==="cpm")assumptions[key]=8;
+    else if(key==="months")assumptions[key]=1;
+    else if(key.toLowerCase().includes("price")||key.toLowerCase().includes("fee")||key.toLowerCase().includes("commission"))assumptions[key]=10;
+    else assumptions[key]=100;
+   }
+   const response=await fetch(base+"/api/aria-expansion/revenue-models/simulate",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({modelId:model.id,assumptions})});
+   const result=await response.json();assert.equal(response.status,200,"revenue model "+model.id+" should simulate");assert.equal(result.simulation.state,"SIMULATED_NOT_ACTUAL");assert.equal(result.simulation.paymentExecuted,false);assert.ok(Number.isFinite(result.simulation.grossRevenueEstimate));
+  }
 
   const planResponse=await fetch(base+"/api/aria-expansion/modules/problem-01/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"پیدا کردن تعمیرکار مناسب"})});
   const plan=await planResponse.json();
