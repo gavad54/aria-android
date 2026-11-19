@@ -19,7 +19,6 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(summary.canonicalModuleCount,639);
   assert.equal(summary.problemRecords,50);
   assert.equal(summary.historicalProblemModules,50);
-  assert.equal(summary.historicalProblemModules,50);
   assert.equal(summary.ideaModules,50);
   assert.equal(summary.controlModules,4);
   assert.equal(summary.legacyAppModules,7);
@@ -28,7 +27,7 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(summary.parentDomains,5);
   assert.equal(summary.historicalCandidates,4);
   assert.equal(summary.revenueModels,20);
-  assert.equal(summary.engines,53);
+  assert.equal(summary.engines,110);
   assert.equal(summary.liveRevenueEnabled,false);
 
   const modulesResponse=await fetch(base+"/api/aria-expansion/modules");
@@ -37,6 +36,7 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(modules.parents.length,5);
   assert.equal(modules.problems.length,50);
   assert.equal(modules.modules.length,111);
+  assert.equal(modules.historicalProblemModules,50);
   assert.equal(modules.ideaModules,50);
   assert.equal(modules.controlModules,4);
   assert.equal(modules.legacyAppModules,7);
@@ -59,7 +59,6 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   const petTravelModule=modules.modules.find(x=>x.sourceProblemNumber===48&&x.moduleType==="HISTORICAL_PROBLEM_MODULE");
   const petHomeModule=modules.modules.find(x=>x.sourceProblemNumber===29&&x.moduleType==="HISTORICAL_PROBLEM_MODULE");
   assert.notEqual(petTravelModule.moduleId,petHomeModule.moduleId,"all 50 idea entries retain distinct module IDs");
-  assert.equal(petTravelModule.moduleId,"ARIA-PROBLEM-MODULE-048");
   assert.equal(petTravelModule.moduleId,"ARIA-PROBLEM-MODULE-048");
   assert.equal(petTravelModule.engineSharing,"SHARED_WITH_IDEA_029_DISTINCT_TRAVEL_ENTRYPOINT");
   assert.equal(petTravelModule.hostCanonicalContractId,233);
@@ -124,15 +123,12 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   const historicModulePlan=await historicModulePlanResponse.json();
   assert.equal(historicModulePlanResponse.status,200);
   assert.equal(historicModulePlan.plan.moduleId,"ARIA-PROBLEM-MODULE-001");
-  const historicModulePlanResponse=await fetch(base+"/api/aria-expansion/modules/ARIA-PROBLEM-MODULE-001/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"ارزیابی تعمیرکار"})});
-  const historicModulePlan=await historicModulePlanResponse.json();
-  assert.equal(historicModulePlanResponse.status,200);
-  assert.equal(historicModulePlan.plan.moduleId,"ARIA-PROBLEM-MODULE-001");
   const newModulePlanResponse=await fetch(base+"/api/aria-expansion/modules/ARIA-IDEA-MODULE-001/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"بررسی و انتخاب تعمیرکار مطمئن"})});
   const newModulePlan=await newModulePlanResponse.json();
   assert.equal(newModulePlanResponse.status,200);
   assert.equal(newModulePlan.plan.moduleId,"ARIA-IDEA-MODULE-001");
-  assert.equal(newModulePlan.plan.hostCanonicalContractId,237);
+  assert.equal(newModulePlan.plan.hostCanonicalContractId,null);
+  assert.equal(modules.modules.find(x=>x.moduleId==="ARIA-IDEA-MODULE-001").canonicalMappingStatus,"PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639");
   const controlPlanResponse=await fetch(base+"/api/aria-expansion/modules/ARIA-CONTROL-MODULE-001/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"تطبیق نیاز و عرضه‌کننده با رضایت"})});
   const controlPlan=await controlPlanResponse.json();
   assert.equal(controlPlanResponse.status,200);
