@@ -8,12 +8,12 @@ ARIA is intended to be one comprehensive app. The 369-module ARIA 25 report, the
 
 ## Functional redesign (2026-11-19)
 
-The current web catalogue contains 60 records and is now grouped by functional domain through additive API metadata. The catalogue distinguishes 2 foundation records, 5 prototypes and 53 planned capabilities. "Foundation" is not a production-readiness claim. The new GET /api/modules/summary endpoint exposes this breakdown and its limitations.
+The current web catalogue contains 65 records and is now grouped by functional domain through additive API metadata. The catalogue distinguishes 2 foundation records, 5 prototypes and 58 planned capabilities. "Foundation" is not a production-readiness claim. The new GET /api/modules/summary endpoint exposes this breakdown and its limitations.
 
 - [Functional product redesign and module map](docs/ARIA_FUNCTIONAL_REDESIGN_2026-11-19_FA.md)
 - [Legacy source inventory and ownership matrix](docs/ARIA_LEGACY_CAPABILITY_INVENTORY_2026-11-19_FA.md)
 
-This is a web-catalogue classification, not the full Android 32 registry. Do not add the 60 web records to the reported 369 ARIA 25 records, 639 ARIA 32 records or 50 ideas. Those inventories require source provenance and ID-level reconciliation before migration.
+This is a web-catalogue classification, not the full Android 32 registry. Do not add the 65 web records to the reported 369 ARIA 25 records, 639 ARIA 32 records or 50 ideas. Those inventories require source provenance and ID-level reconciliation before migration.
 
 ## Web prototype
 
