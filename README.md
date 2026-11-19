@@ -6,6 +6,15 @@ ARIA is a general-purpose AI super-app project. It is **not an accounting/ERP pr
 
 ARIA is intended to be one comprehensive app. The 369-module ARIA 25 report, the 639-module ARIA 32 source archive, and the 50 ideas from the reference image are different-version/different-purpose inventories and must not be summed. Use the [unified merge plan](docs/ARIA_UNIFIED_APP_MERGE_PLAN_FA.md) to reconcile IDs, map duplicate capabilities to shared engines, and keep web and Android on one versioned registry. The merge is not yet fully implemented: the complete Android source archive has not been imported into this repository, and Android build/device verification remains blocked.
 
+## Functional redesign (2026-11-19)
+
+The current web catalogue contains 60 records and is now grouped by functional domain through additive API metadata. The catalogue distinguishes 2 foundation records, 5 prototypes and 53 planned capabilities. "Foundation" is not a production-readiness claim. The new GET /api/modules/summary endpoint exposes this breakdown and its limitations.
+
+- [Functional product redesign and module map](docs/ARIA_FUNCTIONAL_REDESIGN_2026-11-19_FA.md)
+- [Legacy source inventory and ownership matrix](docs/ARIA_LEGACY_CAPABILITY_INVENTORY_2026-11-19_FA.md)
+
+This is a web-catalogue classification, not the full Android 32 registry. Do not add the 60 web records to the reported 369 ARIA 25 records, 639 ARIA 32 records or 50 ideas. Those inventories require source provenance and ID-level reconciliation before migration.
+
 ## Web prototype
 
 - Web URL: https://aria-web-production-12ba.up.railway.app
