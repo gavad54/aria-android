@@ -189,6 +189,7 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   const unauthPolicy=await fetch(base+"/api/aria-expansion/autonomy/policies",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({agentId:"agent-1",action:"draft",decision:"ALLOW"})});assert.equal(unauthPolicy.status,401);
 
   const home=await fetch(base+"/");const homeHtml=await home.text();assert.match(homeHtml,/id="aria-expansion"/);assert.match(homeHtml,/aria-expansion.js/);
+  assert.match(homeHtml,/id="expansion-maturity"/);assert.ok(expansionSource.includes("/api/aria-expansion/capability-matrix"));assert.ok(expansionSource.includes("expansion-maturity-table"));
   const expansionJs=await fetch(base+"/aria-expansion.js");assert.equal(expansionJs.status,200);const expansionSource=await expansionJs.text();assert.ok(expansionSource.includes("/api/aria-expansion/revenue-models/simulate"));assert.ok(expansionSource.includes("/api/aria-expansion/modules"));
  }finally{
   await new Promise(resolve=>{if(child.exitCode!==null||child.signalCode!==null)return resolve();child.once("exit",resolve);child.kill();});
