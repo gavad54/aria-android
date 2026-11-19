@@ -89,7 +89,7 @@ Original Library source archive SHA-256 (verified 2026-11-09):
 A repaired candidate was created from the verified source archive in an isolated workspace:
 
 ```
-0c45fb175fa6d44456ce33af5c975a2d74576096fae37aa4993a213759a5dbe8
+9d1e40acdb197de22c69c64336f5e3e0f4951a227ab28de443d73fc111375284
 ```
 
 The candidate has 505 ZIP entries and 8.3 MB uncompressed. It fixes Android/Backend versionCode parity, stale project and capability verifiers, migration-sequence assertion and bounded-executor gate; the package quality-gate now runs the current 32.0.0 checks. It is not an APK/AAB and is not imported into this repository. The Android workflow pins this exact checksum and waits for the archive at release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip. The binary upload remains an external prerequisite.
