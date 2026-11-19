@@ -60,7 +60,7 @@ const commercialModules = commercialRegistry.records.map(item => ({
   productionStatus: "NOT_PRODUCTION_VERIFIED"
 }));
 if (unifiedExecutionRegistry.total !== 893 || unifiedExecutionRegistry.records.length !== 893 ||
-    unifiedExecutionById.size !== 893 || unifiedExecutionRegistry.activeLocalWorkflowCount !== 854 ||
+    unifiedExecutionById.size !== 893 || unifiedExecutionByLaunchId.size !== 893 || unifiedExecutionRegistry.activeLocalWorkflowCount !== 854 ||
     unifiedExecutionRegistry.lineageOnlyCount !== 39 ||
     unifiedExecutionRegistry.records.filter(x => x.executionState === "LOCAL_WORK_ITEM_ONLY").length !== 854 ||
     unifiedExecutionRegistry.records.filter(x => x.executionState === "LINEAGE_ONLY").length !== 39 ||
