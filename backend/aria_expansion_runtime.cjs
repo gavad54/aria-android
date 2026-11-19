@@ -189,6 +189,62 @@ async function handle(req, res, url, deps) {
     const moduleBySource = new Map(moduleCatalog.filter(x => x.sourceProblemId).map(x => [x.sourceProblemId, x]));
     return json(res, 200, { parents: registry.domains, problems: publicProblemRecords.map(x => ({ ...x, moduleId: moduleBySource.get(x.id)?.moduleId, parentDomain: x.parentModuleId })), modules: moduleCatalog, mergedDomainPacks: publicDomainPacks, familyArchitecture: publicFamilyArchitecture, totalProblemRecords: publicProblemRecords.length, historicalProblemModules: publicProblemRecords.length, ideaModules: 25, controlModules: 4, legacyAppModules: publicDomainPacks.length, totalModules: moduleCatalog.length, historicalOverlayModules: allModuleCatalog.length, transferredModules: transferredIds.size, archivedDomainPackages: archivedDomainIds.size, sharedAriaServices: ownership.sharedAriaModuleIds.length, uniqueProblemCapabilities: 38, canonicalModuleCount: 639, canonicalCountChanged: false });
   }
+  if (p === "/api/aria-expansion/capability-matrix" && req.method === "GET") {
+    const byType = Object.fromEntries(
+      ["HISTORICAL_PROBLEM_MODULE", "NEW_IDEA_PRODUCT_MODULE", "CONTROL_AND_GOVERNANCE_MODULE", "MERGED_LEGACY_APP_DOMAIN_MODULE"]
+        .map(type => [type, moduleCatalog.filter(item => item.moduleType === type).length])
+    );
+    const productionVerified = moduleCatalog.filter(item => item.productionStatus === "PRODUCTION_VERIFIED").length;
+    const runtimeVerified = moduleCatalog.filter(item => ["RUNTIME_VERIFIED", "E2E_VERIFIED", "PRODUCTION_ENABLED"].includes(item.implementationStatus)).length;
+    const modules = moduleCatalog.map(item => ({
+      moduleId: item.moduleId,
+      name: item.name,
+      moduleType: item.moduleType,
+      ownerProduct: "ARIA",
+      ownerDomain: item.legacyAppName || item.parentDomainName || item.parentDomainId || item.domainPackId || "ARIA_GENERAL",
+      engineId: item.engineId || null,
+      inputContract: item.inputContract,
+      outputContract: item.outputContract,
+      workflow: item.workflow,
+      accessPolicy: item.accessPolicy,
+      acceptanceCriteria: item.acceptanceCriteria,
+      canonicalMappingStatus: item.mappingStatus || "PENDING_CANONICAL_MAPPING",
+      hostCanonicalContractId: item.hostCanonicalContractId || null,
+      entryPointCanonicalContractId: item.entryPointCanonicalContractId || null,
+      implementationStatus: item.implementationStatus,
+      productionStatus: item.productionStatus,
+      executionMode: "LOCAL_PLAN_ONLY",
+      externalAdapterState: "NOT_CONNECTED",
+      sourcePreservation: item.sourcePreservation
+    }));
+    return json(res, 200, {
+      schemaVersion: "1.0.0",
+      product: "ARIA",
+      canonicalBaseline: 639,
+      canonicalBaselineChanged: false,
+      preservedHistoricalOverlay: allModuleCatalog.length,
+      publicCatalog: {
+        total: moduleCatalog.length,
+        byType,
+        localPlanAvailable: moduleCatalog.length,
+        runtimeVerified,
+        productionVerified,
+        notProductionVerified: moduleCatalog.length - productionVerified
+      },
+      engines: {
+        total: engineCatalog.length,
+        problem: problemEngines.length,
+        controls: candidateEngines.length,
+        ideas: ideaEngines.length,
+        internalDomains: legacyDomainEngines.length
+      },
+      transferredModuleIds: [...transferredIds].sort(),
+      sharedAriaModuleIds: [...ownership.sharedAriaModuleIds],
+      externalExecutionEnabled: false,
+      liveRevenueEnabled: false,
+      modules
+    });
+  }
   if (p === "/api/aria-expansion/engines" && req.method === "GET") {
     return json(res, 200, { engines: engineCatalog, total: engineCatalog.length, problemEngines: problemEngines.length, candidateEngines: candidateEngines.length, ideaEngines: ideaEngines.length, legacyDomainEngines: legacyDomainEngines.length, canonicalModuleCount: 639 });
   }
