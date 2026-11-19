@@ -13,15 +13,14 @@
  const node=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e;};
  const savePlanButton=(container,moduleId,title,plan)=>{const save=node("button","btn btn-quiet","ثبت برنامه در کارهای من");save.type="button";save.addEventListener("click",async()=>{if(!window.ariaToken){save.textContent="برای ذخیره ابتدا وارد حساب شوید";return;}save.disabled=true;save.textContent="در حال ثبت…";try{const headers={"content-type":"application/json",authorization:"Bearer "+window.ariaToken};const response=await fetch("/api/aria-expansion/work-items",{method:"POST",headers,body:JSON.stringify({moduleId,title,details:JSON.stringify(plan)})});const data=await response.json();if(!response.ok)throw new Error(data.error||"ثبت برنامه انجام نشد");save.textContent="برنامه ثبت شد · "+data.item.id;}catch(error){save.textContent=error.message;}finally{save.disabled=false;}});container.append(save);};
  try{
-  const [s,m,c,r,e,matrix,canonicalCatalog,commercialCatalog]=await Promise.all([
+  const [s,m,c,r,e,matrix,executionRegistry]=await Promise.all([
    fetch("/api/aria-expansion/summary").then(x=>x.json()),
    fetch("/api/aria-expansion/modules").then(x=>x.json()),
    fetch("/api/aria-expansion/candidates").then(x=>x.json()),
    fetch("/api/aria-expansion/revenue-models").then(x=>x.json()),
    fetch("/api/aria-expansion/engines").then(x=>x.json()),
    fetch("/api/aria-expansion/capability-matrix").then(x=>x.json()),
-   fetch("/api/aria-expansion/canonical-modules").then(x=>x.json()),
-   fetch("/api/aria-expansion/commercial-modules").then(x=>x.json())
+   fetch("/api/aria-expansion/execution-registry").then(x=>x.json())
   ]);
   status(summaryEl,"موجودی ساختاری ۸۹۳ واحدی ARIA: ۶۳۹ ماژول پایه + ۱۱۱ رکورد ماژولی تاریخی + ۷۲ ماژول کاتالوگ تجاری + ۷۱ زیرماژول موتور · ۳۶ رکورد تاریخی منتقل‌شده به محصولات خواهر · ۸۵۴ مسیر ثبت گردش‌کار محلی · درآمد زنده فعال نیست.");
   if(maturityEl){
@@ -60,12 +59,8 @@
    ["نوع","شناسه","نام","وضعیت","اقدام"].forEach(label=>{const th=node("th","",label);th.style.textAlign="right";th.style.padding="8px";executionHeadRow.append(th);});
    executionHead.append(executionHeadRow);const executionBody=node("tbody","");executionTable.append(executionHead,executionBody);
    const executionScroll=node("div","expansion-maturity-scroll");executionScroll.style.overflowX="auto";executionScroll.append(executionTable);
-   const entries=[
-    ...canonicalCatalog.modules.map(x=>({type:"canonical",id:String(x.canonicalId),name:x.name,status:x.implementationState})),
-    ...m.modules.map(x=>({type:"overlay",id:x.moduleId,name:x.name,status:x.implementationStatus})),
-    ...commercialCatalog.modules.map(x=>({type:"commercial",id:x.commercialModuleId,name:x.name,status:x.executionContract.status})),
-    ...e.engineSubmodules.map(x=>({type:"engine",id:x.engineId,name:x.name,status:x.implementationStatus}))
-   ];
+   const registryTypeMap={CANONICAL_MODULE:"canonical",HISTORICAL_OVERLAY_MODULE:"overlay",COMMERCIAL_MODULE:"commercial",ENGINE_SUBMODULE:"engine"};
+   const entries=executionRegistry.records.filter(x=>x.executionState==="LOCAL_WORK_ITEM_ONLY").map(x=>({type:registryTypeMap[x.recordType],id:x.sourceId,name:x.name,status:x.executionState})).filter(x=>x.type);
    const typeNames={canonical:"ماژول پایه",overlay:"ماژول ARIA",commercial:"ماژول تجاری",engine:"زیرماژول موتور"};
    const renderExecutionEntries=()=>{
     executionBody.replaceChildren();
