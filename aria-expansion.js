@@ -16,7 +16,7 @@
    fetch("/api/aria-expansion/revenue-models").then(x=>x.json()),
    fetch("/api/aria-expansion/engines").then(x=>x.json())
   ]);
-  status(summaryEl,"۶۳۹ ماژول مرجع حفظ‌شده · "+s.problemRecords+" مسئله تاریخی · "+s.historicalCandidates+" نامزد · "+s.revenueModels+" مدل درآمدی · "+e.total+" موتور تخصصی · درآمد زنده فعال نیست.");
+  status(summaryEl,"۶۳۹ ماژول پایه حفظ‌شده · "+s.ideaModules+" ماژول ایده + "+s.controlModules+" ماژول کنترلی = "+s.totalModules+" ماژول تکمیلی · "+s.revenueModels+" مدل درآمدی · "+e.total+" موتور تخصصی · درآمد زنده فعال نیست.");
   for(const d of m.parents){
    const card=node("article","glass expansion-domain");
    card.append(node("h3","",d.name),node("p","","۱۰ مسئله در این حوزه"));
@@ -24,7 +24,7 @@
   }
   for(const item of m.problems){
    const card=node("article","glass expansion-card");
-   card.append(node("div","expansion-kicker","مسئله "+item.sourceProblemNumber+" · "+item.parentModuleName));
+   card.append(node("div","expansion-kicker","ماژول "+String(item.sourceProblemNumber).padStart(3,"0")+" · "+(item.moduleId||item.id)+" · "+item.parentModuleName));
    card.append(node("h3","",item.capability));
    card.append(node("p","",item.problem));
    card.append(node("p","expansion-muted","خروجی: "+item.deliverable));
@@ -35,22 +35,25 @@
    button.addEventListener("click",async()=>{
     button.disabled=true;button.textContent="در حال ساخت…";
     try{
-     const response=await fetch("/api/aria-expansion/modules/"+item.id+"/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:item.capability})});
+     const response=await fetch("/api/aria-expansion/modules/"+(item.moduleId||item.id)+"/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:item.capability})});
      const data=await response.json();if(!response.ok)throw new Error(data.error||"ساخت برنامه ناموفق بود");
      let output=card.querySelector(".expansion-plan");if(!output){output=node("div","expansion-plan");card.append(output);}output.replaceChildren(node("strong","","برنامه محلی آماده شد"));
      for(const step of data.plan.steps){const row=node("p","","گام "+step.step+": "+step.title+" — "+step.checkpoint);output.append(row);}
      output.append(node("small","expansion-muted",data.plan.disclaimer));
      const save=node("button","btn btn-quiet","ثبت برنامه در کارهای من");save.type="button";
-     save.addEventListener("click",async()=>{save.disabled=true;save.textContent="در حال ثبت…";try{const stored=await fetch("/api/aria-expansion/work-items",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({moduleId:item.id,title:item.capability,details:JSON.stringify(data.plan)})});const saved=await stored.json();if(!stored.ok)throw new Error(saved.error||"ثبت برنامه انجام نشد");save.textContent="برنامه ثبت شد · "+saved.item.id;}catch(error){save.textContent=error.message;}finally{save.disabled=false;}});
+     save.addEventListener("click",async()=>{save.disabled=true;save.textContent="در حال ثبت…";try{const stored=await fetch("/api/aria-expansion/work-items",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({moduleId:item.moduleId||item.id,title:item.capability,details:JSON.stringify(data.plan)})});const saved=await stored.json();if(!stored.ok)throw new Error(saved.error||"ثبت برنامه انجام نشد");save.textContent="برنامه ثبت شد · "+saved.item.id;}catch(error){save.textContent=error.message;}finally{save.disabled=false;}});
      output.append(save);
     }catch(error){status(summaryEl,error.message);}finally{button.disabled=false;button.textContent="ساخت برنامه اقدام";}
    });
    card.append(button);problemsEl.append(card);
   }
-  for(const item of c.candidates){
+  for(let i=0;i<c.candidates.length;i++){
+   const item=c.candidates[i], moduleId="ARIA-CONTROL-MODULE-"+String(i+1).padStart(3,"0");
    const card=node("article","glass expansion-card");
-   card.append(node("div","expansion-kicker",item.legacyKey),node("h3","",item.name),node("p","",item.executionBoundary),node("p","expansion-muted","موتور: "+item.engine.name),node("p","expansion-alias","وضعیت: طراحی ثبت‌شده؛ فعال‌سازی تولیدی تأیید نشده است."));
-   candidatesEl.append(card);
+   card.append(node("div","expansion-kicker",moduleId+" · "+item.legacyKey),node("h3","",item.name),node("p","",item.executionBoundary),node("p","expansion-muted","موتور: "+item.engine.name),node("p","expansion-alias","وضعیت: طراحی ثبت‌شده؛ فعال‌سازی تولیدی تأیید نشده است."));
+   const planButton=node("button","btn btn-quiet","ساخت برنامه ماژول");planButton.type="button";
+   planButton.addEventListener("click",async()=>{planButton.disabled=true;try{const response=await fetch("/api/aria-expansion/modules/"+moduleId+"/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:item.name})});const result=await response.json();if(!response.ok)throw new Error(result.error||"ساخت برنامه انجام نشد");const out=node("div","expansion-plan");for(const step of result.plan.steps)out.append(node("p","","گام "+step.step+": "+step.title+" — "+step.checkpoint));out.append(node("small","expansion-muted",result.plan.disclaimer));card.append(out);}catch(error){status(summaryEl,error.message);}finally{planButton.disabled=false;}});
+   card.append(planButton);candidatesEl.append(card);
   }
   for(const engine of e.engines){const card=node("article","glass expansion-card");card.append(node("div","expansion-kicker",engine.engineType==="PROBLEM_DOMAIN_ENGINE"?"موتور حوزه‌ای":"موتور کنترلی تاریخی"),node("h3","",engine.name),node("p","expansion-muted","شناسه: "+engine.id),node("p","","ورودی‌ها: "+engine.contract.input.join("، ")),node("p","","عملیات: "+engine.contract.operations.join("، ")),node("p","expansion-muted","حالت اجرا: "+engine.contract.runtimeMode+" · اتصال بیرونی: "+engine.contract.externalAdapterState));enginesEl.append(card);}
   const details=node("details","glass expansion-revenue");
