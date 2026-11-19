@@ -43,6 +43,8 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(modules.totalModules,111);
   assert.equal(modules.mergedDomainPacks.length,7);
   assert.deepEqual(modules.mergedDomainPacks.map(x=>x.id),["ARVAND","CHARSU","GANJINEH","NEGAH","SEPEHR","NAMA","PAYAM"]);
+  assert.deepEqual(modules.mergedDomainPacks.map(x=>x.moduleIds.length),[14,13,21,7,15,3,12]);
+  assert.ok(modules.modules.filter(x=>x.moduleType==="NEW_IDEA_PRODUCT_MODULE").every(x=>x.linkedDomainModuleId));
   assert.equal(new Set(modules.modules.map(x=>x.moduleId)).size,111);
   assert.equal(modules.modules.filter(x=>x.moduleType==="HISTORICAL_PROBLEM_MODULE").length,50);
   assert.equal(modules.modules.filter(x=>x.moduleType==="NEW_IDEA_PRODUCT_MODULE").length,50);
