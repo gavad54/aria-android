@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "1.0.0",
+  "decisionDate": "2026-11-19",
+  "sourceRegistry": "aria_111_module_expansion_registry.json",
+  "canonicalBaseline": 639,
+  "archivedOverlayTotal": 111,
+  "publicAriaOverlayTarget": 72,
+  "migrationState": "OWNERSHIP_ASSIGNED_RUNTIME_CUTOVER_IN_PROGRESS",
+  "products": {
+    "ARVAND": {
+      "role": "INDEPENDENT_VAYRO_PRODUCT",
+      "domain": "international_trade",
+      "legacyDomainModuleId": "ARIA-LEGACY-APP-MODULE-001",
+      "ownedModuleIds": [
+        "ARIA-PROBLEM-MODULE-014",
+        "ARIA-PROBLEM-MODULE-042",
+        "ARIA-PROBLEM-MODULE-045",
+        "ARIA-PROBLEM-MODULE-047",
+        "ARIA-PROBLEM-MODULE-049",
+        "ARIA-IDEA-MODULE-001",
+        "ARIA-IDEA-MODULE-002",
+        "ARIA-IDEA-MODULE-005",
+        "ARIA-IDEA-MODULE-007",
+        "ARIA-IDEA-MODULE-008",
+        "ARIA-IDEA-MODULE-009",
+        "ARIA-IDEA-MODULE-014",
+        "ARIA-IDEA-MODULE-021",
+        "ARIA-IDEA-MODULE-050"
+      ]
+    },
+    "ARMIN_MARKET": {
+      "role": "INDEPENDENT_VAYRO_PRODUCT",
+      "domain": "market_intelligence_and_marketplace",
+      "legacyDomainModuleId": "ARIA-LEGACY-APP-MODULE-002",
+      "ownedModuleIds": [
+        "ARIA-PROBLEM-MODULE-011",
+        "ARIA-PROBLEM-MODULE-012",
+        "ARIA-PROBLEM-MODULE-013",
+        "ARIA-IDEA-MODULE-004",
+        "ARIA-IDEA-MODULE-019",
+        "ARIA-IDEA-MODULE-025",
+        "ARIA-IDEA-MODULE-029",
+        "ARIA-IDEA-MODULE-034",
+        "ARIA-IDEA-MODULE-036",
+        "ARIA-IDEA-MODULE-037",
+        "ARIA-IDEA-MODULE-039"
+      ]
+    },
+    "LEADORA": {
+      "role": "INDEPENDENT_VAYRO_PRODUCT",
+      "domain": "business_operations_and_marketing_growth",
+      "legacyDomainModuleId": "ARIA-LEGACY-APP-MODULE-007",
+      "ownedModuleIds": [
+        "ARIA-PROBLEM-MODULE-035",
+        "ARIA-PROBLEM-MODULE-037",
+        "ARIA-PROBLEM-MODULE-040",
+        "ARIA-IDEA-MODULE-016",
+        "ARIA-IDEA-MODULE-017",
+        "ARIA-IDEA-MODULE-018",
+        "ARIA-IDEA-MODULE-020",
+        "ARIA-IDEA-MODULE-022",
+        "ARIA-IDEA-MODULE-024",
+        "ARIA-IDEA-MODULE-038",
+        "ARIA-IDEA-MODULE-045"
+      ]
+    }
+  },
+  "sharedServices": [
+    {
+      "moduleId": "ARIA-PROBLEM-MODULE-034",
+      "ownerProduct": "ARIA",
+      "ownerDomain": "NEGAH",
+      "consumers": [
+        "LEADORA"
+      ],
+      "rule": "ARIA owns general creative production; LEADORA consumes campaign-ready assets through a permissioned connector."
+    },
+    {
+      "moduleId": "ARIA-PROBLEM-MODULE-038",
+      "ownerProduct": "ARIA",
+      "ownerDomain": "SEPEHR",
+      "consumers": [
+        "ARMIN MARKET"
+      ],
+      "rule": "ARIA owns generic analytics/reporting infrastructure; ARMIN MARKET consumes market-scoped outputs."
+    },
+    {
+      "moduleId": "ARIA-PROBLEM-MODULE-040",
+      "ownerProduct": "LEADORA",
+      "consumers": [
+        "ARMIN MARKET"
+      ],
+      "rule": "LEADORA is the sole owner of marketing attribution/ROI; ARMIN MARKET may consume permitted market indicators only."
+    }
+  ],
+  "externalDependencies": [
+    {
+      "moduleId": "ARIA-PROBLEM-MODULE-014",
+      "ownerProduct": "ARVAND",
+      "consumerDomain": "GANJINEH",
+      "rule": "GANJINEH consumes compatible part/catalog data; it does not duplicate the trade sourcing module."
+    }
+  ],
+  "archivedDomainModuleIds": [
+    "ARIA-LEGACY-APP-MODULE-001",
+    "ARIA-LEGACY-APP-MODULE-002",
+    "ARIA-LEGACY-APP-MODULE-007"
+  ],
+  "publicAriaDomainPackIds": [
+    "GANJINEH",
+    "NEGAH",
+    "SEPEHR",
+    "NAMA"
+  ],
+  "sharedAriaModuleIds": [
+    "ARIA-PROBLEM-MODULE-034",
+    "ARIA-PROBLEM-MODULE-038"
+  ]
+}
