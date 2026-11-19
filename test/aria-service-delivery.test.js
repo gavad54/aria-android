@@ -39,13 +39,13 @@ test("service case state machine rejects skipped approvals and records explicit 
     customerRef: "customer-1",
     scope: "تقویم و ده محتوای شبکه اجتماعی"
   }, { userId: "42", tenantId: "tenant-1" });
-  assert.throws(() => transitionServiceCase(item, "START_DELIVERY", { userId: "42" }), /SERVICE_TRANSITION_NOT_ALLOWED/);
-  const qualified = transitionServiceCase(item, "QUALIFY", { userId: "42" });
+  assert.throws(() => transitionServiceCase(item, "START_DELIVERY", { userId: "42", tenantId: "tenant-1" }), /SERVICE_TRANSITION_NOT_ALLOWED/);
+  const qualified = transitionServiceCase(item, "QUALIFY", { userId: "42", tenantId: "tenant-1" });
   assert.equal(qualified.status, "QUALIFIED");
-  const quoted = transitionServiceCase(qualified, "ISSUE_QUOTE", { userId: "42" });
+  const quoted = transitionServiceCase(qualified, "ISSUE_QUOTE", { userId: "42", tenantId: "tenant-1" });
   assert.equal(quoted.status, "QUOTE_PENDING_APPROVAL");
-  assert.throws(() => transitionServiceCase(quoted, "APPROVE_QUOTE", { userId: "42" }), /OWNER_APPROVAL_REQUIRED/);
-  const accepted = transitionServiceCase(quoted, "APPROVE_QUOTE", { userId: "owner-1", isOwner: true });
+  assert.throws(() => transitionServiceCase(quoted, "APPROVE_QUOTE", { userId: "42", tenantId: "tenant-1" }), /OWNER_APPROVAL_REQUIRED/);
+  const accepted = transitionServiceCase(quoted, "APPROVE_QUOTE", { userId: "owner-1", isOwner: true, tenantId: "tenant-1" });
   assert.equal(accepted.status, "QUOTE_ACCEPTED");
 });
 
@@ -69,4 +69,15 @@ test("delivery quality requires explicit evidence and never marks a failed check
   const passed = evaluateDeliveryQuality({ checklist: [{ name: "محتوا مطابق بریف", passed: true, evidence: "artifact://v1" }] });
   assert.equal(passed.passed, true);
   assert.equal(passed.deliverable, true);
+});
+
+
+test("service case transitions reject missing or cross-tenant actor context", () => {
+  const item = createServiceCase({
+    moduleId: "ARIA-SVC-INTAKE", title: "تهیه بسته محتوایی",
+    customerRef: "customer-1", scope: "تقویم و ده محتوای شبکه اجتماعی"
+  }, { userId: "42", tenantId: "tenant-1" });
+  assert.throws(() => transitionServiceCase(item, "QUALIFY", { userId: "42" }), /SERVICE_TENANT_ACCESS_DENIED/);
+  assert.throws(() => transitionServiceCase(item, "QUALIFY", { userId: "42", tenantId: "tenant-2" }), /SERVICE_TENANT_ACCESS_DENIED/);
+  assert.equal(transitionServiceCase(item, "QUALIFY", { userId: "42", tenantId: "tenant-1" }).status, "QUALIFIED");
 });
