@@ -53,6 +53,10 @@ function transitionServiceCase(serviceCase, action, actor) {
   if (!serviceCase || !MODULE_BY_ID.has(serviceCase.moduleId) || typeof action !== "string") {
     throw new Error("SERVICE_CASE_INVALID");
   }
+  if (!actor || !actor.userId || !actor.tenantId ||
+      String(serviceCase.tenantId) !== String(actor.tenantId)) {
+    throw new Error("SERVICE_TENANT_ACCESS_DENIED");
+  }
   const next = TRANSITIONS[serviceCase.status]?.[action];
   if (!next) throw new Error("SERVICE_TRANSITION_NOT_ALLOWED");
   if (action === "APPROVE_QUOTE" && !(actor && actor.isOwner === true)) {
@@ -229,8 +233,12 @@ function evaluateSupportSla(ticket, now = new Date()) {
 }
 
 function transitionSupportTicket(ticket, action, actor) {
-  if (!ticket || !ticket.id || !ticket.tenantId || !actor || !actor.userId ||
-      String(ticket.tenantId) !== String(actor.tenantId || ticket.tenantId)) throw new Error("SUPPORT_TICKET_INVALID");
+  if (!ticket || !ticket.id || !ticket.tenantId || !actor || !actor.userId) {
+    throw new Error("SUPPORT_TICKET_INVALID");
+  }
+  if (!actor.tenantId || String(ticket.tenantId) !== String(actor.tenantId)) {
+    throw new Error("SUPPORT_TENANT_ACCESS_DENIED");
+  }
   const transitions = {
     OPEN: { START_WORK: "IN_PROGRESS" },
     IN_PROGRESS: { WAIT_FOR_CUSTOMER: "WAITING_CUSTOMER", RESOLVE: "RESOLVED" },
@@ -258,9 +266,11 @@ function approveCustomerRenewal(report, actor) {
 }
 
 function transitionServicePackage(servicePackage, action, actor) {
-  if (!servicePackage || !servicePackage.id || !servicePackage.tenantId || !actor || !actor.userId ||
-      String(servicePackage.tenantId) !== String(actor.tenantId || servicePackage.tenantId)) {
+  if (!servicePackage || !servicePackage.id || !servicePackage.tenantId || !actor || !actor.userId) {
     throw new Error("SERVICE_PACKAGE_INVALID");
+  }
+  if (!actor.tenantId || String(servicePackage.tenantId) !== String(actor.tenantId)) {
+    throw new Error("SERVICE_PACKAGE_TENANT_ACCESS_DENIED");
   }
   const transitions = {
     DRAFT: { SUBMIT_REVIEW: "REVIEW_PENDING" },
