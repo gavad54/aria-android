@@ -158,7 +158,8 @@ function evaluateCustomerSuccess(input) {
     period, activeDays, completedTasks, targetTasks, unresolvedTickets, health,
     renewalDecision: "OWNER_REVIEW_REQUIRED", renewalExecuted: false,
     evidenceBasis: ["activeDays", "completedTasks", "targetTasks", "unresolvedTickets"],
-    productionVerified: false
+    productionVerified: false,
+    evidenceQuality: "USER_PROVIDED_METRICS_NOT_INDEPENDENTLY_VERIFIED"
   };
 }
 
