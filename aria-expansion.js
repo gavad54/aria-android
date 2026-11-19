@@ -19,7 +19,12 @@
   status(summaryEl,"۶۳۹ ماژول پایه حفظ‌شده · "+s.ideaModules+" ماژول ایده + "+s.controlModules+" ماژول کنترلی = "+s.totalModules+" ماژول تکمیلی · "+s.revenueModels+" مدل درآمدی · "+e.total+" موتور تخصصی · درآمد زنده فعال نیست.");
   for(const d of m.parents){
    const card=node("article","glass expansion-domain");
-   card.append(node("h3","",d.name),node("p","","۱۰ مسئله در این حوزه"));
+   card.append(node("h3","",d.name),node("p","","۱۰ ماژول در این حوزه"));
+   domainsEl.append(card);
+  }
+  for(const d of (m.mergedDomainPacks||[])){
+   const card=node("article","glass expansion-domain");
+   card.append(node("div","expansion-kicker","دامنه داخلی ARIA · "+d.id),node("h3","",d.name),node("p","","ماژول‌های مرتبط: "+d.moduleIds.length),node("p","expansion-muted",d.additionalCapabilityAreas.join("، ")));
    domainsEl.append(card);
   }
   for(const item of m.problems){
