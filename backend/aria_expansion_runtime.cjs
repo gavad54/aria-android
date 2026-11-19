@@ -64,6 +64,28 @@ const moduleInventory = {
   totalModuleAndSubmoduleRecords: canonicalModules.length + allModuleCatalog.length + commercialModules.length + engineSubmodules.length,
   countingRule: "Hierarchical inventory: canonical modules + preserved historical overlay + commercial catalog modules + separately identified engine submodules. Parent/host mappings remain explicit; this is not a claim of 893 independent production execution contracts."
 };
+const domainWorkflowHandlers = {
+  "workspace.orchestration": (module, goal, context) => ({ artifactType: "WORKSPACE_ACTION_PLAN", objective: goal, workstreams: ["تعریف هدف و دامنه", "اولویت‌بندی اقدام‌ها", "تعیین مسئول و موعد", "بازبینی نتیجه"], prioritySignals: ["اثر", "فوریت", "وابستگی", "ریسک"], context }),
+  "learning.design": (module, goal, context) => ({ artifactType: "LEARNING_PATH_SPEC", learningGoal: goal, stages: ["ارزیابی نقطه شروع", "مسیر یادگیری", "تمرین هدایت‌شده", "سنجش و بازخورد"], assessmentRequired: true, context }),
+  "trust.validation": (module, goal, context) => ({ artifactType: "TRUST_REVIEW", request: goal, checks: ["اعتبار ورودی", "مجوز و رضایت", "حدود دسترسی", "ریسک و نیاز به تأیید انسانی"], defaultDecision: "REQUIRE_APPROVAL_FOR_SENSITIVE_ACTIONS", context }),
+  "creative.production_brief": (module, goal, context) => ({ artifactType: "CREATIVE_BRIEF", brief: goal, deliverables: ["شرح خلاقه", "جهت هنری", "مشخصات خروجی", "کنترل کیفیت"], rightsAndConsentCheck: "REQUIRED", providerRendering: "NOT_CONNECTED", context }),
+  "media.production_brief": (module, goal, context) => ({ artifactType: "MEDIA_PRODUCTION_SPEC", brief: goal, stages: ["سناریو", "استوری‌بورد", "صدا و زیرنویس", "مشخصات رندر", "بازبینی"], mediaRendering: "NOT_CONNECTED", context }),
+  "content.editorial": (module, goal, context) => ({ artifactType: "EDITORIAL_WORKFLOW", brief: goal, stages: ["طرح محتوا", "پیش‌نویس", "بازبینی factual", "ویرایش", "تقویم انتشار"], publication: "NOT_EXECUTED", context }),
+  "knowledge.management": (module, goal, context) => ({ artifactType: "KNOWLEDGE_PACKAGE", request: goal, stages: ["ثبت منبع", "استخراج نکات", "خلاصه یا FAQ", "کنترل منبع", "ثبت نسخه"], sourceVerificationRequired: true, context }),
+  "data.analysis": (module, goal, context) => ({ artifactType: "DATA_ANALYSIS_SPEC", objective: goal, stages: ["اعتبارسنجی داده", "پروفایل داده", "پاکسازی", "تحلیل", "گزارش"], sourceDataRequired: true, noDatasetProcessed: true, context }),
+  "web.specification": (module, goal, context) => ({ artifactType: "WEB_BUILD_SPEC", objective: goal, stages: ["نیازمندی", "نقشه سایت", "مشخصات صفحه", "بازبینی موبایل و دسترس‌پذیری", "گیت انتشار"], deployment: "NOT_EXECUTED", context }),
+  "automation.design": (module, goal, context) => ({ artifactType: "AUTOMATION_BLUEPRINT", objective: goal, stages: ["محرک", "گام‌ها", "شرط‌ها", "تأیید انسانی", "رسیدگی به خطا و پایش"], liveTriggers: "NOT_CONNECTED", context }),
+  "business.strategy": (module, goal, context) => ({ artifactType: "BUSINESS_EXECUTION_BRIEF", objective: goal, stages: ["مسئله و مشتری", "ارزش پیشنهادی", "مدل درآمدی", "هزینه و ریسک", "آزمایش بازار"], financialExecution: "NOT_EXECUTED", context }),
+  "personal.planning": (module, goal, context) => ({ artifactType: "PERSONAL_ACTION_PLAN", objective: goal, stages: ["روشن‌سازی هدف", "محدودیت‌ها و منابع", "گزینه‌های امن", "گام‌های کوچک", "بازبینی"], sensitiveAdviceGate: "REQUIRED_WHEN_APPLICABLE", context }),
+  "community.operations": (module, goal, context) => ({ artifactType: "COMMUNITY_OPERATIONS_PLAN", objective: goal, stages: ["نیاز جامعه", "قواعد مشارکت", "مسیر عضویت یا فهرست", "اعتماد و رسیدگی", "سنجش نتیجه"], paymentsOrCustody: "NOT_EXECUTED", context })
+};
+const engineWorkflowHandlers = {
+  PROBLEM_DOMAIN_ENGINE: (engine, goal) => ({ artifactType: "PROBLEM_RESOLUTION_PLAN", problemGoal: goal, operations: engine.operations, checks: ["تعریف مسئله", "بررسی گزینه‌ها", "تعیین مسئول", "اعتبارسنجی نتیجه"] }),
+  HISTORICAL_CONTROL_ENGINE: (engine, goal) => ({ artifactType: "GOVERNANCE_CONTROL_PLAN", controlGoal: goal, operations: engine.operations, checks: ["دامنه اختیار", "سیاست دسترسی", "تأیید انسانی", "ثبت ممیزی"] }),
+  NEW_IDEA_ENGINE: (engine, goal) => ({ artifactType: "IDEA_TO_PROTOTYPE_PLAN", ideaGoal: goal, operations: engine.operations, checks: ["اعتبارسنجی نیاز", "تعریف نمونه اولیه", "معیار پذیرش", "آزمون کاربر"] }),
+  ARIA_DOMAIN_ENGINE: (engine, goal) => ({ artifactType: "DOMAIN_WORKFLOW_PLAN", domainGoal: goal, operations: engine.operations, checks: ["تعریف دامنه", "ورودی و خروجی", "وابستگی‌ها", "کیفیت و تحویل"] })
+};
+
 const overlayModuleIds = new Set(allModuleCatalog.map(item => item.moduleId));
 if (engineSubmodules.some(engine => engine.parentModuleIds.length === 0 || engine.parentModuleIds.some(id => !overlayModuleIds.has(id) || !moduleCatalogById.has(id)))) {
   throw new Error("ARIA_ENGINE_SUBMODULE_HOST_MAPPING_INVALID");
@@ -72,7 +94,7 @@ const safeAutonomyActions = new Set(["draft", "summarize", "classify", "plan", "
 let schemaReady = false;
 let schemaPromise = null;
 
-if (canonicalRegistry.count !== 639 || canonicalModules.length !== 639 || canonicalModuleById.size !== 639 || new Set(canonicalModules.map(x => x.canonicalId)).size !== 639 || commercialExecutionManifest.recordCount !== 72 || commercialExecutionManifest.records.length !== 72 || commercialExecutionById.size !== 72 || commercialExecutionManifest.records.some(x => !canonicalModuleById.has(x.parentCanonicalContractId) || !x.executionContract?.handlerKey || !Array.isArray(x.executionContract.operations) || x.executionContract.operations.length === 0) || commercialRegistry.records.length !== 72 || new Set(commercialRegistry.records.map(x => x.catalogEntryId)).size !== 72 || engineSubmodules.length !== 71 || new Set(engineSubmodules.map(x => x.moduleId)).size !== 71 || moduleInventory.totalModuleAndSubmoduleRecords !== 893 || registry.baselineCanonicalModuleCount !== 639 || registry.problems.length !== 50 ||
+if (canonicalRegistry.count !== 639 || canonicalModules.length !== 639 || canonicalModuleById.size !== 639 || new Set(canonicalModules.map(x => x.canonicalId)).size !== 639 || commercialExecutionManifest.recordCount !== 72 || commercialExecutionManifest.records.length !== 72 || commercialExecutionById.size !== 72 || commercialExecutionManifest.records.some(x => !canonicalModuleById.has(x.parentCanonicalContractId) || !x.executionContract?.handlerKey || !domainWorkflowHandlers[x.executionContract.handlerKey] || !Array.isArray(x.executionContract.operations) || x.executionContract.operations.length === 0) || commercialRegistry.records.length !== 72 || new Set(commercialRegistry.records.map(x => x.catalogEntryId)).size !== 72 || engineSubmodules.length !== 71 || new Set(engineSubmodules.map(x => x.moduleId)).size !== 71 || moduleInventory.totalModuleAndSubmoduleRecords !== 893 || registry.baselineCanonicalModuleCount !== 639 || registry.problems.length !== 50 ||
     registry.domains.length !== 5 || registry.candidates.length !== 4 ||
     registry.revenueModels.length !== 20 || new Set(registry.problems.map(x => x.id)).size !== 50 ||
     allModuleCatalog.length !== 111 || new Set(allModuleCatalog.map(x => x.moduleId)).size !== 111 ||
@@ -185,6 +207,7 @@ function buildCommercialOperationPlan(module, goal, context) {
     handlerKey: contract.handlerKey,
     goal,
     context: context || {},
+    domainArtifact: domainWorkflowHandlers[contract.handlerKey](module, goal, context || {}),
     operations: contract.operations.map((operation, index) => ({ sequence: index + 1, operation, state: "READY_FOR_LOCAL_WORK_ITEM" })),
     acceptanceChecks: [
       "ورودی و هدف با قرارداد ماژول تطبیق داده شود.",
@@ -347,7 +370,9 @@ async function handle(req, res, url, deps) {
     const data = await readJson(req, res); if (data === null) return true;
     const goal = cleanText(data.goal, 4, 1200);
     if (!goal) return json(res, 400, { error: "هدف باید بین ۴ تا ۱۲۰۰ نویسه باشد." });
-    const details = JSON.stringify({ engineSubmoduleId: engine.moduleId, engineId: engine.engineId, parentModuleIds: engine.parentModuleIds, operations: engine.operations, inputContract: engine.inputContract, outputContract: engine.outputContract, goal, executionStatus: "LOCAL_ENGINE_WORK_ITEM_ONLY", externalExecutionPerformed: false, productionVerified: false });
+    const engineHandler = engineWorkflowHandlers[engine.domain];
+    if (!engineHandler) return json(res, 409, { error: "برای این موتور، handler اجرایی ثبت نشده است." });
+    const details = JSON.stringify({ engineSubmoduleId: engine.moduleId, engineId: engine.engineId, parentModuleIds: engine.parentModuleIds, operations: engine.operations, inputContract: engine.inputContract, outputContract: engine.outputContract, domainArtifact: engineHandler(engine, goal), goal, executionStatus: "LOCAL_ENGINE_WORK_ITEM_ONLY", externalExecutionPerformed: false, productionVerified: false });
     if (details.length > 12000) return json(res, 400, { error: "جزئیات ورودی بیش از حد مجاز است." });
     if (!await requireDb(res)) return true;
     try {
