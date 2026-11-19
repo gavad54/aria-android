@@ -4,13 +4,13 @@ const { randomUUID } = require("node:crypto");
 
 const SERVICE_MODULES = Object.freeze([
   { id: "ARIA-SVC-INTAKE", name: "مرکز پذیرش و ارزیابی درخواست", engine: "Service Intake & Qualification Engine", deliverable: "پرونده درخواست با دامنه، نیاز و معیار پذیرش", revenueModel: "اشتراک فضای کار", ownerProduct: "ARIA", productionVerified: false, persistenceState: "DATABASE_REQUIRED" },
-  { id: "ARIA-SVC-PROPOSAL", name: "سازنده پیشنهاد و برآورد خدمت", engine: "Scope & Quote Composition Engine", deliverable: "پیشنهاد نسخه‌دار با ریز اقلام و مبلغ شفاف", revenueModel: "اعتبار تولید سند یا اشتراک", ownerProduct: "ARIA" },
-  { id: "ARIA-SVC-DELIVERY", name: "مرکز تحویل و مدیریت مراحل", engine: "Milestone & Deliverable Orchestration Engine", deliverable: "برنامه مراحل، مسئول و اقلام تحویل", revenueModel: "اشتراک تیمی", ownerProduct: "ARIA" },
-  { id: "ARIA-SVC-QUALITY", name: "مرکز تضمین کیفیت و پذیرش", engine: "Evidence-based Quality Gate Engine", deliverable: "چک‌لیست آزمون و گزارش پذیرش مستند", revenueModel: "اشتراک حرفه‌ای", ownerProduct: "ARIA" },
-  { id: "ARIA-SVC-SUPPORT", name: "مرکز پشتیبانی و تعهد خدمت", engine: "Service Obligation & Support Engine", deliverable: "پرونده پشتیبانی و تعهدات پاسخ‌گویی", revenueModel: "اشتراک پشتیبانی", ownerProduct: "ARIA" },
-  { id: "ARIA-SVC-SUCCESS", name: "مرکز موفقیت و تمدید مشتری", engine: "Customer Outcome & Renewal Engine", deliverable: "گزارش استفاده، نتیجه و موعد تمدید", revenueModel: "اشتراک فضای کار", ownerProduct: "ARIA" },
-  { id: "ARIA-SVC-PACKAGES", name: "استودیوی بسته‌های خدمت و گردش‌کار", engine: "Reusable Service Package Engine", deliverable: "قالب خدمت نسخه‌دار و گردش‌کار قابل تکرار", revenueModel: "اشتراک و فروش قالب", ownerProduct: "ARIA" },
-  { id: "ARIA-SVC-UNIT-ECONOMICS", name: "مرکز هزینه و سودآوری خدمت", engine: "Service Unit Economics Engine", deliverable: "گزارش هزینه، درآمد پلتفرمی و حاشیه مشارکت", revenueModel: "اشتراک تحلیل", ownerProduct: "ARIA" }
+  { id: "ARIA-SVC-PROPOSAL", name: "سازنده پیشنهاد و برآورد خدمت", engine: "Scope & Quote Composition Engine", deliverable: "پیشنهاد نسخه‌دار با ریز اقلام و مبلغ شفاف", revenueModel: "اعتبار تولید سند یا اشتراک", ownerProduct: "ARIA", productionVerified: false, persistenceState: "DATABASE_REQUIRED" },
+  { id: "ARIA-SVC-DELIVERY", name: "مرکز تحویل و مدیریت مراحل", engine: "Milestone & Deliverable Orchestration Engine", deliverable: "برنامه مراحل، مسئول و اقلام تحویل", revenueModel: "اشتراک تیمی", ownerProduct: "ARIA", productionVerified: false, persistenceState: "DATABASE_REQUIRED" },
+  { id: "ARIA-SVC-QUALITY", name: "مرکز تضمین کیفیت و پذیرش", engine: "Evidence-based Quality Gate Engine", deliverable: "چک‌لیست آزمون و گزارش پذیرش مستند", revenueModel: "اشتراک حرفه‌ای", ownerProduct: "ARIA", productionVerified: false, persistenceState: "DATABASE_REQUIRED" },
+  { id: "ARIA-SVC-SUPPORT", name: "مرکز پشتیبانی و تعهد خدمت", engine: "Service Obligation & Support Engine", deliverable: "پرونده پشتیبانی و تعهدات پاسخ‌گویی", revenueModel: "اشتراک پشتیبانی", ownerProduct: "ARIA", productionVerified: false, persistenceState: "DATABASE_REQUIRED" },
+  { id: "ARIA-SVC-SUCCESS", name: "مرکز موفقیت و تمدید مشتری", engine: "Customer Outcome & Renewal Engine", deliverable: "گزارش استفاده، نتیجه و موعد تمدید", revenueModel: "اشتراک فضای کار", ownerProduct: "ARIA", productionVerified: false, persistenceState: "DATABASE_REQUIRED" },
+  { id: "ARIA-SVC-PACKAGES", name: "استودیوی بسته‌های خدمت و گردش‌کار", engine: "Reusable Service Package Engine", deliverable: "قالب خدمت نسخه‌دار و گردش‌کار قابل تکرار", revenueModel: "اشتراک و فروش قالب", ownerProduct: "ARIA", productionVerified: false, persistenceState: "DATABASE_REQUIRED" },
+  { id: "ARIA-SVC-UNIT-ECONOMICS", name: "مرکز هزینه و سودآوری خدمت", engine: "Service Unit Economics Engine", deliverable: "گزارش هزینه، درآمد پلتفرمی و حاشیه مشارکت", revenueModel: "اشتراک تحلیل", ownerProduct: "ARIA", productionVerified: false, persistenceState: "DATABASE_REQUIRED" }
 ].map(Object.freeze));
 
 const MODULE_BY_ID = new Map(SERVICE_MODULES.map(module => [module.id, module]));
