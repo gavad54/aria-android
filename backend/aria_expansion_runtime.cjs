@@ -683,6 +683,7 @@ async function handle(req, res, url, deps) {
       const quote = serviceDelivery.buildQuote(data);
       const updated = serviceDelivery.transitionServiceCase(item, "ISSUE_QUOTE", { userId: String(user.sub) });
       updated.quoteState = "QUOTE_PENDING_OWNER_APPROVAL";
+      updated.quote = quote;
       await pool.query("UPDATE aria_service_cases SET status=$1,payload=$2::jsonb,quote=$3::jsonb,updated_at=NOW() WHERE id=$4::uuid AND user_id=$5 AND tenant_id=$6",
         [updated.status, JSON.stringify(updated), JSON.stringify(quote), serviceQuoteMatch[1], user.sub, tenantId]);
       return json(res, 201, { case: updated, quote, paymentExecuted: false });
