@@ -36,6 +36,6 @@
 Gradle و Android SDK در محیط محلی موجود نیستند؛ APK/AAB امضاشده، نصب دستگاه، Firebase زنده، PSP، Object Storage، PostgreSQL/Redis عملیاتی، backup/restore و UAT هنوز اثبات نشده‌اند. این گزارش به معنی Production Release نیست.
 
 ## Candidate artifact
-- Candidate SHA-256: e787e02991fbc7044a312cdb071e8484dfb0db6e341c9116be54c1f4978eafdb
+- Candidate SHA-256: 0c45fb175fa6d44456ce33af5c975a2d74576096fae37aa4993a213759a5dbe8
 - Candidate ZIP: ARIA_32.0.0_SOURCE_CANDIDATE_REPAIRED_2026-11-19.zip
 - Candidate is an isolated engineering artifact; not deployed or published.
