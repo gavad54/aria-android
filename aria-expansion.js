@@ -40,6 +40,9 @@
      let output=card.querySelector(".expansion-plan");if(!output){output=node("div","expansion-plan");card.append(output);}output.replaceChildren(node("strong","","برنامه محلی آماده شد"));
      for(const step of data.plan.steps){const row=node("p","","گام "+step.step+": "+step.title+" — "+step.checkpoint);output.append(row);}
      output.append(node("small","expansion-muted",data.plan.disclaimer));
+     const save=node("button","btn btn-quiet","ثبت برنامه در کارهای من");save.type="button";
+     save.addEventListener("click",async()=>{save.disabled=true;save.textContent="در حال ثبت…";try{const stored=await fetch("/api/aria-expansion/work-items",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({moduleId:item.id,title:item.capability,details:JSON.stringify(data.plan)})});const saved=await stored.json();if(!stored.ok)throw new Error(saved.error||"ثبت برنامه انجام نشد");save.textContent="برنامه ثبت شد · "+saved.item.id;}catch(error){save.textContent=error.message;}finally{save.disabled=false;}});
+     output.append(save);
     }catch(error){status(summaryEl,error.message);}finally{button.disabled=false;button.textContent="ساخت برنامه اقدام";}
    });
    card.append(button);problemsEl.append(card);
