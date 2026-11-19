@@ -5,6 +5,8 @@ on:
     paths:
       - 'server.js'
       - 'test/server.test.js'
+      - 'test/aria-expansion.test.js'
+      - 'package.json'
       - 'backend/data/aria_web_catalog_bridge.json'
       - 'scripts/aria_web_catalog_manifest_test.js'
       - 'scripts/aria32_apply_web_catalog_bridge.js'
