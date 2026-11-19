@@ -23,7 +23,7 @@
    fetch("/api/aria-expansion/canonical-modules").then(x=>x.json()),
    fetch("/api/aria-expansion/commercial-modules").then(x=>x.json())
   ]);
-  status(summaryEl,"موجودی ساختاری ۸۹۳ واحدی ARIA: ۶۳۹ ماژول پایه + ۱۱۱ رکورد ماژولی تاریخی + ۷۲ ماژول کاتالوگ تجاری + ۷۱ زیرماژول موتور · ۳۶ رکورد تاریخی منتقل‌شده به محصولات خواهر · درآمد زنده فعال نیست.");
+  status(summaryEl,"موجودی ساختاری ۸۹۳ واحدی ARIA: ۶۳۹ ماژول پایه + ۱۱۱ رکورد ماژولی تاریخی + ۷۲ ماژول کاتالوگ تجاری + ۷۱ زیرماژول موتور · ۳۶ رکورد تاریخی منتقل‌شده به محصولات خواهر · ۸۵۴ مسیر ثبت گردش‌کار محلی · درآمد زنده فعال نیست.");
   if(maturityEl){
    const summary=node("div","expansion-summary");
    summary.append(node("strong","","ماتریس بلوغ واقعی قابلیت‌های ARIA"));
