@@ -15,11 +15,13 @@
 - GET /api/aria-expansion/summary — شمارش و وضعیت.
 - GET /api/aria-expansion/modules — پنج حوزه و ۵۰ مسئله.
 - GET /api/aria-expansion/candidates — چهار نامزد.
-- GET /api/aria-expansion/engines — ۵۳ قرارداد موتور تخصصی؛ کاتالوگ آن در رابط وب نمایش داده می‌شود.\n- رابط هر مسئله امکان تولید برنامه اقدام و ثبت آن در فهرست کارهای کاربر را دارد؛ ذخیره‌سازی نیازمند ورود و پایگاه داده است.
+- GET /api/aria-expansion/engines — ۵۳ قرارداد موتور تخصصی؛ کاتالوگ آن در رابط وب نمایش داده می‌شود.
+- رابط هر مسئله امکان تولید برنامه اقدام و ثبت آن در فهرست کارهای کاربر را دارد؛ ذخیره‌سازی نیازمند ورود و پایگاه داده است.
 - GET /api/aria-expansion/revenue-models — بیست مدل درآمدی با وضعیت DESIGNED_NOT_MONETIZED.
 - POST /api/aria-expansion/modules/{problem-id}/plan — برنامه اقدام محلی اختصاصی برای مسئله.
 - POST /api/aria-expansion/scenarios/simulate — مقایسه محاسباتی ۲ تا ۱۰ سناریو بر اساس اعداد ورودی؛ بدون پیش‌بینی قطعی یا اقدام بیرونی.
-- POST /api/aria-expansion/revenue-models/simulate — محاسبه برآورد درآمد ناخالص و مشارکت خالص برای هر یک از ۲۰ مدل، بر اساس فرض‌های عددی؛ بدون پرداخت یا درآمد واقعی.
+- POST /api/aria-expansion/revenue-models/simulate — محاسبه برآورد درآمد ناخالص و مشارکت خالص برای هر مدل، بر اساس فرض‌های عددی؛ بدون پرداخت یا درآمد واقعی.
+- POST /api/aria-expansion/revenue-models/simulate-batch — شبیه‌سازی دسته‌ای ۱ تا ۲۰ مدل در یک درخواست برای آزمون و مقایسه یکپارچه.
 - GET/POST /api/aria-expansion/providers — فهرست عمومی فقط ارائه‌دهندگان تأییدشده و ثبت پروفایل جدید در وضعیت pending.
 - PATCH /api/aria-expansion/providers/{id}/verification — تأیید یا رد ارائه‌دهنده فقط توسط مالک.
 - POST /api/aria-expansion/autonomy/authorize — تصمیم fail-closed؛ نبود هویت یا سیاست مجاز به DENY منتهی می‌شود.
