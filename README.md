@@ -1,3 +1,17 @@
+# وضعیت مرجع ARIA — 2026-11-19
+
+> **ساختار هدف:** یک اپلیکیشن واحد با نام ARIA / آریا؛ محصولات مستقل هم‌سطح آن در VAYRO عبارت‌اند از ARIANA، LEADORA، ARMIN MARKET و DANA. حسابداری/ERP/دفترکل فقط در ARIANA است.
+>
+> **موجودی بدون دوباره‌شماری:** baseline برابر 639 ماژول canonical حفظ می‌شود. overlay تکمیلی 111 ورودی دارد: 50 مسئله تاریخی + 50 ایده جدید + 4 کنترل + 7 دامنه ادغام‌شده. این 111 ورودی، 111 قابلیت Production یا 111 شناسه canonical جدید نیستند. 110 موتور در این overlay طراحی شده‌اند، نه اینکه همگی به provider زنده متصل باشند.
+>
+> **وضعیت واقعی:** PR #3 باز و Draft است. CI موفق قبلی فقط گیت وب‌کاتالوگ را پوشش داده و پس از commitهای جدید باید مجدداً اجرا شود. سورس کامل Android 32 هنوز در مخزن وارد نشده؛ build/signing/device proof، E2E همه دامنه‌ها، providerهای واقعی، MFA، پرداخت واقعی و backup/restore تأییدشده باز هستند. بنابراین این پروژه هنوز انتشار Production تأییدشده نیست.
+>
+> **سند بازطراحی و معیار پذیرش:** [ARIA_MASTER_REDESIGN_OPERATIONALIZATION_2026-11-19_FA.md](docs/ARIA_MASTER_REDESIGN_OPERATIONALIZATION_2026-11-19_FA.md)
+>
+> **گزارش کاتالوگ و ادغام دامنه‌های قدیمی:** [ARIA_111_MODULE_CATALOG_AND_LEGACY_APP_MERGE_REPORT_FA.md](docs/ARIA_111_MODULE_CATALOG_AND_LEGACY_APP_MERGE_REPORT_FA.md)
+
+---
+
 # ARIA — Global AI Super App
 
 ARIA is a general-purpose AI super-app project. It is **not an accounting/ERP product**; that product is separate as ARIANA.
