@@ -73,7 +73,14 @@ const modules=[
  {id:"business-model-studio",name:"استودیو طراحی مدل کسب‌وکار",status:"planned",description:"انتخاب و ترکیب ۲۰ مدل درآمدی، تحلیل مشتری و کانال، قیمت‌گذاری، هزینه متغیر، حاشیه سود، سناریو و آزمایش بازار؛ بدون وعده درآمد قطعی",revenueModel:"اشتراک کارآفرینی؛ گزارش امکان‌سنجی پولی؛ خدمات مشاوره"},
  {id:"revenue-commerce-engine",name:"موتور درآمد، تجارت و تسویه",status:"planned",description:"پیکربندی اشتراک، فریمیوم، بازارگاه، تجارت الکترونیک، فروش مستقیم و عمده، تبلیغات، همکاری در فروش، مجوز، فرانچایز، خرده‌فروشی، توزیع، پرداخت مصرفی، اجاره و لیزینگ؛ نیازمند قرارداد، پرداخت و کنترل مالی",revenueModel:"کارمزد تراکنش شفاف؛ اشتراک فروشنده؛ هزینه راه‌اندازی؛ هزینه خدمات و تسویه"},
  {id:"creator-platform-community",name:"موتور پلتفرم، محتوا و جامعه",status:"planned",description:"خدمات حرفه‌ای، محصولات دیجیتال، جامعه مشتریان، پلتفرم چندطرفه، مدل داده‌محور، محتوای اشتراکی و ارجاع؛ همراه مدیریت سازنده، کیفیت و حقوق محتوا",revenueModel:"اشتراک سازنده؛ کارمزد بازارگاه؛ فروش محصول دیجیتال؛ خدمات حرفه‌ای"},
- {id:"on-demand-local-services",name:"بازار خدمات درخواستی و محلی",status:"planned",description:"ثبت درخواست، تطبیق متخصص، دریافت پیشنهاد، زمان‌بندی، امتیازدهی و پیگیری خدمات خانه و زندگی؛ احراز ارائه‌دهنده و رسیدگی به شکایت لازم است",revenueModel:"کارمزد سرنخ یا سفارش با افشای شفاف؛ اشتراک متخصص؛ جایگاه تبلیغاتی مشخص"}
+ {id:"on-demand-local-services",name:"بازار خدمات درخواستی و محلی",status:"planned",description:"ثبت درخواست، تطبیق متخصص، دریافت پیشنهاد، زمان‌بندی، امتیازدهی و پیگیری خدمات خانه و زندگی؛ احراز ارائه‌دهنده و رسیدگی به شکایت لازم است",revenueModel:"کارمزد سرنخ یا سفارش با افشای شفاف؛ اشتراک متخصص؛ جایگاه تبلیغاتی مشخص"},
+ {id:"arvand-global-trade",name:"استودیوی تجارت و بازرگانی ARVAND",status:"planned",description:"تحلیل بازار و کشور مقصد، غربال فرصت‌های صادرات و واردات، چک‌لیست اسناد، مقایسه تأمین‌کننده، برآورد سناریویی هزینه و ریسک، آماده‌سازی پیش‌نویس پیشنهاد تجاری و پیگیری معامله؛ قیمت و مقررات باید از منبع معتبر و تاریخ‌دار تأیید شوند",revenueModel:"اشتراک حرفه‌ای تجارت؛ گزارش بازار پولی؛ اعتبار تحلیل؛ خدمات راه‌اندازی سازمانی",legacyProduct:"ARVAND"},
+ {id:"charsu-market-intelligence",name:"هوشمندی بازار و کشف فرصت CHARSU",status:"planned",description:"کشف نیاز و دسته‌بندی بازار، مقایسه عرضه و تقاضا، تحلیل رقبا و جایگاه‌یابی، امتیازدهی فرصت با شواهد، ساخت فهرست فروشندگان و خریداران و ارجاع کنترل‌شده به ARMIN MARKET بدون تکرار یا تصاحب بازارگاه مستقل",revenueModel:"اشتراک تحلیل بازار؛ گزارش رقابتی؛ سرنخ تجاری با رضایت و افشای منبع",legacyProduct:"CHARSU"},
+ {id:"ganjineh-commerce-studio",name:"استودیوی فروشگاه و تجارت دیجیتال GANJINEH",status:"planned",description:"ساخت کاتالوگ و صفحه محصول، مدیریت ویژگی و تنوع کالا، موجودی نمایشی، پیشنهاد قیمت و بسته، سبد و سفارش در صورت اتصال واقعی، محتوای محصول و تحلیل تبدیل؛ دفترکل، حسابداری و ERP خارج از ARIA و متعلق به ARIANA است",revenueModel:"اشتراک فروشنده؛ قالب فروشگاهی؛ هزینه راه‌اندازی؛ کارمزد شفاف سفارش در اتصال مجاز",legacyProduct:"GANJINEH"},
+ {id:"negah-creative-studio",name:"استودیوی خلاقیت و رسانه NEGAH",status:"planned",description:"تبدیل بریف به ایده و هویت بصری، طراحی لوگو و اقلام برند، تصویر محصول، بنر، پست، استوری، سناریوی ریلز، ویدئو و کاتالوگ؛ مدیریت نسخه‌ها، حقوق رسانه، رضایت افراد و کنترل کیفیت خروجی",revenueModel:"اعتبار تصویر و ویدئو؛ بسته طراحی؛ اشتراک سازنده؛ فروش قالب اصیل",legacyProduct:"NEGAH"},
+ {id:"sepehr-cloud-workspace",name:"فضای ابری و مدیریت منابع SEPEHR",status:"planned",description:"مدیریت فضای فایل، پروژه‌ها، سهمیه و مصرف، پایش سلامت سرویس‌های متصل، گزارش هزینه، سیاست نگهداری و درخواست پشتیبان‌گیری؛ عملیات زیرساختی حساس فقط از طریق اتصال رسمی، مجوز حداقلی، تأیید مالک و ثبت ممیزی؛ بدون دسترسی خودکار به حساب‌های ابری",revenueModel:"اشتراک فضای کاری؛ سهمیه ذخیره‌سازی؛ گزارش هزینه و مدیریت سازمانی",legacyProduct:"SEPEHR"},
+ {id:"nama-web-studio",name:"استودیوی سایت و صفحه‌ساز NAMA",status:"planned",description:"تبدیل نیاز کسب‌وکار به ساختار سایت، تولید صفحه فارسی و چندزبانه، ویرایش بلوکی، قالب و مؤلفه، پیش‌نمایش موبایل، بررسی دسترس‌پذیری و SEO، نسخه‌بندی و انتشار کنترل‌شده با دامنه تأییدشده و امکان بازگشت نسخه",revenueModel:"اشتراک سایت‌ساز؛ فروش قالب؛ میزبانی و دامنه با هزینه شفاف؛ خدمات راه‌اندازی",legacyProduct:"NAMA"},
+ {id:"payam-growth-marketing",name:"موتور بازاریابی و رشد PAYAM",status:"planned",description:"تقسیم‌بندی مخاطب با داده مجاز، طراحی کمپین، تقویم محتوا، متن و پیشنهاد، فرم جذب سرنخ، مدیریت رضایت و لغو عضویت، تحلیل قیف و گزارش عملکرد؛ ارسال یا انتشار فقط از API رسمی، با مجوز کاربر و محدودیت نرخ",revenueModel:"اشتراک بازاریابی؛ اعتبار تحلیل؛ بسته کمپین؛ خدمات مدیریت رشد با شاخص‌های قابل سنجش",legacyProduct:"PAYAM"}
 
 ];
 const MODULE_DOMAIN_BY_ID = Object.freeze({
@@ -89,7 +96,9 @@ const MODULE_DOMAIN_BY_ID = Object.freeze({
  "workflow-automation":"automation",
  "life-home-assistant":"personal","smart-shopping-household":"personal","family-health-wellbeing":"personal","travel-leisure-planner":"personal",
  "business-model-studio":"business","revenue-commerce-engine":"business","ai-sales-assistant":"business",
- "creator-platform-community":"community","on-demand-local-services":"community","digital-products":"content","ai-voiceover":"media"
+"creator-platform-community":"community","on-demand-local-services":"community",
+ "arvand-global-trade":"business","charsu-market-intelligence":"community","ganjineh-commerce-studio":"business",
+ "negah-creative-studio":"creative","sepehr-cloud-workspace":"automation","nama-web-studio":"web-builder","payam-growth-marketing":"content","digital-products":"content","ai-voiceover":"media"
 });
 const MODULE_DOMAIN_LABELS = Object.freeze({
  workspace:"فضای کار و فرماندهی",trust:"اعتماد و کنترل",learning:"یادگیری و رشد",
@@ -101,6 +110,7 @@ const MODULE_DOMAIN_LABELS = Object.freeze({
 const catalogModules = modules.map((module) => ({
  ...module,
  product: "ARIA",
+ legacyProduct: module.legacyProduct || null,
  domain: MODULE_DOMAIN_BY_ID[module.id] || "unclassified",
  domainLabel: MODULE_DOMAIN_LABELS[MODULE_DOMAIN_BY_ID[module.id]] || "نیازمند طبقه‌بندی",
  executionState: module.status === "available" ? "foundation" : module.status,
