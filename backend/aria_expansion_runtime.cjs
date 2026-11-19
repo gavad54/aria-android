@@ -3,14 +3,22 @@ const fs = require("node:fs");
 const path = require("node:path");
 const registry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_expansion_registry.json"), "utf8"));
 const moduleRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_111_module_expansion_registry.json"), "utf8"));
-const moduleCatalog = moduleRegistry.moduleCatalog;
+const ownership = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_product_ownership_migration.json"), "utf8"));
+const allModuleCatalog = moduleRegistry.moduleCatalog;
+const transferredIds = new Set(Object.values(ownership.products).flatMap(x => x.ownedModuleIds));
+const archivedDomainIds = new Set(ownership.archivedDomainModuleIds);
+const moduleCatalog = allModuleCatalog.filter(x => !transferredIds.has(x.moduleId) && !archivedDomainIds.has(x.moduleId));
 const moduleCatalogById = new Map(moduleCatalog.map(x => [x.moduleId, x]));
-const problemById = new Map(registry.problems.map(x => [x.id, x]));
+const publicProblemIds = new Set(moduleCatalog.filter(x => x.sourceProblemId).map(x => x.sourceProblemId));
+const publicProblemRecords = registry.problems.filter(x => publicProblemIds.has(x.id));
+const problemById = new Map(publicProblemRecords.map(x => [x.id, x]));
 const candidateById = new Map(registry.candidates.map(x => [x.moduleId, x]));
-const problemEngines = [...new Map(registry.problems.map(x => [x.engine.id, { ...x.engine, moduleIds: registry.problems.filter(p => p.engine.id === x.engine.id).map(p => p.id), engineType: "PROBLEM_DOMAIN_ENGINE" }])).values()];
+const problemEngines = [...new Map(publicProblemRecords.map(x => [x.engine.id, { ...x.engine, moduleIds: publicProblemRecords.filter(p => p.engine.id === x.engine.id).map(p => p.id), engineType: "PROBLEM_DOMAIN_ENGINE" }])).values()];
 const candidateEngines = registry.candidates.map(x => ({ ...x.engine, moduleId: x.moduleId, engineType: "HISTORICAL_CONTROL_ENGINE" }));
 const ideaEngines = moduleCatalog.filter(x => x.moduleType === "NEW_IDEA_PRODUCT_MODULE").map(x => ({ id: x.engineId, name: x.name + " — موتور تخصصی", moduleId: x.moduleId, engineType: "NEW_IDEA_ENGINE", contract: { input: x.inputContract, output: x.outputContract, operations: x.workflow, metrics: x.kpis, runtimeMode: "DESIGN_ONLY", externalAdapterState: "NOT_CONNECTED" } }));
-const legacyDomainEngines = moduleCatalog.filter(x => x.moduleType === "MERGED_LEGACY_APP_DOMAIN_MODULE").map(x => ({ id: x.engineId || x.moduleId, name: x.name + " — موتور دامنه", moduleId: x.moduleId, engineType: "MERGED_LEGACY_DOMAIN_ENGINE", contract: { input: x.inputContract, output: x.outputContract, operations: x.workflow, metrics: x.kpis, runtimeMode: "DESIGN_ONLY", externalAdapterState: "NOT_CONNECTED" } }));
+const legacyDomainEngines = moduleCatalog.filter(x => x.moduleType === "MERGED_LEGACY_APP_DOMAIN_MODULE").map(x => ({ id: x.engineId || x.moduleId, name: x.name + " — موتور دامنه", moduleId: x.moduleId, engineType: "ARIA_DOMAIN_ENGINE", contract: { input: x.inputContract, output: x.outputContract, operations: x.workflow, metrics: x.kpis, runtimeMode: "DESIGN_ONLY", externalAdapterState: "NOT_CONNECTED" } }));
+const publicDomainPacks = moduleRegistry.mergedDomainPacks.filter(x => ownership.publicAriaDomainPackIds.includes(x.id)).map(x => ({ ...x, moduleIds: x.moduleIds.filter(id => moduleCatalogById.has(id)) }));
+const publicFamilyArchitecture = { parent: "VAYRO", product: "ARIA", directProduct: true, accountingErpOwner: "ARIANA", role: "General AI assistant and digital work environment" };
 const engineCatalog = [...problemEngines, ...candidateEngines, ...ideaEngines, ...legacyDomainEngines];
 const safeAutonomyActions = new Set(["draft", "summarize", "classify", "plan", "analyze_readonly"]);
 let schemaReady = false;
@@ -18,14 +26,21 @@ let schemaPromise = null;
 
 if (registry.baselineCanonicalModuleCount !== 639 || registry.problems.length !== 50 ||
     registry.domains.length !== 5 || registry.candidates.length !== 4 ||
-    registry.revenueModels.length !== 20 || new Set(registry.problems.map(x => x.id)).size !== 50 || problemEngines.length !== 49 || candidateEngines.length !== 4 ||
-    moduleCatalog.length !== 111 || new Set(moduleCatalog.map(x => x.moduleId)).size !== 111 ||
-    moduleCatalog.filter(x => x.moduleType === "HISTORICAL_PROBLEM_MODULE").length !== 50 ||
-    moduleCatalog.filter(x => x.moduleType === "NEW_IDEA_PRODUCT_MODULE").length !== 50 ||
+    registry.revenueModels.length !== 20 || new Set(registry.problems.map(x => x.id)).size !== 50 ||
+    allModuleCatalog.length !== 111 || new Set(allModuleCatalog.map(x => x.moduleId)).size !== 111 ||
+    allModuleCatalog.filter(x => x.moduleType === "HISTORICAL_PROBLEM_MODULE").length !== 50 ||
+    allModuleCatalog.filter(x => x.moduleType === "NEW_IDEA_PRODUCT_MODULE").length !== 50 ||
+    allModuleCatalog.filter(x => x.moduleType === "CONTROL_AND_GOVERNANCE_MODULE").length !== 4 ||
+    allModuleCatalog.filter(x => x.moduleType === "MERGED_LEGACY_APP_DOMAIN_MODULE").length !== 7 ||
+    moduleCatalog.length !== 72 || publicProblemRecords.length !== 39 || problemEngines.length !== 38 ||
+    moduleCatalog.filter(x => x.moduleType === "NEW_IDEA_PRODUCT_MODULE").length !== 25 ||
     moduleCatalog.filter(x => x.moduleType === "CONTROL_AND_GOVERNANCE_MODULE").length !== 4 ||
-    moduleCatalog.filter(x => x.moduleType === "MERGED_LEGACY_APP_DOMAIN_MODULE").length !== 7 ||
+    moduleCatalog.filter(x => x.moduleType === "MERGED_LEGACY_APP_DOMAIN_MODULE").length !== 4 ||
+    publicDomainPacks.length !== 4 || candidateEngines.length !== 4 ||
+    ownership.canonicalBaseline !== 639 || ownership.archivedOverlayTotal !== 111 ||
+    ownership.publicAriaOverlayTarget !== 72 ||
     moduleRegistry.moduleCatalogSummary?.canonicalBaseline !== 639 || moduleRegistry.moduleCatalogSummary?.canonicalBaselineChanged !== false) {
-  throw new Error("ARIA_EXPANSION_REGISTRY_INVALID");
+  throw new Error("ARIA_PRODUCT_OWNERSHIP_MIGRATION_INVALID");
 }
 if (registry.problems.find(x => x.sourceProblemNumber === 48)?.aliasOf !== "problem-29") {
   throw new Error("ARIA_PET_CARE_ALIAS_INVALID");
@@ -160,9 +175,10 @@ async function handle(req, res, url, deps) {
   if (p === "/api/aria-expansion/summary" && req.method === "GET") {
     return json(res, 200, {
       product: "ARIA", canonicalModuleCount: 639, canonicalCountChanged: false,
-      parentDomains: registry.domains.length, problemRecords: registry.problems.length,
-      historicalProblemModules: 50, ideaModules: 50, controlModules: 4, legacyAppModules: 7, totalModules: 111,
-      uniqueProblemCapabilities: registry.problems.length - 1,
+      parentDomains: registry.domains.length, problemRecords: publicProblemRecords.length,
+      historicalProblemModules: publicProblemRecords.length, ideaModules: 25, controlModules: 4, legacyAppModules: 4, totalModules: moduleCatalog.length,
+      historicalOverlayModules: allModuleCatalog.length, transferredModules: transferredIds.size, archivedDomainPackages: archivedDomainIds.size, sharedAriaServices: ownership.sharedAriaModuleIds.length,
+      uniqueProblemCapabilities: publicProblemRecords.length - 1,
       historicalCandidates: registry.candidates.length, engines: engineCatalog.length, ideaEngines: ideaEngines.length, legacyDomainEngines: legacyDomainEngines.length, revenueModels: registry.revenueModels.length,
       liveRevenueEnabled: false, externalExecutionEnabled: false,
       source: "docs/ARIA_TWO_IMAGES_50_PROBLEMS_20_REVENUE_MODELS_FA.md",
@@ -171,7 +187,7 @@ async function handle(req, res, url, deps) {
   }
   if (p === "/api/aria-expansion/modules" && req.method === "GET") {
     const moduleBySource = new Map(moduleCatalog.filter(x => x.sourceProblemId).map(x => [x.sourceProblemId, x]));
-    return json(res, 200, { parents: registry.domains, problems: registry.problems.map(x => ({ ...x, moduleId: moduleBySource.get(x.id)?.moduleId, parentDomain: x.parentModuleId })), modules: moduleCatalog, mergedDomainPacks: moduleRegistry.mergedDomainPacks, familyArchitecture: moduleRegistry.familyArchitecture, totalProblemRecords: 50, historicalProblemModules: 50, ideaModules: 50, controlModules: 4, legacyAppModules: 7, totalModules: 111, uniqueProblemCapabilities: 49, canonicalModuleCount: 639, canonicalCountChanged: false });
+    return json(res, 200, { parents: registry.domains, problems: publicProblemRecords.map(x => ({ ...x, moduleId: moduleBySource.get(x.id)?.moduleId, parentDomain: x.parentModuleId })), modules: moduleCatalog, mergedDomainPacks: publicDomainPacks, familyArchitecture: publicFamilyArchitecture, totalProblemRecords: publicProblemRecords.length, historicalProblemModules: publicProblemRecords.length, ideaModules: 25, controlModules: 4, legacyAppModules: publicDomainPacks.length, totalModules: moduleCatalog.length, historicalOverlayModules: allModuleCatalog.length, transferredModules: transferredIds.size, archivedDomainPackages: archivedDomainIds.size, sharedAriaServices: ownership.sharedAriaModuleIds.length, uniqueProblemCapabilities: 38, canonicalModuleCount: 639, canonicalCountChanged: false });
   }
   if (p === "/api/aria-expansion/engines" && req.method === "GET") {
     return json(res, 200, { engines: engineCatalog, total: engineCatalog.length, problemEngines: problemEngines.length, candidateEngines: candidateEngines.length, ideaEngines: ideaEngines.length, legacyDomainEngines: legacyDomainEngines.length, canonicalModuleCount: 639 });
