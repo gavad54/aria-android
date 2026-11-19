@@ -12,7 +12,7 @@ The isolated repaired candidate is not stored in this repository yet. To run the
 
 release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip
 
-Expected SHA-256: e787e02991fbc7044a312cdb071e8484dfb0db6e341c9116be54c1f4978eafdb
+Expected SHA-256: 0c45fb175fa6d44456ce33af5c975a2d74576096fae37aa4993a213759a5dbe8
 
 The workflow verifies this exact checksum, extracts the source, provisions the Gradle Wrapper, runs static/contract gates, then attempts debug APK and release bundle builds. Do not substitute the original archive; its SHA-256 is 9dcbb34ef98e4f11e661bd32bbd0573d4de7a3058743f45aa126322f44264f9f and it contains the versionCode mismatch fixed in the candidate.
 
