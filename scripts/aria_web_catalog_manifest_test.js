@@ -6,6 +6,9 @@ const manifest=JSON.parse(fs.readFileSync(path.join(root,'backend/data/aria_web_
 const start=source.indexOf('const modules=['),end=source.indexOf('\n];',start);
 assert.ok(start>=0&&end>start,'server catalog source must exist');
 const modules=vm.runInNewContext('('+source.slice(start+'const modules='.length,end+2)+')');
+const externalStart=source.indexOf('const EXTERNAL_EXECUTION_REQUIRED = new Set('),externalEnd=source.indexOf(');',externalStart);
+assert.ok(externalStart>=0&&externalEnd>externalStart,'external execution map must exist');
+const externalIds=new Set([...source.slice(externalStart,externalEnd+2).matchAll(/\"([^\"]+)\"/g)].map(x=>x[1]));
 const ds=source.indexOf('const MODULE_DOMAIN_BY_ID = Object.freeze({'),de=source.indexOf('\n});',ds);
 assert.ok(ds>=0&&de>ds,'domain map source must exist');
 const domains=vm.runInNewContext('('+source.slice(ds+'const MODULE_DOMAIN_BY_ID = Object.freeze('.length,de+2)+')');
@@ -27,6 +30,7 @@ for(let i=0;i<72;i++){
  assert.equal(r.name,m.name,'catalog name must match source');
  assert.equal(r.description,m.description,'catalog description must match source');
  assert.equal(r.domain,domains[m.id],'catalog domain must match source mapping');
+ assert.equal(r.externalExecutionRequired,externalIds.has(m.id),'external execution gate must match source map');
  assert.equal(r.catalogEntryId,651+i,'catalog entry ID range must be stable');
  assert.ok(Number.isInteger(r.capabilityContractId)&&r.capabilityContractId>=1&&r.capabilityContractId<=647,'catalog alias must resolve to a canonical contract');
  assert.equal(r.activation,'LOCAL_WORKFLOW_ACTIVE');
