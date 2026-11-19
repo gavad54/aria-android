@@ -363,7 +363,7 @@ async function handle(req, res, url, deps) {
       records: unifiedExecutionRegistry.records
     });
   }
-  const executionSpecMatch = p.match(/^\\/api\\/aria-expansion\\/execution-registry\\/([^/]+)$/);
+  const executionSpecMatch = p.match(/^\/api\/aria-expansion\/execution-registry\/([^/]+)$/);
   if (executionSpecMatch && req.method === "GET") {
     const key = decodeURIComponent(executionSpecMatch[1]);
     const record = unifiedExecutionById.get(key) || unifiedExecutionByLaunchId.get(key);
