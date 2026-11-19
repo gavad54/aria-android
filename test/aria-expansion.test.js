@@ -18,6 +18,9 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(summaryResponse.status,200);
   assert.equal(summary.canonicalModuleCount,639);
   assert.equal(summary.problemRecords,50);
+  assert.equal(summary.ideaModules,50);
+  assert.equal(summary.controlModules,4);
+  assert.equal(summary.totalModules,54);
   assert.equal(summary.uniqueProblemCapabilities,49);
   assert.equal(summary.parentDomains,5);
   assert.equal(summary.historicalCandidates,4);
@@ -30,12 +33,27 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(modulesResponse.status,200);
   assert.equal(modules.parents.length,5);
   assert.equal(modules.problems.length,50);
+  assert.equal(modules.modules.length,54);
+  assert.equal(modules.ideaModules,50);
+  assert.equal(modules.controlModules,4);
+  assert.equal(modules.totalModules,54);
+  assert.equal(modules.mergedDomainPacks.length,7);
+  assert.deepEqual(modules.mergedDomainPacks.map(x=>x.id),["ARVAND","CHARSU","GANJINEH","NEGAH","SEPEHR","NAMA","PAYAM"]);
+  assert.equal(new Set(modules.modules.map(x=>x.moduleId)).size,54);
+  assert.equal(modules.modules.filter(x=>x.moduleType==="IDEA_DERIVED_PRODUCT_MODULE").length,50);
+  assert.equal(modules.modules.filter(x=>x.moduleType==="CONTROL_AND_GOVERNANCE_MODULE").length,4);
   assert.equal(new Set(modules.problems.map(x=>x.id)).size,50);
   assert.ok(modules.problems.every(x=>x.engine&&x.parentDomain&&x.sourceProblemNumber&&Number.isInteger(x.hostCanonicalContractId)));
   assert.equal(new Set(modules.problems.map(x=>x.hostCanonicalContractId)).size,5);
   const petTravel=modules.problems.find(x=>x.sourceProblemNumber===48);
   const petHome=modules.problems.find(x=>x.sourceProblemNumber===29);
   assert.equal(petTravel.aliasOf,petHome.id,"travel pet-care entry must reuse the home pet-care capability");
+  const petTravelModule=modules.modules.find(x=>x.sourceProblemNumber===48);
+  const petHomeModule=modules.modules.find(x=>x.sourceProblemNumber===29);
+  assert.notEqual(petTravelModule.moduleId,petHomeModule.moduleId,"all 50 idea entries retain distinct module IDs");
+  assert.equal(petTravelModule.engineSharing,"SHARED_WITH_IDEA_029_DISTINCT_TRAVEL_ENTRYPOINT");
+  assert.equal(petTravelModule.hostCanonicalContractId,233);
+  assert.equal(petTravelModule.entryPointCanonicalContractId,235);
   assert.equal(petTravel.hostCanonicalContractId,petHome.hostCanonicalContractId);
   assert.equal(petTravel.entryPointCanonicalContractId,235);
 
@@ -83,6 +101,16 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(plan.plan.moduleId,"problem-01");
   assert.ok(plan.plan.steps.length>=3);
   assert.equal(plan.plan.externalExecution.executed,false);
+
+  const newModulePlanResponse=await fetch(base+"/api/aria-expansion/modules/ARIA-IDEA-MODULE-001/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"بررسی و انتخاب تعمیرکار مطمئن"})});
+  const newModulePlan=await newModulePlanResponse.json();
+  assert.equal(newModulePlanResponse.status,200);
+  assert.equal(newModulePlan.plan.moduleId,"ARIA-IDEA-MODULE-001");
+  assert.equal(newModulePlan.plan.hostCanonicalContractId,237);
+  const controlPlanResponse=await fetch(base+"/api/aria-expansion/modules/ARIA-CONTROL-MODULE-001/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"تطبیق نیاز و عرضه‌کننده با رضایت"})});
+  const controlPlan=await controlPlanResponse.json();
+  assert.equal(controlPlanResponse.status,200);
+  assert.equal(controlPlan.plan.moduleId,"ARIA-CONTROL-MODULE-001");
 
   const badPlan=await fetch(base+"/api/aria-expansion/modules/problem-01/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"x"})});
   assert.equal(badPlan.status,400);
