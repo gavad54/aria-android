@@ -16,6 +16,15 @@ test("service delivery catalog is discoverable and never advertises live executi
       await new Promise(resolve => setTimeout(resolve, 100));
     }
     assert.equal(started, true, "server should start");
+    const moduleCatalogResponse = await fetch(base + "/api/aria-modules/catalog");
+    const moduleCatalog = await moduleCatalogResponse.json();
+    assert.equal(moduleCatalogResponse.status, 200);
+    assert.equal(moduleCatalog.independentBackendModuleCount, 201);
+    assert.deepEqual(moduleCatalog.counts, { ideas: 50, governanceControls: 4, commercialCatalog: 72, childEngines: 71, serviceDeliveryEngines: 4 });
+    assert.equal(new Set(moduleCatalog.modules.map(x => x.moduleId)).size, 201);
+    assert.equal(moduleCatalog.productionVerifiedCount, 0);
+    const unauthorizedModuleRun = await fetch(base + "/api/aria-modules/ARIA-IDEA-BACKLOG-001/execute", { method: "POST", headers: { "content-type": "application/json", "idempotency-key": "unauth-test-0001" }, body: JSON.stringify({ goal: "test", context: {} }) });
+    assert.equal(unauthorizedModuleRun.status, 401);
     const catalogResponse = await fetch(base + "/api/aria-expansion/service-delivery/catalog");
     const catalog = await catalogResponse.json();
     assert.equal(catalogResponse.status, 200);
