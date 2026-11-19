@@ -289,7 +289,7 @@ async function handle(req,res,url){
  if(url.pathname==="/api/modules"&&req.method==="GET")return json(res,200,{catalogVersion:"web-prototype-0.5.0",modules:catalogModules});
  if(url.pathname==="/api/revenue/catalog"&&req.method==="GET")return json(res,200,{product:"ARIA",state:"DESIGNED_NOT_MONETIZED",currency:null,pricingPolicy:"OWNER_CONFIGURED",paymentProviderState:"NOT_CONNECTED",total:commercialManifest.records.length,modules:commercialManifest.records});
  if(url.pathname==="/api/revenue/summary"&&req.method==="GET")return json(res,200,{product:"ARIA",commercialModuleCount:commercialManifest.records.length,totalProductFacingModuleCount:commercialManifest.totalProductFacingModuleCount,canonicalExecutionContractCount:commercialManifest.canonicalExecutionContractCount,billingModes:[...new Set(commercialManifest.records.flatMap(x=>x.revenueEngine.billingModes))],paymentProviderState:"NOT_CONNECTED",liveRevenueEnabled:false,limitations:["تعریف موتور درآمدی و سیاست‌های قیمت‌گذاری ثبت شده است؛ پرداخت واقعی فعال نیست.","مبلغ و ارز تا تعیین و تأیید مالک خالی می‌ماند.","ثبت درآمد فقط پس از رویداد پرداخت یا ارائه خدمت تأییدشده مجاز است."]});
-  if(url.pathname.startsWith("/api/aria-expansion/")){
+  if(url.pathname.startsWith("/api/aria-expansion/")||url.pathname.startsWith("/api/aria-modules/")){
   const handled=await expansionRuntime.handle(req,res,url,{json,readJson,authUser,requireDb,pool});
   if(handled)return;
  }
