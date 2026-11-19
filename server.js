@@ -6,6 +6,8 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const {Pool}=require("pg");
 const root=__dirname;
+const bridgeManifest=JSON.parse(fs.readFileSync(path.join(root,"backend/data/aria_web_catalog_bridge.json"),"utf8"));
+const bridgeByCatalogId=new Map(bridgeManifest.records.map(record=>[record.id,record]));
 const port=Number(process.env.PORT||3000);
 const types={".html":"text/html; charset=utf-8",".css":"text/css; charset=utf-8",".js":"text/javascript; charset=utf-8",".json":"application/json; charset=utf-8",".svg":"image/svg+xml"};
 const modules=[
@@ -108,20 +110,27 @@ const MODULE_DOMAIN_LABELS = Object.freeze({
  community:"جامعه و خدمات"
 });
 const EXTERNAL_EXECUTION_REQUIRED = new Set(["ai-instagram","image-editing","profile-photo","product-photo","image-to-image","ad-banner","social-post-story","youtube-thumbnail","face-reel","avatar","voice-video","text-to-video","podcast-clips","product-video-ad","logo-design","product-packaging","professional-catalog","mockup-maker","character-design","prompt-pack","no-code-site","no-code-app","workflow-automation","ai-voiceover","revenue-commerce-engine","creator-platform-community","on-demand-local-services","travel-leisure-planner","cloud-workspace-management","website-page-builder","growth-marketing-engine","digital-commerce-studio","creative-media-studio"]);
-const catalogModules = modules.map((module, index) => ({
- ...module,
- catalogStatus: module.status || "planned",
- status: "active",
- product: "ARIA",
- capabilityContractId: 651 + index,
- runtimeState: "ACTIVE_LOCAL_WORKFLOW",
- externalExecutionState: EXTERNAL_EXECUTION_REQUIRED.has(module.id) ? "ADAPTER_REQUIRED_FOR_EXTERNAL_ACTIONS" : "LOCAL_WORKFLOW_ONLY",
- domain: MODULE_DOMAIN_BY_ID[module.id] || "unclassified",
- domainLabel: MODULE_DOMAIN_LABELS[MODULE_DOMAIN_BY_ID[module.id]] || "نیازمند طبقه‌بندی",
- executionState: "active_local_workflow",
- catalogMaturity: module.status === "available" ? "foundation" : module.status || "planned",
- source: "aria-web-catalog-v0.5.0"
-}));
+const catalogModules = modules.map((module) => {
+ const alias=bridgeByCatalogId.get(module.id);
+ if(!alias||!Number.isInteger(alias.catalogEntryId)||!Number.isInteger(alias.capabilityContractId))throw new Error("ARIA_CATALOG_ALIAS_MAPPING_INVALID:"+module.id);
+ return {
+  ...module,
+  catalogStatus: module.status || "planned",
+  status: "active",
+  product: "ARIA",
+  catalogEntryId: alias.catalogEntryId,
+  capabilityContractId: alias.capabilityContractId,
+  aliasOfContractId: alias.capabilityContractId,
+  runtimeState: "ACTIVE_LOCAL_WORKFLOW",
+  externalExecutionState: EXTERNAL_EXECUTION_REQUIRED.has(module.id) ? "ADAPTER_REQUIRED_FOR_EXTERNAL_ACTIONS" : "LOCAL_WORKFLOW_ONLY",
+  domain: MODULE_DOMAIN_BY_ID[module.id] || "unclassified",
+  domainLabel: MODULE_DOMAIN_LABELS[MODULE_DOMAIN_BY_ID[module.id]] || "نیازمند طبقه‌بندی",
+  executionState: "active_local_workflow",
+  catalogMaturity: module.status === "available" ? "foundation" : module.status || "planned",
+  source: "aria-web-catalog-v0.5.0"
+ };
+});
+if(catalogModules.length!==72||new Set(catalogModules.map(x=>x.catalogEntryId)).size!==72||new Set(catalogModules.map(x=>x.capabilityContractId)).size!==47)throw new Error("ARIA_CATALOG_ALIAS_COUNTS_INVALID");
 const rateBuckets=new Map();
 const pool=process.env.DATABASE_URL?new Pool({connectionString:process.env.DATABASE_URL,max:10,idleTimeoutMillis:30000,connectionTimeoutMillis:5000,ssl:process.env.DATABASE_SSL==="true"?{rejectUnauthorized:false}:undefined}):null;
 let dbInitPromise=null,dbConnected=false;
@@ -231,12 +240,12 @@ async function handle(req,res,url){
  if(url.pathname.startsWith("/api/")&&rateLimited(req))return json(res,429,{error:"تعداد درخواست‌ها زیاد است. یک دقیقه دیگر دوباره تلاش کنید."},{"retry-after":"60"});
  if(url.pathname==="/api/modules/summary"&&req.method==="GET"){
   const counts=catalogModules.reduce((acc,module)=>{acc[module.catalogMaturity]=(acc[module.catalogMaturity]||0)+1;acc.byDomain[module.domain]=(acc.byDomain[module.domain]||0)+1;acc.runtime[module.runtimeState]=(acc.runtime[module.runtimeState]||0)+1;return acc;},{byDomain:{},runtime:{}});
-  return json(res,200,{product:"ARIA",catalogVersion:"web-prototype-0.5.0",source:"current web catalogue linked to ARIA 32 contract bridge",total:catalogModules.length,linkedCatalogRecords:catalogModules.length,contractCount:711,contractIdRange:[651,722],runtimeStates:counts.runtime,executionStates:{foundation:counts.foundation||0,prototype:counts.prototype||0,planned:counts.planned||0},domains:counts.byDomain,limitations:["ACTIVE_LOCAL_WORKFLOW means structured local planning is available; it does not mean third-party publishing, media rendering, booking, payment or cloud operations are connected.","External actions remain gated until the required official provider adapter is configured, authorized and tested.","The 639 original Android contracts remain preserved; 72 web catalog contracts extend the registry to 711."]});
+  return json(res,200,{product:"ARIA",catalogVersion:"web-prototype-0.5.0",source:"72 catalog aliases mapped to canonical ARIA 32 contracts",total:catalogModules.length,linkedCatalogRecords:catalogModules.length,contractCount:639,catalogEntryCount:72,aliasCount:72,uniqueAliasTargets:47,catalogEntryIdRange:[651,722],runtimeStates:counts.runtime,executionStates:{foundation:counts.foundation||0,prototype:counts.prototype||0,planned:counts.planned||0},domains:counts.byDomain,limitations:["ACTIVE_LOCAL_WORKFLOW means structured local planning is available; it does not mean third-party publishing, media rendering, booking, payment or cloud operations are connected.","External actions remain gated until the required official provider adapter is configured, authorized and tested.","All 72 catalog entries resolve to 47 of the 639 canonical contracts; no duplicate executable contracts are added."]});
  }
  if(url.pathname==="/api/modules"&&req.method==="GET")return json(res,200,{catalogVersion:"web-prototype-0.5.0",modules:catalogModules});
   const catalogPlanMatch=url.pathname.match(new RegExp("^\/api\/modules\/(\\d+)\/plan$"));
  if(catalogPlanMatch&&req.method==="POST"){
-  const module=catalogModules.find(x=>x.capabilityContractId===Number(catalogPlanMatch[1]));
+  const module=catalogModules.find(x=>x.catalogEntryId===Number(catalogPlanMatch[1]));
   if(!module)return json(res,404,{error:"قابلیت در کاتالوگ وب پیدا نشد."});
   const data=await readJson(req,res);if(data===null)return;
   const command=typeof data.command==="string"?data.command.trim():"";
@@ -256,7 +265,7 @@ async function handle(req,res,url){
    business:["اعتبارسنجی زمینه کسب‌وکار","ساخت گردش‌کار تجاری","کنترل هزینه و سهمیه","تأیید انسانی معاملات"],
    community:["اعتبارسنجی مشارکت‌کنندگان","تعریف جریان خدمت","کنترل صلاحیت ارائه‌دهنده","برنامه تطبیق"]
   };
-  return json(res,200,{ok:true,plan:{capabilityContractId:module.capabilityContractId,moduleId:module.id,title:module.name,domain:module.domain,requestedOutcome:command,executionStatus:"COMPLETED_LOCAL_WORKFLOW",runtimeState:module.runtimeState,steps:stepsByDomain[module.domain]||[],externalExecution:{status:module.externalExecutionState,executed:false},limitations:["این endpoint فقط برنامه اجرایی محلی تولید می‌کند.","انتشار، رندر رسانه، رزرو، پرداخت، تغییر زیرساخت یا تراکنش بیرونی اجرا نمی‌شود."],createdAt:new Date().toISOString()}});
+  return json(res,200,{ok:true,plan:{catalogEntryId:module.catalogEntryId,capabilityContractId:module.capabilityContractId,aliasOfContractId:module.aliasOfContractId,moduleId:module.capabilityContractId,catalogModuleId:module.id,title:module.name,domain:module.domain,requestedOutcome:command,executionStatus:"COMPLETED_LOCAL_WORKFLOW",runtimeState:module.runtimeState,steps:stepsByDomain[module.domain]||[],externalExecution:{status:module.externalExecutionState,executed:false},limitations:["این endpoint فقط برنامه اجرایی محلی تولید می‌کند.","انتشار، رندر رسانه، رزرو، پرداخت، تغییر زیرساخت یا تراکنش بیرونی اجرا نمی‌شود."],createdAt:new Date().toISOString()}});
  }
  if(url.pathname==="/api/auth/register"&&req.method==="POST"){
   const data=await readJson(req,res);if(data===null)return;
