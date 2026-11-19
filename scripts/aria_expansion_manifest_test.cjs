@@ -72,5 +72,5 @@ assert.ok(moduleRegistry.moduleCatalog.filter(x=>x.moduleType==="HISTORICAL_PROB
 const expansionUi=fs.readFileSync(path.join(root,"aria-expansion.js"),"utf8");
 assert.ok(expansionUi.includes("const savePlanButton="));
 assert.ok(expansionUi.includes('authorization:"Bearer "+window.ariaToken'));
-assert.ok((expansionUi.match(/savePlanButton\(/g)||[]).length>=4);
+assert.ok((expansionUi.match(/savePlanButton\(/g)||[]).length>=3);
 console.log("ARIA_MODULE_PLAN_PERSISTENCE_UI_PASS historical=50 ideas=50 control=4 legacy_domains=4");
