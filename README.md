@@ -4,7 +4,7 @@ ARIA is a general-purpose AI super-app project. It is **not an accounting/ERP pr
 
 ## Unified app direction
 
-ARIA is intended to be one comprehensive app. The 369-module ARIA 25 report, the 639-module ARIA 32 source archive, and the 50 ideas from the reference image are different-version/different-purpose inventories and must not be summed. Use the [unified merge plan](docs/ARIA_UNIFIED_APP_MERGE_PLAN_FA.md) to reconcile IDs, map duplicate capabilities to shared engines, and keep web and Android on one versioned registry. The merge is not yet fully implemented: the complete Android source archive has not been imported into this repository, and Android build/device verification remains blocked.
+ARIA is intended to be one comprehensive app. The 369-module ARIA 25 report, the 639-module ARIA 32 source archive, and the 50 ideas from the reference image are different-version/different-purpose inventories and must not be summed. Use the [unified merge plan](docs/ARIA_UNIFIED_APP_MERGE_PLAN_FA.md) to reconcile IDs, map duplicate capabilities to shared engines, and keep web and Android on one versioned registry. The full ARIA 32.0.0 Android source archive has been located in the Library (original SHA-256: 9dcbb34ef98e4f11e661bd32bbd0573d4de7a3058743f45aa126322f44264f9f). A separate candidate fixes versionCode and stale verification gates, but neither archive nor candidate has yet been imported into this canonical Git repository. Android build, signing and device verification remain blocked.
 
 ## Functional redesign (2026-11-19)
 
@@ -12,6 +12,7 @@ The current web catalogue contains 65 records and is now grouped by functional d
 
 - [Functional product redesign and module map](docs/ARIA_FUNCTIONAL_REDESIGN_2026-11-19_FA.md)
 - [Legacy source inventory and ownership matrix](docs/ARIA_LEGACY_CAPABILITY_INVENTORY_2026-11-19_FA.md)
+- [ARIA 32 source repair report and exact verification](docs/ARIA_32_SOURCE_REPAIR_REPORT_FA.md)
 
 This is a web-catalogue classification, not the full Android 32 registry. Do not add the 65 web records to the reported 369 ARIA 25 records, 639 ARIA 32 records or 50 ideas. Those inventories require source provenance and ID-level reconciliation before migration.
 
