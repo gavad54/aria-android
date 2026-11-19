@@ -26,7 +26,7 @@ The isolated repaired candidate is not stored in this repository yet. To run the
 
 release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip
 
-Expected SHA-256: 0c45fb175fa6d44456ce33af5c975a2d74576096fae37aa4993a213759a5dbe8
+Expected SHA-256: 9d1e40acdb197de22c69c64336f5e3e0f4951a227ab28de443d73fc111375284
 
 The workflow verifies this exact checksum, extracts the source, provisions the Gradle Wrapper, runs static/contract gates, then attempts debug APK and release bundle builds. Do not substitute the original archive; its SHA-256 is 9dcbb34ef98e4f11e661bd32bbd0573d4de7a3058743f45aa126322f44264f9f and it contains the versionCode mismatch fixed in the candidate.
 
@@ -92,7 +92,7 @@ A repaired candidate was created from the verified source archive in an isolated
 0c45fb175fa6d44456ce33af5c975a2d74576096fae37aa4993a213759a5dbe8
 ```
 
-The candidate has 504 ZIP entries and 8.3 MB uncompressed. It fixes Android/Backend versionCode parity, stale project and capability verifiers, migration-sequence assertion and bounded-executor gate; the package quality-gate now runs the current 32.0.0 checks. It is not an APK/AAB and is not imported into this repository. The Android workflow pins this exact checksum and waits for the archive at release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip. The binary upload remains an external prerequisite.
+The candidate has 505 ZIP entries and 8.3 MB uncompressed. It fixes Android/Backend versionCode parity, stale project and capability verifiers, migration-sequence assertion and bounded-executor gate; the package quality-gate now runs the current 32.0.0 checks. It is not an APK/AAB and is not imported into this repository. The Android workflow pins this exact checksum and waits for the archive at release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip. The binary upload remains an external prerequisite.
 
 ## Hosting status inspected 2026-10-21
 
