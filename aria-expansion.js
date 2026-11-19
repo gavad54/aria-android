@@ -21,11 +21,12 @@
    fetch("/api/aria-expansion/engines").then(x=>x.json()),
    fetch("/api/aria-expansion/capability-matrix").then(x=>x.json())
   ]);
-  status(summaryEl,"۶۳۹ ماژول canonical حفظ‌شده · ۷۲ ورودی قابل مشاهده در ARIA · ۱۱۱ رکورد تاریخی در lineage · ۳۶ ماژول منتقل‌شده · ۲ سرویس مشترک باقی‌مانده · "+e.total+" موتور طراحی‌شده در ARIA · درآمد زنده فعال نیست.");
+  status(summaryEl,"موجودی ساختاری ۸۹۳ واحدی ARIA: ۶۳۹ ماژول پایه + ۱۱۱ رکورد ماژولی تاریخی + ۷۲ ماژول کاتالوگ تجاری + ۷۱ زیرماژول موتور · ۳۶ رکورد تاریخی منتقل‌شده به محصولات خواهر · درآمد زنده فعال نیست.");
   if(maturityEl){
    const summary=node("div","expansion-summary");
    summary.append(node("strong","","ماتریس بلوغ واقعی قابلیت‌های ARIA"));
-   summary.append(node("p","expansion-muted","خط پایه "+matrix.canonicalBaseline+" · آرشیو حفظ‌شده "+matrix.preservedHistoricalOverlay+" · کاتالوگ عمومی "+matrix.publicCatalog.total+" · موتورهای طراحی‌شده "+matrix.engines.total));
+   summary.append(node("p","expansion-muted","موجودی کل ماژول/زیرماژول: "+matrix.moduleInventory.totalModuleAndSubmoduleRecords+" · پایه canonical: "+matrix.moduleInventory.canonicalModules+" · lineage تاریخی: "+matrix.moduleInventory.preservedHistoricalOverlayModules+" · کاتالوگ تجاری: "+matrix.moduleInventory.commercialCatalogModules+" · زیرماژول موتور: "+matrix.moduleInventory.engineSubmodules));
+   summary.append(node("p","expansion-muted","کاتالوگ عمومی فعال برای نمایش: "+matrix.publicCatalog.total+" · موتورهای متصل به رکوردهای دامنه‌ای: "+matrix.engines.total+"؛ زیرماژول‌ها بخشی از ساختار والدند و ۸۹۳ قرارداد اجرایی مستقل یا Production محسوب نمی‌شوند."));
    summary.append(node("p","expansion-muted","برنامه‌ریزی محلی: "+matrix.publicCatalog.localPlanAvailable+" · تأیید اجرایی مستقل: "+matrix.publicCatalog.runtimeVerified+" · تأیید Production: "+matrix.publicCatalog.productionVerified+" · فاقد تأیید Production: "+matrix.publicCatalog.notProductionVerified));
    summary.append(node("p","expansion-alias","وضعیت اتصال بیرونی: غیرفعال · درآمد زنده: غیرفعال. ساخت برنامه محلی به معنی انجام عملیات بیرونی نیست."));
    const details=node("details","expansion-maturity-details");
