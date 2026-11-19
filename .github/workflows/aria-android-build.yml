@@ -44,6 +44,13 @@ jobs:
           test -f "$RUNNER_TEMP/aria32/gradle/wrapper/gradle-wrapper.properties"
           test -f "$RUNNER_TEMP/aria32/RELEASE_GATE.sh"
 
+      - name: Apply 72 web catalog contracts to the 639-module candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/aria32_apply_web_catalog_bridge.js --root "$RUNNER_TEMP/aria32"
+          node scripts/aria32_web_catalog_runtime_test.js --root "$RUNNER_TEMP/aria32"
+
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
