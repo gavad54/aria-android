@@ -88,8 +88,8 @@ const MODULE_DOMAIN_BY_ID = Object.freeze({
  "no-code-site":"web-builder","landing-page":"web-builder","no-code-app":"web-builder",
  "workflow-automation":"automation",
  "life-home-assistant":"personal","smart-shopping-household":"personal","family-health-wellbeing":"personal","travel-leisure-planner":"personal",
- "business-model-studio":"business","revenue-commerce-engine":"business",
- "creator-platform-community":"community","on-demand-local-services":"community"
+ "business-model-studio":"business","revenue-commerce-engine":"business","ai-sales-assistant":"business",
+ "creator-platform-community":"community","on-demand-local-services":"community","digital-products":"content","ai-voiceover":"media"
 });
 const MODULE_DOMAIN_LABELS = Object.freeze({
  workspace:"فضای کار و فرماندهی",trust:"اعتماد و کنترل",learning:"یادگیری و رشد",
