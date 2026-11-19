@@ -1,0 +1,46 @@
+"use strict";
+const { createDomainModule } = require("../../aria-module-runtime.cjs");
+module.exports = createDomainModule({
+  "moduleId": "ARIA-ENGINE-MODULE-049",
+  "moduleType": "CHILD_ENGINE_MODULE",
+  "sourceId": "idea-expansion-engine-015",
+  "name": "مدیریت دستورکار نگهداری دارایی — موتور تخصصی",
+  "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-049",
+  "parentModuleIds": [
+    "ARIA-IDEA-MODULE-015"
+  ],
+  "inputContract": [
+    "authenticated_actor",
+    "tenant_context",
+    "asset_id",
+    "maintenance_policy",
+    "meter_readings"
+  ],
+  "outputContract": [
+    "work_order",
+    "maintenance_history",
+    "downtime_report"
+  ],
+  "requiredInputs": [
+    "asset_id",
+    "maintenance_policy",
+    "meter_readings"
+  ],
+  "operations": [
+    "validate_input",
+    "authorize_tenant_and_role",
+    "check_consent_and_policy",
+    "execute_scoped_workflow",
+    "quality_review",
+    "record_audit_and_outcome"
+  ],
+  "handlerKey": "engine.NEW_IDEA_ENGINE",
+  "hostCanonicalContractId": null,
+  "accessPolicy": [
+    "tenant_isolation",
+    "least_privilege",
+    "audit_log"
+  ],
+  "executionState": "LOCAL_WORK_ITEM_ONLY",
+  "productionVerified": false
+});
