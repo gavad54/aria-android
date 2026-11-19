@@ -666,6 +666,54 @@ async function handle(req, res, url, deps) {
       paymentExecuted: false
     });
   }
+
+  const modularActionMatch = p.match(/^\\/api\\/aria-modules\\/([^/]+)\\/work-items\\/([0-9a-f-]{36})\\/actions$/i);
+  if (modularActionMatch && req.method === "POST") {
+    const user = requireUser(req, json, res, authUser); if (!user) return true;
+    const moduleId = decodeURIComponent(modularActionMatch[1]);
+    const data = await readJson(req, res); if (data === null) return true;
+    if (!await requireDb(res)) return true;
+    try {
+      await ensureTables(pool);
+      const tenantId = String(user.sub);
+      const current = await pool.query("SELECT result FROM aria_modular_work_items WHERE id=$1::uuid AND user_id=$2 AND tenant_id=$3 AND module_id=$4", [modularActionMatch[2], user.sub, tenantId, moduleId]);
+      if (!current.rowCount) return json(res, 404, { error: "سابقه اجرای ماژول پیدا نشد." });
+      const result = current.rows[0].result;
+      const serviceResult = result?.artifact?.serviceResult;
+      if (!serviceResult) return json(res, 409, { error: "این ماژول گردش‌کار قابل تغییر وضعیت ندارد." });
+      const isOwner = Boolean(process.env.ARIA_OWNER_USER_ID && String(user.sub) === String(process.env.ARIA_OWNER_USER_ID));
+      if (moduleId === "ARIA-SVC-SUPPORT") {
+        if (data.action === "CHECK_SLA") {
+          serviceResult.sla = serviceDelivery.evaluateSupportSla(serviceResult, data.evaluatedAt ? new Date(data.evaluatedAt) : new Date());
+        } else {
+          Object.assign(serviceResult, serviceDelivery.transitionSupportTicket(serviceResult, data.action, { userId: String(user.sub), tenantId }));
+        }
+      } else if (moduleId === "ARIA-SVC-SUCCESS" && data.action === "APPROVE_RENEWAL") {
+        Object.assign(serviceResult, serviceDelivery.approveCustomerRenewal(serviceResult, { userId: String(user.sub), isOwner }));
+      } else if (moduleId === "ARIA-SVC-PACKAGES") {
+        Object.assign(serviceResult, serviceDelivery.transitionServicePackage(serviceResult, data.action, { userId: String(user.sub), tenantId, isOwner }));
+      } else {
+        return json(res, 400, { error: "اقدام برای این موتور تعریف نشده است." });
+      }
+      result.artifact.serviceResult = serviceResult;
+      result.output.serviceResult = serviceResult;
+      result.auditRecord = {
+        ...(result.auditRecord || {}),
+        lastAction: data.action,
+        lastActionBy: String(user.sub),
+        lastActionAt: new Date().toISOString()
+      };
+      await pool.query("UPDATE aria_modular_work_items SET result=$1::jsonb,status=$2 WHERE id=$3::uuid AND user_id=$4 AND tenant_id=$5 AND module_id=$6",
+        [JSON.stringify(result), result.status, modularActionMatch[2], user.sub, tenantId, moduleId]);
+      return json(res, 200, { ...result, persistence: "DATABASE_UPDATED", externalExecutionPerformed: false, paymentExecuted: false });
+    } catch (err) {
+      if (["SUPPORT_TICKET_INVALID","SUPPORT_SLA_INPUT_INVALID","SUPPORT_TRANSITION_NOT_ALLOWED","CUSTOMER_SUCCESS_REPORT_INVALID","OWNER_APPROVAL_REQUIRED","SERVICE_PACKAGE_INVALID","SERVICE_PACKAGE_TRANSITION_NOT_ALLOWED"].includes(err.message)) {
+        return json(res, err.message === "OWNER_APPROVAL_REQUIRED" ? 403 : 400, { error: err.message });
+      }
+      console.error("ARIA modular action failed:", err.message);
+      return json(res, 500, { error: "تغییر وضعیت موتور خدمت انجام نشد." });
+    }
+  }
   const modularWorkItemsMatch = p.match(/^\/api\/aria-modules\/([^/]+)\/work-items$/);
   if (modularWorkItemsMatch && req.method === "GET") {
     const user = requireUser(req, json, res, authUser); if (!user) return true;
