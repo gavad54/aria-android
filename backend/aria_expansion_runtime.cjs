@@ -257,13 +257,13 @@ async function handle(req, res, url, deps) {
     catch(err){console.error("ARIA expansion work item update failed:",err.message);return json(res,500,{error:"به‌روزرسانی کار انجام نشد."});}
   }
   if(p==="/api/aria-expansion/providers"&&(req.method==="GET"||req.method==="POST")){
+    const providerUser=req.method==="POST"?requireUser(req,json,res,authUser):null;if(req.method==="POST"&&!providerUser)return true;
     if(!await requireDb(res))return true;
     try{await ensureTables(pool);
       if(req.method==="GET"){
         const q=await pool.query("SELECT id,display_name,category,service_area,description,created_at FROM aria_expansion_providers WHERE verification_status='verified' AND contact_visible=TRUE ORDER BY created_at DESC LIMIT 100");
         return json(res,200,{providers:q.rows.map(x=>({...x,id:String(x.id)})),visibility:"VERIFIED_AND_CONSENTED_ONLY"});
       }
-      const user=requireUser(req,json,res,authUser);if(!user)return true;
       const data=await readJson(req,res);if(data===null)return true;
       const displayName=cleanText(data.displayName,2,100),category=cleanText(data.category,2,80),serviceArea=cleanText(data.serviceArea,2,120),description=cleanText(data.description||"",0,1000);
       if(!displayName||!category||!serviceArea||description===null)return json(res,400,{error:"نام نمایشی، دسته، محدوده خدمت و شرح معتبر لازم است."});
