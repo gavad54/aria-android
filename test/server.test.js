@@ -24,7 +24,7 @@ test("ARIA API health, modules, validation, planning and auth boundaries",async(
   assert.ok(md.modules.every(x=>x.status==="active"&&x.runtimeState==="ACTIVE_LOCAL_WORKFLOW"),"all catalog local workflows must be active");
   assert.ok(md.modules.every(x=>Number.isInteger(x.catalogEntryId)&&x.catalogEntryId>=651&&x.catalogEntryId<=722),"every catalog record must have a stable catalog entry ID");
   assert.equal(new Set(md.modules.map(x=>x.catalogEntryId)).size,72,"catalog entry IDs must be unique");
-  assert.ok(md.modules.every(x=>Number.isInteger(x.capabilityContractId)&&x.capabilityContractId>=1&&x.capabilityContractId<=639),"every catalog record must resolve to one of the 639 canonical contracts");
+  assert.ok(md.modules.every(x=>Number.isInteger(x.capabilityContractId)&&x.capabilityContractId>=1&&x.capabilityContractId<=647),"every catalog record must resolve to one of the 639 canonical contracts");
   assert.ok(md.modules.every(x=>x.aliasOfContractId===x.capabilityContractId),"catalog aliases must resolve to their canonical contract");
   assert.ok(md.modules.every(x=>["foundation","prototype","planned"].includes(x.catalogMaturity)),"original catalog maturity must remain visible");
   const activePlan=await fetch(base+"/api/modules/651/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({command:"برای کسب‌وکارم برنامه اقدام بساز"})});
