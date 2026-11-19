@@ -1,0 +1,38 @@
+name: ARIA web catalog CI
+
+on:
+  pull_request:
+    paths:
+      - 'server.js'
+      - 'test/server.test.js'
+      - 'backend/data/aria_web_catalog_bridge.json'
+      - 'scripts/aria_web_catalog_manifest_test.js'
+      - '.github/workflows/aria-web-catalog-ci.yml'
+  push:
+    branches:
+      - 'engineering/aria-preserve-all-capabilities-2026-11-19'
+    paths:
+      - 'server.js'
+      - 'test/server.test.js'
+      - 'backend/data/aria_web_catalog_bridge.json'
+      - 'scripts/aria_web_catalog_manifest_test.js'
+      - '.github/workflows/aria-web-catalog-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  web-catalog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.14.0'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Validate catalog-to-contract manifest
+        run: node scripts/aria_web_catalog_manifest_test.js
+      - name: Run web API tests
+        run: npm test
