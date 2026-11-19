@@ -9,6 +9,7 @@
  const enginesEl=document.getElementById("expansion-engines");
  const status=(el,msg)=>{if(el)el.textContent=msg;};
  const node=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e;};
+ const savePlanButton=(container,moduleId,title,plan)=>{const save=node("button","btn btn-quiet","ثبت برنامه در کارهای من");save.type="button";save.addEventListener("click",async()=>{if(!window.ariaToken){save.textContent="برای ذخیره ابتدا وارد حساب شوید";return;}save.disabled=true;save.textContent="در حال ثبت…";try{const headers={"content-type":"application/json",authorization:"Bearer "+window.ariaToken};const response=await fetch("/api/aria-expansion/work-items",{method:"POST",headers,body:JSON.stringify({moduleId,title,details:JSON.stringify(plan)})});const data=await response.json();if(!response.ok)throw new Error(data.error||"ثبت برنامه انجام نشد");save.textContent="برنامه ثبت شد · "+data.item.id;}catch(error){save.textContent=error.message;}finally{save.disabled=false;}});container.append(save);};
  try{
   const [s,m,c,r,e]=await Promise.all([
    fetch("/api/aria-expansion/summary").then(x=>x.json()),
@@ -26,7 +27,7 @@
   for(const d of (m.mergedDomainPacks||[])){
    const card=node("article","glass expansion-domain");
    card.append(node("div","expansion-kicker","ماژول اپ ادغام‌شده · "+d.moduleId),node("h3","",d.name),node("p","","ماژول‌های ایده مرتبط: "+d.moduleIds.length+" · زیرماژول‌های دامنه: "+d.submodules.length),node("p","expansion-muted",d.submodules.join("، ")));
-   const domainPlan=node("button","btn btn-quiet","ساخت برنامه این ماژول");domainPlan.type="button";domainPlan.addEventListener("click",async()=>{domainPlan.disabled=true;try{const response=await fetch("/api/aria-expansion/modules/"+d.moduleId+"/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:d.name})});const result=await response.json();if(!response.ok)throw new Error(result.error||"ساخت برنامه انجام نشد");const out=node("div","expansion-plan");for(const step of result.plan.steps)out.append(node("p","","گام "+step.step+": "+step.title+" — "+step.checkpoint));out.append(node("small","expansion-muted",result.plan.disclaimer));card.append(out);}catch(error){status(summaryEl,error.message);}finally{domainPlan.disabled=false;}});card.append(domainPlan);
+   const domainPlan=node("button","btn btn-quiet","ساخت برنامه این ماژول");domainPlan.type="button";domainPlan.addEventListener("click",async()=>{domainPlan.disabled=true;try{const response=await fetch("/api/aria-expansion/modules/"+d.moduleId+"/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:d.name})});const result=await response.json();if(!response.ok)throw new Error(result.error||"ساخت برنامه انجام نشد");const out=node("div","expansion-plan");for(const step of result.plan.steps)out.append(node("p","","گام "+step.step+": "+step.title+" — "+step.checkpoint));out.append(node("small","expansion-muted",result.plan.disclaimer));card.append(out);savePlanButton(out,moduleId,item.name,result.plan);savePlanButton(out,item.moduleId,item.name,result.plan);savePlanButton(out,d.moduleId,d.name,result.plan);}catch(error){status(summaryEl,error.message);}finally{domainPlan.disabled=false;}});card.append(domainPlan);
    domainsEl.append(card);
   }
   for(const item of m.problems){
@@ -47,9 +48,7 @@
      let output=card.querySelector(".expansion-plan");if(!output){output=node("div","expansion-plan");card.append(output);}output.replaceChildren(node("strong","","برنامه محلی آماده شد"));
      for(const step of data.plan.steps){const row=node("p","","گام "+step.step+": "+step.title+" — "+step.checkpoint);output.append(row);}
      output.append(node("small","expansion-muted",data.plan.disclaimer));
-     const save=node("button","btn btn-quiet","ثبت برنامه در کارهای من");save.type="button";
-     save.addEventListener("click",async()=>{save.disabled=true;save.textContent="در حال ثبت…";try{const stored=await fetch("/api/aria-expansion/work-items",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({moduleId:item.moduleId||item.id,title:item.capability,details:JSON.stringify(data.plan)})});const saved=await stored.json();if(!stored.ok)throw new Error(saved.error||"ثبت برنامه انجام نشد");save.textContent="برنامه ثبت شد · "+saved.item.id;}catch(error){save.textContent=error.message;}finally{save.disabled=false;}});
-     output.append(save);
+     savePlanButton(output,item.moduleId||item.id,item.capability,data.plan);
     }catch(error){status(summaryEl,error.message);}finally{button.disabled=false;button.textContent="ساخت برنامه اقدام";}
    });
    card.append(button);problemsEl.append(card);
