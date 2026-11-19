@@ -32,7 +32,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          echo "270c7abbee1e96ec466d7a2a906aab98943ebe3c015b4abb4e0b6b3ab8e5b8bf  release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip" | sha256sum --check -
+          echo "9d1e40acdb197de22c69c64336f5e3e0f4951a227ab28de443d73fc111375284  release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip" | sha256sum --check -
 
       - name: Extract source archive
         shell: bash
