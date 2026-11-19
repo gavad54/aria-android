@@ -59,6 +59,10 @@ const moduleInventory = {
   totalModuleAndSubmoduleRecords: 639 + allModuleCatalog.length + commercialModules.length + engineSubmodules.length,
   countingRule: "Hierarchical inventory: canonical modules + preserved historical overlay + commercial catalog modules + separately identified engine submodules. Parent/host mappings remain explicit; this is not a claim of 893 independent production execution contracts."
 };
+const overlayModuleIds = new Set(allModuleCatalog.map(item => item.moduleId));
+if (engineSubmodules.some(engine => engine.parentModuleIds.length === 0 || engine.parentModuleIds.some(id => !overlayModuleIds.has(id)))) {
+  throw new Error("ARIA_ENGINE_SUBMODULE_HOST_MAPPING_INVALID");
+}
 const safeAutonomyActions = new Set(["draft", "summarize", "classify", "plan", "analyze_readonly"]);
 let schemaReady = false;
 let schemaPromise = null;
