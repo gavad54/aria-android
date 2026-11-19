@@ -6,6 +6,7 @@
  const problemsEl=document.getElementById("expansion-problems");
  const newIdeasEl=document.getElementById("expansion-new-ideas");
  const candidatesEl=document.getElementById("expansion-candidates");
+ const controlsEl=document.getElementById("expansion-control-centers");
  const revenueEl=document.getElementById("expansion-revenue");
  const enginesEl=document.getElementById("expansion-engines");
  const status=(el,msg)=>{if(el)el.textContent=msg;};
@@ -92,6 +93,41 @@
    const planButton=node("button","btn btn-quiet","ساخت برنامه ماژول");planButton.type="button";
    planButton.addEventListener("click",async()=>{planButton.disabled=true;try{const response=await fetch("/api/aria-expansion/modules/"+moduleId+"/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:item.name})});const result=await response.json();if(!response.ok)throw new Error(result.error||"ساخت برنامه انجام نشد");const out=node("div","expansion-plan");for(const step of result.plan.steps)out.append(node("p","","گام "+step.step+": "+step.title+" — "+step.checkpoint));out.append(node("small","expansion-muted",result.plan.disclaimer));card.append(out);}catch(error){status(summaryEl,error.message);}finally{planButton.disabled=false;}});
    card.append(planButton);candidatesEl.append(card);
+  }
+  if(controlsEl){
+   const authHeaders=()=>window.ariaToken?{authorization:"Bearer "+window.ariaToken,"content-type":"application/json"}:null;
+   const makeCard=(title,description)=>{const card=node("article","glass expansion-card");card.append(node("h3","",title),node("p","expansion-muted",description));controlsEl.append(card);return card;};
+   const addField=(card,labelText,tag,placeholder,value)=>{const wrap=node("label","");wrap.append(node("span","",labelText));const input=node(tag,"search");if(tag==="textarea")input.rows=3;input.placeholder=placeholder||"";if(value!==undefined)input.value=value;input.style.width="100%";wrap.append(input);card.append(wrap);return input;};
+   const addSelect=(card,labelText,options)=>{const wrap=node("label","");wrap.append(node("span","",labelText));const select=node("select","search");select.style.width="100%";options.forEach(([value,label])=>{const option=node("option","",label);option.value=value;select.append(option);});wrap.append(select);card.append(wrap);return select;};
+   const addStatus=card=>{const el=node("p","expansion-plan","نتیجه اینجا نمایش داده می‌شود.");card.append(el);return el;};
+   const intentCard=makeCard("۱. بازار هوشمند نیازها","ثبت نیاز، دسته‌بندی و تطبیق فقط با ارائه‌دهنده تأییدشده و رضایت صریح.");
+   const intentTitle=addField(intentCard,"عنوان نیاز","input","مثلاً تعمیر وسیله یا طراحی سایت");
+   const intentDescription=addField(intentCard,"شرح نیاز","textarea","جزئیات لازم، بدون اطلاعات حساس");
+   const intentCategory=addField(intentCard,"دسته‌بندی","input","مثلاً تعمیرات");
+   const consentWrap=node("label","");const consent=node("input","");consent.type="checkbox";const consentText=node("span","","اجازه می‌دهم درخواست برای تطبیق با ارائه‌دهنده تأییدشده استفاده شود.");consentWrap.append(consent,consentText);intentCard.append(consentWrap);
+   const intentStatus=addStatus(intentCard);let createdIntentId=null;
+   const createIntent=node("button","btn btn-quiet","ثبت نیاز");createIntent.type="button";
+   createIntent.addEventListener("click",async()=>{const headers=authHeaders();if(!headers){intentStatus.textContent="برای ثبت نیاز ابتدا وارد حساب شوید.";return;}createIntent.disabled=true;try{const response=await fetch("/api/aria-expansion/intents",{method:"POST",headers,body:JSON.stringify({title:intentTitle.value,description:intentDescription.value,category:intentCategory.value,contactConsent:consent.checked})});const data=await response.json();if(!response.ok)throw new Error(data.error||"ثبت نیاز انجام نشد");createdIntentId=data.intent.id;intentStatus.textContent="درخواست "+createdIntentId+" ثبت شد؛ تطبیق ارائه‌دهنده هنوز اجرا نشده است.";}catch(error){intentStatus.textContent=error.message;}finally{createIntent.disabled=false;}});
+   const matchIntent=node("button","btn btn-quiet","بررسی تطبیق‌های مجاز");matchIntent.type="button";matchIntent.disabled=true;
+   createIntent.addEventListener("click",()=>{matchIntent.disabled=false;});
+   matchIntent.addEventListener("click",async()=>{const headers=authHeaders();if(!headers||!createdIntentId){intentStatus.textContent="ابتدا وارد شوید و یک درخواست ثبت کنید.";return;}matchIntent.disabled=true;try{const response=await fetch("/api/aria-expansion/intents/"+encodeURIComponent(createdIntentId)+"/matches",{headers});const data=await response.json();if(!response.ok)throw new Error(data.error||"تطبیق دریافت نشد");intentStatus.textContent=data.matches?.length?"تطبیق‌های تأییدشده: "+data.matches.map(x=>x.display_name+" ("+x.service_area+")").join("، "):"وضعیت تطبیق: "+data.matchState;}catch(error){intentStatus.textContent=error.message;}finally{matchIntent.disabled=false;}});
+   intentCard.append(createIntent,matchIntent);
+   const autonomyCard=makeCard("۲. مرکز کنترل خودمختاری","سیاست عامل‌ها با پیش‌فرض DENY؛ اجازه مستقیم فقط برای اقدام‌های بی‌خطر و محلی.");
+   const agentId=addField(autonomyCard,"شناسه عامل","input","مثلاً aria-planner","aria-planner");
+   const action=addSelect(autonomyCard,"نوع اقدام",[["draft","تهیه پیش‌نویس"],["summarize","خلاصه‌سازی"],["classify","دسته‌بندی"],["plan","برنامه‌ریزی"],["analyze_readonly","تحلیل فقط‌خواندنی"],["publish","انتشار بیرونی"],["delete","حذف"]]);
+   const decision=addSelect(autonomyCard,"سیاست",[["DENY","ممنوع"],["REQUIRE_APPROVAL","نیازمند تأیید انسانی"],["ALLOW","مجاز در محدوده امن"]]);
+   const autonomyStatus=addStatus(autonomyCard);const savePolicy=node("button","btn btn-quiet","ثبت سیاست مالک");savePolicy.type="button";
+   savePolicy.addEventListener("click",async()=>{const headers=authHeaders();if(!headers){autonomyStatus.textContent="برای تغییر سیاست باید وارد حساب مالک شوید.";return;}savePolicy.disabled=true;try{const response=await fetch("/api/aria-expansion/autonomy/policies",{method:"POST",headers,body:JSON.stringify({agentId:agentId.value,action:action.value,decision:decision.value})});const data=await response.json();if(!response.ok)throw new Error(data.error||"ثبت سیاست انجام نشد");autonomyStatus.textContent="سیاست "+data.policy.agent_id+" / "+data.policy.action+" ثبت شد: "+data.policy.decision;}catch(error){autonomyStatus.textContent=error.message;}finally{savePolicy.disabled=false;}});
+   autonomyCard.append(savePolicy);
+   const scenarioCard=makeCard("۳. شبیه‌ساز سناریو","مقایسه فرض‌های عددی؛ خروجی پیش‌بینی قطعی یا اقدام اجرایی نیست.");
+   const scenarioInput=addField(scenarioCard,"سناریوها به قالب JSON","textarea","حداقل دو سناریو با name و value",'[{"name":"محتاطانه","value":80},{"name":"پایه","value":100},{"name":"خوش‌بینانه","value":120}]');
+   const scenarioStatus=addStatus(scenarioCard);const simulate=node("button","btn btn-quiet","محاسبه و مقایسه");simulate.type="button";
+   simulate.addEventListener("click",async()=>{simulate.disabled=true;try{const scenarios=JSON.parse(scenarioInput.value);const response=await fetch("/api/aria-expansion/scenarios/simulate",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({scenarios,assumptions:"فرض‌های واردشده توسط کاربر"})});const data=await response.json();if(!response.ok)throw new Error(data.error||"شبیه‌سازی انجام نشد");scenarioStatus.textContent="حداقل: "+data.comparison.min+" · میانگین: "+data.comparison.mean+" · حداکثر: "+data.comparison.max+" — "+data.disclaimer;}catch(error){scenarioStatus.textContent=error instanceof SyntaxError?"ساختار JSON معتبر نیست.":error.message;}finally{simulate.disabled=false;}});
+   scenarioCard.append(simulate);
+   const ownerCard=makeCard("۴. مرکز فرمان مالک","نمای مدیریتی فقط برای حساب مالک و با اتصال پایگاه داده.");
+   const ownerStatus=addStatus(ownerCard);const loadOwner=node("button","btn btn-quiet","دریافت گزارش مالک");loadOwner.type="button";
+   loadOwner.addEventListener("click",async()=>{const headers=authHeaders();if(!headers){ownerStatus.textContent="برای مشاهده گزارش وارد حساب مالک شوید.";return;}loadOwner.disabled=true;try{const response=await fetch("/api/aria-expansion/owner/overview",{headers});const data=await response.json();if(!response.ok)throw new Error(data.error||"گزارش مالک دریافت نشد");ownerStatus.textContent="کاتالوگ: "+data.expansion.problemRecords+" مسئله · "+data.expansion.historicalCandidates+" کنترل تاریخی · "+data.expansion.revenueModels+" مدل درآمدی · کارها: "+data.workItems.reduce((n,x)=>n+x.count,0)+" · ارائه‌دهندگان: "+data.providers.reduce((n,x)=>n+x.count,0)+" · درآمد زنده: "+(data.liveRevenueEnabled?"فعال":"غیرفعال");}catch(error){ownerStatus.textContent=error.message;}finally{loadOwner.disabled=false;}});
+   ownerCard.append(loadOwner);
   }
   for(const engine of e.engines){const card=node("article","glass expansion-card");card.append(node("div","expansion-kicker",engine.engineType==="PROBLEM_DOMAIN_ENGINE"?"موتور حوزه‌ای":"موتور کنترلی تاریخی"),node("h3","",engine.name),node("p","expansion-muted","شناسه: "+engine.id),node("p","","ورودی‌ها: "+engine.contract.input.join("، ")),node("p","","عملیات: "+engine.contract.operations.join("، ")),node("p","expansion-muted","حالت اجرا: "+engine.contract.runtimeMode+" · اتصال بیرونی: "+engine.contract.externalAdapterState));enginesEl.append(card);}
   const details=node("details","glass expansion-revenue");
