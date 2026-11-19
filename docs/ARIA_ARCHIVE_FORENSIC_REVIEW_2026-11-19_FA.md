@@ -122,3 +122,27 @@
 
 ## اصل نهایی
 هیچ پیشنهاد، مکاتبه، قابلیت، موتور، مسیر درآمدی، تصمیم یا گزارش تاریخی حذف نشود. «حفظ منبع» با «شمردن به‌عنوان ماژول مستقل» دو کار جدا هستند. هدف ۷۵۸ فقط پس از اثبات یکتایی و استقلال هر قابلیت قابل تأیید است.
+
+
+## اصلاحیه نهایی تطبیق کامل آرشیو — 2026-11-19
+این بخش، هر فرضیه مقدماتی درباره نیاز قطعی به 47 ماژول جدید را supersede می‌کند؛ عدد هدف 758 مبنای ساخت ماژول نیست.
+
+- رجیستری واقعی 26.0: 109 کلید ماژول؛ 90 تطبیق دقیق، 15 تطبیق معنایی و 4 unresolved.
+- رجیستری 26.0: 81 موتور مشترک.
+- موجودی canonical نسخه 32: 639 ماژول.
+- کاتالوگ تجاری: 72 ورودی؛ 72 Bridge با 47 مقصد یکتا.
+- Crosswalk lineage کامل: 986 ردیف = 842 آرشیوی/مهندسی + 72 تجاری + 72 Bridge.
+- overlay جامع تکمیلی: 1625 ردیف = 639 canonical + 986 lineage.
+- 232 قرارداد مهندسی، 120/231/25 snapshot، 20 توسعه تاریخی، 12 موتور درآمدی، 11 مسیر ارزش و شکاف منبع 50 ایده همگی در overlay حفظ شده‌اند.
+- 12 موتور درآمدی، مدل عملیاتی روی موتورهای مشترک‌اند و دوباره به تعداد ماژول‌ها افزوده نمی‌شوند.
+- 47 مقصد Bridge ارجاع‌اند و ماژول جدید نیستند.
+- 4 کلید unresolved تا زمان اثبات شکاف واقعی، قرارداد مستقل و خروجی قابل‌تحویل، ماژول یا صورتحساب جدید نمی‌گیرند.
+
+فایل‌های مکمل:
+- [نمایه جامع و شرح شمارش](https://github.com/gavad54/aria-android/blob/engineering/aria-preserve-all-capabilities-2026-11-19/docs/aria/ARIA_MASTER_PRODUCTIZATION_CROSSWALK_V2_INDEX_2026-11-19.md)
+- [639 canonical](https://github.com/gavad54/aria-android/blob/engineering/aria-preserve-all-capabilities-2026-11-19/docs/aria/ARIA_MASTER_PRODUCTIZATION_CANONICAL_639_V2_2026-11-19.csv)
+- [842 lineage](https://github.com/gavad54/aria-android/blob/engineering/aria-preserve-all-capabilities-2026-11-19/docs/aria/ARIA_MASTER_PRODUCTIZATION_ARCHIVE_LINEAGE_842_V2_2026-11-19.csv)
+- [144 تجاری و Bridge](https://github.com/gavad54/aria-android/blob/engineering/aria-preserve-all-capabilities-2026-11-19/docs/aria/ARIA_MASTER_PRODUCTIZATION_COMMERCIAL_BRIDGE_144_V2_2026-11-19.csv)
+- [Overlay درآمدی 81 موتور](https://github.com/gavad54/aria-android/blob/engineering/aria-preserve-all-capabilities-2026-11-19/docs/aria/ARIA_81_ENGINE_PRODUCTIZATION_REVENUE_OVERLAY_2026-11-19.csv)
+
+اصل حفظ: این اصلاحیه به‌صورت append-only اضافه شده است؛ هیچ شناسه، snapshot یا منبع قبلی حذف یا بی‌ردپا بازنویسی نشده است.
