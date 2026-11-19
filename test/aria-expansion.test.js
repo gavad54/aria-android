@@ -51,6 +51,17 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(candidates.candidates.length,4);
   assert.ok(candidates.candidates.every(x=>x.engine&&x.executionBoundary));
 
+  const subscriptionSimulation=await fetch(base+"/api/aria-expansion/revenue-models/simulate",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({modelId:"revenue-model-01",assumptions:{activeSubscribers:10,monthlyPrice:5,fixedCosts:10,variableCosts:5}})});
+  const subscriptionData=await subscriptionSimulation.json();
+  assert.equal(subscriptionSimulation.status,200);
+  assert.equal(subscriptionData.simulation.grossRevenueEstimate,50);
+  assert.equal(subscriptionData.simulation.netContributionEstimate,35);
+  assert.equal(subscriptionData.simulation.paymentExecuted,false);
+  const invalidRate=await fetch(base+"/api/aria-expansion/revenue-models/simulate",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({modelId:"revenue-model-02",assumptions:{freeUsers:100,conversionRate:2,monthlyPrice:10}})});
+  assert.equal(invalidRate.status,400);
+  const unknownRevenueModel=await fetch(base+"/api/aria-expansion/revenue-models/simulate",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({modelId:"revenue-model-99",assumptions:{}})});
+  assert.equal(unknownRevenueModel.status,404);
+
   const revenueResponse=await fetch(base+"/api/aria-expansion/revenue-models");
   const revenue=await revenueResponse.json();
   assert.equal(revenueResponse.status,200);
