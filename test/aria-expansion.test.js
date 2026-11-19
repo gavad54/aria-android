@@ -123,6 +123,7 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(canonicalCatalogResponse.status,200);
   assert.equal(canonicalCatalog.total,639);
   assert.equal(canonicalCatalog.immutable,true);
+  assert.equal(new Set(canonicalCatalog.modules.map(x=>x.designFamily)).size,15);
   assert.equal(new Set(canonicalCatalog.modules.map(x=>x.canonicalId)).size,639);
   assert.ok(canonicalCatalog.modules.every(x=>x.workflowEntry&&x.implementationState));
   const commercialCatalogResponse=await fetch(base+"/api/aria-expansion/commercial-modules");
@@ -130,6 +131,7 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(commercialCatalogResponse.status,200);
   assert.equal(commercialCatalog.total,72);
   assert.equal(Object.keys(commercialCatalog.domainProfiles).length,13);
+  assert.equal(new Set(commercialCatalog.modules.map(x=>x.domain)).size,13);
   assert.ok(commercialCatalog.modules.every(x=>x.executionContract&&x.executionContract.handlerKey&&x.executionContract.operations.length>0));
   const commercialHostIds=new Set(canonicalCatalog.modules.map(x=>x.canonicalId));
   assert.ok(commercialCatalog.modules.every(x=>commercialHostIds.has(x.parentCanonicalContractId)));
