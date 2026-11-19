@@ -20,7 +20,7 @@ assert.ok(p29&&p48);
 assert.equal(p48.aliasOf,p29.id);
 assert.equal(p48.engine.id,p29.engine.id);
 const expectedHosts={"life-home-assistant":237,"smart-shopping-household":11,"family-health-wellbeing":233,"career-learning-productivity":169,"travel-leisure-planner":235};
-for(const item of registry.problems){assert.equal(item.hostCanonicalContractId,expectedHosts[item.parentModuleId]);}
+for(const item of registry.problems){if(item.sourceProblemNumber===48){assert.equal(item.hostCanonicalContractId,233);assert.equal(item.entryPointCanonicalContractId,235);}else{assert.equal(item.hostCanonicalContractId,expectedHosts[item.parentModuleId]);}}
 const revenueHosts={1:8,2:8,3:8,4:8,5:8,6:8,7:8,8:8,9:8,10:8,11:8,12:8,13:8,14:8,15:8,16:12,17:26,18:12,19:87,20:12};
 for(const item of registry.revenueModels){assert.equal(item.hostCanonicalContractId,revenueHosts[item.sourceNumber]);}
 assert.ok(registry.candidates.every(x=>Array.isArray(x.candidateHostContractIds)&&x.candidateHostContractIds.length>0));
