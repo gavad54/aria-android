@@ -4,7 +4,7 @@ const path = require("node:path");
 
 const ROOT = __dirname;
 const MODULES = [];
-for (const family of ["ideas", "controls", "catalog", "engines"]) {
+for (const family of ["ideas", "controls", "catalog", "engines", "service-engines"]) {
   const directory = path.join(ROOT, family);
   for (const filename of fs.readdirSync(directory).filter(name => name.endsWith(".cjs")).sort()) {
     MODULES.push(require(path.join(directory, filename)));
