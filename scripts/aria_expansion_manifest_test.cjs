@@ -29,7 +29,7 @@ assert.equal(registry.guardrails.externalExecutionEnabled,false);
 const canonicalCsv=fs.readFileSync(path.join(root,"docs/aria/ARIA_639_CANONICAL_MODULES_COMPACT_2026-11-19.csv"),"utf8").trim().split("\n");
 const canonicalIds=new Set(canonicalCsv.slice(1).map(line=>Number(line.split(",")[1])));
 assert.equal(canonicalIds.size,639);
-const referencedHosts=[...registry.problems.map(x=>x.hostCanonicalContractId),...registry.revenueModels.map(x=>x.hostCanonicalContractId),...registry.candidates.flatMap(x=>x.candidateHostContractIds)];
+const referencedHosts=[...registry.problems.map(x=>x.hostCanonicalContractId),...registry.problems.filter(x=>x.entryPointCanonicalContractId).map(x=>x.entryPointCanonicalContractId),...registry.revenueModels.map(x=>x.hostCanonicalContractId),...registry.candidates.flatMap(x=>x.candidateHostContractIds)];
 assert.ok(referencedHosts.every(id=>canonicalIds.has(id)));
 assert.equal(registry.guardrails.canonicalCountChanges,false);
 console.log("ARIA_EXPANSION_MANIFEST_PASS canonical=639 problem_records=50 unique_problem_capabilities=49 domains=5 candidates=4 revenue_models=20");
