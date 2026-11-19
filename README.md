@@ -6,6 +6,16 @@ ARIA is a general-purpose AI super-app project. It is **not an accounting/ERP pr
 
 ARIA is intended to be one comprehensive app. The 369-module ARIA 25 report, the 639-module ARIA 32 source archive, and the 50 ideas from the reference image are different-version/different-purpose inventories and must not be summed. Use the [unified merge plan](docs/ARIA_UNIFIED_APP_MERGE_PLAN_FA.md) to reconcile IDs, map duplicate capabilities to shared engines, and keep web and Android on one versioned registry. The full ARIA 32.0.0 Android source archive has been located in the Library (original SHA-256: 9dcbb34ef98e4f11e661bd32bbd0573d4de7a3058743f45aa126322f44264f9f). A separate candidate fixes versionCode and stale verification gates, but neither archive nor candidate has yet been imported into this canonical Git repository. Android build, signing and device verification remain blocked.
 
+## ARIA 32 Android build input
+
+The isolated repaired candidate is not stored in this repository yet. To run the Android build workflow, upload the exact candidate ZIP from the repair report to this branch at:
+
+release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip
+
+Expected SHA-256: e787e02991fbc7044a312cdb071e8484dfb0db6e341c9116be54c1f4978eafdb
+
+The workflow verifies this exact checksum, extracts the source, provisions the Gradle Wrapper, runs static/contract gates, then attempts debug APK and release bundle builds. Do not substitute the original archive; its SHA-256 is 9dcbb34ef98e4f11e661bd32bbd0573d4de7a3058743f45aa126322f44264f9f and it contains the versionCode mismatch fixed in the candidate.
+
 ## Functional redesign (2026-11-19)
 
 The current web catalogue contains 65 records and is now grouped by functional domain through additive API metadata. The catalogue distinguishes 2 foundation records, 5 prototypes and 58 planned capabilities. "Foundation" is not a production-readiness claim. The new GET /api/modules/summary endpoint exposes this breakdown and its limitations.
