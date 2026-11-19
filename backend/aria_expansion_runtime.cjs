@@ -3,6 +3,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const registry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_expansion_registry.json"), "utf8"));
 const moduleRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_111_module_expansion_registry.json"), "utf8"));
+const commercialRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_commercial_module_registry.json"), "utf8"));
 const ownership = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_product_ownership_migration.json"), "utf8"));
 const allModuleCatalog = moduleRegistry.moduleCatalog;
 const transferredIds = new Set(Object.values(ownership.products).flatMap(x => x.ownedModuleIds));
@@ -13,18 +14,56 @@ const publicProblemIds = new Set(moduleCatalog.filter(x => x.sourceProblemId).ma
 const publicProblemRecords = registry.problems.filter(x => publicProblemIds.has(x.id));
 const problemById = new Map(publicProblemRecords.map(x => [x.id, x]));
 const candidateById = new Map(registry.candidates.map(x => [x.moduleId, x]));
-const problemEngines = [...new Map(publicProblemRecords.map(x => [x.engine.id, { ...x.engine, moduleIds: publicProblemRecords.filter(p => p.engine.id === x.engine.id).map(p => p.id), engineType: "PROBLEM_DOMAIN_ENGINE" }])).values()];
+const problemEngines = [...new Map(publicProblemRecords.map(x => [x.engine.id, { ...x.engine, moduleIds: publicProblemRecords.filter(p => p.engine.id === x.engine.id).map(p => moduleCatalog.find(m => m.sourceProblemId === p.id)?.moduleId).filter(Boolean), engineType: "PROBLEM_DOMAIN_ENGINE" }])).values()];
 const candidateEngines = registry.candidates.map(x => ({ ...x.engine, moduleId: x.moduleId, engineType: "HISTORICAL_CONTROL_ENGINE" }));
 const ideaEngines = moduleCatalog.filter(x => x.moduleType === "NEW_IDEA_PRODUCT_MODULE").map(x => ({ id: x.engineId, name: x.name + " — موتور تخصصی", moduleId: x.moduleId, engineType: "NEW_IDEA_ENGINE", contract: { input: x.inputContract, output: x.outputContract, operations: x.workflow, metrics: x.kpis, runtimeMode: "DESIGN_ONLY", externalAdapterState: "NOT_CONNECTED" } }));
 const legacyDomainEngines = moduleCatalog.filter(x => x.moduleType === "MERGED_LEGACY_APP_DOMAIN_MODULE").map(x => ({ id: x.engineId || x.moduleId, name: x.name + " — موتور دامنه", moduleId: x.moduleId, engineType: "ARIA_DOMAIN_ENGINE", contract: { input: x.inputContract, output: x.outputContract, operations: x.workflow, metrics: x.kpis, runtimeMode: "DESIGN_ONLY", externalAdapterState: "NOT_CONNECTED" } }));
 const publicDomainPacks = moduleRegistry.mergedDomainPacks.filter(x => ownership.publicAriaDomainPackIds.includes(x.id)).map(x => ({ ...x, moduleIds: x.moduleIds.filter(id => moduleCatalogById.has(id)) }));
 const publicFamilyArchitecture = { parent: "VAYRO", product: "ARIA", directProduct: true, accountingErpOwner: "ARIANA", role: "General AI assistant and digital work environment" };
 const engineCatalog = [...problemEngines, ...candidateEngines, ...ideaEngines, ...legacyDomainEngines];
+const engineSubmodules = engineCatalog.map((engine, index) => ({
+  moduleId: "ARIA-ENGINE-MODULE-" + String(index + 1).padStart(3, "0"),
+  engineId: engine.id,
+  name: engine.name,
+  moduleType: "ENGINE_SUBMODULE",
+  parentModuleIds: engine.moduleIds || (engine.moduleId ? [engine.moduleId] : []),
+  ownerProduct: "ARIA",
+  domain: engine.engineType,
+  inputContract: engine.contract?.input || [],
+  outputContract: engine.contract?.output || [],
+  operations: engine.contract?.operations || [],
+  implementationStatus: "DESIGNED_NOT_IMPLEMENTED",
+  productionStatus: "NOT_PRODUCTION_VERIFIED",
+  executionMode: "NOT_CONNECTED"
+}));
+const commercialModules = commercialRegistry.records.map(item => ({
+  moduleId: "ARIA-COMMERCIAL-MODULE-" + String(item.catalogEntryId),
+  commercialModuleId: item.commercialModuleId,
+  catalogEntryId: item.catalogEntryId,
+  name: item.name,
+  moduleType: "COMMERCIAL_CATALOG_MODULE",
+  ownerProduct: "ARIA",
+  ownerDomain: item.domain,
+  parentCanonicalContractId: item.parentCanonicalContractId,
+  moduleState: item.moduleState,
+  commercialState: item.commercialState,
+  revenueEngineState: item.revenueEngine?.state || "UNSPECIFIED",
+  implementationStatus: item.moduleState === "LOCAL_WORKFLOW_AVAILABLE" ? "LOCAL_WORKFLOW_AVAILABLE_NOT_E2E_VERIFIED" : "DESIGNED_NOT_IMPLEMENTED",
+  productionStatus: "NOT_PRODUCTION_VERIFIED"
+}));
+const moduleInventory = {
+  canonicalModules: 639,
+  preservedHistoricalOverlayModules: allModuleCatalog.length,
+  commercialCatalogModules: commercialModules.length,
+  engineSubmodules: engineSubmodules.length,
+  totalModuleAndSubmoduleRecords: 639 + allModuleCatalog.length + commercialModules.length + engineSubmodules.length,
+  countingRule: "Hierarchical inventory: canonical modules + preserved historical overlay + commercial catalog modules + separately identified engine submodules. Parent/host mappings remain explicit; this is not a claim of 893 independent production execution contracts."
+};
 const safeAutonomyActions = new Set(["draft", "summarize", "classify", "plan", "analyze_readonly"]);
 let schemaReady = false;
 let schemaPromise = null;
 
-if (registry.baselineCanonicalModuleCount !== 639 || registry.problems.length !== 50 ||
+if (commercialRegistry.records.length !== 72 || new Set(commercialRegistry.records.map(x => x.catalogEntryId)).size !== 72 || engineSubmodules.length !== 71 || new Set(engineSubmodules.map(x => x.moduleId)).size !== 71 || moduleInventory.totalModuleAndSubmoduleRecords !== 893 || registry.baselineCanonicalModuleCount !== 639 || registry.problems.length !== 50 ||
     registry.domains.length !== 5 || registry.candidates.length !== 4 ||
     registry.revenueModels.length !== 20 || new Set(registry.problems.map(x => x.id)).size !== 50 ||
     allModuleCatalog.length !== 111 || new Set(allModuleCatalog.map(x => x.moduleId)).size !== 111 ||
@@ -174,7 +213,7 @@ async function handle(req, res, url, deps) {
   const p = url.pathname;
   if (p === "/api/aria-expansion/summary" && req.method === "GET") {
     return json(res, 200, {
-      product: "ARIA", canonicalModuleCount: 639, canonicalCountChanged: false,
+      product: "ARIA", canonicalModuleCount: 639, canonicalCountChanged: false, moduleInventory, totalModuleInventory: moduleInventory.totalModuleAndSubmoduleRecords, commercialCatalogModules: commercialModules.length, engineSubmodules: engineSubmodules.length,
       parentDomains: registry.domains.length, problemRecords: publicProblemRecords.length,
       historicalProblemModules: publicProblemRecords.length, ideaModules: 25, controlModules: 4, legacyAppModules: 4, totalModules: moduleCatalog.length,
       historicalOverlayModules: allModuleCatalog.length, transferredModules: transferredIds.size, archivedDomainPackages: archivedDomainIds.size, sharedAriaServices: ownership.sharedAriaModuleIds.length,
@@ -188,6 +227,20 @@ async function handle(req, res, url, deps) {
   if (p === "/api/aria-expansion/modules" && req.method === "GET") {
     const moduleBySource = new Map(moduleCatalog.filter(x => x.sourceProblemId).map(x => [x.sourceProblemId, x]));
     return json(res, 200, { parents: registry.domains, problems: publicProblemRecords.map(x => ({ ...x, moduleId: moduleBySource.get(x.id)?.moduleId, parentDomain: x.parentModuleId })), modules: moduleCatalog, mergedDomainPacks: publicDomainPacks, familyArchitecture: publicFamilyArchitecture, totalProblemRecords: publicProblemRecords.length, historicalProblemModules: publicProblemRecords.length, ideaModules: 25, controlModules: 4, legacyAppModules: publicDomainPacks.length, totalModules: moduleCatalog.length, historicalOverlayModules: allModuleCatalog.length, transferredModules: transferredIds.size, archivedDomainPackages: archivedDomainIds.size, sharedAriaServices: ownership.sharedAriaModuleIds.length, uniqueProblemCapabilities: 38, canonicalModuleCount: 639, canonicalCountChanged: false });
+  }
+  if (p === "/api/aria-expansion/inventory" && req.method === "GET") {
+    return json(res, 200, {
+      schemaVersion: "1.0.0",
+      product: "ARIA",
+      moduleInventory,
+      canonicalRegistry: { count: 639, source: "docs/aria/ARIA_639_CANONICAL_MODULES_COMPACT_2026-11-19.csv", immutable: true },
+      preservedHistoricalOverlay: allModuleCatalog,
+      commercialModules,
+      engineSubmodules,
+      transferredModuleIds: [...transferredIds].sort(),
+      publicAriaModuleIds: moduleCatalog.map(x => x.moduleId).sort(),
+      note: moduleInventory.countingRule
+    });
   }
   if (p === "/api/aria-expansion/capability-matrix" && req.method === "GET") {
     const byType = Object.fromEntries(
@@ -218,8 +271,11 @@ async function handle(req, res, url, deps) {
       sourcePreservation: item.sourcePreservation
     }));
     return json(res, 200, {
-      schemaVersion: "1.0.0",
+      schemaVersion: "1.1.0",
       product: "ARIA",
+      moduleInventory,
+      commercialModules,
+      engineSubmodules,
       canonicalBaseline: 639,
       canonicalBaselineChanged: false,
       preservedHistoricalOverlay: allModuleCatalog.length,
@@ -246,7 +302,7 @@ async function handle(req, res, url, deps) {
     });
   }
   if (p === "/api/aria-expansion/engines" && req.method === "GET") {
-    return json(res, 200, { engines: engineCatalog, total: engineCatalog.length, problemEngines: problemEngines.length, candidateEngines: candidateEngines.length, ideaEngines: ideaEngines.length, legacyDomainEngines: legacyDomainEngines.length, canonicalModuleCount: 639 });
+    return json(res, 200, { engines: engineCatalog, engineSubmodules, total: engineCatalog.length, engineSubmoduleCount: engineSubmodules.length, problemEngines: problemEngines.length, candidateEngines: candidateEngines.length, ideaEngines: ideaEngines.length, legacyDomainEngines: legacyDomainEngines.length, canonicalModuleCount: 639, moduleInventory });
   }
   if (p === "/api/aria-expansion/candidates" && req.method === "GET") {
     return json(res, 200, { candidates: registry.candidates, total: 4, canonicalModuleCount: 639 });
