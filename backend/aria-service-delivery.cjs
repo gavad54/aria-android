@@ -146,8 +146,11 @@ function createSupportTicket(input, actor) {
   };
 }
 
-function evaluateCustomerSuccess(input) {
+function evaluateCustomerSuccess(input, actor) {
   const { period, activeDays, completedTasks, targetTasks, unresolvedTickets } = input || {};
+  const actorId = actor && actor.userId != null ? String(actor.userId) : "";
+  const tenantId = actor && actor.tenantId != null ? String(actor.tenantId) : "";
+  if (!actorId || !tenantId) throw new Error("CUSTOMER_SUCCESS_ACTOR_REQUIRED");
   if (typeof period !== "string" || !/^\d{4}-\d{2}$/.test(period) ||
       !Number.isInteger(activeDays) || activeDays < 0 || activeDays > 31 ||
       !Number.isInteger(completedTasks) || completedTasks < 0 ||
@@ -160,6 +163,7 @@ function evaluateCustomerSuccess(input) {
   else if (activeDays >= 10 && completedTasks >= targetTasks) health = "HEALTHY";
   return {
     period, activeDays, completedTasks, targetTasks, unresolvedTickets, health,
+    tenantId, createdBy: actorId,
     renewalDecision: "OWNER_REVIEW_REQUIRED", renewalExecuted: false,
     evidenceBasis: ["activeDays", "completedTasks", "targetTasks", "unresolvedTickets"],
     productionVerified: false,
@@ -256,8 +260,9 @@ function transitionSupportTicket(ticket, action, actor) {
 }
 
 function approveCustomerRenewal(report, actor) {
-  if (!report || report.renewalDecision !== "OWNER_REVIEW_REQUIRED") throw new Error("CUSTOMER_SUCCESS_REPORT_INVALID");
+  if (!report || report.renewalDecision !== "OWNER_REVIEW_REQUIRED" || !report.tenantId) throw new Error("CUSTOMER_SUCCESS_REPORT_INVALID");
   if (!actor || actor.isOwner !== true || !actor.userId) throw new Error("OWNER_APPROVAL_REQUIRED");
+  if (!actor.tenantId || String(actor.tenantId) !== String(report.tenantId)) throw new Error("CUSTOMER_SUCCESS_TENANT_ACCESS_DENIED");
   return {
     ...report, renewalDecision: "OWNER_APPROVED_RECOMMENDATION",
     renewalApprovedBy: String(actor.userId), renewalApprovedAt: new Date().toISOString(),
