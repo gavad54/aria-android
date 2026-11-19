@@ -38,6 +38,24 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(summary.moduleInventory.totalModuleAndSubmoduleRecords,893);
   assert.equal(summary.liveRevenueEnabled,false);
 
+  const executionRegistryResponse=await fetch(base+"/api/aria-expansion/execution-registry");
+  const executionRegistry=await executionRegistryResponse.json();
+  assert.equal(executionRegistryResponse.status,200);
+  assert.equal(executionRegistry.total,893);
+  assert.equal(executionRegistry.activeLocalWorkflowCount,854);
+  assert.equal(executionRegistry.lineageOnlyCount,39);
+  assert.equal(executionRegistry.records.length,893);
+  assert.equal(new Set(executionRegistry.records.map(x=>x.unitId)).size,893);
+  assert.ok(executionRegistry.records.every(x=>x.executionContract&&Array.isArray(x.executionContract.operations)&&x.executionContract.operations.length>0));
+  assert.equal(executionRegistry.records.filter(x=>x.executionState==="LINEAGE_ONLY").length,39);
+  assert.equal(executionRegistry.records.filter(x=>x.executionState==="LOCAL_WORK_ITEM_ONLY").length,854);
+  const sampleSpec=await fetch(base+"/api/aria-expansion/execution-registry/ARIA-CANONICAL-MODULE-001");
+  const sampleSpecJson=await sampleSpec.json();
+  assert.equal(sampleSpec.status,200);
+  assert.equal(sampleSpecJson.record.unitId,"ARIA-CANONICAL-MODULE-001");
+  const missingSpec=await fetch(base+"/api/aria-expansion/execution-registry/UNKNOWN-MODULE");
+  assert.equal(missingSpec.status,404);
+
   const modulesResponse=await fetch(base+"/api/aria-expansion/modules");
   const modules=await modulesResponse.json();
   assert.equal(modulesResponse.status,200);
