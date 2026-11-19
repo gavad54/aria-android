@@ -46,6 +46,7 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(executionRegistry.lineageOnlyCount,39);
   assert.equal(executionRegistry.records.length,893);
   assert.equal(new Set(executionRegistry.records.map(x=>x.unitId)).size,893);
+  assert.equal(new Set(executionRegistry.records.map(x=>x.launchId)).size,893);
   assert.ok(executionRegistry.records.every(x=>x.executionContract&&Array.isArray(x.executionContract.operations)&&x.executionContract.operations.length>0));
   assert.equal(executionRegistry.records.filter(x=>x.executionState==="LINEAGE_ONLY").length,39);
   assert.equal(executionRegistry.records.filter(x=>x.executionState==="LOCAL_WORK_ITEM_ONLY").length,854);
