@@ -17,7 +17,7 @@
    fetch("/api/aria-expansion/revenue-models").then(x=>x.json()),
    fetch("/api/aria-expansion/engines").then(x=>x.json())
   ]);
-  status(summaryEl,"۶۳۹ ماژول canonical حفظ‌شده · ۵۰ ماژول مسئله تاریخی + "+s.ideaModules+" ایده جدید + "+s.controlModules+" ماژول کنترلی + "+s.legacyAppModules+" ماژول اپ ادغام‌شده = "+s.totalModules+" ورودی کاتالوگ · "+e.total+" موتور طراحی‌شده · درآمد زنده فعال نیست.");
+  status(summaryEl,"۶۳۹ ماژول canonical حفظ‌شده · ۵۰ مسئله تاریخی + ۵۰ ایده جدید + ۴ کنترل + ۷ اپ ادغام‌شده = "+s.totalModules+" ورودی کاتالوگ · "+e.total+" موتور طراحی‌شده · درآمد زنده فعال نیست.");
   for(const d of m.parents){
    const card=node("article","glass expansion-domain");
    card.append(node("h3","",d.name),node("p","","۱۰ ماژول در این حوزه"));
