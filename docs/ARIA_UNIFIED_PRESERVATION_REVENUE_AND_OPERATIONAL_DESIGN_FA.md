@@ -1,3 +1,155 @@
+# گزارش تکمیل ممیزی آرشیو و Crosswalk جامع ARIA
+تاریخ: 2026-11-19  
+وضعیت: **تطبیق آرشیوی و طراحی تکمیل شد؛ پیاده‌سازی تخصصی و Production همچنان نیازمند شواهد مستقل است.**
+
+## 1. نتیجه شمارش قطعی
+
+| نوع موجودی | تعداد | معنی |
+|---|---:|---|
+| قراردادهای canonical در ARIA 32.0 | **639** | شناسه‌های یکتای 1 تا 650، به‌جز 42 و 216 تا 225 |
+| ورودی‌های کاتالوگ تجاری/وب | 72 | شناسه‌های کاتالوگ 651 تا 722؛ قرارداد اجرایی جدید نیستند |
+| مقصدهای canonical یکتای Bridge | 47 | ارجاع به 47 قرارداد از همان 639 مورد |
+| کل شناسه‌ها در دو namespace | 711 | 639 شناسه قرارداد + 72 شناسه کاتالوگ؛ **نه 711 ماژول اجرایی مستقل** |
+| جمع خام 639+72+47 | 758 | شامل 47 ارجاع تکراری؛ تعداد ماژول مستقل نیست |
+
+بنابراین عدد قابل دفاع برای قراردادهای ماژولی canonical، **639** است. تعداد قابلیت‌های کاملاً عملیاتی، عدد جداگانه‌ای است و از روی شمارش رجیستری تعیین نمی‌شود. هدف 758 به‌تنهایی مجوز ساخت 47 نام یا ماژول فرضی نیست.
+
+## 2. ممیزی واقعی رجیستری 639تایی
+
+منبع اصلی: `ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip`  
+SHA-256: `9dcbb34ef98e4f11e661bd32bbd0573d4de7a3058743f45aa126322f44264f9f`
+
+- 639 رکورد و 639 شناسه یکتا تأیید شد.
+- شناسه‌ها در بازه 1 تا 650 هستند؛ شناسه‌های 42 و 216 تا 225 در رجیستری 32 وجود ندارند.
+- 569 مورد: `CONTRACT_RUNTIME_ROUTABLE_NOT_E2E_VERIFIED`
+- 39 مورد: `CONTRACT_AND_STATIC_RUNTIME_VERIFIED`
+- 19 مورد: `FOUNDATION_RUNTIME_IMPLEMENTED_STATIC_E2E_PENDING`
+- 12 مورد: `SURFACE_RUNTIME_IMPLEMENTED_STATIC_E2E_PENDING`
+- 160 مورد به adapter خارجی اجباری نیاز دارند؛ 31 مورد بسته به قابلیت ممکن است نیاز داشته باشند؛ 448 مورد adapter اختیاری دارند.
+
+این بلوغ‌ها به معنی Production Live نیستند. حتی وضعیت `CONTRACT_AND_STATIC_RUNTIME_VERIFIED` نیز فقط شواهد قرارداد/اجرای ایستا را نشان می‌دهد، نه اتصال واقعی provider یا اجرای E2E در محیط تولید.
+
+## 3. تطبیق کامل رجیستری تاریخی 26.0
+
+رجیستری 26.0 دارای 109 کلید ماژول است. پس از نرمال‌سازی نام و پسوند نسخه:
+
+- 90 مورد تطبیق دقیق با نام canonical دارند.
+- 15 مورد به‌صورت معنایی به قابلیت‌های موجود وصل شده‌اند؛ این‌ها ماژول جدید نیستند.
+- 4 مورد همچنان unresolved هستند و نباید به شمار ماژول‌ها اضافه شوند.
+
+### 19 کلید فاقد تطبیق دقیق اسمی
+
+15 مورد با نگاشت معنایی پیشنهادی به شناسه‌های موجود:
+- COMMAND_CANVAS_24
+- PERSONAL_AI_CORE_24
+- AGENT_IDENTITY_HUB
+- PERSONAL_DATA_VAULT
+- MEMORY_FIREWALL
+- TRUST_SAFETY_CENTER
+- SECURITY_AUTOPILOT
+- COMPLIANCE_CENTER
+- SELF_HEAL_CENTER
+- ECONOMIC_LEDGER
+- DEVELOPER_PLATFORM_24
+- INTEROPERABILITY_HUB
+- DIGITAL_TWIN_24
+- DEVICE_CONTINUITY_24
+- SERVICE_BOOKING_HUB_24
+
+4 مورد unresolved:
+- INTENT_MARKETPLACE_24
+- AUTONOMY_CONTROL_CENTER
+- SCENARIO_SIMULATOR
+- OWNER_CONTROL_CENTER
+
+برای این چهار مورد هنوز شکاف مستقل و قرارداد تخصصی اثبات نشده است؛ پس شناسه جدید ساخته نمی‌شود.
+
+## 4. 81 موتور نسخه 26.0
+
+تمام 81 کلید موتور حفظ شده‌اند. فایل نگاشت، میزبان‌های پیشنهادی هر موتور را بر اساس نام/دامنه و شواهد موجود ثبت می‌کند. این نگاشت **پیشنهاد معماری برای بررسی** است، نه اثبات اتصال runtime. برای تأیید نهایی هر موتور باید handler، داده/persistence، API/UI، authorization، تست و evidence به همان موتور متصل شود.
+
+موتورهای نسخه‌دار یا تکراری مانند OUTCOME_ENGINE و OUTCOME_ENGINE_25، VALUE_ATTRIBUTION_ENGINE و VALUE_ATTRIBUTION_ENGINE_26، SELF_HEAL_ENGINE و SELF_HEAL_ENGINE_25 و DEVICE_CONTINUITY_ENGINE و DEVICE_CONTINUITY_ENGINE_25 حفظ شده‌اند؛ lineage آن‌ها باید روشن بماند.
+
+## 5. حفظ snapshotهای تاریخی
+
+منابع زیر جداگانه ثبت شده‌اند و با هم جمع نمی‌شوند:
+- نسخه 15.4: 120 ماژول مادر.
+- نسخه 15.6: 25 مورد benchmark با شناسه‌های 121 تا 145.
+- نسخه 15.18.4: 231 رکورد رجیستری.
+- نسخه 15.19.0: 232 قرارداد بازبینی مهندسی ماژول‌به‌ماژول.
+- نسخه 32.0: 639 قرارداد canonical.
+
+فایل 232 قرارداد مهندسی 15.19.0 برای هر مورد اولویت P0/P1/P2، موج پیاده‌سازی، قرارداد، ورودی، خروجی، مرز داده، مدل درآمد، معیار ارزش و گیت مهندسی را نگه می‌دارد. وضعیت تخصصی در آن سند برای ماژول‌ها `ARCHITECTURE_DEFINED_NOT_FULL_DOMAIN_ENGINE` است؛ یعنی طراحی تخصصی به‌تنهایی اثبات موتور کامل نیست.
+
+## 6. بازیابی سوابق 25.1 و 11 مسیر ارزش
+
+### 20 ماژول توسعه 25.1
+این 20 مورد در رجیستری 639تایی با شناسه‌های 381 تا 400 موجودند؛ پس دوباره شمرده نمی‌شوند:
+381 Agent Store، 382 Agent Builder Studio، 383 Skill Builder Studio، 384 Creator Earnings Hub، 385 Usage Meter، 386 Subscription Entitlement Center، 387 API Developer Hub، 388 API Billing Center، 389 Outcome Contract Hub، 390 Referral Growth Center، 391 Enterprise Workspace، 392 Enterprise Governance Center، 393 Cost Guardian Center، 394 Promotion Transparency Center، 395 Provider Payout Center، 396 Dispute Resolution Center، 397 Revenue Experiment Lab، 398 Regional Commerce Adapter، 399 Trusted Recommendation Center، 400 Customer Success Autopilot.
+
+### 12 موتور درآمدی توسعه 25.1
+این 12 موتور در مجموعه 81 موتور نسخه 26.0 حضور دارند:
+Hybrid Subscription، Usage Metering، Marketplace Take-Rate، Service Commission، Creator Payout، API Billing، Partner RevShare، Promotion Disclosure، Outcome Pricing، Referral Reward، Enterprise Seat و Cost Guardian.
+
+### 11 مسیر ارزش
+CREATE، SOLVE، IMPROVE، LEARN، SELL، BUY، BOOK، AUTOMATE، BUILD، INVESTIGATE و CONNECT.  
+این‌ها مسیرهای تبدیل نیاز/ایده به ارزش‌اند، نه ماژول مستقل. مدل مادر: **IDEA → VALUE → WEALTH**.
+
+## 7. رفع ابهام «50 GREEN X»
+
+در فهرست مادر، «50. ARIA GREEN X» یعنی ماژول شماره 50 در فهرست 120/231تایی؛ این عبارت به معنی وجود یک کاتالوگ مستقل 50 ایده نیست. یک فایل مستقل 50 ایده در منابع قابل دسترس پیدا نشد. این شکاف با عنوان `SOURCE_GAP` حفظ شده و هیچ ایده‌ای برای پرکردن مصنوعی آن ساخته نشده است.
+
+## 8. مرز حسابداری و ERP
+
+شناسه‌های تاریخی 42 و 216 تا 225 در snapshotها حفظ می‌شوند، اما در رجیستری canonical نسخه 32 وجود ندارند و نباید به runtime آریا برگردند. هر محتوای آموزشی تاریخی نیز فقط به‌عنوان سابقه آرشیوی نگهداری می‌شود؛ حسابداری و ERP اجرایی متعلق به ARIANA است.
+
+## 9. معماری درآمدی 12 موتور
+
+برای هر موتور، فایل عملیاتی جداگانه شامل workflow، واحد metering، معیار موفقیت و کنترل‌های اجباری ساخته شده است. جریان عمومی باید چنین باشد:
+
+`Offer → Entitlement → Metering → Rating → Quote → Checkout → Payment Authorization → Fulfillment → Verification → Receipt → Settlement → Refund/Dispute → Reconciliation → Audit`
+
+قواعد ثابت:
+- قیمت و مصرف پیش از اجرا شفاف باشند.
+- رویداد مصرف و اعتبار idempotent و قابل حسابرسی باشد.
+- هزینه مدل/provider قبل از اجرا برآورد و سقف مصرف اعمال شود.
+- درآمد ARIA فقط درآمد شفاف و مجاز پلتفرم/خدمت باشد؛ اصل پول معامله خریدار و فروشنده درآمد ARIA نیست.
+- هیچ پرداخت واقعی بدون PSP adapter رسمی، webhook امضاشده، reconciliation و تست sandbox/live تأیید نمی‌شود.
+- تمدید پنهان، پرداخت اجباری، وعده درآمد تضمینی یا فروش داده شخصی ممنوع است.
+
+## 10. شواهد فنی و محدودیت عملیاتی
+
+ممیزی 15.19.0 مسیر UI → AriaEngine → AriaModuleWorkflowEngine → ثبت module_runs و engine_events را برای 232 ماژول در سطح workflow محلی گزارش کرده است. همان ممیزی تصریح می‌کند این امر اتصال 232 موتور تخصصی یا provider خارجی مستقل را ثابت نمی‌کند؛ بسیاری از مسیرهای قدیمی از workflow عمومی استفاده می‌کنند و سرویس خارجی بدون adapter باید fail-closed بماند.
+
+بسته 32.0 candidate گیت‌های ایستا را PASS گزارش می‌کند، اما موانع زیر همچنان پابرجا هستند:
+- Gradle/Android SDK و build واقعی APK/AAB در محیط ممیزی موجود نبوده است.
+- AAB امضاشده و نصب/اجرای دستگاه اثبات نشده است.
+- Firebase هنوز placeholder/نیازمند secrets واقعی است.
+- PSP واقعی، Object Storage و providerهای خارجی به‌صورت production متصل و آزموده نشده‌اند.
+- 201 جدول فقط از نظر ساختار ایستا بررسی شده‌اند؛ migration زنده و restore واقعی اثبات نشده است.
+- Backup/Restore production، تست E2E سفارش/رزرو، sync واقعی و انتشار عمومی اثبات نشده‌اند.
+
+## 11. فایل‌های تحویل‌شده
+
+- `docs/aria/ARIA_639_CANONICAL_MODULES_COMPACT_2026-11-19.csv` — 639 رکورد canonical.
+- `docs/aria/ARIA_UNIFIED_CROSSWALK_COMPLETE_2026-11-19.csv` — 986 ردیف lineage و رابطه، شامل 842 رکورد تاریخی/مهندسی و 144 رکورد تجاری/Bridge.
+- `docs/aria/ARIA_232_MODULE_ENGINEERING_CONTRACTS_2026-11-19.csv` — 232 قرارداد مهندسی.
+- `docs/aria/ARIA_81_ENGINE_HOST_MAPPING_2026-11-19.csv` — 81 موتور و میزبان‌های پیشنهادی.
+- `docs/aria/ARIA_12_REVENUE_ENGINE_OPERATING_MODEL_2026-11-19.csv` — 12 موتور درآمدی و کنترل‌های عملیاتی.
+
+نسخه کامل‌تر فایل‌های CSV نیز در Library در مسیر `/ARIA/Engineering/` نگهداری شده‌اند.
+
+## 12. تصمیم نهایی
+
+- هیچ منبع یا شناسه تاریخی حذف نشده است.
+- 639 قرارداد canonical، 72 ورودی کاتالوگ، 47 رابطه canonical، 109 کلید ماژول تاریخی، 81 موتور، 120/145/231/232 snapshot و 20 ماژول توسعه 25.1 در Crosswalk ثبت شده‌اند.
+- تعداد قراردادهای canonical همچنان 639 است؛ 72 ورودی کاتالوگ قرارداد اجرایی جدید نیستند و 47 ارجاع نیز ماژول جدید نیست.
+- 4 کلید unresolved و منبع مستقل 50 ایده همچنان در صف بررسی هستند؛ هیچ‌کدام با حدس به ماژول تبدیل نشده‌اند.
+- طراحی و ثبت اسناد انجام شده؛ فعال‌سازی واقعی، درآمد زنده و Production فقط پس از کد تخصصی، provider، تست E2E و evidence ارتقا می‌یابد.
+
+
+---
+
 # ARIA — سند یکپارچه حفظ آرشیو، طراحی ماژول‌ها و معماری درآمدی
 تاریخ: 2026-11-19  
 وضعیت: **طرح مهندسی و مبنای توسعه؛ نه ادعای پیاده‌سازی یا بهره‌برداری زنده**
