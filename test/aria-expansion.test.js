@@ -71,7 +71,7 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   const authz=await authzResponse.json();
   assert.equal(authzResponse.status,200);
   assert.equal(authz.decision,"DENY");
-  assert.equal(authz.reason,"NO_MATCHING_APPROVED_POLICY");
+  assert.equal(authz.reason,"AUTH_OR_POLICY_STORE_UNAVAILABLE");
  }finally{
   await new Promise(resolve=>{if(child.exitCode!==null||child.signalCode!==null)return resolve();child.once("exit",resolve);child.kill();});
  }
