@@ -64,6 +64,24 @@ const moduleInventory = {
   totalModuleAndSubmoduleRecords: canonicalModules.length + allModuleCatalog.length + commercialModules.length + engineSubmodules.length,
   countingRule: "Hierarchical inventory: canonical modules + preserved historical overlay + commercial catalog modules + separately identified engine submodules. Parent/host mappings remain explicit; this is not a claim of 893 independent production execution contracts."
 };
+const canonicalFamilyHandlers = {
+  CORE: (module, goal, context) => ({ artifactType: "CORE_SYSTEM_WORKFLOW", objective: goal, stages: ["درک درخواست", "تقسیم کار", "کنترل وابستگی", "اعتبارسنجی خروجی"], context }),
+  MARKETPLACE: (module, goal, context) => ({ artifactType: "MARKETPLACE_WORKFLOW", objective: goal, stages: ["تعریف عرضه و تقاضا", "اعتبارسنجی فهرست", "تطبیق مجاز", "ثبت نتیجه"], buyerSellerResponsibilitiesSeparated: true, paymentExecuted: false, context }),
+  GOVERNANCE: (module, goal, context) => ({ artifactType: "GOVERNANCE_WORKFLOW", objective: goal, stages: ["تعریف سیاست", "تعیین مالک", "سطح اختیار", "تأیید انسانی", "ثبت ممیزی"], sensitiveActionsRequireApproval: true, context }),
+  COMMUNICATION: (module, goal, context) => ({ artifactType: "COMMUNICATION_WORKFLOW", objective: goal, stages: ["تعیین مخاطب", "تهیه پیش‌نویس", "بازبینی لحن و صحت", "تأیید پیش از ارسال"], messageSent: false, context }),
+  DISCOVERY: (module, goal, context) => ({ artifactType: "DISCOVERY_WORKFLOW", objective: goal, stages: ["تعیین پرسش", "تعریف منابع", "ارزیابی ارتباط", "ثبت یافته‌ها"], sourceVerificationRequired: true, context }),
+  PLATFORM: (module, goal, context) => ({ artifactType: "PLATFORM_WORKFLOW", objective: goal, stages: ["نیازمندی", "وابستگی", "پیکربندی پیشنهادی", "کنترل سلامت", "گیت انتشار"], deploymentExecuted: false, context }),
+  COMMERCE: (module, goal, context) => ({ artifactType: "COMMERCE_WORKFLOW", objective: goal, stages: ["تعریف کالا یا خدمت", "کنترل اطلاعات", "بررسی سفارش", "ثبت وضعیت"], paymentExecuted: false, context }),
+  ECONOMY: (module, goal, context) => ({ artifactType: "ECONOMY_SIMULATION_WORKFLOW", objective: goal, stages: ["فرض‌های مالی", "مدل درآمد", "هزینه و ریسک", "تحلیل حساسیت"], simulationOnly: true, paymentExecuted: false, context }),
+  TRUST: (module, goal, context) => ({ artifactType: "TRUST_AND_SAFETY_WORKFLOW", objective: goal, stages: ["اعتبار ورودی", "رضایت و حقوق", "ریسک", "محدودیت اقدام", "تصمیم قابل ممیزی"], unsafeActionDefault: "DENY", context }),
+  RUNTIME: (module, goal, context) => ({ artifactType: "RUNTIME_WORKFLOW", objective: goal, stages: ["اعتبارسنجی درخواست", "کنترل دسترسی", "اجرای محلی", "ثبت نتیجه", "مدیریت خطا"], externalExecution: "NOT_CONNECTED", context }),
+  ANALYTICS: (module, goal, context) => ({ artifactType: "ANALYTICS_WORKFLOW", objective: goal, stages: ["تعریف شاخص", "اعتبارسنجی داده", "محاسبه", "تفسیر", "گزارش"], sourceDataRequired: true, context }),
+  SUPPORT: (module, goal, context) => ({ artifactType: "SUPPORT_TRIAGE_WORKFLOW", objective: goal, stages: ["ثبت درخواست", "دسته‌بندی", "اولویت‌بندی", "پیشنهاد پاسخ", "پیگیری"], responseSent: false, context }),
+  AUDIT: (module, goal, context) => ({ artifactType: "AUDIT_EVIDENCE_WORKFLOW", objective: goal, stages: ["تعریف دامنه ممیزی", "جمع‌آوری شواهد", "یافتن مغایرت", "ثبت اصلاح", "بازبینی"], evidenceRequired: true, context }),
+  GLOBAL_SUPER_APP: (module, goal, context) => ({ artifactType: "SUPER_APP_ORCHESTRATION_WORKFLOW", objective: goal, stages: ["انتخاب محصول و دامنه", "بررسی مالکیت قابلیت", "هماهنگی سرویس‌ها", "کنترل دسترسی", "ثبت نتیجه"], crossProductAccess: "SCOPED_AND_AUDITED", context }),
+  GLOBAL_AI_SUPER_APP: (module, goal, context) => ({ artifactType: "AI_SUPER_APP_WORKFLOW", objective: goal, stages: ["فهم درخواست", "انتخاب ابزار مجاز", "تهیه خروجی", "بازبینی و تأیید", "ثبت سابقه"], externalActionsRequireConsent: true, context })
+};
+
 const domainWorkflowHandlers = {
   "workspace.orchestration": (module, goal, context) => ({ artifactType: "WORKSPACE_ACTION_PLAN", objective: goal, workstreams: ["تعریف هدف و دامنه", "اولویت‌بندی اقدام‌ها", "تعیین مسئول و موعد", "بازبینی نتیجه"], prioritySignals: ["اثر", "فوریت", "وابستگی", "ریسک"], context }),
   "learning.design": (module, goal, context) => ({ artifactType: "LEARNING_PATH_SPEC", learningGoal: goal, stages: ["ارزیابی نقطه شروع", "مسیر یادگیری", "تمرین هدایت‌شده", "سنجش و بازخورد"], assessmentRequired: true, context }),
@@ -94,7 +112,7 @@ const safeAutonomyActions = new Set(["draft", "summarize", "classify", "plan", "
 let schemaReady = false;
 let schemaPromise = null;
 
-if (canonicalRegistry.count !== 639 || canonicalModules.length !== 639 || canonicalModuleById.size !== 639 || new Set(canonicalModules.map(x => x.canonicalId)).size !== 639 || commercialExecutionManifest.recordCount !== 72 || commercialExecutionManifest.records.length !== 72 || commercialExecutionById.size !== 72 || commercialExecutionManifest.records.some(x => !canonicalModuleById.has(x.parentCanonicalContractId) || !x.executionContract?.handlerKey || !domainWorkflowHandlers[x.executionContract.handlerKey] || !Array.isArray(x.executionContract.operations) || x.executionContract.operations.length === 0) || commercialRegistry.records.length !== 72 || new Set(commercialRegistry.records.map(x => x.catalogEntryId)).size !== 72 || engineSubmodules.length !== 71 || new Set(engineSubmodules.map(x => x.moduleId)).size !== 71 || moduleInventory.totalModuleAndSubmoduleRecords !== 893 || registry.baselineCanonicalModuleCount !== 639 || registry.problems.length !== 50 ||
+if (canonicalRegistry.count !== 639 || canonicalModules.length !== 639 || canonicalModuleById.size !== 639 || new Set(canonicalModules.map(x => x.canonicalId)).size !== 639 || canonicalModules.some(x => !canonicalFamilyHandlers[x.designFamily]) || commercialExecutionManifest.recordCount !== 72 || commercialExecutionManifest.records.length !== 72 || commercialExecutionById.size !== 72 || commercialExecutionManifest.records.some(x => !canonicalModuleById.has(x.parentCanonicalContractId) || !x.executionContract?.handlerKey || !domainWorkflowHandlers[x.executionContract.handlerKey] || !Array.isArray(x.executionContract.operations) || x.executionContract.operations.length === 0) || commercialRegistry.records.length !== 72 || new Set(commercialRegistry.records.map(x => x.catalogEntryId)).size !== 72 || engineSubmodules.length !== 71 || new Set(engineSubmodules.map(x => x.moduleId)).size !== 71 || moduleInventory.totalModuleAndSubmoduleRecords !== 893 || registry.baselineCanonicalModuleCount !== 639 || registry.problems.length !== 50 ||
     registry.domains.length !== 5 || registry.candidates.length !== 4 ||
     registry.revenueModels.length !== 20 || new Set(registry.problems.map(x => x.id)).size !== 50 ||
     allModuleCatalog.length !== 111 || new Set(allModuleCatalog.map(x => x.moduleId)).size !== 111 ||
@@ -230,6 +248,7 @@ function buildCanonicalOperationPlan(module, goal, context) {
     workflowEntry: module.workflowEntry,
     execution: module.execution,
     implementationState: module.implementationState,
+    domainArtifact: canonicalFamilyHandlers[module.designFamily](module, goal, context || {}),
     goal,
     context: context || {},
     executionStatus: "LOCAL_WORK_ITEM_ONLY",
