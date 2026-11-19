@@ -8,6 +8,8 @@ on:
       - 'backend/data/aria_web_catalog_bridge.json'
       - 'scripts/aria_web_catalog_manifest_test.js'
       - 'scripts/aria32_apply_web_catalog_bridge.js'
+      - 'scripts/aria32_web_catalog_runtime_check.cjs'
+      - 'scripts/aria32_alias_consolidation_gate.cjs'
       - '.github/workflows/aria-web-catalog-ci.yml'
   push:
     branches:
@@ -35,7 +37,10 @@ jobs:
       - name: Install dependencies
         run: npm install --no-audit --no-fund
       - name: Validate engineering scripts
-        run: node --check scripts/aria32_apply_web_catalog_bridge.js
+        run: |
+          node --check scripts/aria32_apply_web_catalog_bridge.js
+          node --check scripts/aria32_web_catalog_runtime_check.cjs
+          node --check scripts/aria32_alias_consolidation_gate.cjs
       - name: Validate catalog-to-contract manifest
         run: node scripts/aria_web_catalog_manifest_test.js
       - name: Run web API tests
