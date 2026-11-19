@@ -60,8 +60,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 237
     },
     {
       "id": "problem-02",
@@ -78,8 +79,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 237
     },
     {
       "id": "problem-03",
@@ -96,8 +98,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 237
     },
     {
       "id": "problem-04",
@@ -114,8 +117,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 237
     },
     {
       "id": "problem-05",
@@ -132,8 +136,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 237
     },
     {
       "id": "problem-06",
@@ -150,8 +155,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 237
     },
     {
       "id": "problem-07",
@@ -168,8 +174,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 237
     },
     {
       "id": "problem-08",
@@ -186,8 +193,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 237
     },
     {
       "id": "problem-09",
@@ -204,8 +212,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 237
     },
     {
       "id": "problem-10",
@@ -222,8 +231,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 237
     },
     {
       "id": "problem-11",
@@ -240,8 +250,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 11
     },
     {
       "id": "problem-12",
@@ -258,8 +269,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 11
     },
     {
       "id": "problem-13",
@@ -276,8 +288,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 11
     },
     {
       "id": "problem-14",
@@ -294,8 +307,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 11
     },
     {
       "id": "problem-15",
@@ -312,8 +326,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 11
     },
     {
       "id": "problem-16",
@@ -330,8 +345,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 11
     },
     {
       "id": "problem-17",
@@ -348,8 +364,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 11
     },
     {
       "id": "problem-18",
@@ -366,8 +383,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 11
     },
     {
       "id": "problem-19",
@@ -384,8 +402,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 11
     },
     {
       "id": "problem-20",
@@ -402,8 +421,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 11
     },
     {
       "id": "problem-21",
@@ -420,8 +440,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 233
     },
     {
       "id": "problem-22",
@@ -438,8 +459,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 233
     },
     {
       "id": "problem-23",
@@ -456,8 +478,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 233
     },
     {
       "id": "problem-24",
@@ -474,8 +497,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 233
     },
     {
       "id": "problem-25",
@@ -492,8 +516,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 233
     },
     {
       "id": "problem-26",
@@ -510,8 +535,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 233
     },
     {
       "id": "problem-27",
@@ -528,8 +554,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 233
     },
     {
       "id": "problem-28",
@@ -546,8 +573,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 233
     },
     {
       "id": "problem-29",
@@ -564,8 +592,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 233
     },
     {
       "id": "problem-30",
@@ -582,8 +611,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 233
     },
     {
       "id": "problem-31",
@@ -600,8 +630,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 169
     },
     {
       "id": "problem-32",
@@ -618,8 +649,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 169
     },
     {
       "id": "problem-33",
@@ -636,8 +668,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 169
     },
     {
       "id": "problem-34",
@@ -654,8 +687,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 169
     },
     {
       "id": "problem-35",
@@ -672,8 +706,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 169
     },
     {
       "id": "problem-36",
@@ -690,8 +725,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 169
     },
     {
       "id": "problem-37",
@@ -708,8 +744,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 169
     },
     {
       "id": "problem-38",
@@ -726,8 +763,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 169
     },
     {
       "id": "problem-39",
@@ -744,8 +782,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 169
     },
     {
       "id": "problem-40",
@@ -762,8 +801,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 169
     },
     {
       "id": "problem-41",
@@ -780,8 +820,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 235
     },
     {
       "id": "problem-42",
@@ -798,8 +839,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 235
     },
     {
       "id": "problem-43",
@@ -816,8 +858,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 235
     },
     {
       "id": "problem-44",
@@ -834,8 +877,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 235
     },
     {
       "id": "problem-45",
@@ -852,8 +896,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 235
     },
     {
       "id": "problem-46",
@@ -870,8 +915,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 235
     },
     {
       "id": "problem-47",
@@ -888,8 +934,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 235
     },
     {
       "id": "problem-48",
@@ -906,8 +953,9 @@
         "mode": "REUSE_EXISTING_CAPABILITY"
       },
       "aliasOf": "problem-29",
-      "mappingStatus": "ALIAS_TO_EXISTING_PROBLEM",
-      "canonicalContractId": null
+      "mappingStatus": "ALIAS_TO_PROBLEM_29",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 235
     },
     {
       "id": "problem-49",
@@ -924,8 +972,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 235
     },
     {
       "id": "problem-50",
@@ -942,8 +991,9 @@
         "mode": "DOMAIN_ENGINE"
       },
       "aliasOf": null,
-      "mappingStatus": "PENDING_SEMANTIC_CROSSWALK",
-      "canonicalContractId": null
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
+      "canonicalContractId": null,
+      "hostCanonicalContractId": 235
     }
   ],
   "candidates": [
