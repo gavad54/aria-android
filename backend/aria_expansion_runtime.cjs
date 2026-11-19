@@ -6,6 +6,9 @@ const moduleRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "
 const commercialRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_commercial_module_registry.json"), "utf8"));
 const canonicalRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_639_canonical_execution_registry.json"), "utf8"));
 const commercialExecutionManifest = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_commercial_execution_manifest.json"), "utf8"));
+const unifiedExecutionRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_893_module_execution_registry.json"), "utf8"));
+const unifiedExecutionById = new Map(unifiedExecutionRegistry.records.map(x => [x.unitId, x]));
+const unifiedExecutionByLaunchId = new Map(unifiedExecutionRegistry.records.map(x => [x.launchId, x]));
 const canonicalModules = canonicalRegistry.records;
 const canonicalModuleById = new Map(canonicalModules.map(x => [x.canonicalId, x]));
 const commercialExecutionById = new Map(commercialExecutionManifest.records.map(x => [x.commercialModuleId, x]));
@@ -56,6 +59,16 @@ const commercialModules = commercialRegistry.records.map(item => ({
   implementationStatus: item.moduleState === "LOCAL_WORKFLOW_AVAILABLE" ? "LOCAL_WORKFLOW_AVAILABLE_NOT_E2E_VERIFIED" : "DESIGNED_NOT_IMPLEMENTED",
   productionStatus: "NOT_PRODUCTION_VERIFIED"
 }));
+if (unifiedExecutionRegistry.total !== 893 || unifiedExecutionRegistry.records.length !== 893 ||
+    unifiedExecutionById.size !== 893 || unifiedExecutionRegistry.activeLocalWorkflowCount !== 854 ||
+    unifiedExecutionRegistry.lineageOnlyCount !== 39 ||
+    unifiedExecutionRegistry.records.filter(x => x.executionState === "LOCAL_WORK_ITEM_ONLY").length !== 854 ||
+    unifiedExecutionRegistry.records.filter(x => x.executionState === "LINEAGE_ONLY").length !== 39 ||
+    unifiedExecutionRegistry.records.some(x => !x.executionContract || !Array.isArray(x.executionContract.operations) || x.executionContract.operations.length === 0) ||
+    unifiedExecutionRegistry.records.some(x => x.recordType === "ENGINE_SUBMODULE" && (!x.parentModuleIds.length || x.parentModuleIds.some(id => !moduleCatalogById.has(id)))) ||
+    unifiedExecutionRegistry.records.some(x => x.recordType === "COMMERCIAL_MODULE" && !canonicalModuleById.has(x.hostCanonicalContractId))) {
+  throw new Error("ARIA_UNIFIED_893_EXECUTION_REGISTRY_INVALID");
+}
 const moduleInventory = {
   canonicalModules: canonicalModules.length,
   preservedHistoricalOverlayModules: allModuleCatalog.length,
@@ -226,6 +239,7 @@ function buildCommercialOperationPlan(module, goal, context) {
     goal,
     context: context || {},
     domainArtifact: domainWorkflowHandlers[contract.handlerKey](module, goal, context || {}),
+    executionSpec: unifiedExecutionById.get(module.commercialModuleId) || null,
     operations: contract.operations.map((operation, index) => ({ sequence: index + 1, operation, state: "READY_FOR_LOCAL_WORK_ITEM" })),
     acceptanceChecks: [
       "ورودی و هدف با قرارداد ماژول تطبیق داده شود.",
@@ -249,6 +263,7 @@ function buildCanonicalOperationPlan(module, goal, context) {
     execution: module.execution,
     implementationState: module.implementationState,
     domainArtifact: canonicalFamilyHandlers[module.designFamily](module, goal, context || {}),
+    executionSpec: unifiedExecutionById.get("ARIA-CANONICAL-MODULE-" + String(module.canonicalId).padStart(3, "0")) || null,
     goal,
     context: context || {},
     executionStatus: "LOCAL_WORK_ITEM_ONLY",
@@ -337,6 +352,24 @@ async function handle(req, res, url, deps) {
       note: moduleInventory.countingRule
     });
   }
+  if (p === "/api/aria-expansion/execution-registry" && req.method === "GET") {
+    return json(res, 200, {
+      product: "ARIA",
+      total: unifiedExecutionRegistry.total,
+      activeLocalWorkflowCount: unifiedExecutionRegistry.activeLocalWorkflowCount,
+      lineageOnlyCount: unifiedExecutionRegistry.lineageOnlyCount,
+      productionVerifiedCount: unifiedExecutionRegistry.productionVerifiedCount,
+      counts: unifiedExecutionRegistry.counts,
+      records: unifiedExecutionRegistry.records
+    });
+  }
+  const executionSpecMatch = p.match(/^\\/api\\/aria-expansion\\/execution-registry\\/([^/]+)$/);
+  if (executionSpecMatch && req.method === "GET") {
+    const key = decodeURIComponent(executionSpecMatch[1]);
+    const record = unifiedExecutionById.get(key) || unifiedExecutionByLaunchId.get(key);
+    if (!record) return json(res, 404, { error: "قرارداد اجرایی پیدا نشد." });
+    return json(res, 200, { product: "ARIA", record });
+  }
   if (p === "/api/aria-expansion/canonical-modules" && req.method === "GET") {
     return json(res, 200, { product: "ARIA", total: canonicalModules.length, immutable: true, modules: canonicalModules });
   }
@@ -391,7 +424,7 @@ async function handle(req, res, url, deps) {
     if (!goal) return json(res, 400, { error: "هدف باید بین ۴ تا ۱۲۰۰ نویسه باشد." });
     const engineHandler = engineWorkflowHandlers[engine.domain];
     if (!engineHandler) return json(res, 409, { error: "برای این موتور، handler اجرایی ثبت نشده است." });
-    const details = JSON.stringify({ engineSubmoduleId: engine.moduleId, engineId: engine.engineId, parentModuleIds: engine.parentModuleIds, operations: engine.operations, inputContract: engine.inputContract, outputContract: engine.outputContract, domainArtifact: engineHandler(engine, goal), goal, executionStatus: "LOCAL_ENGINE_WORK_ITEM_ONLY", externalExecutionPerformed: false, productionVerified: false });
+    const details = JSON.stringify({ engineSubmoduleId: engine.moduleId, engineId: engine.engineId, parentModuleIds: engine.parentModuleIds, operations: engine.operations, inputContract: engine.inputContract, outputContract: engine.outputContract, executionSpec: unifiedExecutionById.get(engine.moduleId) || null, domainArtifact: engineHandler(engine, goal), goal, executionStatus: "LOCAL_ENGINE_WORK_ITEM_ONLY", externalExecutionPerformed: false, productionVerified: false });
     if (details.length > 12000) return json(res, 400, { error: "جزئیات ورودی بیش از حد مجاز است." });
     if (!await requireDb(res)) return true;
     try {
@@ -409,7 +442,7 @@ async function handle(req, res, url, deps) {
     const data = await readJson(req, res); if (data === null) return true;
     const goal = cleanText(data.goal, 4, 1200);
     if (!goal) return json(res, 400, { error: "هدف باید بین ۴ تا ۱۲۰۰ نویسه باشد." });
-    const details = JSON.stringify({ moduleId: module.moduleId, moduleType: module.moduleType, ownerProduct: "ARIA", ownerDomain: module.legacyAppName || module.parentDomainName || module.domainPackId || "ARIA_GENERAL", engineId: module.engineId || null, inputContract: module.inputContract, outputContract: module.outputContract, workflow: module.workflow, acceptanceCriteria: module.acceptanceCriteria, goal, executionStatus: "LOCAL_MODULE_WORK_ITEM_ONLY", externalExecutionPerformed: false, productionVerified: false });
+    const details = JSON.stringify({ moduleId: module.moduleId, moduleType: module.moduleType, executionSpec: unifiedExecutionById.get(module.moduleId) || null, ownerProduct: "ARIA", ownerDomain: module.legacyAppName || module.parentDomainName || module.domainPackId || "ARIA_GENERAL", engineId: module.engineId || null, inputContract: module.inputContract, outputContract: module.outputContract, workflow: module.workflow, acceptanceCriteria: module.acceptanceCriteria, goal, executionStatus: "LOCAL_MODULE_WORK_ITEM_ONLY", externalExecutionPerformed: false, productionVerified: false });
     if (details.length > 12000) return json(res, 400, { error: "جزئیات ورودی بیش از حد مجاز است." });
     if (!await requireDb(res)) return true;
     try {
