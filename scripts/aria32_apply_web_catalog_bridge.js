@@ -75,7 +75,7 @@ c.modules.push(...newCaps);c.module_count=c.modules.length;c.web_catalog_bridge=
 if(b.module_count!==total||a.module_count!==total||c.module_count!==total||JSON.stringify(b.modules)!==JSON.stringify(a.modules))throw new Error('WEB_CATALOG_REGISTRY_PARITY_FAILED');
 write(files.backend,b);write(files.android,a);write(files.caps,c);
 fs.copyFileSync(path.join(repoRoot,'backend/data/aria_web_catalog_bridge.json'),path.join(root,'backend/data/aria_web_catalog_bridge.json'));
-function patch(file,repls){const full=path.join(root,file);let s=fs.readFileSync(full,'utf8');for(const [from,to,code] of repls){if(!s.includes(from))throw new Error(code+'_ANCHOR_NOT_FOUND');s=s.replaceAll(from,to);}fs.writeFileSync(full,s);}
+function patch(file,repls){const full=path.join(root,file);let s=fs.readFileSync(full,'utf8');for(const [from,to,code] of repls){const count=s.split(from).length-1;if(count<1)throw new Error(code+'_ANCHOR_NOT_FOUND');s=s.replaceAll(from,to);if(s.includes(from))throw new Error(code+'_ANCHOR_REMAINS');if(!s.includes(to))throw new Error(code+'_REPLACEMENT_NOT_FOUND');console.log('PATCH_OK '+code+' replacements='+count);}fs.writeFileSync(full,s);}
 patch('backend/src/services/moduleRuntime.js',[
 ["const FAMILY_HANDLERS={","const FAMILY_HANDLERS={WEB_CATALOG:'CATALOG_WORKFLOW',","RUNTIME_WEB_CATALOG_FAMILY"]
 ]);
