@@ -8,6 +8,11 @@ on:
       - 'test/aria-expansion.test.js'
       - 'package.json'
       - 'backend/data/aria_web_catalog_bridge.json'
+      - 'backend/data/aria_expansion_registry.json'
+      - 'backend/aria_expansion_runtime.cjs'
+      - 'aria-expansion.js'
+      - 'index.html'
+      - 'scripts/aria_expansion_manifest_test.cjs'
       - 'scripts/aria_web_catalog_manifest_test.js'
       - 'scripts/aria32_apply_web_catalog_bridge.js'
       - 'scripts/aria32_web_catalog_runtime_check.cjs'
@@ -43,7 +48,13 @@ jobs:
           node --check scripts/aria32_apply_web_catalog_bridge.js
           node --check scripts/aria32_web_catalog_runtime_check.cjs
           node --check scripts/aria32_alias_consolidation_gate.cjs
+          node --check backend/aria_expansion_runtime.cjs
+          node --check aria-expansion.js
+          node --check test/aria-expansion.test.js
+          node --check scripts/aria_expansion_manifest_test.cjs
       - name: Validate catalog-to-contract manifest
         run: node scripts/aria_web_catalog_manifest_test.js
+      - name: Validate expansion registry integrity
+        run: node scripts/aria_expansion_manifest_test.cjs
       - name: Run web API tests
         run: npm test
