@@ -54,6 +54,20 @@ async function ensureTables(pool) {
       created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
       UNIQUE(agent_id, action)
     )`);
+    await pool.query(`CREATE TABLE IF NOT EXISTS aria_expansion_providers (
+      id BIGSERIAL PRIMARY KEY,
+      user_id BIGINT NOT NULL REFERENCES aria_users(id) ON DELETE CASCADE,
+      display_name TEXT NOT NULL,
+      category TEXT NOT NULL,
+      service_area TEXT NOT NULL,
+      description TEXT NOT NULL DEFAULT '',
+      contact_visible BOOLEAN NOT NULL DEFAULT FALSE,
+      verification_status TEXT NOT NULL DEFAULT 'pending' CHECK (verification_status IN ('pending','verified','rejected')),
+      verified_by BIGINT REFERENCES aria_users(id),
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+      updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    )`);
+    await pool.query("CREATE INDEX IF NOT EXISTS aria_expansion_providers_match_idx ON aria_expansion_providers(category, verification_status, contact_visible)");
     schemaReady = true;
   })().catch(err => { schemaPromise = null; schemaReady = false; throw err; });
   return schemaPromise;
@@ -242,6 +256,32 @@ async function handle(req, res, url, deps) {
     try{await ensureTables(pool);const q=await pool.query("UPDATE aria_expansion_work_items SET status=$1,updated_at=NOW() WHERE id=$2 AND user_id=$3 RETURNING id,module_id,title,details,status,created_at,updated_at",[status,workItemMatch[1],user.sub]);if(!q.rowCount)return json(res,404,{error:"کار پیدا نشد."});return json(res,200,{item:{...q.rows[0],id:String(q.rows[0].id)}});}
     catch(err){console.error("ARIA expansion work item update failed:",err.message);return json(res,500,{error:"به‌روزرسانی کار انجام نشد."});}
   }
+  if(p==="/api/aria-expansion/providers"&&(req.method==="GET"||req.method==="POST")){
+    if(!await requireDb(res))return true;
+    try{await ensureTables(pool);
+      if(req.method==="GET"){
+        const q=await pool.query("SELECT id,display_name,category,service_area,description,created_at FROM aria_expansion_providers WHERE verification_status='verified' AND contact_visible=TRUE ORDER BY created_at DESC LIMIT 100");
+        return json(res,200,{providers:q.rows.map(x=>({...x,id:String(x.id)})),visibility:"VERIFIED_AND_CONSENTED_ONLY"});
+      }
+      const user=requireUser(req,json,res,authUser);if(!user)return true;
+      const data=await readJson(req,res);if(data===null)return true;
+      const displayName=cleanText(data.displayName,2,100),category=cleanText(data.category,2,80),serviceArea=cleanText(data.serviceArea,2,120),description=cleanText(data.description||"",0,1000);
+      if(!displayName||!category||!serviceArea||description===null)return json(res,400,{error:"نام نمایشی، دسته، محدوده خدمت و شرح معتبر لازم است."});
+      const q=await pool.query("INSERT INTO aria_expansion_providers(user_id,display_name,category,service_area,description,contact_visible) VALUES($1,$2,$3,$4,$5,$6) RETURNING id,display_name,category,service_area,description,contact_visible,verification_status,created_at",[user.sub,displayName,category,serviceArea,description,data.contactVisible===true]);
+      return json(res,201,{provider:{...q.rows[0],id:String(q.rows[0].id)},notice:"پروفایل تا بررسی مالک در وضعیت pending باقی می‌ماند."});
+    }catch(err){console.error("ARIA provider directory failed:",err.message);return json(res,500,{error:"ثبت یا دریافت فهرست ارائه‌دهندگان انجام نشد."});}
+  }
+  const providerVerifyMatch=p.match(/^\/api\/aria-expansion\/providers\/(\d+)\/verification$/);
+  if(providerVerifyMatch&&req.method==="PATCH"){
+    const user=requireUser(req,json,res,authUser);if(!user)return true;
+    if(!process.env.ARIA_OWNER_USER_ID||String(user.sub)!==String(process.env.ARIA_OWNER_USER_ID))return json(res,403,{error:"تأیید ارائه‌دهنده فقط برای مالک مجاز است."});
+    const data=await readJson(req,res);if(data===null)return true;
+    const status=["verified","rejected"].includes(data.status)?data.status:null;
+    if(!status)return json(res,400,{error:"وضعیت تأیید باید verified یا rejected باشد."});
+    if(!await requireDb(res))return true;
+    try{await ensureTables(pool);const q=await pool.query("UPDATE aria_expansion_providers SET verification_status=$1,verified_by=$2,updated_at=NOW() WHERE id=$3 RETURNING id,display_name,category,service_area,verification_status,contact_visible,updated_at",[status,user.sub,providerVerifyMatch[1]]);if(!q.rowCount)return json(res,404,{error:"ارائه‌دهنده پیدا نشد."});return json(res,200,{provider:{...q.rows[0],id:String(q.rows[0].id)}});}
+    catch(err){console.error("ARIA provider verification failed:",err.message);return json(res,500,{error:"تأیید ارائه‌دهنده انجام نشد."});}
+  }
   if(p==="/api/aria-expansion/intents"&&(req.method==="GET"||req.method==="POST")){
     const user=requireUser(req,json,res,authUser);if(!user)return true;
     if(!await requireDb(res))return true;
@@ -258,7 +298,7 @@ async function handle(req, res, url, deps) {
   if(matchesMatch&&req.method==="GET"){
     const user=requireUser(req,json,res,authUser);if(!user)return true;
     if(!await requireDb(res))return true;
-    try{await ensureTables(pool);const q=await pool.query("SELECT id,contact_consent FROM aria_expansion_intents WHERE id=$1 AND user_id=$2",[matchesMatch[1],user.sub]);if(!q.rowCount)return json(res,404,{error:"درخواست پیدا نشد."});return json(res,200,{matches:[],matchState:q.rows[0].contact_consent?"NO_VERIFIED_PROVIDERS_CONNECTED":"CONTACT_CONSENT_REQUIRED"});}
+    try{await ensureTables(pool);const q=await pool.query("SELECT id,category,contact_consent FROM aria_expansion_intents WHERE id=$1 AND user_id=$2",[matchesMatch[1],user.sub]);if(!q.rowCount)return json(res,404,{error:"درخواست پیدا نشد."});if(!q.rows[0].contact_consent)return json(res,200,{matches:[],matchState:"CONTACT_CONSENT_REQUIRED"});const providers=await pool.query("SELECT id,display_name,category,service_area,description FROM aria_expansion_providers WHERE category=$1 AND verification_status='verified' AND contact_visible=TRUE ORDER BY created_at DESC LIMIT 20",[q.rows[0].category]);return json(res,200,{matches:providers.rows.map(x=>({...x,id:String(x.id),matchReason:"CATEGORY_MATCH_VERIFIED_PROVIDER"})),matchState:providers.rowCount?"VERIFIED_CATEGORY_MATCHES_FOUND":"NO_VERIFIED_PROVIDERS_CONNECTED",contactDetailsDisclosed:false});}
     catch(err){console.error("ARIA intent matches failed:",err.message);return json(res,500,{error:"دریافت تطبیق‌ها انجام نشد."});}
   }
   if(p==="/api/aria-expansion/owner/overview"&&req.method==="GET"){
