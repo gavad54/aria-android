@@ -47,3 +47,11 @@ The 72 bridge rows point to 47 unique canonical targets. They are aliases/relati
 
 ## Operational status
 This is a preservation-first productization design and mapping overlay. It does not claim E2E verification, connected payment providers, production activation, or live revenue.
+
+
+## Revenue and engine overlays
+- [81-engine productization and revenue overlay](./ARIA_81_ENGINE_PRODUCTIZATION_REVENUE_OVERLAY_2026-11-19.csv) — all 81 shared engines assigned a productization and billing role.
+- 81-engine role split: 12 direct revenue engines; 13 plan-included or usage-metered; 46 shared platform engines with indirect value/cost attribution; 10 safety/security/compliance engines included as baseline controls.
+- Canonical module monetization split from the source registry: 557 plan-included/usage-metered; 70 disclosed platform revenue; 12 disclosed platform-fee-only. These are source registry labels, not proof of live sales.
+- Canonical maturity: 569 runtime-routable without E2E verification; 39 static-contract verified; 19 foundation runtime with E2E pending; 12 surface runtime with E2E pending.
+- External adapter requirements: 160 required; 31 optional-or-required by capability; 448 optional.
