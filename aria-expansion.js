@@ -13,13 +13,15 @@
  const node=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e;};
  const savePlanButton=(container,moduleId,title,plan)=>{const save=node("button","btn btn-quiet","ثبت برنامه در کارهای من");save.type="button";save.addEventListener("click",async()=>{if(!window.ariaToken){save.textContent="برای ذخیره ابتدا وارد حساب شوید";return;}save.disabled=true;save.textContent="در حال ثبت…";try{const headers={"content-type":"application/json",authorization:"Bearer "+window.ariaToken};const response=await fetch("/api/aria-expansion/work-items",{method:"POST",headers,body:JSON.stringify({moduleId,title,details:JSON.stringify(plan)})});const data=await response.json();if(!response.ok)throw new Error(data.error||"ثبت برنامه انجام نشد");save.textContent="برنامه ثبت شد · "+data.item.id;}catch(error){save.textContent=error.message;}finally{save.disabled=false;}});container.append(save);};
  try{
-  const [s,m,c,r,e,matrix]=await Promise.all([
+  const [s,m,c,r,e,matrix,canonicalCatalog,commercialCatalog]=await Promise.all([
    fetch("/api/aria-expansion/summary").then(x=>x.json()),
    fetch("/api/aria-expansion/modules").then(x=>x.json()),
    fetch("/api/aria-expansion/candidates").then(x=>x.json()),
    fetch("/api/aria-expansion/revenue-models").then(x=>x.json()),
    fetch("/api/aria-expansion/engines").then(x=>x.json()),
-   fetch("/api/aria-expansion/capability-matrix").then(x=>x.json())
+   fetch("/api/aria-expansion/capability-matrix").then(x=>x.json()),
+   fetch("/api/aria-expansion/canonical-modules").then(x=>x.json()),
+   fetch("/api/aria-expansion/commercial-modules").then(x=>x.json())
   ]);
   status(summaryEl,"موجودی ساختاری ۸۹۳ واحدی ARIA: ۶۳۹ ماژول پایه + ۱۱۱ رکورد ماژولی تاریخی + ۷۲ ماژول کاتالوگ تجاری + ۷۱ زیرماژول موتور · ۳۶ رکورد تاریخی منتقل‌شده به محصولات خواهر · درآمد زنده فعال نیست.");
   if(maturityEl){
@@ -44,7 +46,57 @@
    const typeLabels={HISTORICAL_PROBLEM_MODULE:"مسئله تاریخی",NEW_IDEA_PRODUCT_MODULE:"ایده جدید",CONTROL_AND_GOVERNANCE_MODULE:"کنترل و حاکمیت",MERGED_LEGACY_APP_DOMAIN_MODULE:"دامنه داخلی"};
    const renderRows=()=>{tbody.replaceChildren();const q=search.value.trim().toLocaleLowerCase();const rows=matrix.modules.filter(x=>(!filter.value||x.moduleType===filter.value)&&(!q||(x.moduleId+" "+x.name).toLocaleLowerCase().includes(q)));for(const item of rows){const tr=node("tr","");[item.moduleId,item.name,typeLabels[item.moduleType]||item.moduleType,item.ownerDomain,item.canonicalMappingStatus,item.implementationStatus,item.productionStatus].forEach(value=>{const td=node("td","",String(value??"—"));td.style.padding="8px";td.style.borderTop="1px solid var(--line, rgba(255,255,255,.12))";td.style.verticalAlign="top";tr.append(td);});tbody.append(tr);}if(!rows.length){const tr=node("tr",""),td=node("td","","موردی مطابق جست‌وجو پیدا نشد.");td.colSpan=7;tr.append(td);tbody.append(tr);}};
    search.addEventListener("input",renderRows);filter.addEventListener("change",renderRows);renderRows();
-   details.append(controls,scroll);summary.append(details);maturityEl.replaceChildren(summary);
+   details.append(controls,scroll);summary.append(details);
+   const executionDetails=node("details","expansion-maturity-details");
+   executionDetails.append(node("summary","","اجرای محلی و ثبت کار برای ماژول‌ها و موتورهای ARIA"));
+   executionDetails.append(node("p","expansion-muted","این بخش گردش‌کار محلی را در حساب کاربر ثبت می‌کند؛ تولید تصویر/ویدئو، انتشار، پرداخت یا اتصال بیرونی بدون ارائه‌دهنده و تأیید جداگانه انجام نمی‌شود."));
+   const executionGoal=node("input","search");executionGoal.type="text";executionGoal.placeholder="هدف اجرای ماژول را وارد کنید (حداقل ۴ نویسه)";executionGoal.setAttribute("aria-label","هدف اجرای ماژول");
+   const executionSearch=node("input","search");executionSearch.type="search";executionSearch.placeholder="جست‌وجوی ۸۵۴ مسیر اجرایی بر اساس نام یا شناسه";
+   const executionFilter=node("select","search");executionFilter.setAttribute("aria-label","نوع مسیر اجرایی");
+   [["","همه مسیرها"],["canonical","۶۳۹ ماژول پایه"],["overlay","۷۲ ماژول ARIA"],["commercial","۷۲ ماژول تجاری"],["engine","۷۱ زیرماژول موتور"]].forEach(([value,label])=>{const option=node("option","",label);option.value=value;executionFilter.append(option);});
+   const executionStatus=node("p","expansion-muted","برای ثبت کار باید وارد حساب ARIA شده باشید.");
+   const executionTable=node("table","expansion-maturity-table");executionTable.style.width="100%";executionTable.style.borderCollapse="collapse";
+   const executionHead=node("thead",""),executionHeadRow=node("tr","");
+   ["نوع","شناسه","نام","وضعیت","اقدام"].forEach(label=>{const th=node("th","",label);th.style.textAlign="right";th.style.padding="8px";executionHeadRow.append(th);});
+   executionHead.append(executionHeadRow);const executionBody=node("tbody","");executionTable.append(executionHead,executionBody);
+   const executionScroll=node("div","expansion-maturity-scroll");executionScroll.style.overflowX="auto";executionScroll.append(executionTable);
+   const entries=[
+    ...canonicalCatalog.modules.map(x=>({type:"canonical",id:String(x.canonicalId),name:x.name,status:x.implementationState})),
+    ...m.modules.map(x=>({type:"overlay",id:x.moduleId,name:x.name,status:x.implementationStatus})),
+    ...commercialCatalog.modules.map(x=>({type:"commercial",id:x.commercialModuleId,name:x.name,status:x.executionContract.status})),
+    ...e.engineSubmodules.map(x=>({type:"engine",id:x.engineId,name:x.name,status:x.implementationStatus}))
+   ];
+   const typeNames={canonical:"ماژول پایه",overlay:"ماژول ARIA",commercial:"ماژول تجاری",engine:"زیرماژول موتور"};
+   const renderExecutionEntries=()=>{
+    executionBody.replaceChildren();
+    const q=executionSearch.value.trim().toLocaleLowerCase();
+    const matched=entries.filter(x=>(!executionFilter.value||x.type===executionFilter.value)&&(!q||(x.id+" "+x.name).toLocaleLowerCase().includes(q)));
+    for(const item of matched.slice(0,100)){
+     const tr=node("tr","");[typeNames[item.type],item.id,item.name,item.status].forEach(value=>{const td=node("td","",String(value??"—"));td.style.padding="8px";td.style.borderTop="1px solid var(--line, rgba(255,255,255,.12))";tr.append(td);});
+     const actionCell=node("td","");actionCell.style.padding="8px";actionCell.style.borderTop="1px solid var(--line, rgba(255,255,255,.12))";
+     const run=node("button","btn btn-quiet","ثبت اجرای محلی");run.type="button";
+     run.addEventListener("click",async()=>{
+      const goal=executionGoal.value.trim();if(goal.length<4){executionStatus.textContent="ابتدا هدفی با حداقل ۴ نویسه وارد کنید.";return;}
+      if(!window.ariaToken){executionStatus.textContent="برای ثبت گردش‌کار ابتدا وارد حساب ARIA شوید.";return;}
+      let endpoint="";
+      if(item.type==="canonical")endpoint="/api/aria-expansion/canonical-modules/"+encodeURIComponent(item.id)+"/run";
+      if(item.type==="overlay")endpoint="/api/aria-expansion/modules/"+encodeURIComponent(item.id)+"/run";
+      if(item.type==="commercial")endpoint="/api/aria-expansion/commercial-modules/"+encodeURIComponent(item.id)+"/run";
+      if(item.type==="engine")endpoint="/api/aria-expansion/engines/"+encodeURIComponent(item.id)+"/run";
+      run.disabled=true;run.textContent="در حال ثبت…";
+      try{
+       const response=await fetch(endpoint,{method:"POST",headers:{"content-type":"application/json",authorization:"Bearer "+window.ariaToken},body:JSON.stringify({goal})});
+       const data=await response.json();if(!response.ok)throw new Error(data.error||"ثبت گردش‌کار انجام نشد.");
+       run.textContent="ثبت شد · "+data.item.id;executionStatus.textContent="کار محلی "+data.item.id+" ثبت شد. اجرای بیرونی انجام نشده است.";
+      }catch(error){run.textContent="تلاش دوباره";executionStatus.textContent=error.message;}finally{run.disabled=false;}
+     });
+     actionCell.append(run);tr.append(actionCell);executionBody.append(tr);
+    }
+    executionStatus.textContent="تعداد مسیرهای قابل مشاهده: "+matched.length+" · نمایش حداکثر ۱۰۰ نتیجه؛ برای بقیه جست‌وجو را محدود کنید.";
+   };
+   executionSearch.addEventListener("input",renderExecutionEntries);executionFilter.addEventListener("change",renderExecutionEntries);renderExecutionEntries();
+   executionDetails.append(executionGoal,executionSearch,executionFilter,executionStatus,executionScroll);summary.append(executionDetails);
+   maturityEl.replaceChildren(summary);
   }
   for(const d of m.parents){
    const card=node("article","glass expansion-domain");
