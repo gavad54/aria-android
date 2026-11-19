@@ -38,7 +38,7 @@ if (registry.baselineCanonicalModuleCount !== 639 || registry.problems.length !=
     moduleCatalog.filter(x => x.moduleType === "MERGED_LEGACY_APP_DOMAIN_MODULE").length !== 4 ||
     publicDomainPacks.length !== 4 || candidateEngines.length !== 4 ||
     ownership.canonicalBaseline !== 639 || ownership.archivedOverlayTotal !== 111 ||
-    ownership.publicAriaOverlayTarget !== 72 ||
+    ownership.publicAriaOverlayTarget !== 72 || transferredIds.size !== 36 || ownership.sharedAriaModuleIds.length !== 2 ||
     moduleRegistry.moduleCatalogSummary?.canonicalBaseline !== 639 || moduleRegistry.moduleCatalogSummary?.canonicalBaselineChanged !== false) {
   throw new Error("ARIA_PRODUCT_OWNERSHIP_MIGRATION_INVALID");
 }
