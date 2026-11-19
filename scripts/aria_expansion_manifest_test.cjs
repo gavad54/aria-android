@@ -14,7 +14,7 @@ const p29=registry.problems.find(x=>x.sourceProblemNumber===29);
 const p48=registry.problems.find(x=>x.sourceProblemNumber===48);
 assert.ok(p29&&p48);
 assert.equal(p48.aliasOf,p29.id);
-assert.equal(p48.engine.id,p29.engine.id);
+assert.equal(p48.engine.id,p29.engine.id);\nconst expectedHosts={"life-home-assistant":237,"smart-shopping-household":11,"family-health-wellbeing":233,"career-learning-productivity":169,"travel-leisure-planner":235};\nfor(const item of registry.problems){assert.equal(item.hostCanonicalContractId,expectedHosts[item.parentModuleId]);}
 assert.equal(registry.guardrails.liveRevenueEnabled,false);
 assert.equal(registry.guardrails.externalExecutionEnabled,false);
 assert.equal(registry.guardrails.canonicalCountChanges,false);
