@@ -100,7 +100,7 @@ async function handle(req, res, url, deps) {
     });
   }
   if (p === "/api/aria-expansion/modules" && req.method === "GET") {
-    return json(res, 200, { parents: registry.domains, problems: registry.problems, totalProblemRecords: 50, uniqueProblemCapabilities: 49, canonicalModuleCount: 639 });
+    return json(res, 200, { parents: registry.domains, problems: registry.problems.map(x => ({ ...x, parentDomain: x.parentModuleId })), totalProblemRecords: 50, uniqueProblemCapabilities: 49, canonicalModuleCount: 639 });
   }
   if (p === "/api/aria-expansion/candidates" && req.method === "GET") {
     return json(res, 200, { candidates: registry.candidates, total: 4, canonicalModuleCount: 639 });
