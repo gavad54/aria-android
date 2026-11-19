@@ -675,3 +675,34 @@ NEXUS هسته مسیریابی و orchestration است؛ نه مالک همه �
 8. تمام SOURCE_GAP و UNRESOLVEDها بسته یا با دلیل و مالک/اقدام بعدی ثبت شوند.
 
 **وضعیت این ضمیمه:** طراحی و تصمیم‌های معماری مستند شد؛ استخراج کامل محتوای هفت آرشیو محصول، پیاده‌سازی همه دامنه‌ها، آزمون E2E و انتشار تولیدی هنوز در موج‌های بعدی است. این سند هیچ‌یک از آن مراحل را به‌اشتباه تکمیل‌شده اعلام نمی‌کند.
+
+
+## J. تطبیق با ماتریس شواهد 11 محصول VAYRO — منبع 2026-11-18
+
+این بخش بر اساس فایل Library با نام `VAYRO_11_Product_Execution_Matrix_2026-11-18.xlsx` افزوده شده است. اعداد زیر snapshot تاریخ 2026-11-18 هستند و وضعیت زنده امروز محسوب نمی‌شوند.
+
+| محصول ادغام‌شونده | پیاده‌سازی ثبت‌شده | آزمون | بلوغ پذیرش | شاهد و شکاف اصلی |
+|---|---:|---:|---:|---|
+| ARVAND | 0.9% | 0% | 0.5% | فقط دامنه/کاتالوگ؛ onboarding خریدار/تأمین‌کننده، RFQ، مقایسه پیشنهاد، اسناد تجاری و مراحل حمل E2E یافت نشد |
+| CHARSU | 0.9% | 0% | 0.5% | فقط کاتالوگ؛ onboarding فروشنده، listing، cart/order، commission/settlement، moderation و dispute عملیاتی یافت نشد |
+| GANJINEH | 0.9% | 0% | 0.5% | فقط کاتالوگ؛ store/catalog/variants، inventory تراکنشی، checkout/fulfillment، refund و reconciliation اثبات نشد |
+| NEGAH | 45.5% | 55% | 38.8% | brief UI/routes و تست اختصاصی وجود دارد؛ اجرای provider زنده، ذخیره خصوصی رسانه، دانلود امن و usage/cost ledger اثبات نشده |
+| SEPEHR | 0.4% | 0% | 0.2% | control plane provisioning، quota، secrets/logs، backup و metering ابری پیدا نشد |
+| NAMA | 0.9% | 0% | 0.5% | editor و کتابخانه قالب اختصاصی، preview/publish/domain/SSL، versioning و rollback پیدا نشد |
+| PAYAM | 5.5% | 0% | 3.0% | نمای کلی Growth و بخشی از UI موجود است؛ campaign/calendar/approval E2E و OAuth رسمی شبکه‌های اجتماعی و provenance متریک‌ها اثبات نشد |
+
+### J-1. اقدام مهندسی بر اساس شواهد
+- NEGAH و PAYAM باید از کد جزئی موجود شروع شوند؛ بازنویسی کور یا حذف routeها ممنوع است. ابتدا source inventory، API contract و تست فعلی استخراج شود.
+- ARVAND، CHARSU، GANJINEH، SEPEHR و NAMA در ماتریس مبنا عملاً کاتالوگ/تعریف‌اند؛ برای آن‌ها باید source archive/repository اصلی بازیابی شود یا قابلیت‌ها از روی قراردادهای تأییدشده در ARIA از ابتدا ساخته شوند. نام محصول به‌تنهایی منبع کد محسوب نمی‌شود.
+- برای هر هفت دامنه، import/merge واقعی باید با commitهای کوچک و قابل برگشت انجام شود. پیش از هر migration، snapshot داده، schema diff و تست عدم حذف الزامی است.
+- هیچ‌یک از درصدهای فوق به‌عنوان درصد فعلی یا اثبات ادغام در ARIA گزارش نمی‌شود.
+
+### J-2. اولویت بر اساس ریسک و قابلیت استفاده مجدد
+1. NEGAH: حفظ کد موجود، تکمیل private media storage، provider lifecycle، consent/rights، metering و E2E.
+2. PAYAM: تبدیل Growth overview به campaign workflow با approval، schedule، delivery receipts، opt-out و connector رسمی.
+3. CHARSU + GANJINEH: یکپارچه‌سازی domainهای listing/store/order به‌صورت قراردادهای مشترک، اما با تجربه‌های فروشگاه و بازار مجزا و قابل ردیابی.
+4. NAMA: ساخت page/template editor، preview، publish، domain/SSL، versioning و rollback.
+5. ARVAND: افزودن تجارت بین‌الملل روی هسته بازار/B2B با چندزبانه/چندارزی، RFQ، اسناد و shipment milestones.
+6. SEPEHR: ساخت control plane محدود و امن برای storage/jobs/backups/quotas؛ نه دسترسی مدیریتی آزاد به داده تمام دامنه‌ها.
+
+**نتیجه این تطبیق:** تصمیم ادغام هفت محصول در ARIA قطعی است؛ اما بر اساس ماتریس شواهد 2026-11-18، شش محصول عمدتاً کاتالوگی/تعریف‌شده و دو مورد NEGAH/PAYAM نیز فقط جزئی‌اند. بنابراین اعلام «ادغام کامل اجرایی» در این مرحله خلاف شواهد خواهد بود.
