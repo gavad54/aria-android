@@ -280,3 +280,10 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   await new Promise(resolve=>{if(child.exitCode!==null||child.signalCode!==null)return resolve();child.once("exit",resolve);child.kill();});
  }
 });
+
+
+test("ARIA expansion runtime parses with the supported Node.js runtime",()=>{
+ const {spawnSync}=require("node:child_process");
+ const result=spawnSync(process.execPath,["--check","backend/aria_expansion_runtime.cjs"],{encoding:"utf8"});
+ assert.equal(result.status,0,"runtime syntax check failed: "+(result.stderr||result.stdout));
+});
