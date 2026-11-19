@@ -29,9 +29,9 @@
 - `bash JAVA_SYNTAX_GATE.sh` — PASS
 
 ## موانع باز انتشار
-- `gradle-wrapper.jar` در بسته موجود نیست.
-- Android SDK platform 36 و Build Tools 35.0.0 در محیط فعلی نصب نیستند.
-- بنابراین APK/AAB ساخته یا امضا نشده و اجرای دستگاه واقعی اثبات نشده است.
+- `gradle-wrapper.jar` در آرشیو نیست، اما workflow اندروید آن را با SHA-256 مورد انتظار از منبع رسمی Gradle دریافت و راستی‌آزمایی می‌کند.
+- workflow اندروید، Android SDK platform 36 و Build Tools 35.0.0/36.0.0 را روی runner نصب می‌کند؛ نبود آن‌ها در محیط محلی مانع CI نیست.
+- APK/AAB هنوز ساخته نشده، چون candidate ZIP هنوز به مسیر ورودی مخزن نرسیده است؛ امضای Release و اجرای دستگاه واقعی نیز هنوز اثبات نشده‌اند.
 - آزمون schema فوق ایستا است؛ PostgreSQL زنده، migration زنده، tenant isolation و backup/restore واقعی هنوز نیازمند محیط مستقل‌اند.
 - اتصال زنده PSP، Firebase، Object Storage، ایمیل/اعلان و APIهای بیرونی نیز اثبات نشده است.
 - candidate در این commit به مسیر `release-input/` مخزن بارگذاری نشده؛ workflow اندروید تا ورود فایل با checksum دقیق قابل اجرا نیست.
