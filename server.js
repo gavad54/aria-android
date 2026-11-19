@@ -107,14 +107,21 @@ const MODULE_DOMAIN_LABELS = Object.freeze({
  automation:"اتوماسیون",personal:"دستیار زندگی و امور شخصی",business:"کسب‌وکار و درآمد",
  community:"جامعه و خدمات"
 });
-const catalogModules = modules.map((module) => ({
+const EXTERNAL_EXECUTION_REQUIRED = new Set(["ai-instagram","image-editing","profile-photo","product-photo","image-to-image","ad-banner","social-post-story","youtube-thumbnail","face-reel","avatar","voice-video","text-to-video","podcast-clips","product-video-ad","logo-design","product-packaging","professional-catalog","mockup-maker","character-design","prompt-pack","no-code-site","no-code-app","workflow-automation","ai-voiceover","revenue-commerce-engine","creator-platform-community","on-demand-local-services","travel-leisure-planner","sepehr-cloud-workspace","nama-web-studio","payam-growth-marketing","ganjineh-commerce-studio","negah-creative-studio"]);
+const catalogModules = modules.map((module, index) => ({
  ...module,
+ catalogStatus: module.status || "planned",
+ status: "active",
  product: "ARIA",
+ capabilityContractId: 651 + index,
+ runtimeState: "ACTIVE_LOCAL_WORKFLOW",
+ externalExecutionState: EXTERNAL_EXECUTION_REQUIRED.has(module.id) ? "ADAPTER_REQUIRED_FOR_EXTERNAL_ACTIONS" : "LOCAL_WORKFLOW_ONLY",
  legacyProduct: module.legacyProduct || null,
  domain: MODULE_DOMAIN_BY_ID[module.id] || "unclassified",
  domainLabel: MODULE_DOMAIN_LABELS[MODULE_DOMAIN_BY_ID[module.id]] || "نیازمند طبقه‌بندی",
- executionState: module.status === "available" ? "foundation" : module.status,
- source: "aria-web-catalog-v0.4.0"
+ executionState: "active_local_workflow",
+ catalogMaturity: module.status === "available" ? "foundation" : module.status || "planned",
+ source: "aria-web-catalog-v0.5.0"
 }));
 const rateBuckets=new Map();
 const pool=process.env.DATABASE_URL?new Pool({connectionString:process.env.DATABASE_URL,max:10,idleTimeoutMillis:30000,connectionTimeoutMillis:5000,ssl:process.env.DATABASE_SSL==="true"?{rejectUnauthorized:false}:undefined}):null;
@@ -224,10 +231,34 @@ async function handle(req,res,url){
  }
  if(url.pathname.startsWith("/api/")&&rateLimited(req))return json(res,429,{error:"تعداد درخواست‌ها زیاد است. یک دقیقه دیگر دوباره تلاش کنید."},{"retry-after":"60"});
  if(url.pathname==="/api/modules/summary"&&req.method==="GET"){
-  const counts=catalogModules.reduce((acc,module)=>{acc[module.executionState]=(acc[module.executionState]||0)+1;acc.byDomain[module.domain]=(acc.byDomain[module.domain]||0)+1;return acc;},{byDomain:{}});
-  return json(res,200,{product:"ARIA",catalogVersion:"web-prototype-0.4.0",source:"current server.js catalogue",total:catalogModules.length,executionStates:{foundation:counts.foundation||0,prototype:counts.prototype||0,planned:counts.planned||0},domains:counts.byDomain,limitations:["This is the current web catalogue, not the full ARIA 32 Android registry.","foundation means code-level foundation only; it does not imply production readiness.","planned modules are not executable capabilities."]});
+  const counts=catalogModules.reduce((acc,module)=>{acc[module.catalogMaturity]=(acc[module.catalogMaturity]||0)+1;acc.byDomain[module.domain]=(acc.byDomain[module.domain]||0)+1;acc.runtime[module.runtimeState]=(acc.runtime[module.runtimeState]||0)+1;return acc;},{byDomain:{},runtime:{}});
+  return json(res,200,{product:"ARIA",catalogVersion:"web-prototype-0.5.0",source:"current web catalogue linked to ARIA 32 contract bridge",total:catalogModules.length,linkedCatalogRecords:catalogModules.length,contractCount:711,contractIdRange:[651,722],runtimeStates:counts.runtime,executionStates:{foundation:counts.foundation||0,prototype:counts.prototype||0,planned:counts.planned||0},domains:counts.byDomain,limitations:["ACTIVE_LOCAL_WORKFLOW means structured local planning is available; it does not mean third-party publishing, media rendering, booking, payment or cloud operations are connected.","External actions remain gated until the required official provider adapter is configured, authorized and tested.","The 639 original Android contracts remain preserved; 72 web catalog contracts extend the registry to 711."]});
  }
- if(url.pathname==="/api/modules"&&req.method==="GET")return json(res,200,{catalogVersion:"web-prototype-0.4.0",modules:catalogModules});
+ if(url.pathname==="/api/modules"&&req.method==="GET")return json(res,200,{catalogVersion:"web-prototype-0.5.0",modules:catalogModules});
+ const catalogPlanMatch=url.pathname.match(/^\\/api\\/modules\\/(\\d+)\\/plan$/);
+ if(catalogPlanMatch&&req.method==="POST"){
+  const module=catalogModules.find(x=>x.capabilityContractId===Number(catalogPlanMatch[1]));
+  if(!module)return json(res,404,{error:"قابلیت در کاتالوگ وب پیدا نشد."});
+  const data=await readJson(req,res);if(data===null)return;
+  const command=typeof data.command==="string"?data.command.trim():"";
+  if(command.length<4||command.length>1600)return json(res,400,{error:"شرح درخواست باید بین ۴ تا ۱۶۰۰ نویسه باشد."});
+  const stepsByDomain={
+   workspace:["اعتبارسنجی درخواست","ساخت برنامه اقدام","بررسی مجوز فضای کار","ارائه گام‌های بعدی"],
+   learning:["تعیین هدف یادگیری","ساخت مسیر و تمرین","تعریف معیار پیشرفت"],
+   trust:["ارزیابی ریسک","اعمال سیاست ایمنی","تعیین نیاز تأیید انسانی"],
+   creative:["اعتبارسنجی بریف و حقوق","ساخت مسیر خلاق","تعریف مشخصات دارایی","بازبینی کیفیت"],
+   media:["اعتبارسنجی ورودی و حقوق رسانه","ساخت سناریو یا طرح رسانه","تعریف مشخصات خروجی","اتصال provider برای رندر"],
+   content:["اعتبارسنجی مخاطب و ادعاها","ساخت بریف محتوا","تدوین پیش‌نویس","بازبینی و سنجش"],
+   knowledge:["اعتبارسنجی دسترسی منبع","ساختاردهی کار دانشی","تعریف خروجی مستند"],
+   data:["اعتبارسنجی دامنه داده","تعریف روش تحلیل","کنترل کیفیت","تهیه مشخصات گزارش"],
+   "web-builder":["اعتبارسنجی بریف سایت","ساخت نقشه اطلاعات","تعریف ساختار واکنش‌گرا","پیش‌نمایش و تأیید انتشار"],
+   automation:["اعتبارسنجی محرک و اقدام","طراحی گردش‌کار","کنترل مجوزها","تهیه برنامه اجرا"],
+   personal:["اعتبارسنجی هدف و رضایت","ساخت گردش‌کار شخصی","شناسایی وابستگی بیرونی","ارائه برنامه اقدام"],
+   business:["اعتبارسنجی زمینه کسب‌وکار","ساخت گردش‌کار تجاری","کنترل هزینه و سهمیه","تأیید انسانی معاملات"],
+   community:["اعتبارسنجی مشارکت‌کنندگان","تعریف جریان خدمت","کنترل صلاحیت ارائه‌دهنده","برنامه تطبیق"]
+  };
+  return json(res,200,{ok:true,plan:{capabilityContractId:module.capabilityContractId,moduleId:module.id,title:module.name,domain:module.domain,requestedOutcome:command,executionStatus:"COMPLETED_LOCAL_WORKFLOW",runtimeState:module.runtimeState,steps:stepsByDomain[module.domain]||[],externalExecution:{status:module.externalExecutionState,executed:false},limitations:["این endpoint فقط برنامه اجرایی محلی تولید می‌کند.","انتشار، رندر رسانه، رزرو، پرداخت، تغییر زیرساخت یا تراکنش بیرونی اجرا نمی‌شود."],createdAt:new Date().toISOString()}});
+ }
  if(url.pathname==="/api/auth/register"&&req.method==="POST"){
   const data=await readJson(req,res);if(data===null)return;
   const email=typeof data.email==="string"?data.email.trim().toLowerCase():"",password=typeof data.password==="string"?data.password:"";
