@@ -765,7 +765,7 @@ async function handle(req, res, url, deps) {
       ]);
       return json(res, 201, { ...result, persistence: "DATABASE_SAVED", idempotentReplay: false });
     } catch (err) {
-      if (["MODULE_ACTOR_REQUIRED","MODULE_TENANT_REQUIRED","MODULE_INPUT_INVALID","MODULE_INPUT_MISSING","MODULE_CONSENT_REQUIRED"].includes(err.message)) {
+      if (["MODULE_ACTOR_REQUIRED","MODULE_TENANT_REQUIRED","MODULE_INPUT_INVALID","MODULE_INPUT_MISSING","MODULE_CONSENT_REQUIRED","SUPPORT_TICKET_INPUT_INVALID","CUSTOMER_SUCCESS_INPUT_INVALID","SERVICE_PACKAGE_INPUT_INVALID","UNIT_ECONOMICS_INPUT_INVALID"].includes(err.message)) {
         return json(res, err.message === "MODULE_CONSENT_REQUIRED" ? 403 : 400, { error: err.message, missingFields: err.missingFields || [] });
       }
       if (err.code === "23505") return json(res, 409, { error: "درخواست تکراری است؛ همان Idempotency-Key قبلاً ثبت شده است." });
