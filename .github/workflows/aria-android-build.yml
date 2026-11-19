@@ -87,6 +87,7 @@ jobs:
         run: |
           set -euo pipefail
           (cd backend && npm install --no-audit --no-fund)
+          node "$GITHUB_WORKSPACE/scripts/aria32_alias_consolidation_gate.cjs" --root "$RUNNER_TEMP/aria32"
           node "$GITHUB_WORKSPACE/scripts/aria32_web_catalog_runtime_check.cjs" --root "$RUNNER_TEMP/aria32"
           node scripts/aria32_release_readiness.js
           node scripts/aria32_no_loss_gate.js
