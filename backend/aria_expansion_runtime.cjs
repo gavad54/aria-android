@@ -165,6 +165,20 @@ async function handle(req, res, url, deps) {
   if (p === "/api/aria-expansion/candidates" && req.method === "GET") {
     return json(res, 200, { candidates: registry.candidates, total: 4, canonicalModuleCount: 639 });
   }
+  if (p === "/api/aria-expansion/revenue-models/simulate-batch" && req.method === "POST") {
+    const data = await readJson(req, res); if (data === null) return true;
+    if (!Array.isArray(data.items) || data.items.length < 1 || data.items.length > 20) return json(res, 400, { error: "بین ۱ تا ۲۰ شبیه‌سازی لازم است." });
+    const results = [];
+    for (let i = 0; i < data.items.length; i++) {
+      const item = data.items[i] || {};
+      const model = registry.revenueModels.find(x => x.id === cleanText(item.modelId, 1, 80));
+      if (!model) return json(res, 404, { error: "مدل درآمدی در ردیف " + (i + 1) + " پیدا نشد." });
+      const result = simulateRevenue(model, item.assumptions);
+      if (result.error) return json(res, 400, { error: "ردیف " + (i + 1) + ": " + result.error });
+      results.push(result);
+    }
+    return json(res, 200, { simulations: results, total: results.length, state: "SIMULATION_ONLY", paymentExecuted: false });
+  }
   if (p === "/api/aria-expansion/revenue-models/simulate" && req.method === "POST") {
     const data = await readJson(req, res); if (data === null) return true;
     const modelId = cleanText(data.modelId, 1, 80);
