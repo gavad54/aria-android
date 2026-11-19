@@ -8,20 +8,25 @@
 - قابلیت مستقل مسئله‌ای: 49؛ مورد 48 به مورد 29 (مراقبت حیوان خانگی) alias شده و موتور مشترک دارد.
 - پنج حوزه به میزبان‌های canonical موجود متصل‌اند: خانه و زندگی → 237؛ خرید و هزینه → 11؛ خانواده و رفاه → 233؛ رشد شغلی و بهره‌وری → 169؛ سفر و اوقات فراغت → 235.
 - چهار نامزد تاریخی در رجیستری با وضعیت UNRESOLVED_CANDIDATE_HOST_REVIEW_REQUIRED قرار دارند؛ میزبان‌های احتمالی برای ممیزی ثبت شده‌اند، اما هنوز canonical ID جدید ندارند.
-- ۵۳ موتور تخصصی دارای قرارداد ورودی/خروجی و عملیات‌اند: ۴۹ موتور مسئله‌ای یکتا (برای ۵۰ رکورد به‌علت alias شماره ۴۸) و چهار موتور نامزد تاریخی.\n- بیست مدل درآمدی به میزبان‌های موجود 8، 12، 26 و 87 متصل شده‌اند؛ هیچ‌کدام درآمد زنده محسوب نمی‌شوند.
+- ۵۳ موتور تخصصی دارای قرارداد ورودی/خروجی و عملیات‌اند: ۴۹ موتور مسئله‌ای یکتا (برای ۵۰ رکورد به‌علت alias شماره ۴۸) و چهار موتور نامزد تاریخی.
+- بیست مدل درآمدی به میزبان‌های موجود 8، 12، 26 و 87 متصل شده‌اند؛ هیچ‌کدام درآمد زنده محسوب نمی‌شوند.
 
 ## APIهای افزوده‌شده
 - GET /api/aria-expansion/summary — شمارش و وضعیت.
 - GET /api/aria-expansion/modules — پنج حوزه و ۵۰ مسئله.
-- GET /api/aria-expansion/candidates — چهار نامزد.\n- GET /api/aria-expansion/engines — ۵۳ قرارداد موتور تخصصی.
+- GET /api/aria-expansion/candidates — چهار نامزد.
+- GET /api/aria-expansion/engines — ۵۳ قرارداد موتور تخصصی.
 - GET /api/aria-expansion/revenue-models — بیست مدل درآمدی با وضعیت DESIGNED_NOT_MONETIZED.
 - POST /api/aria-expansion/modules/{problem-id}/plan — برنامه اقدام محلی اختصاصی برای مسئله.
 - POST /api/aria-expansion/scenarios/simulate — مقایسه محاسباتی ۲ تا ۱۰ سناریو بر اساس اعداد ورودی؛ بدون پیش‌بینی قطعی یا اقدام بیرونی.
+- POST /api/aria-expansion/revenue-models/simulate — محاسبه برآورد درآمد ناخالص و مشارکت خالص برای هر یک از ۲۰ مدل، بر اساس فرض‌های عددی؛ بدون پرداخت یا درآمد واقعی.
+- GET/POST /api/aria-expansion/providers — فهرست عمومی فقط ارائه‌دهندگان تأییدشده و ثبت پروفایل جدید در وضعیت pending.
+- PATCH /api/aria-expansion/providers/{id}/verification — تأیید یا رد ارائه‌دهنده فقط توسط مالک.
 - POST /api/aria-expansion/autonomy/authorize — تصمیم fail-closed؛ نبود هویت یا سیاست مجاز به DENY منتهی می‌شود.
 - POST /api/aria-expansion/autonomy/policies — ثبت سیاست فقط برای شناسه مالک پیکربندی‌شده؛ اجازه مستقیم فقط برای عملیات محلی کم‌ریسک.
 - GET/POST /api/aria-expansion/work-items و PATCH /api/aria-expansion/work-items/{id} — ثبت و پیگیری کارهای کاربر در PostgreSQL با محدودیت user_id.
 - GET/POST /api/aria-expansion/intents — ثبت و مشاهده درخواست‌های کاربر با احراز هویت و رضایت تماس صریح.
-- GET /api/aria-expansion/intents/{id}/matches — تطبیق خالی تا زمان اتصال عرضه‌کنندگان تأییدشده؛ بدون جعل پیشنهاد.
+- GET /api/aria-expansion/intents/{id}/matches — تطبیق دسته‌ای فقط با ارائه‌دهندگان تأییدشده و رضایت صریح؛ بدون افشای اطلاعات تماس.
 - GET /api/aria-expansion/owner/overview — گزارش مدیریتی فقط برای ARIA_OWNER_USER_ID.
 
 ## رابط کاربری
