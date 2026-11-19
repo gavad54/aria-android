@@ -57,7 +57,34 @@
       "engine": {
         "id": "problem-01-engine",
         "name": "جست‌وجو، احراز و مقایسه تعمیرکار — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -76,7 +103,34 @@
       "engine": {
         "id": "problem-02-engine",
         "name": "برآورد اولیه و مدیریت تعمیرات — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -95,7 +149,34 @@
       "engine": {
         "id": "problem-03-engine",
         "name": "برنامه‌ریز و واگذاری کارها — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -114,7 +195,34 @@
       "engine": {
         "id": "problem-04-engine",
         "name": "مدیریت موجودی خوراکی و تاریخ مصرف — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -133,7 +241,34 @@
       "engine": {
         "id": "problem-05-engine",
         "name": "بهینه‌ساز فضای خانه — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -152,7 +287,34 @@
       "engine": {
         "id": "problem-06-engine",
         "name": "بازار خدمات نظافت — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -171,7 +333,34 @@
       "engine": {
         "id": "problem-07-engine",
         "name": "هماهنگی حمل و جابه‌جایی — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -190,7 +379,34 @@
       "engine": {
         "id": "problem-08-engine",
         "name": "دستیار نگهداری گیاه — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -209,7 +425,34 @@
       "engine": {
         "id": "problem-09-engine",
         "name": "راهنمای نصب و رزرو نصاب — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -228,7 +471,34 @@
       "engine": {
         "id": "problem-10-engine",
         "name": "برنامه‌ریز وعده و آماده‌سازی غذا — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -247,7 +517,34 @@
       "engine": {
         "id": "problem-11-engine",
         "name": "ارزیاب ارزش خرید — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -266,7 +563,34 @@
       "engine": {
         "id": "problem-12-engine",
         "name": "مقایسه‌گر قیمت و مشخصات — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -285,7 +609,34 @@
       "engine": {
         "id": "problem-13-engine",
         "name": "راهنمای کاهش ریسک خرید دست‌دوم — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -304,7 +655,34 @@
       "engine": {
         "id": "problem-14-engine",
         "name": "جست‌وجوی قطعه و سازگاری — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -323,7 +701,34 @@
       "engine": {
         "id": "problem-15-engine",
         "name": "مدیریت مرجوعی و ضمانت — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -342,7 +747,34 @@
       "engine": {
         "id": "problem-16-engine",
         "name": "بودجه‌بند خانوار — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -361,7 +793,34 @@
       "engine": {
         "id": "problem-17-engine",
         "name": "اجاره/اشتراک ابزار — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -380,7 +839,34 @@
       "engine": {
         "id": "problem-18-engine",
         "name": "دستیار انتخاب پوشش و اجاره لباس — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -399,7 +885,34 @@
       "engine": {
         "id": "problem-19-engine",
         "name": "پیشنهاددهنده هدیه — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -418,7 +931,34 @@
       "engine": {
         "id": "problem-20-engine",
         "name": "هماهنگ‌کننده بازیافت — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -437,7 +977,34 @@
       "engine": {
         "id": "problem-21-engine",
         "name": "برنامه‌ریز مراقبت کودک و فهرست مراقبان — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -456,7 +1023,34 @@
       "engine": {
         "id": "problem-22-engine",
         "name": "برنامه‌ریز تغذیه عمومی — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -475,7 +1069,34 @@
       "engine": {
         "id": "problem-23-engine",
         "name": "برنامه‌ریز فعالیت و عادت حرکتی — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -494,7 +1115,34 @@
       "engine": {
         "id": "problem-24-engine",
         "name": "ابزار عمومی آرام‌سازی و مدیریت فشار — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -513,7 +1161,34 @@
       "engine": {
         "id": "problem-25-engine",
         "name": "دفترچه و برنامه عادت خواب — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -532,7 +1207,34 @@
       "engine": {
         "id": "problem-26-engine",
         "name": "پیشنهادگر تفریح خانوادگی — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -551,7 +1253,34 @@
       "engine": {
         "id": "problem-27-engine",
         "name": "مربی عادت و مسیر یادگیری — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -570,7 +1299,34 @@
       "engine": {
         "id": "problem-28-engine",
         "name": "برنامه‌ریز تعادل کار و زندگی — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -589,7 +1345,34 @@
       "engine": {
         "id": "pet-care-coordination-engine",
         "name": "موتور هماهنگی مراقبت حیوان خانگی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -608,7 +1391,34 @@
       "engine": {
         "id": "problem-30-engine",
         "name": "مربی زبان کاربردی — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -627,7 +1437,34 @@
       "engine": {
         "id": "problem-31-engine",
         "name": "راهنمای مسیر شغلی و جست‌وجوی فرصت — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -646,7 +1483,34 @@
       "engine": {
         "id": "problem-32-engine",
         "name": "نقشه مهارت و آموزش پروژه‌محور — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -665,7 +1529,34 @@
       "engine": {
         "id": "problem-33-engine",
         "name": "دستیار تمرکز و بهره‌وری — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -684,7 +1575,34 @@
       "engine": {
         "id": "problem-34-engine",
         "name": "استودیوی تولید محتوای حرفه‌ای — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -703,7 +1621,34 @@
       "engine": {
         "id": "problem-35-engine",
         "name": "موتور بازاریابی و جذب مشتری — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -722,7 +1667,34 @@
       "engine": {
         "id": "problem-36-engine",
         "name": "سازنده سایت و فروشگاه — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -741,7 +1713,34 @@
       "engine": {
         "id": "problem-37-engine",
         "name": "مدیریت شبکه اجتماعی — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -760,7 +1759,34 @@
       "engine": {
         "id": "problem-38-engine",
         "name": "تحلیلگر و گزارش‌ساز داده — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -779,7 +1805,34 @@
       "engine": {
         "id": "problem-39-engine",
         "name": "مدیریت دریافت و پیگیری پرداخت — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -798,7 +1851,34 @@
       "engine": {
         "id": "problem-40-engine",
         "name": "تحلیل بازده بازاریابی — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -817,7 +1897,34 @@
       "engine": {
         "id": "problem-41-engine",
         "name": "سازنده برنامه سفر — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -836,7 +1943,34 @@
       "engine": {
         "id": "problem-42-engine",
         "name": "جست‌وجو و مقایسه اقامتگاه — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -855,7 +1989,34 @@
       "engine": {
         "id": "problem-43-engine",
         "name": "بودجه‌بند سفر — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -874,7 +2035,34 @@
       "engine": {
         "id": "problem-44-engine",
         "name": "کاوشگر تجربه محلی — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -893,7 +2081,34 @@
       "engine": {
         "id": "problem-45-engine",
         "name": "مقایسه‌گر حمل‌ونقل — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -912,7 +2127,34 @@
       "engine": {
         "id": "problem-46-engine",
         "name": "راهنمای محلی هوشمند — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -931,7 +2173,34 @@
       "engine": {
         "id": "problem-47-engine",
         "name": "چک‌لیست مدارک سفر — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -950,7 +2219,34 @@
       "engine": {
         "id": "pet-care-coordination-engine",
         "name": "موتور هماهنگی مراقبت حیوان خانگی",
-        "mode": "REUSE_EXISTING_CAPABILITY"
+        "mode": "REUSE_EXISTING_CAPABILITY",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": "problem-29",
       "mappingStatus": "ALIAS_TO_PROBLEM_29",
@@ -969,7 +2265,34 @@
       "engine": {
         "id": "problem-49-engine",
         "name": "راهنمای آداب و قوانین مقصد — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -988,7 +2311,34 @@
       "engine": {
         "id": "problem-50-engine",
         "name": "جامعه همسفران — موتور تخصصی",
-        "mode": "DOMAIN_ENGINE"
+        "mode": "DOMAIN_ENGINE",
+        "contract": {
+          "input": [
+            "goal",
+            "constraints",
+            "consent",
+            "sourceReferences"
+          ],
+          "output": [
+            "actionPlan",
+            "checklist",
+            "riskFlags",
+            "followUp"
+          ],
+          "operations": [
+            "validate_input",
+            "build_local_plan",
+            "quality_review",
+            "track_outcome"
+          ],
+          "metrics": [
+            "completion_rate",
+            "time_to_result",
+            "cost_per_completed_task"
+          ],
+          "runtimeMode": "LOCAL_PLAN_ENGINE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "aliasOf": null,
       "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT",
@@ -1004,7 +2354,28 @@
       "moduleId": "intent-marketplace",
       "engine": {
         "id": "intent-matching-engine",
-        "name": "Intent Matching & Explainability Engine"
+        "name": "Intent Matching & Explainability Engine",
+        "contract": {
+          "input": [
+            "authenticated_actor",
+            "tenant_context",
+            "request_payload",
+            "policy_or_assumptions"
+          ],
+          "output": [
+            "decision_or_result",
+            "audit_record",
+            "explainability"
+          ],
+          "operations": [
+            "validate",
+            "authorize_or_simulate",
+            "record_evidence",
+            "review"
+          ],
+          "runtimeMode": "GUARDED_CONTROL_PLANE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "executionBoundary": "ثبت قصد، تطبیق توضیح‌پذیر، پاسخ و نتیجه؛ بدون تکرار بازارگاه و Lead Market",
       "status": "DESIGNED_PENDING_IMPLEMENTATION",
@@ -1026,7 +2397,28 @@
       "moduleId": "autonomy-control-center",
       "engine": {
         "id": "policy-decision-engine",
-        "name": "Policy Decision & Capability Grant Engine"
+        "name": "Policy Decision & Capability Grant Engine",
+        "contract": {
+          "input": [
+            "authenticated_actor",
+            "tenant_context",
+            "request_payload",
+            "policy_or_assumptions"
+          ],
+          "output": [
+            "decision_or_result",
+            "audit_record",
+            "explainability"
+          ],
+          "operations": [
+            "validate",
+            "authorize_or_simulate",
+            "record_evidence",
+            "review"
+          ],
+          "runtimeMode": "GUARDED_CONTROL_PLANE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "executionBoundary": "سیاست و مجوز پیش از اجرای عامل؛ deny-by-default و حداقل دسترسی",
       "status": "DESIGNED_PENDING_IMPLEMENTATION",
@@ -1048,7 +2440,28 @@
       "moduleId": "scenario-simulator",
       "engine": {
         "id": "scenario-sensitivity-engine",
-        "name": "Scenario Orchestration & Sensitivity Engine"
+        "name": "Scenario Orchestration & Sensitivity Engine",
+        "contract": {
+          "input": [
+            "authenticated_actor",
+            "tenant_context",
+            "request_payload",
+            "policy_or_assumptions"
+          ],
+          "output": [
+            "decision_or_result",
+            "audit_record",
+            "explainability"
+          ],
+          "operations": [
+            "validate",
+            "authorize_or_simulate",
+            "record_evidence",
+            "review"
+          ],
+          "runtimeMode": "LOCAL_DETERMINISTIC_SIMULATOR",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "executionBoundary": "مدیریت فرض، گزینه، نسخه مدل، دامنه نتایج و تحلیل حساسیت؛ بدون تضمین پیش‌بینی",
       "status": "DESIGNED_PENDING_IMPLEMENTATION",
@@ -1070,7 +2483,28 @@
       "moduleId": "owner-control-center",
       "engine": {
         "id": "owner-operations-engine",
-        "name": "Owner Operations & Release-Gate Engine"
+        "name": "Owner Operations & Release-Gate Engine",
+        "contract": {
+          "input": [
+            "authenticated_actor",
+            "tenant_context",
+            "request_payload",
+            "policy_or_assumptions"
+          ],
+          "output": [
+            "decision_or_result",
+            "audit_record",
+            "explainability"
+          ],
+          "operations": [
+            "validate",
+            "authorize_or_simulate",
+            "record_evidence",
+            "review"
+          ],
+          "runtimeMode": "GUARDED_CONTROL_PLANE",
+          "externalAdapterState": "NOT_CONNECTED"
+        }
       },
       "executionBoundary": "نمایش سلامت، ممیزی دسترسی، کنترل انتشار و اقتصاد مالک؛ بدون افشای کلیدها",
       "status": "DESIGNED_PENDING_IMPLEMENTATION",
