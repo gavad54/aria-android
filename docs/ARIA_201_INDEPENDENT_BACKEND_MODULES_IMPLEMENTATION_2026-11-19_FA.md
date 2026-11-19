@@ -78,7 +78,7 @@
 - `test/aria-service-extended-engines.test.js`: ورودی‌های نامعتبر، SLA، انتقال وضعیت، تأیید تمدید، چرخه بسته و محاسبه اقتصاد واحد.
 - `test/aria-service-delivery-api.test.js`: کاتالوگ API، تعداد ماژول‌ها و رد درخواست بدون احراز هویت.
 
-Workflow موجود `aria-ci.yml` در push به همین شاخه باید `npm run check`، `node --check backend/aria_expansion_runtime.cjs` و `npm test` را اجرا کند. با این حال، در آخرین استعلام برای commitهای جدید، GitHub status check و workflow run قابل مشاهده برنگرداندند؛ بنابراین اجرای موفق آزمون‌ها را ادعا نمی‌کنیم. این تست‌ها نوشته شده‌اند، اما PASS بودنشان هنوز نیازمند run واقعی است.
+Workflow موجود `aria-ci.yml` روی آخرین commit شاخه، `5accc934c64b947d9226bce7b0288e9199612bd0`، اجرا شد: [اجرای CI شماره 44606629051](https://github.com/gavad54/aria-android/actions/runs/44606629051) با نتیجه SUCCESS. گام‌های syntax/engineering scripts، catalog-to-contract manifest، expansion registry integrity و web API tests همگی PASS شدند. خروجی Node Test Runner: 27 passed، 0 failed. این شواهد اجرای تست‌های محلی و قراردادهای API را تأیید می‌کند؛ جایگزین PostgreSQL زنده، provider E2E یا آزمون Production نیست.
 
 ## مواردی که هنوز Production را مسدود می‌کنند
 1. اجرای CI و رفع هر خطا؛ به‌ویژه بارگذاری 201 فایل و startup guard شمارش.
@@ -90,3 +90,7 @@ Workflow موجود `aria-ci.yml` در push به همین شاخه باید `npm
 7. crosswalk معنایی نهایی با 639 canonical، 81 موتور زیرساختی و سایر overlayها؛ شناسه‌های موقت بدون تأیید به canonical ارتقا نمی‌یابند.
 
 **وضعیت نهایی این تغییر:** 201 فایل ماژول و API/ذخیره‌سازی محلی به شاخه توسعه اضافه شده‌اند؛ CI، PostgreSQL زنده، E2E و Production هنوز تأیید نشده‌اند. PR باید Draft و Unmerged باقی بماند تا گیت‌های انتشار واقعاً پاس شوند.
+
+
+## تفکیک دو فهرست ۵۰تایی
+فهرست 50 ایده‌ای که در این گزارش به فایل‌های مستقل تبدیل شده، همان فهرست 50 موردی سند backlog (Work Memory تا Service Value Measurement) است و شناسه‌های `ARIA-IDEA-BACKLOG-001..050` دارد. 50 رکورد تاریخی `ARIA-IDEA-MODULE-001..050` در overlay قدیمی 111تایی نیز دست‌نخورده حفظ شده‌اند؛ این دو منبع بدون crosswalk معنایی با یکدیگر ادغام یا جایگزین نشده‌اند.
