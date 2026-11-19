@@ -1,0 +1,40 @@
+"use strict";
+const test = require("node:test");
+const assert = require("node:assert/strict");
+const { spawn } = require("node:child_process");
+
+test("service delivery catalog is discoverable and never advertises live execution", async () => {
+  const port = 35000 + Math.floor(Math.random() * 1000);
+  const env = { ...process.env, PORT: String(port) };
+  delete env.DATABASE_URL; delete env.ARIA_JWT_SECRET; delete env.OPENAI_API_KEY;
+  const child = spawn(process.execPath, ["server.js"], { env, stdio: "ignore" });
+  const base = "http://127.0.0.1:" + port;
+  try {
+    let started = false;
+    for (let i = 0; i < 60; i++) {
+      try { const response = await fetch(base + "/health"); if (response.ok) { started = true; break; } } catch {}
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
+    assert.equal(started, true, "server should start");
+    const catalogResponse = await fetch(base + "/api/aria-expansion/service-delivery/catalog");
+    const catalog = await catalogResponse.json();
+    assert.equal(catalogResponse.status, 200);
+    assert.equal(catalog.modules.length, 8);
+    assert.equal(catalog.productionVerified, false);
+    assert.equal(catalog.paymentExecuted, false);
+    assert.equal(catalog.externalExecutionPerformed, false);
+    const privateCases = await fetch(base + "/api/aria-expansion/service-cases");
+    assert.equal(privateCases.status, 401, "service cases must require authentication");
+    const createAttempt = await fetch(base + "/api/aria-expansion/service-cases", {
+      method: "POST", headers: { "content-type": "application/json" },
+      body: JSON.stringify({ moduleId: "ARIA-SVC-INTAKE", title: "درخواست خدمت", customerRef: "x", scope: "شرح درخواست آزمایشی" })
+    });
+    assert.equal(createAttempt.status, 401, "unauthenticated users must not create service cases");
+  } finally {
+    await new Promise(resolve => {
+      if (child.exitCode !== null || child.signalCode !== null) return resolve();
+      child.once("exit", resolve);
+      child.kill();
+    });
+  }
+});
