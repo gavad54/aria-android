@@ -309,7 +309,8 @@ async function handle(req, res, url, deps) {
       const [work,intents,policies,providers]=await Promise.all([
         pool.query("SELECT status,COUNT(*)::int AS count FROM aria_expansion_work_items GROUP BY status"),
         pool.query("SELECT status,COUNT(*)::int AS count FROM aria_expansion_intents GROUP BY status"),
-        pool.query("SELECT COUNT(*)::int AS count FROM aria_autonomy_policies")
+        pool.query("SELECT COUNT(*)::int AS count FROM aria_autonomy_policies"),
+        pool.query("SELECT verification_status,COUNT(*)::int AS count FROM aria_expansion_providers GROUP BY verification_status")
       ]);
       return json(res,200,{canonicalModuleCount:639,expansion:{problemRecords:50,uniqueProblemCapabilities:49,historicalCandidates:4,revenueModels:20},workItems:work.rows,intents:intents.rows,autonomyPolicies:policies.rows[0].count,providers:providers.rows,liveRevenueEnabled:false,externalExecutionEnabled:false});
     }catch(err){console.error("ARIA owner overview failed:",err.message);return json(res,500,{error:"گزارش مالک دریافت نشد."});}
