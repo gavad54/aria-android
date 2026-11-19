@@ -118,6 +118,105 @@ function evaluateDeliveryQuality(input) {
   };
 }
 
+
+function createSupportTicket(input, actor) {
+  const title = typeof input?.title === "string" ? input.title.trim() : "";
+  const description = typeof input?.description === "string" ? input.description.trim() : "";
+  const priority = input?.priority;
+  const responseHours = input?.responseHours;
+  const userId = actor && actor.userId != null ? String(actor.userId) : "";
+  const tenantId = actor && actor.tenantId != null ? String(actor.tenantId) : "";
+  const serviceCaseId = typeof input?.serviceCaseId === "string" ? input.serviceCaseId.trim() : "";
+  if (!userId || !tenantId || !serviceCaseId || title.length < 3 || title.length > 160 ||
+      description.length < 8 || description.length > 3000 ||
+      !["low", "normal", "high"].includes(priority) ||
+      typeof responseHours !== "number" || !Number.isFinite(responseHours) || responseHours < 1 || responseHours > 720) {
+    throw new Error("SUPPORT_TICKET_INPUT_INVALID");
+  }
+  const now = new Date();
+  return {
+    id: randomUUID(), serviceCaseId, tenantId, createdBy: userId, title, description, priority,
+    status: "OPEN", responseTargetAt: new Date(now.getTime() + responseHours * 3600000).toISOString(),
+    responseHours, externalNotificationSent: false, paymentExecuted: false,
+    createdAt: now.toISOString(), productionVerified: false
+  };
+}
+
+function evaluateCustomerSuccess(input) {
+  const { period, activeDays, completedTasks, targetTasks, unresolvedTickets } = input || {};
+  if (typeof period !== "string" || !/^\\d{4}-\\d{2}$/.test(period) ||
+      !Number.isInteger(activeDays) || activeDays < 0 || activeDays > 31 ||
+      !Number.isInteger(completedTasks) || completedTasks < 0 ||
+      !Number.isInteger(targetTasks) || targetTasks < 0 ||
+      !Number.isInteger(unresolvedTickets) || unresolvedTickets < 0) {
+    throw new Error("CUSTOMER_SUCCESS_INPUT_INVALID");
+  }
+  let health = "NEEDS_ATTENTION";
+  if (unresolvedTickets >= 3 || activeDays < 3) health = "AT_RISK";
+  else if (activeDays >= 10 && completedTasks >= targetTasks) health = "HEALTHY";
+  return {
+    period, activeDays, completedTasks, targetTasks, unresolvedTickets, health,
+    renewalDecision: "OWNER_REVIEW_REQUIRED", renewalExecuted: false,
+    evidenceBasis: ["activeDays", "completedTasks", "targetTasks", "unresolvedTickets"],
+    productionVerified: false
+  };
+}
+
+function createServicePackage(input, actor) {
+  const name = typeof input?.name === "string" ? input.name.trim() : "";
+  const version = input?.version;
+  const serviceModuleIds = input?.serviceModuleIds;
+  const steps = input?.steps;
+  const currency = typeof input?.currency === "string" ? input.currency.trim().toUpperCase() : "";
+  const userId = actor && actor.userId != null ? String(actor.userId) : "";
+  const tenantId = actor && actor.tenantId != null ? String(actor.tenantId) : "";
+  if (!userId || !tenantId || name.length < 3 || name.length > 120 ||
+      !Number.isInteger(version) || version < 1 ||
+      !Array.isArray(serviceModuleIds) || serviceModuleIds.length < 1 || serviceModuleIds.length > 8 ||
+      !serviceModuleIds.every(id => MODULE_BY_ID.has(id)) ||
+      !Array.isArray(steps) || steps.length < 1 || steps.length > 30 ||
+      !steps.every(step => typeof step === "string" && step.trim().length >= 3 && step.trim().length <= 200) ||
+      !/^[A-Z]{3}$/.test(currency)) {
+    throw new Error("SERVICE_PACKAGE_INPUT_INVALID");
+  }
+  return {
+    id: randomUUID(), tenantId, createdBy: userId, name, version,
+    serviceModuleIds: [...new Set(serviceModuleIds)],
+    steps: steps.map(step => step.trim()), currency,
+    state: "DRAFT", entitlementActivated: false, paymentExecuted: false,
+    externalExecutionPerformed: false, createdAt: new Date().toISOString(),
+    productionVerified: false
+  };
+}
+
+function calculateServiceUnitEconomics(input) {
+  const currency = typeof input?.currency === "string" ? input.currency.trim().toUpperCase() : "";
+  const platformRevenue = input?.platformRevenue;
+  const principalFunds = input?.principalFunds;
+  const costs = input?.costs;
+  const costKeys = ["provider", "model", "storage", "support", "payment"];
+  if (!/^[A-Z]{3}$/.test(currency) ||
+      typeof platformRevenue !== "number" || !Number.isFinite(platformRevenue) || platformRevenue < 0 ||
+      typeof principalFunds !== "number" || !Number.isFinite(principalFunds) || principalFunds < 0 ||
+      !costs || typeof costs !== "object" || Array.isArray(costs) ||
+      costKeys.some(key => costs[key] !== undefined && (typeof costs[key] !== "number" || !Number.isFinite(costs[key]) || costs[key] < 0))) {
+    throw new Error("UNIT_ECONOMICS_INPUT_INVALID");
+  }
+  const normalizedCosts = Object.fromEntries(costKeys.map(key => [key, costs[key] || 0]));
+  const totalCost = costKeys.reduce((sum, key) => sum + normalizedCosts[key], 0);
+  if (!Number.isFinite(totalCost)) throw new Error("UNIT_ECONOMICS_INPUT_INVALID");
+  const contributionMargin = platformRevenue - totalCost;
+  return {
+    currency, recognizedPlatformRevenue: platformRevenue, principalExcluded: principalFunds,
+    costs: normalizedCosts, totalCost, contributionMargin,
+    contributionMarginPercent: platformRevenue === 0 ? null : Math.round((contributionMargin / platformRevenue) * 10000) / 100,
+    principalRevenueRecognized: false, paymentExecuted: false,
+    revenueRecognitionState: "CALCULATED_FROM_INPUTS_NOT_LEDGER_VERIFIED",
+    productionVerified: false
+  };
+}
+
 module.exports = {
+  createSupportTicket, evaluateCustomerSuccess, createServicePackage, calculateServiceUnitEconomics,
   SERVICE_MODULES, createServiceCase, transitionServiceCase, buildQuote, evaluateDeliveryQuality
 };
