@@ -20,7 +20,8 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(summary.problemRecords,50);
   assert.equal(summary.ideaModules,50);
   assert.equal(summary.controlModules,4);
-  assert.equal(summary.totalModules,54);
+  assert.equal(summary.legacyAppModules,7);
+  assert.equal(summary.totalModules,61);
   assert.equal(summary.uniqueProblemCapabilities,49);
   assert.equal(summary.parentDomains,5);
   assert.equal(summary.historicalCandidates,4);
@@ -33,15 +34,19 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(modulesResponse.status,200);
   assert.equal(modules.parents.length,5);
   assert.equal(modules.problems.length,50);
-  assert.equal(modules.modules.length,54);
+  assert.equal(modules.modules.length,61);
   assert.equal(modules.ideaModules,50);
   assert.equal(modules.controlModules,4);
-  assert.equal(modules.totalModules,54);
+  assert.equal(modules.legacyAppModules,7);
+  assert.equal(modules.totalModules,61);
   assert.equal(modules.mergedDomainPacks.length,7);
   assert.deepEqual(modules.mergedDomainPacks.map(x=>x.id),["ARVAND","CHARSU","GANJINEH","NEGAH","SEPEHR","NAMA","PAYAM"]);
-  assert.equal(new Set(modules.modules.map(x=>x.moduleId)).size,54);
+  assert.equal(new Set(modules.modules.map(x=>x.moduleId)).size,61);
   assert.equal(modules.modules.filter(x=>x.moduleType==="IDEA_DERIVED_PRODUCT_MODULE").length,50);
   assert.equal(modules.modules.filter(x=>x.moduleType==="CONTROL_AND_GOVERNANCE_MODULE").length,4);
+  assert.equal(modules.modules.filter(x=>x.moduleType==="MERGED_LEGACY_APP_DOMAIN_MODULE").length,7);
+  assert.deepEqual(modules.modules.filter(x=>x.moduleType==="MERGED_LEGACY_APP_DOMAIN_MODULE").map(x=>x.legacyAppName),["ARVAND","CHARSU","GANJINEH","NEGAH","SEPEHR","NAMA","PAYAM"]);
+  assert.ok(modules.modules.filter(x=>x.moduleType==="MERGED_LEGACY_APP_DOMAIN_MODULE").every(x=>x.submodules.length===8));
   assert.equal(new Set(modules.problems.map(x=>x.id)).size,50);
   assert.ok(modules.problems.every(x=>x.engine&&x.parentDomain&&x.sourceProblemNumber&&Number.isInteger(x.hostCanonicalContractId)));
   assert.equal(new Set(modules.problems.map(x=>x.hostCanonicalContractId)).size,5);
@@ -102,6 +107,10 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.ok(plan.plan.steps.length>=3);
   assert.equal(plan.plan.externalExecution.executed,false);
 
+  const legacyDomainPlanResponse=await fetch(base+"/api/aria-expansion/modules/ARIA-LEGACY-APP-MODULE-001/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"آغاز گردش‌کار تجارت بین‌الملل"})});
+  const legacyDomainPlan=await legacyDomainPlanResponse.json();
+  assert.equal(legacyDomainPlanResponse.status,200);
+  assert.equal(legacyDomainPlan.plan.moduleId,"ARIA-LEGACY-APP-MODULE-001");
   const newModulePlanResponse=await fetch(base+"/api/aria-expansion/modules/ARIA-IDEA-MODULE-001/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"بررسی و انتخاب تعمیرکار مطمئن"})});
   const newModulePlan=await newModulePlanResponse.json();
   assert.equal(newModulePlanResponse.status,200);
