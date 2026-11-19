@@ -13,6 +13,12 @@ assert.equal(modules.length,72);
 assert.ok(!/ARVAND|CHARSU|GANJINEH|NEGAH|SEPEHR|NAMA|PAYAM/i.test(JSON.stringify(modules)),'retired sub-product names must not appear in the public ARIA catalog');
 assert.ok(manifest.records.every(r=>!Object.prototype.hasOwnProperty.call(r,'legacyProduct')),'legacy product labels must not be exposed in the public catalog');
 assert.equal(manifest.records.length,72);
+assert.equal(manifest.baselineContractCount,639);
+assert.equal(manifest.addedContractCount,0);
+assert.equal(manifest.totalContractCount,639);
+assert.equal(manifest.catalogEntryCount,72);
+assert.equal(manifest.uniqueAliasTargetCount,47);
+assert.deepEqual(manifest.catalogEntryIdRange,[651,722]);
 assert.equal(new Set(modules.map(x=>x.id)).size,72);
 assert.equal(new Set(manifest.records.map(x=>x.id)).size,72);
 for(let i=0;i<72;i++){
@@ -21,8 +27,10 @@ for(let i=0;i<72;i++){
  assert.equal(r.name,m.name,'catalog name must match source');
  assert.equal(r.description,m.description,'catalog description must match source');
  assert.equal(r.domain,domains[m.id],'catalog domain must match source mapping');
- assert.equal(r.contractId,651+i,'contract ID range must be stable');
+ assert.equal(r.catalogEntryId,651+i,'catalog entry ID range must be stable');
+ assert.ok(Number.isInteger(r.capabilityContractId)&&r.capabilityContractId>=1&&r.capabilityContractId<=639,'catalog alias must resolve to a canonical contract');
  assert.equal(r.activation,'LOCAL_WORKFLOW_ACTIVE');
- assert.ok(r.aliasOfModuleId===null||Number.isInteger(r.aliasOfModuleId));
+ assert.equal(r.capabilityContractId,Number(r.capabilityContractId));
 }
-console.log('ARIA_WEB_CATALOG_MANIFEST_PASS records=72 contract_ids=651-722');
+assert.equal(new Set(manifest.records.map(r=>r.capabilityContractId)).size,47,'catalog aliases must resolve to exactly 47 canonical contracts');
+console.log('ARIA_WEB_CATALOG_MANIFEST_PASS catalog_entries=72 canonical_contracts=639 alias_targets=47');
