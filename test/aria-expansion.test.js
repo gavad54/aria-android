@@ -116,6 +116,30 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(new Set(inventory.engineSubmodules.map(x=>x.engineId)).size,71);
   assert.equal(inventory.canonicalRegistry.immutable,true);
 
+  const canonicalCatalogResponse=await fetch(base+"/api/aria-expansion/canonical-modules");
+  const canonicalCatalog=await canonicalCatalogResponse.json();
+  assert.equal(canonicalCatalogResponse.status,200);
+  assert.equal(canonicalCatalog.total,639);
+  assert.equal(canonicalCatalog.immutable,true);
+  assert.equal(new Set(canonicalCatalog.modules.map(x=>x.canonicalId)).size,639);
+  assert.ok(canonicalCatalog.modules.every(x=>x.workflowEntry&&x.implementationState));
+  const commercialCatalogResponse=await fetch(base+"/api/aria-expansion/commercial-modules");
+  const commercialCatalog=await commercialCatalogResponse.json();
+  assert.equal(commercialCatalogResponse.status,200);
+  assert.equal(commercialCatalog.total,72);
+  assert.equal(Object.keys(commercialCatalog.domainProfiles).length,13);
+  assert.ok(commercialCatalog.modules.every(x=>x.executionContract&&x.executionContract.handlerKey&&x.executionContract.operations.length>0));
+  const commercialHostIds=new Set(canonicalCatalog.modules.map(x=>x.canonicalId));
+  assert.ok(commercialCatalog.modules.every(x=>commercialHostIds.has(x.parentCanonicalContractId)));
+  const unauthCanonicalRun=await fetch(base+"/api/aria-expansion/canonical-modules/1/run",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"آزمون گردش‌کار پایه"})});
+  assert.equal(unauthCanonicalRun.status,401);
+  const unauthCommercialRun=await fetch(base+"/api/aria-expansion/commercial-modules/command-center/run",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"آزمون گردش‌کار تجاری"})});
+  assert.equal(unauthCommercialRun.status,401);
+  const unauthEngineRun=await fetch(base+"/api/aria-expansion/engines/"+encodeURIComponent(inventory.engineSubmodules[0].engineId)+"/run",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"آزمون موتور"})});
+  assert.equal(unauthEngineRun.status,401);
+  const unauthOverlayRun=await fetch(base+"/api/aria-expansion/modules/ARIA-PROBLEM-MODULE-001/run",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"آزمون ماژول تاریخی فعال"})});
+  assert.equal(unauthOverlayRun.status,401);
+
   const enginesResponse=await fetch(base+"/api/aria-expansion/engines");
   const engines=await enginesResponse.json();
   assert.equal(enginesResponse.status,200);
