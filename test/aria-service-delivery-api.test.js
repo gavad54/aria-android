@@ -25,6 +25,8 @@ test("service delivery catalog is discoverable and never advertises live executi
     assert.equal(moduleCatalog.productionVerifiedCount, 0);
     const unauthorizedModuleRun = await fetch(base + "/api/aria-modules/ARIA-IDEA-BACKLOG-001/execute", { method: "POST", headers: { "content-type": "application/json", "idempotency-key": "unauth-test-0001" }, body: JSON.stringify({ goal: "test", context: {} }) });
     assert.equal(unauthorizedModuleRun.status, 401);
+    const unauthAction = await fetch(base + "/api/aria-modules/ARIA-SVC-SUPPORT/work-items/00000000-0000-4000-8000-000000000001/actions", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ action: "START_WORK" }) });
+    assert.equal(unauthAction.status, 401, "service lifecycle actions must require authentication");
     const catalogResponse = await fetch(base + "/api/aria-expansion/service-delivery/catalog");
     const catalog = await catalogResponse.json();
     assert.equal(catalogResponse.status, 200);
