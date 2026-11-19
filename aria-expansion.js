@@ -52,5 +52,18 @@
   const list=node("ol","");
   for(const item of r.models){list.append(node("li","",item.name+" — "+item.ariaApplication));}
   details.append(list);revenueEl.append(details);
+  const calculator=node("div","glass expansion-revenue");
+  calculator.append(node("h3","","شبیه‌ساز ۲۰ مدل درآمدی"));
+  calculator.append(node("p","expansion-muted","فرض‌های خود را وارد کنید؛ خروجی تخمینی است و پرداخت یا درآمد واقعی ایجاد نمی‌کند."));
+  const modelSelect=node("select","search");modelSelect.setAttribute("aria-label","انتخاب مدل درآمدی");
+  for(const model of r.models){const option=node("option","",model.name);option.value=model.id;modelSelect.append(option);}
+  const assumptions=node("textarea","search");assumptions.rows=5;assumptions.setAttribute("aria-label","فرض‌های عددی به قالب JSON");
+  const resultBox=node("div","expansion-plan","نتیجه شبیه‌سازی اینجا نمایش داده می‌شود.");
+  const exampleFor=model=>{const values={};for(const key of model.calculation.requiredInputs){if(key.toLowerCase().includes("rate"))values[key]=0.1;else if(key==="cpm")values[key]=8;else if(key==="months")values[key]=1;else if(key.toLowerCase().includes("price")||key.toLowerCase().includes("fee")||key.toLowerCase().includes("commission"))values[key]=10;else values[key]=100;}values.fixedCosts=100;values.variableCosts=50;return values;};
+  const setExample=()=>{const model=r.models.find(x=>x.id===modelSelect.value);assumptions.value=JSON.stringify(exampleFor(model),null,2);};
+  modelSelect.addEventListener("change",setExample);setExample();
+  const simulate=node("button","btn btn-main","محاسبه سناریو");simulate.type="button";
+  simulate.addEventListener("click",async()=>{simulate.disabled=true;simulate.textContent="در حال محاسبه…";try{const input=JSON.parse(assumptions.value);const response=await fetch("/api/aria-expansion/revenue-models/simulate",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({modelId:modelSelect.value,assumptions:input})});const data=await response.json();if(!response.ok)throw new Error(data.error||"محاسبه ناموفق بود");const x=data.simulation;resultBox.replaceChildren(node("strong","","برآورد درآمد ناخالص: "+x.grossRevenueEstimate),node("p","","هزینه ثابت: "+x.fixedCosts+" · هزینه متغیر: "+x.variableCosts),node("p","","مشارکت خالص تخمینی: "+x.netContributionEstimate),node("small","expansion-muted",x.disclaimer));}catch(error){resultBox.textContent=error.message==="Unexpected end of JSON input"?"JSON فرض‌ها معتبر نیست.":error.message;}finally{simulate.disabled=false;simulate.textContent="محاسبه سناریو";}});
+  calculator.append(modelSelect,assumptions,simulate,resultBox);revenueEl.append(calculator);
  }catch(error){status(summaryEl,"دریافت کاتالوگ توسعه‌ای ناموفق بود؛ وضعیت سرویس را بررسی کنید.");}
 })();
