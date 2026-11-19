@@ -7,6 +7,9 @@ const jwt = require("jsonwebtoken");
 const {Pool}=require("pg");
 const root=__dirname;
 const bridgeManifest=JSON.parse(fs.readFileSync(path.join(root,"backend/data/aria_web_catalog_bridge.json"),"utf8"));
+const commercialManifest=JSON.parse(fs.readFileSync(path.join(root,"backend/data/aria_commercial_module_registry.json"),"utf8"));
+const commercialById=new Map(commercialManifest.records.map(record=>[record.commercialModuleId,record]));
+if(commercialManifest.records.length!==72||commercialManifest.totalProductFacingModuleCount!==711||commercialManifest.canonicalExecutionContractCount!==639)throw new Error("ARIA_COMMERCIAL_MODULE_REGISTRY_INVALID");
 const bridgeByCatalogId=new Map(bridgeManifest.records.map(record=>[record.id,record]));
 const port=Number(process.env.PORT||3000);
 const types={".html":"text/html; charset=utf-8",".css":"text/css; charset=utf-8",".js":"text/javascript; charset=utf-8",".json":"application/json; charset=utf-8",".svg":"image/svg+xml"};
@@ -127,7 +130,10 @@ const catalogModules = modules.map((module) => {
   domainLabel: MODULE_DOMAIN_LABELS[MODULE_DOMAIN_BY_ID[module.id]] || "نیازمند طبقه‌بندی",
   executionState: "active_local_workflow",
   catalogMaturity: module.status === "available" ? "foundation" : module.status || "planned",
-  source: "aria-web-catalog-v0.5.0"
+  commercialModuleId: module.id,
+  revenueEngine: commercialById.get(module.id)?.revenueEngine || null,
+  commercialState: commercialById.get(module.id)?.commercialState || "NOT_CONFIGURED",
+  source: "aria-web-catalog-v0.6.0"
  };
 });
 if(catalogModules.length!==72||new Set(catalogModules.map(x=>x.catalogEntryId)).size!==72||new Set(catalogModules.map(x=>x.capabilityContractId)).size!==47)throw new Error("ARIA_CATALOG_ALIAS_COUNTS_INVALID");
@@ -240,9 +246,11 @@ async function handle(req,res,url){
  if(url.pathname.startsWith("/api/")&&rateLimited(req))return json(res,429,{error:"تعداد درخواست‌ها زیاد است. یک دقیقه دیگر دوباره تلاش کنید."},{"retry-after":"60"});
  if(url.pathname==="/api/modules/summary"&&req.method==="GET"){
   const counts=catalogModules.reduce((acc,module)=>{acc[module.catalogMaturity]=(acc[module.catalogMaturity]||0)+1;acc.byDomain[module.domain]=(acc.byDomain[module.domain]||0)+1;acc.runtime[module.runtimeState]=(acc.runtime[module.runtimeState]||0)+1;return acc;},{byDomain:{},runtime:{}});
-  return json(res,200,{product:"ARIA",catalogVersion:"web-prototype-0.5.0",source:"72 catalog aliases mapped to canonical ARIA 32 contracts",total:catalogModules.length,linkedCatalogRecords:catalogModules.length,contractCount:639,catalogEntryCount:72,aliasCount:72,uniqueAliasTargets:47,catalogEntryIdRange:[651,722],runtimeStates:counts.runtime,executionStates:{foundation:counts.foundation||0,prototype:counts.prototype||0,planned:counts.planned||0},domains:counts.byDomain,limitations:["ACTIVE_LOCAL_WORKFLOW means structured local planning is available; it does not mean third-party publishing, media rendering, booking, payment or cloud operations are connected.","External actions remain gated until the required official provider adapter is configured, authorized and tested.","All 72 catalog entries resolve to 47 of the 639 canonical contracts; no duplicate executable contracts are added."]});
+  return json(res,200,{product:"ARIA",catalogVersion:"web-prototype-0.5.0",source:"639 canonical execution contracts plus 72 separately addressable commercial modules",total:catalogModules.length,linkedCatalogRecords:catalogModules.length,contractCount:639,catalogEntryCount:72,aliasCount:72,uniqueAliasTargets:47,commercialModuleCount:commercialManifest.records.length,totalProductFacingModuleCount:commercialManifest.totalProductFacingModuleCount,revenueEngineState:"DESIGNED_NOT_MONETIZED",catalogEntryIdRange:[651,722],runtimeStates:counts.runtime,executionStates:{foundation:counts.foundation||0,prototype:counts.prototype||0,planned:counts.planned||0},domains:counts.byDomain,limitations:["ACTIVE_LOCAL_WORKFLOW means structured local planning is available; it does not mean third-party publishing, media rendering, booking, payment or cloud operations are connected.","External actions remain gated until the required official provider adapter is configured, authorized and tested.","All 72 catalog entries resolve to 47 of the 639 canonical contracts; no duplicate executable contracts are added."]});
  }
  if(url.pathname==="/api/modules"&&req.method==="GET")return json(res,200,{catalogVersion:"web-prototype-0.5.0",modules:catalogModules});
+ if(url.pathname==="/api/revenue/catalog"&&req.method==="GET")return json(res,200,{product:"ARIA",state:"DESIGNED_NOT_MONETIZED",currency:null,pricingPolicy:"OWNER_CONFIGURED",paymentProviderState:"NOT_CONNECTED",total:commercialManifest.records.length,modules:commercialManifest.records});
+ if(url.pathname==="/api/revenue/summary"&&req.method==="GET")return json(res,200,{product:"ARIA",commercialModuleCount:commercialManifest.records.length,totalProductFacingModuleCount:commercialManifest.totalProductFacingModuleCount,canonicalExecutionContractCount:commercialManifest.canonicalExecutionContractCount,billingModes:[...new Set(commercialManifest.records.flatMap(x=>x.revenueEngine.billingModes))],paymentProviderState:"NOT_CONNECTED",liveRevenueEnabled:false,limitations:["تعریف موتور درآمدی و سیاست‌های قیمت‌گذاری ثبت شده است؛ پرداخت واقعی فعال نیست.","مبلغ و ارز تا تعیین و تأیید مالک خالی می‌ماند.","ثبت درآمد فقط پس از رویداد پرداخت یا ارائه خدمت تأییدشده مجاز است."]});
   const catalogPlanMatch=url.pathname.match(new RegExp("^\/api\/modules\/(\\d+)\/plan$"));
  if(catalogPlanMatch&&req.method==="POST"){
   const module=catalogModules.find(x=>x.catalogEntryId===Number(catalogPlanMatch[1]));
