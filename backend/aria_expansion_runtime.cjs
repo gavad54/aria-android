@@ -659,7 +659,7 @@ async function handle(req, res, url, deps) {
     return json(res, 200, {
       product: "ARIA",
       independentBackendModuleCount: moduleRegistryRuntime.MODULES.length,
-      counts: { ideas: 50, governanceControls: 4, commercialCatalog: 72, childEngines: 71, serviceDeliveryEngines: 4 },
+      counts: moduleRegistryRuntime.MODULE_COUNTS,
       modules: moduleRegistryRuntime.MODULES.map(module => module.manifest),
       productionVerifiedCount: 0,
       externalExecutionEnabled: false,
