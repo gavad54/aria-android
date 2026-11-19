@@ -3,7 +3,7 @@
 const { randomUUID } = require("node:crypto");
 
 const SERVICE_MODULES = Object.freeze([
-  { id: "ARIA-SVC-INTAKE", name: "مرکز پذیرش و ارزیابی درخواست", engine: "Service Intake & Qualification Engine", deliverable: "پرونده درخواست با دامنه، نیاز و معیار پذیرش", revenueModel: "اشتراک فضای کار", ownerProduct: "ARIA" },
+  { id: "ARIA-SVC-INTAKE", name: "مرکز پذیرش و ارزیابی درخواست", engine: "Service Intake & Qualification Engine", deliverable: "پرونده درخواست با دامنه، نیاز و معیار پذیرش", revenueModel: "اشتراک فضای کار", ownerProduct: "ARIA", productionVerified: false, persistenceState: "DATABASE_REQUIRED" },
   { id: "ARIA-SVC-PROPOSAL", name: "سازنده پیشنهاد و برآورد خدمت", engine: "Scope & Quote Composition Engine", deliverable: "پیشنهاد نسخه‌دار با ریز اقلام و مبلغ شفاف", revenueModel: "اعتبار تولید سند یا اشتراک", ownerProduct: "ARIA" },
   { id: "ARIA-SVC-DELIVERY", name: "مرکز تحویل و مدیریت مراحل", engine: "Milestone & Deliverable Orchestration Engine", deliverable: "برنامه مراحل، مسئول و اقلام تحویل", revenueModel: "اشتراک تیمی", ownerProduct: "ARIA" },
   { id: "ARIA-SVC-QUALITY", name: "مرکز تضمین کیفیت و پذیرش", engine: "Evidence-based Quality Gate Engine", deliverable: "چک‌لیست آزمون و گزارش پذیرش مستند", revenueModel: "اشتراک حرفه‌ای", ownerProduct: "ARIA" },
