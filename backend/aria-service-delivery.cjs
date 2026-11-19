@@ -217,7 +217,71 @@ function calculateServiceUnitEconomics(input) {
   };
 }
 
+
+function evaluateSupportSla(ticket, now = new Date()) {
+  if (!ticket || typeof ticket.responseTargetAt !== "string" || !Number.isFinite(new Date(ticket.responseTargetAt).getTime()) ||
+      !(now instanceof Date) || !Number.isFinite(now.getTime())) {
+    throw new Error("SUPPORT_SLA_INPUT_INVALID");
+  }
+  if (["RESOLVED", "CLOSED"].includes(ticket.status)) return { state: "RESOLVED", evaluatedAt: now.toISOString(), responseTargetAt: ticket.responseTargetAt };
+  const overdue = now.getTime() > new Date(ticket.responseTargetAt).getTime();
+  return { state: overdue ? "OVERDUE" : "ON_TRACK", evaluatedAt: now.toISOString(), responseTargetAt: ticket.responseTargetAt };
+}
+
+function transitionSupportTicket(ticket, action, actor) {
+  if (!ticket || !ticket.id || !ticket.tenantId || !actor || !actor.userId ||
+      String(ticket.tenantId) !== String(actor.tenantId || ticket.tenantId)) throw new Error("SUPPORT_TICKET_INVALID");
+  const transitions = {
+    OPEN: { START_WORK: "IN_PROGRESS" },
+    IN_PROGRESS: { WAIT_FOR_CUSTOMER: "WAITING_CUSTOMER", RESOLVE: "RESOLVED" },
+    WAITING_CUSTOMER: { RESUME: "IN_PROGRESS", RESOLVE: "RESOLVED" },
+    RESOLVED: { REOPEN: "REOPENED" },
+    REOPENED: { START_WORK: "IN_PROGRESS" }
+  };
+  const next = transitions[ticket.status]?.[action];
+  if (!next) throw new Error("SUPPORT_TRANSITION_NOT_ALLOWED");
+  const at = new Date().toISOString();
+  return {
+    ...ticket, status: next,
+    transitions: [...(ticket.transitions || []), { action, from: ticket.status, to: next, actorId: String(actor.userId), at }]
+  };
+}
+
+function approveCustomerRenewal(report, actor) {
+  if (!report || report.renewalDecision !== "OWNER_REVIEW_REQUIRED") throw new Error("CUSTOMER_SUCCESS_REPORT_INVALID");
+  if (!actor || actor.isOwner !== true || !actor.userId) throw new Error("OWNER_APPROVAL_REQUIRED");
+  return {
+    ...report, renewalDecision: "OWNER_APPROVED_RECOMMENDATION",
+    renewalApprovedBy: String(actor.userId), renewalApprovedAt: new Date().toISOString(),
+    renewalExecuted: false, paymentExecuted: false
+  };
+}
+
+function transitionServicePackage(servicePackage, action, actor) {
+  if (!servicePackage || !servicePackage.id || !servicePackage.tenantId || !actor || !actor.userId ||
+      String(servicePackage.tenantId) !== String(actor.tenantId || servicePackage.tenantId)) {
+    throw new Error("SERVICE_PACKAGE_INVALID");
+  }
+  const transitions = {
+    DRAFT: { SUBMIT_REVIEW: "REVIEW_PENDING" },
+    REVIEW_PENDING: { APPROVE: "APPROVED", REJECT: "DRAFT" },
+    APPROVED: { PUBLISH_LOCAL: "PUBLISHED_LOCAL" },
+    PUBLISHED_LOCAL: { ARCHIVE: "ARCHIVED" }
+  };
+  const next = transitions[servicePackage.state]?.[action];
+  if (!next) throw new Error("SERVICE_PACKAGE_TRANSITION_NOT_ALLOWED");
+  if (["APPROVE", "PUBLISH_LOCAL", "ARCHIVE"].includes(action) && actor.isOwner !== true) {
+    throw new Error("OWNER_APPROVAL_REQUIRED");
+  }
+  const at = new Date().toISOString();
+  return {
+    ...servicePackage, state: next,
+    transitions: [...(servicePackage.transitions || []), { action, from: servicePackage.state, to: next, actorId: String(actor.userId), at }],
+    entitlementActivated: false, externalExecutionPerformed: false, paymentExecuted: false
+  };
+}
+
 module.exports = {
-  createSupportTicket, evaluateCustomerSuccess, createServicePackage, calculateServiceUnitEconomics,
+  createSupportTicket, evaluateSupportSla, transitionSupportTicket, evaluateCustomerSuccess, approveCustomerRenewal, createServicePackage, transitionServicePackage, calculateServiceUnitEconomics,
   SERVICE_MODULES, createServiceCase, transitionServiceCase, buildQuote, evaluateDeliveryQuality
 };
