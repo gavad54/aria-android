@@ -6,6 +6,7 @@ const expansionRuntime = require("./backend/aria_expansion_runtime.cjs");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const {Pool}=require("pg");
+const {inspectRuntimeReadiness}=require("./backend/runtime-readiness.cjs");
 const root=__dirname;
 const bridgeManifest=JSON.parse(fs.readFileSync(path.join(root,"backend/data/aria_web_catalog_bridge.json"),"utf8"));
 const commercialManifest=JSON.parse(fs.readFileSync(path.join(root,"backend/data/aria_commercial_module_registry.json"),"utf8"));
@@ -257,9 +258,28 @@ function authUser(req){
 function tokenFor(user){const secret=process.env.ARIA_JWT_SECRET;if(!secret)throw new Error("Authentication secret unavailable");return jwt.sign({sub:String(user.id),email:user.email},secret,{expiresIn:"2h",issuer:"aria-web",audience:"aria-user"});}
 async function requireDb(res){try{await initDb();return true;}catch(err){console.error("ARIA database unavailable:",err.message);json(res,503,{error:"پایگاه داده هنوز آماده نیست. کمی بعد دوباره تلاش کنید."});return false;}}
 async function handle(req,res,url){
+ if(url.pathname==="/api/ready"){
+  if(req.method!=="GET")return json(res,405,{error:"روش درخواست پشتیبانی نمی‌شود."});
+  const databaseRequired=process.env.NODE_ENV==="production"||process.env.DATABASE_REQUIRED==="true";
+  const readiness=await inspectRuntimeReadiness({
+   databaseRequired,
+   databaseConfigured:Boolean(pool),
+   databaseProbe:async()=>{await initDb();await pool.query("SELECT 1");},
+   providers:[{
+    name:"openai",
+    required:process.env.ARIA_REQUIRE_OPENAI==="true",
+    configured:Boolean(process.env.OPENAI_API_KEY),
+    probe:async()=>{
+     const response=await fetch("https://api.openai.com/v1/models",{headers:{authorization:"Bearer "+process.env.OPENAI_API_KEY},signal:AbortSignal.timeout(5000)});
+     if(!response.ok)throw new Error("provider unavailable");
+    }
+   }]
+  });
+  return json(res,readiness.ready?200:503,{ok:readiness.ready,service:"aria-web",version:"0.5.0",...readiness,externalExecutionEnabled:false,productionVerified:false});
+ }
  if(url.pathname==="/health"||url.pathname==="/api/health"){
   if(req.method!=="GET")return json(res,405,{error:"روش درخواست پشتیبانی نمی‌شود."});
-  return json(res,200,{ok:true,service:"aria-web",version:"0.4.0",mode:process.env.OPENAI_API_KEY?"ai-enabled-prototype":"rule-based-prototype",aiConfigured:Boolean(process.env.OPENAI_API_KEY),databaseConfigured:Boolean(pool),databaseConnected:dbConnected,authenticationConfigured:Boolean(process.env.ARIA_JWT_SECRET),productionIntegrations:false});
+  return json(res,200,{ok:true,service:"aria-web",version:"0.5.0",mode:process.env.OPENAI_API_KEY?"ai-enabled-prototype":"rule-based-prototype",aiConfigured:Boolean(process.env.OPENAI_API_KEY),databaseConfigured:Boolean(pool),databaseConnected:dbConnected,authenticationConfigured:Boolean(process.env.ARIA_JWT_SECRET),productionIntegrations:false,readinessEndpoint:"/api/ready"});
  }
  if(url.pathname.startsWith("/api/")&&rateLimited(req))return json(res,429,{error:"تعداد درخواست‌ها زیاد است. یک دقیقه دیگر دوباره تلاش کنید."},{"retry-after":"60"});
  if(url.pathname==="/api/modules/summary"&&req.method==="GET"){
