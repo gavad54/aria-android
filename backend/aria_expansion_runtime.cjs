@@ -2,6 +2,8 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const serviceDelivery = require("./aria-service-delivery.cjs");
+const moduleRegistryRuntime = require("./modules");
+if (moduleRegistryRuntime.MODULES.length !== 197) throw new Error("ARIA_INDEPENDENT_MODULE_COUNT_INVALID");
 const registry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_expansion_registry.json"), "utf8"));
 const moduleRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_111_module_expansion_registry.json"), "utf8"));
 const commercialRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_commercial_module_registry.json"), "utf8"));
@@ -209,6 +211,19 @@ async function ensureTables(pool) {
       updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
     )`);
     await pool.query("CREATE INDEX IF NOT EXISTS aria_service_cases_tenant_updated_idx ON aria_service_cases(user_id, tenant_id, updated_at DESC)");
+    await pool.query(`CREATE TABLE IF NOT EXISTS aria_modular_work_items (
+      id UUID PRIMARY KEY,
+      user_id BIGINT NOT NULL REFERENCES aria_users(id) ON DELETE CASCADE,
+      tenant_id TEXT NOT NULL,
+      module_id TEXT NOT NULL,
+      idempotency_key TEXT NOT NULL,
+      input_digest TEXT NOT NULL,
+      result JSONB NOT NULL,
+      status TEXT NOT NULL,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+      UNIQUE(user_id, tenant_id, module_id, idempotency_key)
+    )`);
+    await pool.query("CREATE INDEX IF NOT EXISTS aria_modular_work_items_user_idx ON aria_modular_work_items(user_id, tenant_id, created_at DESC)");
     schemaReady = true;
   })().catch(err => { schemaPromise = null; schemaReady = false; throw err; });
   return schemaPromise;
@@ -639,6 +654,70 @@ async function handle(req, res, url, deps) {
     catch(err){console.error("ARIA expansion work item update failed:",err.message);return json(res,500,{error:"به‌روزرسانی کار انجام نشد."});}
   }
 
+
+  if (p === "/api/aria-modules/catalog" && req.method === "GET") {
+    return json(res, 200, {
+      product: "ARIA",
+      independentBackendModuleCount: moduleRegistryRuntime.MODULES.length,
+      counts: { ideas: 50, governanceControls: 4, commercialCatalog: 72, childEngines: 71 },
+      modules: moduleRegistryRuntime.MODULES.map(module => module.manifest),
+      productionVerifiedCount: 0,
+      externalExecutionEnabled: false,
+      paymentExecuted: false
+    });
+  }
+  const modularWorkItemsMatch = p.match(/^\\/api\\/aria-modules\\/([^/]+)\\/work-items$/);
+  if (modularWorkItemsMatch && req.method === "GET") {
+    const user = requireUser(req, json, res, authUser); if (!user) return true;
+    if (!await requireDb(res)) return true;
+    const moduleId = decodeURIComponent(modularWorkItemsMatch[1]);
+    if (!moduleRegistryRuntime.MODULE_BY_ID.has(moduleId)) return json(res, 404, { error: "ماژول پیدا نشد." });
+    try {
+      await ensureTables(pool);
+      const tenantId = String(user.sub);
+      const q = await pool.query("SELECT id,module_id,status,result,created_at FROM aria_modular_work_items WHERE user_id=$1 AND tenant_id=$2 AND module_id=$3 ORDER BY created_at DESC LIMIT 100", [user.sub, tenantId, moduleId]);
+      return json(res, 200, { items: q.rows, tenantBoundary: "PERSONAL_ACCOUNT_SCOPE" });
+    } catch (err) {
+      console.error("ARIA modular work item list failed:", err.message);
+      return json(res, 500, { error: "دریافت سوابق ماژول انجام نشد." });
+    }
+  }
+  const modularExecuteMatch = p.match(/^\\/api\\/aria-modules\\/([^/]+)\\/execute$/);
+  if (modularExecuteMatch && req.method === "POST") {
+    const user = requireUser(req, json, res, authUser); if (!user) return true;
+    const moduleId = decodeURIComponent(modularExecuteMatch[1]);
+    const module = moduleRegistryRuntime.MODULE_BY_ID.get(moduleId);
+    if (!module) return json(res, 404, { error: "ماژول پیدا نشد." });
+    if (["ARIA-CONTROL-MODULE-002", "ARIA-CONTROL-MODULE-004"].includes(moduleId) &&
+        (!process.env.ARIA_OWNER_USER_ID || String(user.sub) !== String(process.env.ARIA_OWNER_USER_ID))) {
+      return json(res, 403, { error: "این کنترل مدیریتی فقط در اختیار مالک سامانه است." });
+    }
+    const idempotencyKey = String(req.headers?.["idempotency-key"] || "").trim();
+    if (idempotencyKey.length < 8 || idempotencyKey.length > 128) {
+      return json(res, 400, { error: "هدر Idempotency-Key معتبر و ۸ تا ۱۲۸ نویسه‌ای لازم است." });
+    }
+    const data = await readJson(req, res); if (data === null) return true;
+    if (!await requireDb(res)) return true;
+    try {
+      await ensureTables(pool);
+      const tenantId = String(user.sub);
+      const existing = await pool.query("SELECT result,status FROM aria_modular_work_items WHERE user_id=$1 AND tenant_id=$2 AND module_id=$3 AND idempotency_key=$4", [user.sub, tenantId, moduleId, idempotencyKey]);
+      if (existing.rowCount) return json(res, 200, { ...existing.rows[0].result, idempotentReplay: true });
+      const result = await moduleRegistryRuntime.executeModule(moduleId, data, { actorId: String(user.sub), tenantId });
+      await pool.query("INSERT INTO aria_modular_work_items(id,user_id,tenant_id,module_id,idempotency_key,input_digest,result,status) VALUES($1::uuid,$2,$3,$4,$5,$6,$7::jsonb,$8)", [
+        result.workItemId, user.sub, tenantId, moduleId, idempotencyKey,
+        result.artifact.inputDigest, JSON.stringify(result), result.status
+      ]);
+      return json(res, 201, { ...result, persistence: "DATABASE_SAVED", idempotentReplay: false });
+    } catch (err) {
+      if (["MODULE_ACTOR_REQUIRED","MODULE_TENANT_REQUIRED","MODULE_INPUT_INVALID","MODULE_INPUT_MISSING","MODULE_CONSENT_REQUIRED"].includes(err.message)) {
+        return json(res, err.message === "MODULE_CONSENT_REQUIRED" ? 403 : 400, { error: err.message, missingFields: err.missingFields || [] });
+      }
+      if (err.code === "23505") return json(res, 409, { error: "درخواست تکراری است؛ همان Idempotency-Key قبلاً ثبت شده است." });
+      console.error("ARIA modular execution failed:", err.message);
+      return json(res, 500, { error: "اجرای محلی ماژول انجام نشد." });
+    }
+  }
   if (p === "/api/aria-expansion/service-delivery/catalog" && req.method === "GET") {
     return json(res, 200, {
       product: "ARIA", modules: serviceDelivery.SERVICE_MODULES,
