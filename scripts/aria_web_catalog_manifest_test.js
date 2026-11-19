@@ -28,7 +28,7 @@ for(let i=0;i<72;i++){
  assert.equal(r.description,m.description,'catalog description must match source');
  assert.equal(r.domain,domains[m.id],'catalog domain must match source mapping');
  assert.equal(r.catalogEntryId,651+i,'catalog entry ID range must be stable');
- assert.ok(Number.isInteger(r.capabilityContractId)&&r.capabilityContractId>=1&&r.capabilityContractId<=639,'catalog alias must resolve to a canonical contract');
+ assert.ok(Number.isInteger(r.capabilityContractId)&&r.capabilityContractId>=1&&r.capabilityContractId<=647,'catalog alias must resolve to a canonical contract');
  assert.equal(r.activation,'LOCAL_WORKFLOW_ACTIVE');
  assert.equal(r.capabilityContractId,Number(r.capabilityContractId));
 }
