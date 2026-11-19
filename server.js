@@ -235,7 +235,7 @@ async function handle(req,res,url){
   return json(res,200,{product:"ARIA",catalogVersion:"web-prototype-0.5.0",source:"current web catalogue linked to ARIA 32 contract bridge",total:catalogModules.length,linkedCatalogRecords:catalogModules.length,contractCount:711,contractIdRange:[651,722],runtimeStates:counts.runtime,executionStates:{foundation:counts.foundation||0,prototype:counts.prototype||0,planned:counts.planned||0},domains:counts.byDomain,limitations:["ACTIVE_LOCAL_WORKFLOW means structured local planning is available; it does not mean third-party publishing, media rendering, booking, payment or cloud operations are connected.","External actions remain gated until the required official provider adapter is configured, authorized and tested.","The 639 original Android contracts remain preserved; 72 web catalog contracts extend the registry to 711."]});
  }
  if(url.pathname==="/api/modules"&&req.method==="GET")return json(res,200,{catalogVersion:"web-prototype-0.5.0",modules:catalogModules});
- const catalogPlanMatch=url.pathname.match(/^\\/api\\/modules\\/(\\d+)\\/plan$/);
+  const catalogPlanMatch=url.pathname.match(new RegExp("^\/api\/modules\/(\\d+)\/plan$"));
  if(catalogPlanMatch&&req.method==="POST"){
   const module=catalogModules.find(x=>x.capabilityContractId===Number(catalogPlanMatch[1]));
   if(!module)return json(res,404,{error:"قابلیت در کاتالوگ وب پیدا نشد."});
