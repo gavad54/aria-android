@@ -92,7 +92,7 @@ patch('scripts/aria32_no_loss_gate.js',[
 ["new Set(b).size === expectedCount","new Set(b).size === expectedTotalCount","NO_LOSS_BACKEND_UNIQUENESS"],
 ["new Set(c).size === expectedCount","new Set(c).size === expectedTotalCount","NO_LOSS_CAPABILITY_UNIQUENESS"],
 ["const idDigest = crypto.createHash('sha256').update(a.slice().sort((x, y) => x - y).join('\\n')).digest('hex');\nfail(idDigest === expectedIdsSha256, 'LEGACY_MODULE_ID_SET_CHANGED');","const legacyIds = a.slice(0, expectedBaselineCount);\nconst idDigest = crypto.createHash('sha256').update(legacyIds.slice().sort((x, y) => x - y).join('\\n')).digest('hex');\nfail(idDigest === expectedIdsSha256, 'LEGACY_MODULE_ID_SET_CHANGED');\nfail(JSON.stringify(a.slice(expectedBaselineCount)) === JSON.stringify(Array.from({length:72},(_,i)=>651+i)), 'WEB_CATALOG_ID_RANGE_CHANGED');","NO_LOSS_BASELINE_DIGEST"],
-["console.log(\`ARIA32_NO_LOSS_PASS modules=\${expectedCount} ids_sha256=\${idDigest}\`);","console.log('ARIA32_NO_LOSS_PASS legacy=639 web_catalog=72 total=711 legacy_ids_sha256='+idDigest);","NO_LOSS_OUTPUT"]
+["console.log("+String.fromCharCode(96)+"ARIA32_NO_LOSS_PASS modules="+String.fromCharCode(36)+"{expectedCount} ids_sha256="+String.fromCharCode(36)+"{idDigest}"+String.fromCharCode(96)+");","console.log('ARIA32_NO_LOSS_PASS legacy=639 web_catalog=72 total=711 legacy_ids_sha256='+idDigest);","NO_LOSS_OUTPUT"]
 ]);
 patch('scripts/aria32_release_readiness.js',[
 ["backendRegistry.module_count === 639 && backendRegistry.modules.length === 639 && capabilities.modules.length === 639","backendRegistry.module_count === 711 && backendRegistry.modules.length === 711 && capabilities.modules.length === 711","READINESS_TOTAL_COUNT"],
