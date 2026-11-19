@@ -104,6 +104,34 @@ ARIA جایگزین تمام اپ‌های VAYRO نیست و مسئولیت حس
 
 این شمارش مربوط به کاتالوگ وب فعلی است، نه رجیستری کامل ARIA 32 اندروید. سند قبلی ARIA می‌گوید سورس کامل Android در Git repository نیست و آرشیو Library با چند checksum متعارض/نسخه متفاوت مطرح شده است؛ تا تطبیق اصالت و واردکردن سورس، عدد ۶۳۹ فقط یک ادعای ثبت‌شده در سند است، نه inventory بازتولیدپذیر در این مخزن.
 
+## 9A. رجیستری کامل ARIA 32.0.0
+
+آرشیو Android 32.0.0 در Library بازیابی شده و رجیستری 639 رکوردی آن با شناسه‌های یکتا در دو کپی Android و Backend وجود دارد. Capability registry نیز 639 قرارداد دارد. خانواده‌های طراحی و شمارش آن‌ها:
+- CORE: 385
+- MARKETPLACE: 60
+- GLOBAL_AI_SUPER_APP: 39
+- PLATFORM: 34
+- ECONOMY: 31
+- GLOBAL_SUPER_APP: 31
+- TRUST: 20
+- GOVERNANCE: 10
+- RUNTIME: 8
+- DISCOVERY: 7
+- COMMERCE: 7
+- COMMUNICATION: 3
+- ANALYTICS: 2
+- SUPPORT: 1
+- AUDIT: 1
+
+وضعیت بلوغ:
+- 569 قرارداد routable اما بدون E2E verification
+- 19 foundation با static E2E pending
+- 12 surface runtime با static E2E pending
+- 39 قرارداد و static runtime verified
+- 160 adapter خارجی REQUIRED و 31 adapter OPTIONAL_OR_REQUIRED_BY_CAPABILITY
+
+بنابراین 639 یعنی تعداد قراردادهای ثبت‌شده است، نه تعداد قابلیت‌های کامل. گزارش repair در docs/ARIA_32_SOURCE_REPAIR_REPORT_FA.md ناسازگاری versionCode و verifierهای قدیمی را مستند کرده است. Candidate مستقل static gates را PASS کرده اما هنوز وارد مخزن canonical، build اندروید، امضا، device UAT یا Production نشده است.
+
 ## 10. برنامه تحویل و معیار پذیرش
 ### P0 — تثبیت منبع
 - بازیابی آرشیو رسمی Android و تطبیق checksum با release manifest مورد تأیید.
