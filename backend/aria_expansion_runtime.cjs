@@ -267,7 +267,7 @@ async function handle(req, res, url, deps) {
       const data=await readJson(req,res);if(data===null)return true;
       const displayName=cleanText(data.displayName,2,100),category=cleanText(data.category,2,80),serviceArea=cleanText(data.serviceArea,2,120),description=cleanText(data.description||"",0,1000);
       if(!displayName||!category||!serviceArea||description===null)return json(res,400,{error:"نام نمایشی، دسته، محدوده خدمت و شرح معتبر لازم است."});
-      const q=await pool.query("INSERT INTO aria_expansion_providers(user_id,display_name,category,service_area,description,contact_visible) VALUES($1,$2,$3,$4,$5,$6) RETURNING id,display_name,category,service_area,description,contact_visible,verification_status,created_at",[user.sub,displayName,category,serviceArea,description,data.contactVisible===true]);
+      const q=await pool.query("INSERT INTO aria_expansion_providers(user_id,display_name,category,service_area,description,contact_visible) VALUES($1,$2,$3,$4,$5,$6) RETURNING id,display_name,category,service_area,description,contact_visible,verification_status,created_at",[providerUser.sub,displayName,category,serviceArea,description,data.contactVisible===true]);
       return json(res,201,{provider:{...q.rows[0],id:String(q.rows[0].id)},notice:"پروفایل تا بررسی مالک در وضعیت pending باقی می‌ماند."});
     }catch(err){console.error("ARIA provider directory failed:",err.message);return json(res,500,{error:"ثبت یا دریافت فهرست ارائه‌دهندگان انجام نشد."});}
   }
