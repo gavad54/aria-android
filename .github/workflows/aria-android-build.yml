@@ -24,7 +24,7 @@ jobs:
           set -euo pipefail
           ARCHIVE="release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip"
           if [[ ! -f "$ARCHIVE" ]]; then
-            echo "::error::Missing $ARCHIVE. The full ARIA 32 archive must be uploaded to this path before building."
+            echo "::error::Missing $ARCHIVE. Upload the repaired candidate with the exact checksum recorded below."
             exit 2
           fi
 
@@ -32,7 +32,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          echo "0c45fb175fa6d44456ce33af5c975a2d74576096fae37aa4993a213759a5dbe8  release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip" | sha256sum --check -
+          echo "e50b919f6dc81fef5187e39368b7a59856524b3ea932280f3f577658c12fd864  release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip" | sha256sum --check -
 
       - name: Extract source archive
         shell: bash
