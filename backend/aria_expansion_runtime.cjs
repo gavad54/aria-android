@@ -306,12 +306,12 @@ async function handle(req, res, url, deps) {
     if(!process.env.ARIA_OWNER_USER_ID||String(user.sub)!==String(process.env.ARIA_OWNER_USER_ID))return json(res,403,{error:"این بخش فقط برای مالک سامانه است."});
     if(!await requireDb(res))return true;
     try{await ensureTables(pool);
-      const [work,intents,policies]=await Promise.all([
+      const [work,intents,policies,providers]=await Promise.all([
         pool.query("SELECT status,COUNT(*)::int AS count FROM aria_expansion_work_items GROUP BY status"),
         pool.query("SELECT status,COUNT(*)::int AS count FROM aria_expansion_intents GROUP BY status"),
         pool.query("SELECT COUNT(*)::int AS count FROM aria_autonomy_policies")
       ]);
-      return json(res,200,{canonicalModuleCount:639,expansion:{problemRecords:50,uniqueProblemCapabilities:49,historicalCandidates:4,revenueModels:20},workItems:work.rows,intents:intents.rows,autonomyPolicies:policies.rows[0].count,liveRevenueEnabled:false,externalExecutionEnabled:false});
+      return json(res,200,{canonicalModuleCount:639,expansion:{problemRecords:50,uniqueProblemCapabilities:49,historicalCandidates:4,revenueModels:20},workItems:work.rows,intents:intents.rows,autonomyPolicies:policies.rows[0].count,providers:providers.rows,liveRevenueEnabled:false,externalExecutionEnabled:false});
     }catch(err){console.error("ARIA owner overview failed:",err.message);return json(res,500,{error:"گزارش مالک دریافت نشد."});}
   }
   return false;
