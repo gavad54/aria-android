@@ -90,3 +90,12 @@ CI وب/API روی commit `3c7c2d7f9ff36185caf54f76f18d2da31954dd29` موفق ش
 - APIهای `/api/revenue/catalog` و `/api/revenue/summary` رجیستری تجاری و وضعیت موتور درآمدی را ارائه می‌کنند.
 
 **مرز واقعی فعال‌سازی:** موتورهای درآمدی در این تغییر از نظر مدل داده، کاتالوگ و API طراحی و ثبت شده‌اند، اما درآمد واقعی فعال نیست: قیمت و ارز عمداً خالی است، درگاه پرداخت متصل نیست و وضعیت همه ماژول‌ها `NOT_LIVE` است. همچنین providerهای بیرونی تا اتصال رسمی و آزمون‌شده اجرا نمی‌شوند. بنابراین عدد ۷۱۱، تعداد ماژول‌های محصولی/تجاری است، نه ۷۱۱ handler مستقل یا ۷۱۱ سرویس عملیاتی تأییدشده.
+
+
+## ۷. بازبینی مجدد CI روی شاخه PR — 2026-11-19
+- PR #3 head در زمان ممیزی نهایی: `7ad26d5264df6c691bb18f4166c232f2c4181a8d`؛ PR باز، Draft و ادغام‌نشده است.
+- آخرین اجرای workflow وب/API روی commit کد قبل از تغییرات مستنداتی: [Run 44544436103](https://github.com/gavad54/aria-android/actions/runs/44544436103) — **success**.
+- Job `web-catalog` و مراحل Install dependencies، Validate engineering scripts، Validate catalog-to-contract manifest و Run web API tests همگی success هستند.
+- commitهای بعدی فقط اسناد Crosswalk و ممیزی را به‌صورت افزایشی تغییر داده‌اند؛ برای head مستنداتی جدید workflow جداگانه‌ای ثبت نشده است.
+- workflow ساخت Android در این اجرا نشده است؛ فایل ZIP منبع باید در `release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip` قرار گیرد و checksum آن تأیید شود.
+- آزمون‌های وب، وجود 72 ورودی کاتالوگ و برنامه‌ریزی محلی را بررسی می‌کنند؛ اجرای بیرونی provider، پرداخت، درآمد زنده یا E2E تولیدی را ثابت نمی‌کنند.
