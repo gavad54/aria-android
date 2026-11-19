@@ -2249,9 +2249,10 @@
         }
       },
       "aliasOf": "problem-29",
-      "mappingStatus": "ALIAS_TO_PROBLEM_29",
+      "mappingStatus": "ALIAS_TO_PROBLEM_29_HOSTED_BY_CANONICAL_233",
       "canonicalContractId": null,
-      "hostCanonicalContractId": 235
+      "hostCanonicalContractId": 233,
+      "entryPointCanonicalContractId": 235
     },
     {
       "id": "problem-49",
