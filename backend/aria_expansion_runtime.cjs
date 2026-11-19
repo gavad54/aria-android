@@ -132,7 +132,8 @@ async function handle(req, res, url, deps) {
     const user = authUser(req);
     if (!user || !pool) return json(res, 200, { decision: "DENY", reason: "AUTH_OR_POLICY_STORE_UNAVAILABLE", defaultPolicy: "DENY" });
     try {
-      await requireDb(res); await ensureTables(pool);
+      if (!await requireDb(res)) return true;
+      await ensureTables(pool);
       const q = await pool.query("SELECT decision FROM aria_autonomy_policies WHERE agent_id=$1 AND action=$2",[agentId,action]);
       const policy = q.rows[0]?.decision || null;
       if (!policy) return json(res, 200, { decision: "DENY", reason: "NO_MATCHING_APPROVED_POLICY", defaultPolicy: "DENY" });
