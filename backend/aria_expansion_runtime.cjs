@@ -4,13 +4,16 @@ const path = require("node:path");
 const registry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_expansion_registry.json"), "utf8"));
 const problemById = new Map(registry.problems.map(x => [x.id, x]));
 const candidateById = new Map(registry.candidates.map(x => [x.moduleId, x]));
+const problemEngines = [...new Map(registry.problems.map(x => [x.engine.id, { ...x.engine, moduleIds: registry.problems.filter(p => p.engine.id === x.engine.id).map(p => p.id), engineType: "PROBLEM_DOMAIN_ENGINE" }])).values()];
+const candidateEngines = registry.candidates.map(x => ({ ...x.engine, moduleId: x.moduleId, engineType: "HISTORICAL_CONTROL_ENGINE" }));
+const engineCatalog = [...problemEngines, ...candidateEngines];
 const safeAutonomyActions = new Set(["draft", "summarize", "classify", "plan", "analyze_readonly"]);
 let schemaReady = false;
 let schemaPromise = null;
 
 if (registry.baselineCanonicalModuleCount !== 639 || registry.problems.length !== 50 ||
     registry.domains.length !== 5 || registry.candidates.length !== 4 ||
-    registry.revenueModels.length !== 20 || new Set(registry.problems.map(x => x.id)).size !== 50) {
+    registry.revenueModels.length !== 20 || new Set(registry.problems.map(x => x.id)).size !== 50 || problemEngines.length !== 49 || candidateEngines.length !== 4) {
   throw new Error("ARIA_EXPANSION_REGISTRY_INVALID");
 }
 if (registry.problems.find(x => x.sourceProblemNumber === 48)?.aliasOf !== "problem-29") {
@@ -93,7 +96,7 @@ async function handle(req, res, url, deps) {
       product: "ARIA", canonicalModuleCount: 639, canonicalCountChanged: false,
       parentDomains: registry.domains.length, problemRecords: registry.problems.length,
       uniqueProblemCapabilities: registry.problems.length - 1,
-      historicalCandidates: registry.candidates.length, revenueModels: registry.revenueModels.length,
+      historicalCandidates: registry.candidates.length, engines: engineCatalog.length, revenueModels: registry.revenueModels.length,
       liveRevenueEnabled: false, externalExecutionEnabled: false,
       source: "docs/ARIA_TWO_IMAGES_50_PROBLEMS_20_REVENUE_MODELS_FA.md",
       notes: ["مسئله ۴۸ به قابلیت مراقبت حیوان خانگی مسئله ۲۹ متصل است و موتور جداگانه نمی‌سازد.", "۵۰ مسئله در پنج حوزه ثبت شده‌اند؛ canonical ID جدید فقط پس از crosswalk و اثبات استقلال تخصیص می‌یابد.", "۲۰ مدل درآمدی تعریف شده‌اند اما پرداخت و درآمد زنده فعال نیست."]
@@ -101,6 +104,9 @@ async function handle(req, res, url, deps) {
   }
   if (p === "/api/aria-expansion/modules" && req.method === "GET") {
     return json(res, 200, { parents: registry.domains, problems: registry.problems.map(x => ({ ...x, parentDomain: x.parentModuleId })), totalProblemRecords: 50, uniqueProblemCapabilities: 49, canonicalModuleCount: 639 });
+  }
+  if (p === "/api/aria-expansion/engines" && req.method === "GET") {
+    return json(res, 200, { engines: engineCatalog, total: engineCatalog.length, problemEngines: problemEngines.length, candidateEngines: candidateEngines.length, canonicalModuleCount: 639 });
   }
   if (p === "/api/aria-expansion/candidates" && req.method === "GET") {
     return json(res, 200, { candidates: registry.candidates, total: 4, canonicalModuleCount: 639 });
