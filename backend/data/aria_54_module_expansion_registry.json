@@ -7909,7 +7909,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک تأمین‌کننده و ارزیابی حرفه‌ای",
+      "dataEntities": [
+        "supplier_dossier",
+        "supplier_document",
+        "qualification_review"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -7938,7 +7942,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001",
+      "monetizationModel": "اشتراک تأمین‌کننده و ارزیابی حرفه‌ای"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-002",
@@ -7976,7 +7981,12 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "کارمزد بسته مناقصه و اشتراک سازمانی",
+      "dataEntities": [
+        "tender",
+        "bid",
+        "bid_comparison",
+        "decision_log"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -8005,7 +8015,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001",
+      "monetizationModel": "کارمزد بسته مناقصه و اشتراک سازمانی"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-003",
@@ -8044,7 +8055,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک مدیریت خرید",
+      "dataEntities": [
+        "purchase_request",
+        "approval_step",
+        "purchase_order"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -8073,7 +8088,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003",
+      "monetizationModel": "اشتراک مدیریت خرید"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-004",
@@ -8111,7 +8127,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "گزارش تحلیلی و پلن سازمانی",
+      "dataEntities": [
+        "spend_record",
+        "spend_category",
+        "savings_opportunity"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -8140,7 +8160,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002",
+      "monetizationModel": "گزارش تحلیلی و پلن سازمانی"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-005",
@@ -8179,7 +8200,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک حرفه‌ای تأمین‌کنندگان",
+      "dataEntities": [
+        "supplier_scorecard",
+        "delivery_event",
+        "quality_event"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -8208,7 +8233,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001",
+      "monetizationModel": "اشتراک حرفه‌ای تأمین‌کنندگان"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-006",
@@ -8247,7 +8273,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک ردیابی و API سازمانی",
+      "dataEntities": [
+        "product_batch",
+        "origin_event",
+        "custody_record"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -8276,7 +8306,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003",
+      "monetizationModel": "اشتراک ردیابی و API سازمانی"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-007",
@@ -8315,7 +8346,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک اطلاعات و خدمات متخصص مجاز",
+      "dataEntities": [
+        "trade_compliance_case",
+        "regulation_source",
+        "document_check"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -8344,7 +8379,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001",
+      "monetizationModel": "اشتراک اطلاعات و خدمات متخصص مجاز"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-008",
@@ -8383,7 +8419,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک لجستیک و داشبورد",
+      "dataEntities": [
+        "shipment_exception",
+        "resolution_action",
+        "escalation"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -8412,7 +8452,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001",
+      "monetizationModel": "اشتراک لجستیک و داشبورد"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-009",
@@ -8451,7 +8492,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک پیگیری پرونده",
+      "dataEntities": [
+        "customs_case",
+        "declaration",
+        "customs_milestone"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -8480,7 +8525,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001",
+      "monetizationModel": "اشتراک پیگیری پرونده"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-010",
@@ -8519,7 +8565,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک کاتالوگ حرفه‌ای",
+      "dataEntities": [
+        "product_dossier",
+        "technical_specification",
+        "certificate"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -8548,7 +8598,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003",
+      "monetizationModel": "اشتراک کاتالوگ حرفه‌ای"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-011",
@@ -8586,7 +8637,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک تولیدکننده",
+      "dataEntities": [
+        "production_batch",
+        "inspection_result",
+        "nonconformance"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -8615,7 +8670,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003",
+      "monetizationModel": "اشتراک تولیدکننده"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-012",
@@ -8653,7 +8709,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "پلن انطباق و مدیریت کیفیت",
+      "dataEntities": [
+        "recall_case",
+        "affected_lot",
+        "recall_notice"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -8682,7 +8742,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003",
+      "monetizationModel": "پلن انطباق و مدیریت کیفیت"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-013",
@@ -8720,7 +8781,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک خدمات پس از فروش",
+      "dataEntities": [
+        "warranty_claim",
+        "warranty_term",
+        "service_case"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -8749,7 +8814,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003",
+      "monetizationModel": "اشتراک خدمات پس از فروش"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-014",
@@ -8788,7 +8854,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک اعزام و هزینه هر مأموریت",
+      "dataEntities": [
+        "field_service_ticket",
+        "technician_assignment",
+        "service_proof"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -8817,7 +8887,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001",
+      "monetizationModel": "اشتراک اعزام و هزینه هر مأموریت"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-015",
@@ -8855,7 +8926,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک مدیریت دارایی",
+      "dataEntities": [
+        "asset_record",
+        "maintenance_plan",
+        "work_order"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -8884,7 +8959,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005",
+      "monetizationModel": "اشتراک مدیریت دارایی"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-016",
@@ -8922,7 +8998,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک مشتریان سازمانی",
+      "dataEntities": [
+        "customer_account",
+        "onboarding_checklist",
+        "activation_event"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -8951,7 +9031,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007",
+      "monetizationModel": "اشتراک مشتریان سازمانی"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-017",
@@ -8990,7 +9071,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک Customer Success",
+      "dataEntities": [
+        "customer_health_snapshot",
+        "usage_signal",
+        "success_action"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -9019,7 +9104,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007",
+      "monetizationModel": "اشتراک Customer Success"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-018",
@@ -9057,7 +9143,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک مدیریت تمدید",
+      "dataEntities": [
+        "contract_renewal",
+        "obligation",
+        "renewal_task"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -9086,7 +9176,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007",
+      "monetizationModel": "اشتراک مدیریت تمدید"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-019",
@@ -9124,7 +9215,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک تحلیل نگهداشت",
+      "dataEntities": [
+        "churn_signal",
+        "retention_case",
+        "followup_action"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -9153,7 +9248,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002",
+      "monetizationModel": "اشتراک تحلیل نگهداشت"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-020",
@@ -9191,7 +9287,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک رشد حساب",
+      "dataEntities": [
+        "expansion_opportunity",
+        "product_fit",
+        "account_proposal"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -9220,7 +9320,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007",
+      "monetizationModel": "اشتراک رشد حساب"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-021",
@@ -9258,7 +9359,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک پورتال شریک",
+      "dataEntities": [
+        "partner_application",
+        "partner_profile",
+        "due_diligence"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -9287,7 +9392,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001",
+      "monetizationModel": "اشتراک پورتال شریک"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-022",
@@ -9325,7 +9431,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک شبکه نمایندگان",
+      "dataEntities": [
+        "partner_training",
+        "sales_enablement_asset",
+        "readiness_check"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -9354,7 +9464,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007",
+      "monetizationModel": "اشتراک شبکه نمایندگان"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-023",
@@ -9392,7 +9503,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک سازمان چندشعبه‌ای",
+      "dataEntities": [
+        "branch_audit",
+        "audit_finding",
+        "corrective_action"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -9421,7 +9536,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003",
+      "monetizationModel": "اشتراک سازمان چندشعبه‌ای"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-024",
@@ -9459,7 +9575,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک بازاریابی چندشعبه‌ای",
+      "dataEntities": [
+        "local_campaign",
+        "brand_approval",
+        "branch_metric"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -9488,7 +9608,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007",
+      "monetizationModel": "اشتراک بازاریابی چندشعبه‌ای"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-025",
@@ -9527,7 +9648,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک مدیریت سبد پروژه",
+      "dataEntities": [
+        "portfolio_proposal",
+        "priority_score",
+        "decision_record"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -9556,7 +9681,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002",
+      "monetizationModel": "اشتراک مدیریت سبد پروژه"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-026",
@@ -9594,7 +9720,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک مدیریت پروژه",
+      "dataEntities": [
+        "project_milestone",
+        "dependency",
+        "critical_path"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -9623,7 +9753,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005",
+      "monetizationModel": "اشتراک مدیریت پروژه"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-027",
@@ -9662,7 +9793,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک برنامه‌ریزی منابع",
+      "dataEntities": [
+        "team_capacity",
+        "resource_allocation",
+        "capacity_gap"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -9691,7 +9826,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005",
+      "monetizationModel": "اشتراک برنامه‌ریزی منابع"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-028",
@@ -9730,7 +9866,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "هزینه هر پروژه و پلن سازمانی",
+      "dataEntities": [
+        "deliverable",
+        "acceptance_criterion",
+        "signoff_record"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -9759,7 +9899,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-003",
+      "monetizationModel": "هزینه هر پروژه و پلن سازمانی"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-029",
@@ -9797,7 +9938,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک پایش SLA",
+      "dataEntities": [
+        "sla_policy",
+        "service_event",
+        "breach_alert"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -9826,7 +9971,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002",
+      "monetizationModel": "اشتراک پایش SLA"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-030",
@@ -9865,7 +10011,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک مدیریت عملیات",
+      "dataEntities": [
+        "incident",
+        "incident_timeline",
+        "postmortem"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -9894,7 +10044,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005",
+      "monetizationModel": "اشتراک مدیریت عملیات"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-031",
@@ -9933,7 +10084,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک دانش سازمانی",
+      "dataEntities": [
+        "knowledge_source",
+        "knowledge_article",
+        "review_record"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -9962,7 +10117,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-004"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-004",
+      "monetizationModel": "اشتراک دانش سازمانی"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-032",
@@ -10000,7 +10156,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک مدیریت اسناد",
+      "dataEntities": [
+        "controlled_document",
+        "document_version",
+        "approval_task"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -10029,7 +10189,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005",
+      "monetizationModel": "اشتراک مدیریت اسناد"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-033",
@@ -10067,7 +10228,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "پلن انطباق و ذخیره‌سازی",
+      "dataEntities": [
+        "retention_rule",
+        "record_class",
+        "archive_job"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -10096,7 +10261,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005",
+      "monetizationModel": "پلن انطباق و ذخیره‌سازی"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-034",
@@ -10135,7 +10301,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک داده و API",
+      "dataEntities": [
+        "data_asset",
+        "schema_version",
+        "lineage_edge"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -10164,7 +10334,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002",
+      "monetizationModel": "اشتراک داده و API"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-035",
@@ -10202,7 +10373,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک کیفیت داده",
+      "dataEntities": [
+        "data_quality_rule",
+        "validation_run",
+        "quality_issue"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -10231,7 +10406,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005",
+      "monetizationModel": "اشتراک کیفیت داده"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-036",
@@ -10270,7 +10446,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک تحلیل سازمانی",
+      "dataEntities": [
+        "kpi_definition",
+        "metric_formula",
+        "metric_owner"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -10299,7 +10479,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002",
+      "monetizationModel": "اشتراک تحلیل سازمانی"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-037",
@@ -10338,7 +10519,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک محصول و تحلیل",
+      "dataEntities": [
+        "experiment",
+        "hypothesis",
+        "result_evidence"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -10367,7 +10552,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002",
+      "monetizationModel": "اشتراک محصول و تحلیل"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-038",
@@ -10406,7 +10592,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک Voice of Customer",
+      "dataEntities": [
+        "feedback_case",
+        "feedback_theme",
+        "assignment"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -10435,7 +10625,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007",
+      "monetizationModel": "اشتراک Voice of Customer"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-039",
@@ -10474,7 +10665,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک مدیریت محصول",
+      "dataEntities": [
+        "feature_request",
+        "impact_score",
+        "prioritization_decision"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -10503,7 +10698,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-002",
+      "monetizationModel": "اشتراک مدیریت محصول"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-040",
@@ -10542,7 +10738,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک DevOps سازمانی",
+      "dataEntities": [
+        "release_candidate",
+        "quality_gate",
+        "release_approval"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -10571,7 +10771,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005",
+      "monetizationModel": "اشتراک DevOps سازمانی"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-041",
@@ -10610,7 +10811,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک بومی‌سازی",
+      "dataEntities": [
+        "localization_job",
+        "terminology_entry",
+        "locale_review"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -10639,7 +10844,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-004"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-004",
+      "monetizationModel": "اشتراک بومی‌سازی"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-042",
@@ -10677,7 +10883,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "گزارش ممیزی و پلن حرفه‌ای",
+      "dataEntities": [
+        "accessibility_audit",
+        "ui_finding",
+        "remediation_task"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -10706,7 +10916,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-006"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-006",
+      "monetizationModel": "گزارش ممیزی و پلن حرفه‌ای"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-043",
@@ -10746,7 +10957,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک مدیریت حقوق دارایی",
+      "dataEntities": [
+        "license_record",
+        "rights_holder",
+        "usage_scope"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -10775,7 +10990,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-004"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-004",
+      "monetizationModel": "اشتراک مدیریت حقوق دارایی"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-044",
@@ -10814,7 +11030,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک حرفه‌ای سازندگان",
+      "dataEntities": [
+        "ip_asset",
+        "contributor",
+        "provenance_evidence"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -10843,7 +11063,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-004"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-004",
+      "monetizationModel": "اشتراک حرفه‌ای سازندگان"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-045",
@@ -10882,7 +11103,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک آموزش سازمانی",
+      "dataEntities": [
+        "skill_credential",
+        "issuer",
+        "verification_record"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -10911,7 +11136,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-007",
+      "monetizationModel": "اشتراک آموزش سازمانی"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-046",
@@ -10950,7 +11176,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک منابع انسانی",
+      "dataEntities": [
+        "role_profile",
+        "competency",
+        "skill_gap"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -10979,7 +11209,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005",
+      "monetizationModel": "اشتراک منابع انسانی"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-047",
@@ -11018,7 +11249,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک مدیریت نیروی کار",
+      "dataEntities": [
+        "shift_requirement",
+        "shift_roster",
+        "coverage_gap"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -11047,7 +11282,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005",
+      "monetizationModel": "اشتراک مدیریت نیروی کار"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-048",
@@ -11086,7 +11322,11 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک انطباق و ایمنی",
+      "dataEntities": [
+        "safety_inspection",
+        "observation",
+        "corrective_action"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -11115,7 +11355,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005",
+      "monetizationModel": "اشتراک انطباق و ایمنی"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-049",
@@ -11154,7 +11395,12 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک انطباق سازمانی",
+      "dataEntities": [
+        "processing_activity",
+        "data_category",
+        "privacy_risk",
+        "mitigation"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -11183,7 +11429,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005",
+      "monetizationModel": "اشتراک انطباق سازمانی"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-050",
@@ -11222,7 +11469,12 @@
         "quality_review",
         "record_audit_and_outcome"
       ],
-      "dataEntities": "اشتراک ارزیابی فروشنده",
+      "dataEntities": [
+        "vendor_profile",
+        "security_questionnaire",
+        "evidence_item",
+        "vendor_risk_review"
+      ],
       "accessPolicy": [
         "tenant_isolation",
         "least_privilege",
@@ -11251,143 +11503,8 @@
       "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
       "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001"
-    },
-    {
-      "moduleId": "ARIA-IDEA-MODULE-051",
-      "sequence": 51,
-      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
-      "name": "پایش سلامت اتصال و API",
-      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
-      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
-      "purpose": "پایش وضعیت اتصال‌های مجاز، انقضا و خطاهای API بدون نمایش اسرار.",
-      "domainPackId": "SEPEHR",
-      "submodules": [
-        "ثبت اتصال",
-        "کنترل مجوز",
-        "health check",
-        "هشدار خطا",
-        "درخواست تمدید"
-      ],
-      "inputContract": [
-        "authenticated_actor",
-        "tenant_context",
-        "connector_id",
-        "health_events",
-        "permission_scopes",
-        "expiry_metadata"
-      ],
-      "outputContract": [
-        "connection_health",
-        "failure_alert",
-        "renewal_task"
-      ],
-      "workflow": [
-        "validate_input",
-        "authorize_tenant_and_role",
-        "check_consent_and_policy",
-        "execute_scoped_workflow",
-        "quality_review",
-        "record_audit_and_outcome"
-      ],
-      "dataEntities": "پلن اتصال و مصرف API",
-      "accessPolicy": [
-        "tenant_isolation",
-        "least_privilege",
-        "consent_and_purpose_limitation",
-        "audit_log",
-        "human_approval_for_sensitive_or_external_actions"
-      ],
-      "kpis": [
-        "workflow_completion_rate",
-        "time_to_value",
-        "quality_score",
-        "error_rate",
-        "cost_per_completed_task"
-      ],
-      "acceptanceCriteria": [
-        "قرارداد ورودی/خروجی و خطاها آزموده شود",
-        "دسترسی نقش و جداسازی tenant آزموده شود",
-        "منبع داده و فرض‌ها قابل ردیابی باشد",
-        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
-        "تست واحد، integration و E2E تعریف و اجرا شود",
-        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
-      ],
-      "engineId": "idea-expansion-engine-051",
-      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
-      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
-      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
-      "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
-    },
-    {
-      "moduleId": "ARIA-IDEA-MODULE-052",
-      "sequence": 52,
-      "moduleType": "NEW_IDEA_PRODUCT_MODULE",
-      "name": "مدیریت رخدادهای یکپارچه‌سازی",
-      "sourceType": "ASSISTANT_GENERATED_WITH_USER_AUTHORIZATION",
-      "sourceTextStatus": "NEWLY_AUTHORED_TO_FILL_UNAVAILABLE_HISTORICAL_IDEA_SOURCE",
-      "purpose": "ثبت، بازپخش کنترل‌شده و ردیابی خطاهای رویداد میان سامانه‌های متصل.",
-      "domainPackId": "SEPEHR",
-      "submodules": [
-        "دریافت رخداد",
-        "اعتبارسنجی امضا/شناسه",
-        "ثبت وضعیت",
-        "بازپخش idempotent",
-        "گزارش"
-      ],
-      "inputContract": [
-        "authenticated_actor",
-        "tenant_context",
-        "connector_id",
-        "event_id",
-        "payload_reference",
-        "retry_policy"
-      ],
-      "outputContract": [
-        "integration_event",
-        "replay_record",
-        "delivery_status"
-      ],
-      "workflow": [
-        "validate_input",
-        "authorize_tenant_and_role",
-        "check_consent_and_policy",
-        "execute_scoped_workflow",
-        "quality_review",
-        "record_audit_and_outcome"
-      ],
-      "dataEntities": "اشتراک اتصال سازمانی",
-      "accessPolicy": [
-        "tenant_isolation",
-        "least_privilege",
-        "consent_and_purpose_limitation",
-        "audit_log",
-        "human_approval_for_sensitive_or_external_actions"
-      ],
-      "kpis": [
-        "workflow_completion_rate",
-        "time_to_value",
-        "quality_score",
-        "error_rate",
-        "cost_per_completed_task"
-      ],
-      "acceptanceCriteria": [
-        "قرارداد ورودی/خروجی و خطاها آزموده شود",
-        "دسترسی نقش و جداسازی tenant آزموده شود",
-        "منبع داده و فرض‌ها قابل ردیابی باشد",
-        "اقدام بیرونی بدون مجوز provider و تأیید لازم انجام نشود",
-        "تست واحد، integration و E2E تعریف و اجرا شود",
-        "هزینه، entitlement و محدودیت مصرف شفاف باشد"
-      ],
-      "engineId": "idea-expansion-engine-052",
-      "engineSharing": "DEDICATED_CANDIDATE_ENGINE_DESIGN",
-      "canonicalMappingStatus": "PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639",
-      "implementationStatus": "DESIGNED_PENDING_IMPLEMENTATION_AND_HOST_REVIEW",
-      "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "NEW_IDEA_CREATED_BY_ASSISTANT_AT_USER_DIRECTION",
-      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-005"
+      "linkedDomainModuleId": "ARIA-LEGACY-APP-MODULE-001",
+      "monetizationModel": "اشتراک ارزیابی فروشنده"
     }
   ],
   "moduleCatalogSummary": {
