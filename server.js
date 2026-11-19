@@ -116,7 +116,6 @@ const catalogModules = modules.map((module, index) => ({
  capabilityContractId: 651 + index,
  runtimeState: "ACTIVE_LOCAL_WORKFLOW",
  externalExecutionState: EXTERNAL_EXECUTION_REQUIRED.has(module.id) ? "ADAPTER_REQUIRED_FOR_EXTERNAL_ACTIONS" : "LOCAL_WORKFLOW_ONLY",
- legacyProduct: module.legacyProduct || null,
  domain: MODULE_DOMAIN_BY_ID[module.id] || "unclassified",
  domainLabel: MODULE_DOMAIN_LABELS[MODULE_DOMAIN_BY_ID[module.id]] || "نیازمند طبقه‌بندی",
  executionState: "active_local_workflow",
