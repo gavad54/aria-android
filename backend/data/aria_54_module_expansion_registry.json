@@ -3091,7 +3091,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 237,
+      "entryPointCanonicalContractId": 237,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-002",
@@ -3167,7 +3170,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 237,
+      "entryPointCanonicalContractId": 237,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-003",
@@ -3241,7 +3247,10 @@
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 237,
+      "entryPointCanonicalContractId": 237,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-004",
@@ -3317,7 +3326,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 237,
+      "entryPointCanonicalContractId": 237,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-005",
@@ -3393,7 +3405,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 237,
+      "entryPointCanonicalContractId": 237,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-006",
@@ -3469,7 +3484,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 237,
+      "entryPointCanonicalContractId": 237,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-007",
@@ -3545,7 +3563,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 237,
+      "entryPointCanonicalContractId": 237,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-008",
@@ -3619,7 +3640,10 @@
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 237,
+      "entryPointCanonicalContractId": 237,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-009",
@@ -3695,7 +3719,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 237,
+      "entryPointCanonicalContractId": 237,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-010",
@@ -3769,7 +3796,10 @@
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 237,
+      "entryPointCanonicalContractId": 237,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-011",
@@ -3845,7 +3875,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 11,
+      "entryPointCanonicalContractId": 11,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-012",
@@ -3921,7 +3954,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 11,
+      "entryPointCanonicalContractId": 11,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-013",
@@ -3997,7 +4033,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 11,
+      "entryPointCanonicalContractId": 11,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-014",
@@ -4074,7 +4113,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 11,
+      "entryPointCanonicalContractId": 11,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-015",
@@ -4150,7 +4192,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 11,
+      "entryPointCanonicalContractId": 11,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-016",
@@ -4226,7 +4271,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 11,
+      "entryPointCanonicalContractId": 11,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-017",
@@ -4302,7 +4350,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 11,
+      "entryPointCanonicalContractId": 11,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-018",
@@ -4379,7 +4430,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 11,
+      "entryPointCanonicalContractId": 11,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-019",
@@ -4456,7 +4510,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 11,
+      "entryPointCanonicalContractId": 11,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-020",
@@ -4532,7 +4589,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 11,
+      "entryPointCanonicalContractId": 11,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-021",
@@ -4606,7 +4666,10 @@
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 233,
+      "entryPointCanonicalContractId": 233,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-022",
@@ -4680,7 +4743,10 @@
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 233,
+      "entryPointCanonicalContractId": 233,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-023",
@@ -4754,7 +4820,10 @@
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 233,
+      "entryPointCanonicalContractId": 233,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-024",
@@ -4828,7 +4897,10 @@
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 233,
+      "entryPointCanonicalContractId": 233,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-025",
@@ -4904,7 +4976,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 233,
+      "entryPointCanonicalContractId": 233,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-026",
@@ -4978,7 +5053,10 @@
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 233,
+      "entryPointCanonicalContractId": 233,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-027",
@@ -5052,7 +5130,10 @@
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 233,
+      "entryPointCanonicalContractId": 233,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-028",
@@ -5126,7 +5207,10 @@
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 233,
+      "entryPointCanonicalContractId": 233,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-029",
@@ -5200,7 +5284,10 @@
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 233,
+      "entryPointCanonicalContractId": 233,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-030",
@@ -5274,7 +5361,10 @@
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 233,
+      "entryPointCanonicalContractId": 233,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-031",
@@ -5348,7 +5438,10 @@
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 169,
+      "entryPointCanonicalContractId": 169,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-032",
@@ -5422,7 +5515,10 @@
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 169,
+      "entryPointCanonicalContractId": 169,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-033",
@@ -5496,7 +5592,10 @@
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 169,
+      "entryPointCanonicalContractId": 169,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-034",
@@ -5573,7 +5672,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 169,
+      "entryPointCanonicalContractId": 169,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-035",
@@ -5649,7 +5751,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 169,
+      "entryPointCanonicalContractId": 169,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-036",
@@ -5725,7 +5830,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 169,
+      "entryPointCanonicalContractId": 169,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-037",
@@ -5801,7 +5909,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 169,
+      "entryPointCanonicalContractId": 169,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-038",
@@ -5878,7 +5989,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 169,
+      "entryPointCanonicalContractId": 169,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-039",
@@ -5954,7 +6068,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 169,
+      "entryPointCanonicalContractId": 169,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-040",
@@ -6031,7 +6148,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 169,
+      "entryPointCanonicalContractId": 169,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-041",
@@ -6105,7 +6225,10 @@
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 235,
+      "entryPointCanonicalContractId": 235,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-042",
@@ -6181,7 +6304,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 235,
+      "entryPointCanonicalContractId": 235,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-043",
@@ -6255,7 +6381,10 @@
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 235,
+      "entryPointCanonicalContractId": 235,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-044",
@@ -6329,7 +6458,10 @@
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 235,
+      "entryPointCanonicalContractId": 235,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-045",
@@ -6405,7 +6537,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 235,
+      "entryPointCanonicalContractId": 235,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-046",
@@ -6479,7 +6614,10 @@
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 235,
+      "entryPointCanonicalContractId": 235,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-047",
@@ -6555,7 +6693,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 235,
+      "entryPointCanonicalContractId": 235,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-048",
@@ -6629,7 +6770,10 @@
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 233,
+      "entryPointCanonicalContractId": 235,
+      "mappingStatus": "ALIAS_TO_PROBLEM_29_HOSTED_BY_CANONICAL_233"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-049",
@@ -6705,7 +6849,10 @@
       ],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 235,
+      "entryPointCanonicalContractId": 235,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-IDEA-MODULE-050",
@@ -6779,7 +6926,10 @@
       "linkedDomainPacks": [],
       "implementationStatus": "DESIGNED_PENDING_RUNTIME_VERIFICATION",
       "productionStatus": "NOT_PRODUCTION_VERIFIED",
-      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED"
+      "sourcePreservation": "FULL_SOURCE_RECORD_PRESERVED",
+      "hostCanonicalContractId": 235,
+      "entryPointCanonicalContractId": 235,
+      "mappingStatus": "HOSTED_BY_EXISTING_PARENT_CONTRACT"
     },
     {
       "moduleId": "ARIA-CONTROL-MODULE-001",
