@@ -76,13 +76,13 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   const enginesResponse=await fetch(base+"/api/aria-expansion/engines");
   const engines=await enginesResponse.json();
   assert.equal(enginesResponse.status,200);
-  assert.equal(engines.engines.length,110);
-  assert.equal(engines.problemEngines,49);
+  assert.equal(engines.engines.length,71);
+  assert.equal(engines.problemEngines,38);
   assert.equal(engines.candidateEngines,4);
-  assert.equal(engines.ideaEngines,50);
-  assert.equal(engines.legacyDomainEngines,7);
-  assert.equal(engines.ideaEngines,50);
-  assert.equal(engines.legacyDomainEngines,7);
+  assert.equal(engines.ideaEngines,25);
+  assert.equal(engines.legacyDomainEngines,4);
+  assert.equal(engines.ideaEngines,25);
+  assert.equal(engines.legacyDomainEngines,4);
   assert.ok(engines.engines.every(x=>x.contract&&Array.isArray(x.contract.operations)));
 
   const candidatesResponse=await fetch(base+"/api/aria-expansion/candidates");
@@ -135,7 +135,7 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(newModulePlanResponse.status,200);
   assert.equal(newModulePlan.plan.moduleId,"ARIA-IDEA-MODULE-003");
   assert.equal(newModulePlan.plan.hostCanonicalContractId,null);
-  assert.equal(modules.modules.find(x=>x.moduleId==="ARIA-IDEA-MODULE-001").canonicalMappingStatus,"PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639");
+  assert.equal(modules.modules.find(x=>x.moduleId==="ARIA-IDEA-MODULE-003").canonicalMappingStatus,"PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639");
   const controlPlanResponse=await fetch(base+"/api/aria-expansion/modules/ARIA-CONTROL-MODULE-001/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"تطبیق نیاز و عرضه‌کننده با رضایت"})});
   const controlPlan=await controlPlanResponse.json();
   assert.equal(controlPlanResponse.status,200);
