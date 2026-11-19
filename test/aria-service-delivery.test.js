@@ -44,7 +44,7 @@ test("service case state machine rejects skipped approvals and records explicit 
   assert.equal(qualified.status, "QUALIFIED");
   const quoted = transitionServiceCase(qualified, "ISSUE_QUOTE", { userId: "42" });
   assert.equal(quoted.status, "QUOTE_PENDING_APPROVAL");
-  assert.throws(() => transitionServiceCase(quoted, "ACCEPT_QUOTE", { userId: "42" }), /OWNER_APPROVAL_REQUIRED/);
+  assert.throws(() => transitionServiceCase(quoted, "APPROVE_QUOTE", { userId: "42" }), /OWNER_APPROVAL_REQUIRED/);
   const accepted = transitionServiceCase(quoted, "APPROVE_QUOTE", { userId: "owner-1", isOwner: true });
   assert.equal(accepted.status, "QUOTE_ACCEPTED");
 });
