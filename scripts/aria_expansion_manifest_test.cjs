@@ -13,6 +13,7 @@ assert.equal(registry.candidates.length,4);
 assert.ok(registry.candidates.every(x=>x.engine.contract&&x.engine.contract.operations.length===4));
 assert.equal(new Set(registry.problems.map(x=>x.engine.id)).size,49);
 assert.equal(registry.revenueModels.length,20);
+assert.ok(registry.revenueModels.every(x=>x.calculation&&x.calculation.requiredInputs.length>0));
 const p29=registry.problems.find(x=>x.sourceProblemNumber===29);
 const p48=registry.problems.find(x=>x.sourceProblemNumber===48);
 assert.ok(p29&&p48);
