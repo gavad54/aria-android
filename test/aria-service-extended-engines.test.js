@@ -51,3 +51,42 @@ test("unit economics separates platform revenue from principal and exposes margi
   assert.equal(report.paymentExecuted, false);
   assert.throws(() => calculateServiceUnitEconomics({ currency: "IRR", platformRevenue: -1, principalFunds: 0, costs: {} }), /UNIT_ECONOMICS_INPUT_INVALID/);
 });
+
+test("support SLA is evaluated from stored target and ticket lifecycle is auditable", () => {
+  const { createSupportTicket, evaluateSupportSla, transitionSupportTicket } = require("../backend/aria-service-delivery.cjs");
+  const ticket = createSupportTicket({
+    serviceCaseId: "case-1", title: "پیگیری", description: "شرح کافی برای پیگیری", priority: "high", responseHours: 1
+  }, { userId: "user-1", tenantId: "tenant-1" });
+  assert.equal(evaluateSupportSla(ticket, new Date(Date.now() + 2 * 3600000)).state, "OVERDUE");
+  const active = transitionSupportTicket(ticket, "START_WORK", { userId: "user-1" });
+  assert.equal(active.status, "IN_PROGRESS");
+  const resolved = transitionSupportTicket(active, "RESOLVE", { userId: "user-1" });
+  assert.equal(resolved.status, "RESOLVED");
+  assert.throws(() => transitionSupportTicket(ticket, "RESOLVE", { userId: "user-1" }), /SUPPORT_TRANSITION_NOT_ALLOWED/);
+});
+
+test("customer renewal requires owner approval and never executes a charge", () => {
+  const { evaluateCustomerSuccess, approveCustomerRenewal } = require("../backend/aria-service-delivery.cjs");
+  const report = evaluateCustomerSuccess({
+    period: "2026-11", activeDays: 12, completedTasks: 30, targetTasks: 25, unresolvedTickets: 1
+  });
+  assert.throws(() => approveCustomerRenewal(report, { userId: "user-1" }), /OWNER_APPROVAL_REQUIRED/);
+  const approved = approveCustomerRenewal(report, { userId: "owner-1", isOwner: true });
+  assert.equal(approved.renewalDecision, "OWNER_APPROVED_RECOMMENDATION");
+  assert.equal(approved.renewalExecuted, false);
+});
+
+test("service package lifecycle requires owner approval before local catalog publication", () => {
+  const { createServicePackage, transitionServicePackage } = require("../backend/aria-service-delivery.cjs");
+  const pack = createServicePackage({
+    name: "بسته محتوا", version: 1, serviceModuleIds: ["ARIA-SVC-INTAKE"], steps: ["دریافت brief"], currency: "IRR"
+  }, { userId: "user-1", tenantId: "tenant-1" });
+  const review = transitionServicePackage(pack, "SUBMIT_REVIEW", { userId: "user-1" });
+  assert.equal(review.state, "REVIEW_PENDING");
+  assert.throws(() => transitionServicePackage(review, "APPROVE", { userId: "user-1" }), /OWNER_APPROVAL_REQUIRED/);
+  const approved = transitionServicePackage(review, "APPROVE", { userId: "owner-1", isOwner: true });
+  const published = transitionServicePackage(approved, "PUBLISH_LOCAL", { userId: "owner-1", isOwner: true });
+  assert.equal(published.state, "PUBLISHED_LOCAL");
+  assert.equal(published.entitlementActivated, false);
+  assert.equal(published.externalExecutionPerformed, false);
+});
