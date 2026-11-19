@@ -61,6 +61,7 @@ test("four service delivery engines execute their domain functions through the m
 
 test("every independent module accepts its declared contract and returns a local artifact", async () => {
   for (const module of MODULES) {
+    if (module.manifest.moduleType === "SERVICE_DELIVERY_ENGINE") continue;
     const input = Object.fromEntries(module.manifest.requiredInputs.map(key => [key, key === "consent" ? true : "sample-value"]));
     const result = await module.execute(input, { actorId: "test-user", tenantId: "test-tenant" });
     assert.equal(result.moduleId, module.manifest.moduleId);
