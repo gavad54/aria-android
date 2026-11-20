@@ -34,6 +34,23 @@ test("service delivery catalog is discoverable and never advertises live executi
     assert.equal(catalog.productionVerified, false);
     assert.equal(catalog.paymentExecuted, false);
     assert.equal(catalog.externalExecutionPerformed, false);
+    const adapterCoverageResponse = await fetch(base + "/api/aria-expansion/adapter-runtime");
+    const adapterCoverage = await adapterCoverageResponse.json();
+    assert.equal(adapterCoverageResponse.status, 200);
+    assert.equal(adapterCoverage.totalRequirements, 191);
+    assert.equal(adapterCoverage.familyCount, 14);
+    assert.equal(adapterCoverage.mappedModuleCount, 191);
+    assert.equal(adapterCoverage.providerConfiguredCount, 0);
+    assert.equal(adapterCoverage.productionVerifiedCount, 0);
+    assert.ok(adapterCoverage.families.every(x => x.providerState === "NOT_CONFIGURED_FAIL_CLOSED" && x.productionEnabled === false));
+    const adapterModuleResponse = await fetch(base + "/api/aria-expansion/adapter-runtime/modules/633");
+    const adapterModule = await adapterModuleResponse.json();
+    assert.equal(adapterModuleResponse.status, 200);
+    assert.equal(adapterModule.moduleId, 633);
+    assert.equal(adapterModule.family, "PAYMENT_AND_FINANCIAL_RAILS");
+    assert.equal(adapterModule.productionVerified, false);
+    const unknownAdapterModule = await fetch(base + "/api/aria-expansion/adapter-runtime/modules/9999");
+    assert.equal(unknownAdapterModule.status, 404);
     const privateCases = await fetch(base + "/api/aria-expansion/service-cases");
     assert.equal(privateCases.status, 401, "service cases must require authentication");
     const createAttempt = await fetch(base + "/api/aria-expansion/service-cases", {
