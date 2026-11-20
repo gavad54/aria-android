@@ -25,7 +25,7 @@ const REGISTRY=Object.freeze({
  product:"ARIA",baselineCanonicalModuleCount:639,addedModuleCount:144,totalProductFacingModuleCount:783,
  counts:Object.freeze({historicalOverlay:72,commercialCatalog:72}),records:Object.freeze(records)
 });
-function executeAriaDomainModule(moduleId,input={},context={}) {
+async function executeAriaDomainModule(moduleId,input={},context={}) {
  const record=BY_ID.get(String(moduleId));
  if(!record) throw new Error("ARIA_DOMAIN_MODULE_NOT_FOUND");
  if(!context.tenantId) throw new Error("MODULE_TENANT_REQUIRED");
@@ -36,7 +36,7 @@ function executeAriaDomainModule(moduleId,input={},context={}) {
  if(record.requiredInputs.includes("consent")&&input.consent!==true) throw new Error("MODULE_CONSENT_REQUIRED");
  if(record.recordType==="COMMERCIAL_CATALOG_MODULE") {
   const backendModuleId="ARIA-CATALOG-"+record.catalogEntryId;
-  const result=modulesRuntime.executeModule(backendModuleId,input,{actorId:String(context.actorId),tenantId:String(context.tenantId)});
+  const result=await modulesRuntime.executeModule(backendModuleId,input,{actorId:String(context.actorId),tenantId:String(context.tenantId)});
   return Object.freeze({...result,inventoryModuleId:record.moduleId,executionState:"LOCAL_DOMAIN_LOGIC_EXECUTED",externalExecutionPerformed:false,paymentExecuted:false,productionVerified:false});
  }
  const operationPlan=record.operations.map((operation,index)=>({sequence:index+1,operation,state:"LOCAL_STEP_PREPARED",tenantScope:String(context.tenantId),requiresHumanReview:true}));
