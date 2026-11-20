@@ -8,8 +8,8 @@ test("201-module maturity report distinguishes domain-specific handlers from fam
   const report = buildMaturityReport(MODULES);
   assert.equal(report.total, 201);
   assert.deepEqual(report.counts, {
-    DOMAIN_LOGIC_LOCAL: 138,
-    DOMAIN_ADAPTER_LOCAL: 63
+    DOMAIN_LOGIC_LOCAL: 128,
+    DOMAIN_ADAPTER_LOCAL: 73
   });
   assert.equal(report.productionVerifiedCount, 0);
   assert.equal(report.externalExecutionEnabledCount, 0);
