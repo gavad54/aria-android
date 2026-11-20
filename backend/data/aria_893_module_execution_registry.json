@@ -30348,9 +30348,9 @@
       "launchId": "engine:ARIA-LEGACY-APP-MODULE-006"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-001",
+      "unitId": "ARIA-OWNED-ADDITIONAL-001",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-001",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-001",
       "name": "برنامه‌ریز مالی شخصی",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -30383,12 +30383,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-001"
+      "launchId": "ARIA-OWNED-ADDITIONAL-001"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-002",
+      "unitId": "ARIA-OWNED-ADDITIONAL-002",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-002",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-002",
       "name": "راهنمای مسیر شغلی",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -30421,12 +30421,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-002"
+      "launchId": "ARIA-OWNED-ADDITIONAL-002"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-003",
+      "unitId": "ARIA-OWNED-ADDITIONAL-003",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-003",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-003",
       "name": "مدیریت موجودی کسب‌وکار کوچک",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -30459,12 +30459,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-003"
+      "launchId": "ARIA-OWNED-ADDITIONAL-003"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-004",
+      "unitId": "ARIA-OWNED-ADDITIONAL-004",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-004",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-004",
       "name": "مدیریت درخواست مشتری",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -30497,12 +30497,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-004"
+      "launchId": "ARIA-OWNED-ADDITIONAL-004"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-005",
+      "unitId": "ARIA-OWNED-ADDITIONAL-005",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-005",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-005",
       "name": "هماهنگ‌کننده نوبت و قرار",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -30535,12 +30535,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-005"
+      "launchId": "ARIA-OWNED-ADDITIONAL-005"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-006",
+      "unitId": "ARIA-OWNED-ADDITIONAL-006",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-006",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-006",
       "name": "برنامه‌ریز رویداد",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -30574,12 +30574,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-006"
+      "launchId": "ARIA-OWNED-ADDITIONAL-006"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-007",
+      "unitId": "ARIA-OWNED-ADDITIONAL-007",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-007",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-007",
       "name": "طراح برنامه سفر",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -30613,12 +30613,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-007"
+      "launchId": "ARIA-OWNED-ADDITIONAL-007"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-008",
+      "unitId": "ARIA-OWNED-ADDITIONAL-008",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-008",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-008",
       "name": "راهنمای خدمات محلی",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -30651,12 +30651,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-008"
+      "launchId": "ARIA-OWNED-ADDITIONAL-008"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-009",
+      "unitId": "ARIA-OWNED-ADDITIONAL-009",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-009",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-009",
       "name": "ممیزی دسترس‌پذیری دیجیتال",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -30689,12 +30689,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-009"
+      "launchId": "ARIA-OWNED-ADDITIONAL-009"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-010",
+      "unitId": "ARIA-OWNED-ADDITIONAL-010",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-010",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-010",
       "name": "مدیریت واژگان و ترجمه تخصصی",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -30727,12 +30727,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-010"
+      "launchId": "ARIA-OWNED-ADDITIONAL-010"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-011",
+      "unitId": "ARIA-OWNED-ADDITIONAL-011",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-011",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-011",
       "name": "سامانه پایگاه دانش",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -30765,12 +30765,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-011"
+      "launchId": "ARIA-OWNED-ADDITIONAL-011"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-012",
+      "unitId": "ARIA-OWNED-ADDITIONAL-012",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-012",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-012",
       "name": "دستیار مرور پژوهش",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -30803,12 +30803,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-012"
+      "launchId": "ARIA-OWNED-ADDITIONAL-012"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-013",
+      "unitId": "ARIA-OWNED-ADDITIONAL-013",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-013",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-013",
       "name": "برنامه‌ریز مطالعه",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -30842,12 +30842,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-013"
+      "launchId": "ARIA-OWNED-ADDITIONAL-013"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-014",
+      "unitId": "ARIA-OWNED-ADDITIONAL-014",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-014",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-014",
       "name": "مربی تمرین زبان",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -30880,12 +30880,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-014"
+      "launchId": "ARIA-OWNED-ADDITIONAL-014"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-015",
+      "unitId": "ARIA-OWNED-ADDITIONAL-015",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-015",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-015",
       "name": "مدیریت نمونه‌کار حرفه‌ای",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -30919,12 +30919,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-015"
+      "launchId": "ARIA-OWNED-ADDITIONAL-015"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-016",
+      "unitId": "ARIA-OWNED-ADDITIONAL-016",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-016",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-016",
       "name": "هماهنگ‌کننده داوطلبان",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -30958,12 +30958,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-016"
+      "launchId": "ARIA-OWNED-ADDITIONAL-016"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-017",
+      "unitId": "ARIA-OWNED-ADDITIONAL-017",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-017",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-017",
       "name": "شفافیت کمک‌های اجتماعی",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -30996,12 +30996,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-017"
+      "launchId": "ARIA-OWNED-ADDITIONAL-017"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-018",
+      "unitId": "ARIA-OWNED-ADDITIONAL-018",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-018",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-018",
       "name": "مدیریت چرخه تعمیر",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31035,12 +31035,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-018"
+      "launchId": "ARIA-OWNED-ADDITIONAL-018"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-019",
+      "unitId": "ARIA-OWNED-ADDITIONAL-019",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-019",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-019",
       "name": "پایش بهره‌وری انرژی ساختمان",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31073,12 +31073,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-019"
+      "launchId": "ARIA-OWNED-ADDITIONAL-019"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-020",
+      "unitId": "ARIA-OWNED-ADDITIONAL-020",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-020",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-020",
       "name": "مدیریت تفکیک پسماند",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31111,12 +31111,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-020"
+      "launchId": "ARIA-OWNED-ADDITIONAL-020"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-021",
+      "unitId": "ARIA-OWNED-ADDITIONAL-021",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-021",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-021",
       "name": "برنامه‌ریز عملیات کشاورزی",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31150,12 +31150,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-021"
+      "launchId": "ARIA-OWNED-ADDITIONAL-021"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-022",
+      "unitId": "ARIA-OWNED-ADDITIONAL-022",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-022",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-022",
       "name": "مقایسه تأمین‌کنندگان",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31188,12 +31188,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-022"
+      "launchId": "ARIA-OWNED-ADDITIONAL-022"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-023",
+      "unitId": "ARIA-OWNED-ADDITIONAL-023",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-023",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-023",
       "name": "هماهنگی زنجیره تأمین",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31226,12 +31226,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-023"
+      "launchId": "ARIA-OWNED-ADDITIONAL-023"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-024",
+      "unitId": "ARIA-OWNED-ADDITIONAL-024",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-024",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-024",
       "name": "چک‌لیست بازبینی قرارداد",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31264,12 +31264,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-024"
+      "launchId": "ARIA-OWNED-ADDITIONAL-024"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-025",
+      "unitId": "ARIA-OWNED-ADDITIONAL-025",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-025",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-025",
       "name": "گردش‌کار اسناد",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31302,12 +31302,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-025"
+      "launchId": "ARIA-OWNED-ADDITIONAL-025"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-026",
+      "unitId": "ARIA-OWNED-ADDITIONAL-026",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-026",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-026",
       "name": "طراح فرم هوشمند",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31340,12 +31340,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-026"
+      "launchId": "ARIA-OWNED-ADDITIONAL-026"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-027",
+      "unitId": "ARIA-OWNED-ADDITIONAL-027",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-027",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-027",
       "name": "تحلیل نظرسنجی",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31378,12 +31378,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-027"
+      "launchId": "ARIA-OWNED-ADDITIONAL-027"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-028",
+      "unitId": "ARIA-OWNED-ADDITIONAL-028",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-028",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-028",
       "name": "مدیریت بازخورد محصول",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31416,12 +31416,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-028"
+      "launchId": "ARIA-OWNED-ADDITIONAL-028"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-029",
+      "unitId": "ARIA-OWNED-ADDITIONAL-029",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-029",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-029",
       "name": "مدیریت تضمین کیفیت",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31454,12 +31454,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-029"
+      "launchId": "ARIA-OWNED-ADDITIONAL-029"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-030",
+      "unitId": "ARIA-OWNED-ADDITIONAL-030",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-030",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-030",
       "name": "ثبت و پیگیری ریسک",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31493,12 +31493,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-030"
+      "launchId": "ARIA-OWNED-ADDITIONAL-030"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-031",
+      "unitId": "ARIA-OWNED-ADDITIONAL-031",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-031",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-031",
       "name": "مدیریت انطباق سیاست‌ها",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31531,12 +31531,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-031"
+      "launchId": "ARIA-OWNED-ADDITIONAL-031"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-032",
+      "unitId": "ARIA-OWNED-ADDITIONAL-032",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-032",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-032",
       "name": "مدیریت اتصال‌دهنده‌ها",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31569,12 +31569,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-032"
+      "launchId": "ARIA-OWNED-ADDITIONAL-032"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-033",
+      "unitId": "ARIA-OWNED-ADDITIONAL-033",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-033",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-033",
       "name": "حاکمیت حریم خصوصی داده",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31607,12 +31607,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-033"
+      "launchId": "ARIA-OWNED-ADDITIONAL-033"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-034",
+      "unitId": "ARIA-OWNED-ADDITIONAL-034",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-034",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-034",
       "name": "پایش وضعیت پشتیبان‌گیری",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31645,12 +31645,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-034"
+      "launchId": "ARIA-OWNED-ADDITIONAL-034"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-035",
+      "unitId": "ARIA-OWNED-ADDITIONAL-035",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-035",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-035",
       "name": "مدیریت بومی‌سازی محتوا",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31683,12 +31683,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-035"
+      "launchId": "ARIA-OWNED-ADDITIONAL-035"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-036",
+      "unitId": "ARIA-OWNED-ADDITIONAL-036",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-036",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-036",
       "name": "مدیریت چرخه انتشار",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31722,12 +31722,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-036"
+      "launchId": "ARIA-OWNED-ADDITIONAL-036"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-037",
+      "unitId": "ARIA-OWNED-ADDITIONAL-037",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-037",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-037",
       "name": "مدیریت دارایی‌های دیجیتال",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31761,12 +31761,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-037"
+      "launchId": "ARIA-OWNED-ADDITIONAL-037"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-038",
+      "unitId": "ARIA-OWNED-ADDITIONAL-038",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-038",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-038",
       "name": "هماهنگی خدمات پس از فروش",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31799,12 +31799,12 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-038"
+      "launchId": "ARIA-OWNED-ADDITIONAL-038"
     },
     {
-      "unitId": "ARIA-OWNED-REPLACEMENT-039",
+      "unitId": "ARIA-OWNED-ADDITIONAL-039",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
-      "sourceId": "ARIA-OWNED-REPLACEMENT-039",
+      "sourceId": "ARIA-OWNED-ADDITIONAL-039",
       "name": "مدیریت دانش سازمانی",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
@@ -31838,7 +31838,7 @@
         "humanGate": "POLICY_BASED",
         "externalAdapter": "NOT_CONNECTED"
       },
-      "launchId": "ARIA-OWNED-REPLACEMENT-039"
+      "launchId": "ARIA-OWNED-ADDITIONAL-039"
     }
   ]
 }
