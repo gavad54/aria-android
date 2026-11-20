@@ -469,7 +469,7 @@ async function handle(req, res, url, deps) {
       return json(res, 201, { item: { ...q.rows[0], id: String(q.rows[0].id) }, engineSubmoduleId: engine.moduleId, parentModuleIds: engine.parentModuleIds, executionStatus: "LOCAL_WORK_ITEM_CREATED", externalExecutionPerformed: false, productionVerified: false });
     } catch (err) { console.error("ARIA engine work item failed:", err.message); return json(res, 500, { error: "ثبت گردش‌کار موتور انجام نشد." }); }
   }
-  const replacementRunMatch = p.match(/^\\/api\\/aria-expansion\\/replacement-modules\\/(ARIA-OWNED-REPLACEMENT-\\d{3})\\/run$/);
+  const replacementRunMatch = p.match(/^\/api\/aria-expansion\/replacement-modules\/(ARIA-OWNED-REPLACEMENT-\d{3})\/run$/);
   if (replacementRunMatch && req.method === "POST") {
     const user = requireUser(req, json, res, authUser); if (!user) return true;
     const data = await readJson(req, res); if (data === null) return true;
@@ -544,6 +544,11 @@ async function handle(req, res, url, deps) {
       commercialModules,
       engineSubmodules,
       canonicalBaseline: 639,
+      ariaOwnedModuleAndSubmoduleRecords: moduleInventory.ariaOwnedModuleAndSubmoduleRecords,
+      replacementModules: replacementModuleRuntime.REGISTRY.records.length,
+      unifiedInventoryRecords: unifiedExecutionRegistry.total,
+      activeLocalWorkflowUnits: unifiedExecutionRegistry.activeLocalWorkflowCount,
+      lineageOnlyUnits: unifiedExecutionRegistry.lineageOnlyCount,
       canonicalBaselineChanged: false,
       preservedHistoricalOverlay: allModuleCatalog.length,
       publicCatalog: {
