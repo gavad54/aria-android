@@ -90,4 +90,24 @@ async function executeAriaDomainModule(moduleId,input={},context={}) {
  };
  return Object.freeze({moduleId:record.moduleId,tenantScope:tenantId,actorScope:actorId,localWorkItemPrepared:true,domainLogicExecuted:Boolean(domainResult),artifact,operationPlan,executionState:domainResult?"LOCAL_DOMAIN_LOGIC_EXECUTED":"LOCAL_WORK_ITEM_ONLY",externalExecutionPerformed:false,paymentExecuted:false,productionVerified:false});
 }
-module.exports={REGISTRY,BY_ID,executeAriaDomainModule};
+
+async function executeAriaEngineModule(moduleId,input={},context={}) {
+ const module=modulesRuntime.MODULE_BY_ID.get(String(moduleId));
+ if(!module||module.manifest.moduleType!=="CHILD_ENGINE_MODULE") throw new Error("ARIA_ENGINE_MODULE_NOT_FOUND");
+ if(!context||typeof context!=="object"||Array.isArray(context)) throw new Error("MODULE_CONTEXT_INVALID");
+ if(!context.tenantId) throw new Error("MODULE_TENANT_REQUIRED");
+ if(!context.actorId) throw new Error("MODULE_ACTOR_REQUIRED");
+ const tenantId=validateScopeIdentifier(context.tenantId,"MODULE_TENANT_INVALID");
+ const actorId=validateScopeIdentifier(context.actorId,"MODULE_ACTOR_INVALID");
+ if(!input||typeof input!=="object"||Array.isArray(input)) throw new Error("MODULE_INPUT_INVALID");
+ let serializedInput;
+ try { serializedInput=JSON.stringify(input); } catch { throw new Error("MODULE_INPUT_INVALID"); }
+ if(typeof serializedInput!=="string"||Buffer.byteLength(serializedInput,"utf8")>65536) throw new Error("MODULE_INPUT_TOO_LARGE");
+ validateDomainPayload(input);
+ const goal=typeof input.goal==="string"?input.goal.trim():"";
+ if(goal.length<4||goal.length>1200) throw new Error("MODULE_INPUT_MISSING");
+ const result=await modulesRuntime.executeModule(String(moduleId),input,{actorId,tenantId});
+ return Object.freeze({...result,tenantScope:tenantId,actorScope:actorId,executionState:"LOCAL_DOMAIN_LOGIC_EXECUTED",externalExecutionPerformed:false,paymentExecuted:false,productionVerified:false});
+}
+
+module.exports={REGISTRY,BY_ID,executeAriaDomainModule,executeAriaEngineModule};
