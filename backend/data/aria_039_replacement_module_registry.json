@@ -1,0 +1,2789 @@
+{
+  "schemaVersion": "1.0.0",
+  "product": "ARIA",
+  "registryType": "aria_39_owned_replacement_modules",
+  "count": 39,
+  "sourceDecision": "Preserve 39 transferred/archived lineage records outside ARIA ownership; add 39 distinct ARIA-owned replacements instead of reactivating sibling-product records.",
+  "records": [
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-001",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "برنامه‌ریز مالی شخصی",
+      "domain": "personal_finance",
+      "description": "ساخت بودجه و سناریوهای هزینه بدون اجرای تراکنش",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "income",
+        "fixedCosts",
+        "variableCosts"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "classify_income",
+        "map_expenses",
+        "set_budget_limits",
+        "model_scenarios",
+        "prepare_review"
+      ],
+      "dataEntities": [
+        "budget",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک حرفه‌ای؛ گزارش پیشرفته",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-002",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "راهنمای مسیر شغلی",
+      "domain": "career_guidance",
+      "description": "تبدیل مهارت‌ها و علایق به مسیر رشد شغلی",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "skills",
+        "interests",
+        "constraints"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "profile_skills",
+        "map_roles",
+        "identify_gaps",
+        "build_learning_path",
+        "define_milestones"
+      ],
+      "dataEntities": [
+        "career",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک حرفه‌ای؛ بسته ارزیابی",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-003",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "مدیریت موجودی کسب‌وکار کوچک",
+      "domain": "small_business_inventory",
+      "description": "کنترل موجودی و هشدار کمبود بر اساس داده واردشده",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "items",
+        "stockLevels",
+        "reorderRules"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "validate_catalog",
+        "calculate_stock_position",
+        "flag_reorder_risks",
+        "prepare_purchase_list",
+        "review_variance"
+      ],
+      "dataEntities": [
+        "inventory",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک کسب‌وکار؛ به‌ازای شعبه",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-004",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "مدیریت درخواست مشتری",
+      "domain": "customer_request_management",
+      "description": "ثبت و اولویت‌بندی درخواست‌ها و پیگیری پاسخ",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "customerRequest",
+        "priority",
+        "dueDate"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "classify_request",
+        "assess_urgency",
+        "assign_queue",
+        "draft_response",
+        "track_resolution"
+      ],
+      "dataEntities": [
+        "customer_service",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک کسب‌وکار؛ صندلی کاربر",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-005",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "هماهنگ‌کننده نوبت و قرار",
+      "domain": "appointment_coordination",
+      "description": "آماده‌سازی پیشنهاد زمان و پیگیری تأیید نوبت",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "service",
+        "preferredWindows",
+        "participants"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "capture_availability",
+        "detect_conflicts",
+        "propose_slots",
+        "request_confirmation",
+        "record_status"
+      ],
+      "dataEntities": [
+        "scheduling",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک؛ هزینه هر رزرو تأییدشده",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-006",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "برنامه‌ریز رویداد",
+      "domain": "event_planning",
+      "description": "ساخت برنامه، وظایف، بودجه و چک‌لیست رویداد",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "eventType",
+        "dateWindow",
+        "budget",
+        "attendees"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "define_scope",
+        "build_timeline",
+        "allocate_tasks",
+        "model_budget",
+        "prepare_readiness_check"
+      ],
+      "dataEntities": [
+        "events",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک رویداد؛ بسته پروژه",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-007",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "طراح برنامه سفر",
+      "domain": "travel_planning",
+      "description": "تهیه برنامه سفر با محدودیت زمان و بودجه",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "destination",
+        "dateWindow",
+        "preferences",
+        "budget"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "capture_constraints",
+        "organize_stops",
+        "estimate_time_blocks",
+        "prepare_options",
+        "verify_requirements"
+      ],
+      "dataEntities": [
+        "travel",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک؛ خدمات برنامه‌ریزی",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-008",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "راهنمای خدمات محلی",
+      "domain": "local_services_discovery",
+      "description": "ساخت معیارهای جست‌وجو و مقایسه خدمات محلی",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "serviceType",
+        "location",
+        "evaluationCriteria"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "normalize_need",
+        "define_verification_checks",
+        "compare_submitted_options",
+        "flag_missing_evidence",
+        "prepare_shortlist"
+      ],
+      "dataEntities": [
+        "local_discovery",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک؛ معرفی شفاف با افشا",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-009",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "ممیزی دسترس‌پذیری دیجیتال",
+      "domain": "digital_accessibility",
+      "description": "بررسی چک‌لیست دسترس‌پذیری محتوا و رابط",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "pageOrContent",
+        "targetStandard",
+        "testFindings"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "parse_findings",
+        "map_barriers",
+        "prioritize_fixes",
+        "prepare_remediation",
+        "verify_checklist"
+      ],
+      "dataEntities": [
+        "accessibility",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک حرفه‌ای؛ ممیزی سازمانی",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-010",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "مدیریت واژگان و ترجمه تخصصی",
+      "domain": "terminology_management",
+      "description": "ساخت واژه‌نامه کنترل‌شده و ثبت معادل‌های تأییدشده",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "sourceText",
+        "domain",
+        "approvedTerms"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "extract_terms",
+        "propose_equivalents",
+        "flag_ambiguity",
+        "request_review",
+        "version_glossary"
+      ],
+      "dataEntities": [
+        "language",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک؛ بسته واژه‌نامه",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-011",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "سامانه پایگاه دانش",
+      "domain": "knowledge_base",
+      "description": "تبدیل منابع تأییدشده به مقاله و پاسخ قابل جست‌وجو",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "sources",
+        "audience",
+        "topic"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "register_sources",
+        "extract_claims",
+        "draft_articles",
+        "attach_citations",
+        "review_versions"
+      ],
+      "dataEntities": [
+        "knowledge",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک؛ فضای ذخیره‌سازی",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-012",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "دستیار مرور پژوهش",
+      "domain": "research_synthesis",
+      "description": "ترکیب یافته‌های ارائه‌شده با ردیابی منبع و محدودیت",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "researchQuestion",
+        "sources",
+        "inclusionCriteria"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "refine_question",
+        "screen_sources",
+        "extract_findings",
+        "compare_evidence",
+        "draft_synthesis"
+      ],
+      "dataEntities": [
+        "research",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک پژوهشی؛ اعتبار تحلیل",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-013",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "برنامه‌ریز مطالعه",
+      "domain": "study_planning",
+      "description": "طراحی برنامه یادگیری و مرور بر اساس زمان در دسترس",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "subject",
+        "baseline",
+        "availability",
+        "targetDate"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "assess_baseline",
+        "sequence_topics",
+        "schedule_practice",
+        "plan_revision",
+        "review_progress"
+      ],
+      "dataEntities": [
+        "education",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک آموزشی",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-014",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "مربی تمرین زبان",
+      "domain": "language_practice",
+      "description": "ساخت تمرین و بازخورد آموزشی متناسب با هدف",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "targetLanguage",
+        "proficiency",
+        "learningGoal"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "set_learning_target",
+        "generate_practice_spec",
+        "assess_response",
+        "explain_feedback",
+        "adapt_next_session"
+      ],
+      "dataEntities": [
+        "language_learning",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک؛ بسته تمرین",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-015",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "مدیریت نمونه‌کار حرفه‌ای",
+      "domain": "portfolio_management",
+      "description": "سامان‌دهی نمونه‌کارها و شواهد مهارت",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "projects",
+        "skills",
+        "evidenceLinks",
+        "targetRole"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "catalog_projects",
+        "map_competencies",
+        "identify_evidence_gaps",
+        "draft_case_studies",
+        "prepare_portfolio_review"
+      ],
+      "dataEntities": [
+        "career",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک حرفه‌ای",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-016",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "هماهنگ‌کننده داوطلبان",
+      "domain": "volunteer_coordination",
+      "description": "سازمان‌دهی فرصت‌ها، ظرفیت‌ها و پیگیری مشارکت",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "opportunity",
+        "skills",
+        "availability",
+        "consent"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "define_roles",
+        "match_declared_skills",
+        "check_capacity",
+        "prepare_assignment",
+        "track_participation"
+      ],
+      "dataEntities": [
+        "community",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک سازمانی؛ کارمزد خدمات مجاز",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-017",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "شفافیت کمک‌های اجتماعی",
+      "domain": "donation_transparency",
+      "description": "ردیابی گزارش‌های کمک و تخصیص با شواهد ارائه‌شده",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "campaign",
+        "declaredReceipts",
+        "allocationRules"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "register_campaign",
+        "validate_records",
+        "map_allocations",
+        "flag_gaps",
+        "prepare_transparency_report"
+      ],
+      "dataEntities": [
+        "community_trust",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک سازمانی؛ گزارش‌دهی",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-018",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "مدیریت چرخه تعمیر",
+      "domain": "repair_lifecycle",
+      "description": "پیگیری درخواست تعمیر از تشخیص اولیه تا تحویل",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "asset",
+        "issue",
+        "serviceHistory",
+        "constraints"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "register_asset",
+        "classify_issue",
+        "prepare_diagnostic_checklist",
+        "track_quote",
+        "verify_handover"
+      ],
+      "dataEntities": [
+        "repair",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک؛ هزینه هر پرونده",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-019",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "پایش بهره‌وری انرژی ساختمان",
+      "domain": "building_energy_review",
+      "description": "تحلیل داده مصرف و پیشنهادهای کاهش اتلاف",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "meterReadings",
+        "buildingProfile",
+        "reportingPeriod"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "validate_readings",
+        "establish_baseline",
+        "identify_anomalies",
+        "model_savings_options",
+        "prepare_report"
+      ],
+      "dataEntities": [
+        "sustainability",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک؛ گزارش دوره‌ای",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-020",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "مدیریت تفکیک پسماند",
+      "domain": "waste_sorting_guidance",
+      "description": "طبقه‌بندی اقلام و برنامه جمع‌آوری مسئولانه",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "items",
+        "locationRules",
+        "collectionSchedule"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "classify_materials",
+        "check_local_rules",
+        "prepare_sorting_guide",
+        "organize_collection",
+        "track_outcomes"
+      ],
+      "dataEntities": [
+        "sustainability",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک سازمانی",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-021",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "برنامه‌ریز عملیات کشاورزی",
+      "domain": "agriculture_planning",
+      "description": "تنظیم تقویم عملیات مزرعه با داده و محدودیت‌های محلی",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "crop",
+        "fieldProfile",
+        "season",
+        "resourceLimits"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "profile_field",
+        "map_seasonal_tasks",
+        "check_resource_constraints",
+        "schedule_operations",
+        "review_risks"
+      ],
+      "dataEntities": [
+        "agriculture",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک کشاورزی",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-022",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "مقایسه تأمین‌کنندگان",
+      "domain": "supplier_comparison",
+      "description": "مقایسه پیشنهادهای تأمین با معیارهای شفاف",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "requirements",
+        "supplierOffers",
+        "evaluationWeights"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "normalize_offers",
+        "validate_required_fields",
+        "score_criteria",
+        "flag_risks",
+        "prepare_comparison"
+      ],
+      "dataEntities": [
+        "procurement",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک خرید؛ گزارش مقایسه",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-023",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "هماهنگی زنجیره تأمین",
+      "domain": "supply_chain_coordination",
+      "description": "ثبت وابستگی‌ها و هشدارهای زنجیره تأمین",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "orders",
+        "milestones",
+        "supplierUpdates"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "map_dependencies",
+        "validate_milestones",
+        "identify_delays",
+        "prepare_contingencies",
+        "record_status"
+      ],
+      "dataEntities": [
+        "logistics",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک سازمانی؛ به‌ازای سفارش",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-024",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "چک‌لیست بازبینی قرارداد",
+      "domain": "contract_review_checklist",
+      "description": "استخراج بندها و پرسش‌های نیازمند بررسی متخصص",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "documentText",
+        "reviewPurpose",
+        "jurisdiction"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "extract_sections",
+        "identify_missing_terms",
+        "flag_ambiguities",
+        "prepare_questions",
+        "require_professional_review"
+      ],
+      "dataEntities": [
+        "document_review",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک؛ بررسی سند",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-025",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "گردش‌کار اسناد",
+      "domain": "document_workflow",
+      "description": "مدیریت نسخه، تأیید و تحویل اسناد",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "documentType",
+        "participants",
+        "approvalRules"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "register_document",
+        "validate_version",
+        "route_review",
+        "capture_approval",
+        "archive_decision"
+      ],
+      "dataEntities": [
+        "documents",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک؛ فضای اسناد",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-026",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "طراح فرم هوشمند",
+      "domain": "form_design",
+      "description": "تبدیل نیاز به فرم با قواعد اعتبارسنجی",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "formPurpose",
+        "audience",
+        "fields"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "define_form_schema",
+        "set_validation_rules",
+        "check_privacy_fields",
+        "prepare_preview",
+        "test_submission"
+      ],
+      "dataEntities": [
+        "forms",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک؛ تعداد فرم",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-027",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "تحلیل نظرسنجی",
+      "domain": "survey_analysis",
+      "description": "پاک‌سازی و تحلیل پاسخ‌های نظرسنجی",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "surveySchema",
+        "responses",
+        "questions"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "validate_responses",
+        "profile_completeness",
+        "classify_feedback",
+        "calculate_summary",
+        "prepare_insights"
+      ],
+      "dataEntities": [
+        "analytics",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اعتبار تحلیل؛ اشتراک",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-028",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "مدیریت بازخورد محصول",
+      "domain": "product_feedback",
+      "description": "تجمیع بازخورد و تبدیل آن به فرصت بهبود",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "feedbackItems",
+        "productAreas",
+        "priorities"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "deduplicate_feedback",
+        "classify_themes",
+        "estimate_impact",
+        "map_roadmap_items",
+        "prepare_review"
+      ],
+      "dataEntities": [
+        "product_ops",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک تیم محصول",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-029",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "مدیریت تضمین کیفیت",
+      "domain": "quality_assurance",
+      "description": "تعریف معیار پذیرش و پیگیری نقص‌ها",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "releaseScope",
+        "testCases",
+        "defects"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "define_quality_gates",
+        "map_test_coverage",
+        "classify_defects",
+        "prioritize_fixes",
+        "prepare_release_report"
+      ],
+      "dataEntities": [
+        "quality",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک تیمی؛ بسته QA",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-030",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "ثبت و پیگیری ریسک",
+      "domain": "risk_register",
+      "description": "ساخت دفتر ریسک و کنترل اقدامات کاهشی",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "scope",
+        "risks",
+        "owners",
+        "mitigationActions"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "identify_risks",
+        "score_likelihood_impact",
+        "assign_owners",
+        "track_mitigations",
+        "review_residual_risk"
+      ],
+      "dataEntities": [
+        "governance",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک سازمانی",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-031",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "مدیریت انطباق سیاست‌ها",
+      "domain": "policy_compliance",
+      "description": "تبدیل سیاست‌ها به کنترل‌ها و شواهد قابل ممیزی",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "policyText",
+        "controls",
+        "evidence"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "extract_obligations",
+        "map_controls",
+        "identify_gaps",
+        "assign_evidence",
+        "prepare_audit_pack"
+      ],
+      "dataEntities": [
+        "governance",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک سازمانی؛ ممیزی",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-032",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "مدیریت اتصال‌دهنده‌ها",
+      "domain": "connector_governance",
+      "description": "ثبت وضعیت APIها، مجوزها و وابستگی‌های اتصال",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "connectorSpecs",
+        "permissions",
+        "environments"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "inventory_connectors",
+        "validate_scopes",
+        "classify_secrets",
+        "check_health_evidence",
+        "prepare_rotation_plan"
+      ],
+      "dataEntities": [
+        "platform_ops",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک فنی؛ اتصال‌دهنده",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-033",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "حاکمیت حریم خصوصی داده",
+      "domain": "privacy_governance",
+      "description": "ثبت هدف پردازش، حداقل‌سازی و چرخه عمر داده",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "dataInventory",
+        "purposes",
+        "retentionRules"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "classify_data",
+        "map_purposes",
+        "check_minimization",
+        "define_retention",
+        "prepare_privacy_review"
+      ],
+      "dataEntities": [
+        "privacy",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک سازمانی",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-034",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "پایش وضعیت پشتیبان‌گیری",
+      "domain": "backup_assurance",
+      "description": "ثبت شواهد پشتیبان و وضعیت آزمون بازیابی",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "backupRuns",
+        "restoreEvidence",
+        "recoveryObjectives"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "validate_backup_evidence",
+        "compare_recovery_targets",
+        "flag_missing_restore_tests",
+        "prepare_recovery_drill",
+        "record_signoff"
+      ],
+      "dataEntities": [
+        "reliability",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک سازمانی؛ ظرفیت ذخیره‌سازی",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-035",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "مدیریت بومی‌سازی محتوا",
+      "domain": "localization",
+      "description": "مدیریت ترجمه، قالب‌بندی و کنترل کیفیت زبان",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "sourceAssets",
+        "targetLocales",
+        "terminology"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "inventory_assets",
+        "assign_locales",
+        "validate_rtl_ltr",
+        "check_placeholders",
+        "prepare_linguistic_review"
+      ],
+      "dataEntities": [
+        "localization",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک؛ هر زبان",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-036",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "مدیریت چرخه انتشار",
+      "domain": "release_management",
+      "description": "هماهنگی نسخه، گیت‌ها، شواهد و تصمیم انتشار",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "releaseVersion",
+        "changes",
+        "testEvidence",
+        "approvals"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "inventory_changes",
+        "map_release_gates",
+        "validate_evidence",
+        "record_decision",
+        "prepare_rollback_plan"
+      ],
+      "dataEntities": [
+        "release_ops",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک تیمی",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-037",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "مدیریت دارایی‌های دیجیتال",
+      "domain": "digital_asset_management",
+      "description": "طبقه‌بندی، مجوز و نسخه‌بندی دارایی‌های دیجیتال",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "assets",
+        "rights",
+        "owners",
+        "tags"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "catalog_assets",
+        "verify_rights_metadata",
+        "assign_taxonomy",
+        "track_versions",
+        "prepare_delivery_manifest"
+      ],
+      "dataEntities": [
+        "assets",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک؛ فضای دارایی",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-038",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "هماهنگی خدمات پس از فروش",
+      "domain": "after_sales",
+      "description": "پیگیری ضمانت، درخواست و رضایت پس از تحویل",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "purchaseReference",
+        "warrantyTerms",
+        "serviceRequest"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "validate_reference",
+        "classify_case",
+        "check_warranty_terms",
+        "prepare_resolution_options",
+        "track_satisfaction"
+      ],
+      "dataEntities": [
+        "customer_success",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک کسب‌وکار؛ هر پرونده",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    },
+    {
+      "moduleId": "ARIA-OWNED-REPLACEMENT-039",
+      "recordType": "NEW_OWNED_DOMAIN_MODULE",
+      "ownerProduct": "ARIA",
+      "ownerStatus": "OWNED",
+      "name": "مدیریت دانش سازمانی",
+      "domain": "organizational_memory",
+      "description": "ثبت تصمیم‌ها، مسئولیت‌ها و دانش قابل بازیابی",
+      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null,
+      "requiredInputs": [
+        "goal",
+        "context"
+      ],
+      "inputContract": [
+        "goal",
+        "context",
+        "decisions",
+        "owners",
+        "sourceLinks",
+        "accessRules"
+      ],
+      "outputContract": [
+        "domainArtifact",
+        "operationPlan",
+        "acceptanceChecks",
+        "auditRecord"
+      ],
+      "operations": [
+        "capture_decision",
+        "map_ownership",
+        "link_evidence",
+        "set_access_scope",
+        "schedule_review"
+      ],
+      "dataEntities": [
+        "knowledge_ops",
+        "module_request",
+        "module_result",
+        "audit_event"
+      ],
+      "accessPolicy": [
+        "authenticated_actor",
+        "tenant_isolation",
+        "least_privilege",
+        "purpose_limitation",
+        "human_approval_before_external_side_effects"
+      ],
+      "acceptanceCriteria": [
+        "required inputs are validated",
+        "tenant boundary is enforced",
+        "each operation produces a traceable step",
+        "output includes limitations and acceptance checks",
+        "external side effects remain disabled until separately approved and integrated"
+      ],
+      "kpis": [
+        "completion_rate",
+        "time_to_result",
+        "error_rate",
+        "review_acceptance_rate"
+      ],
+      "monetizationModel": "اشتراک سازمانی",
+      "commercialization": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingEnabled": false,
+        "paymentExecuted": false,
+        "paymentProviderState": "NOT_CONNECTED"
+      },
+      "executionState": "LOCAL_WORK_ITEM_ONLY",
+      "productionVerified": false
+    }
+  ]
+}
