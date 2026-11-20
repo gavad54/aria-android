@@ -2,6 +2,7 @@
 const fs=require("node:fs");
 const path=require("node:path");
 const modulesRuntime=require("./modules");
+const {executeOverlayDomain}=require("./aria-overlay-domain-handlers.cjs");
 const overlaySource=JSON.parse(fs.readFileSync(path.join(__dirname,"data","aria_111_module_expansion_registry.json"),"utf8"));
 const ownership=JSON.parse(fs.readFileSync(path.join(__dirname,"data","aria_product_ownership_migration.json"),"utf8"));
 const commercialSource=JSON.parse(fs.readFileSync(path.join(__dirname,"data","aria_commercial_execution_manifest.json"),"utf8"));
@@ -40,15 +41,17 @@ async function executeAriaDomainModule(moduleId,input={},context={}) {
   return Object.freeze({...result,inventoryModuleId:record.moduleId,tenantScope:String(context.tenantId),actorScope:String(context.actorId),executionState:"LOCAL_DOMAIN_LOGIC_EXECUTED",externalExecutionPerformed:false,paymentExecuted:false,productionVerified:false});
  }
  const operationPlan=record.operations.map((operation,index)=>({sequence:index+1,operation,state:"LOCAL_STEP_PREPARED",tenantScope:String(context.tenantId),requiresHumanReview:true}));
+ const domainResult=executeOverlayDomain(record,input,context);
  const artifact={
   moduleId:record.moduleId,moduleName:record.name,domain:record.domain,objective:goal,
   purpose:record.sourceRecord.purpose||record.sourceRecord.deliverable||record.name,
   inputSummary:Object.keys(input).sort(),outputContract:record.outputContract,
   operationPlan,acceptanceCriteria:record.acceptanceCriteria,
   monetizationModel:record.monetizationModel,
-  auditRecord:{actorId:String(context.actorId),tenantId:String(context.tenantId),event:"OVERLAY_LOCAL_WORK_ITEM_PREPARED"},
+  domainResult,
+  auditRecord:{actorId:String(context.actorId),tenantId:String(context.tenantId),event:domainResult?"OVERLAY_DOMAIN_LOGIC_EXECUTED":"OVERLAY_LOCAL_WORK_ITEM_PREPARED"},
   externalExecutionPerformed:false,paymentExecuted:false,productionVerified:false
  };
- return Object.freeze({moduleId:record.moduleId,tenantScope:String(context.tenantId),actorScope:String(context.actorId),localWorkItemPrepared:true,artifact,operationPlan,executionState:"LOCAL_WORK_ITEM_ONLY",externalExecutionPerformed:false,paymentExecuted:false,productionVerified:false});
+ return Object.freeze({moduleId:record.moduleId,tenantScope:String(context.tenantId),actorScope:String(context.actorId),localWorkItemPrepared:true,domainLogicExecuted:Boolean(domainResult),artifact,operationPlan,executionState:domainResult?"LOCAL_DOMAIN_LOGIC_EXECUTED":"LOCAL_WORK_ITEM_ONLY",externalExecutionPerformed:false,paymentExecuted:false,productionVerified:false});
 }
 module.exports={REGISTRY,BY_ID,executeAriaDomainModule};
