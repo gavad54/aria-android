@@ -35,6 +35,7 @@ const moduleCatalogById = new Map(moduleCatalog.map(x => [x.moduleId, x]));
 const overlayDomainHandlerIds = new Set(ariaDomainRuntime.REGISTRY.records.filter(x => x.recordType === "HISTORICAL_OVERLAY_MODULE").map(x => x.moduleId));
 const overlayDomainHandlerCount = moduleCatalog.filter(x => overlayDomainHandlerIds.has(x.moduleId) && ariaDomainRuntime.BY_ID.has(x.moduleId)).length;
 const catalogDomainHandlerCount = moduleRegistryRuntime.MODULES.filter(x => x.manifest.moduleType === "COMMERCIAL_CATALOG_MODULE" && x.manifest.implementationState === "DOMAIN_LOGIC_LOCAL").length;
+const engineDomainHandlerCount = moduleRegistryRuntime.MODULES.filter(x => x.manifest.moduleType === "CHILD_ENGINE_MODULE" && x.manifest.implementationState === "DOMAIN_LOGIC_LOCAL").length;
 const publicProblemIds = new Set(moduleCatalog.filter(x => x.sourceProblemId).map(x => x.sourceProblemId));
 const publicProblemRecords = registry.problems.filter(x => publicProblemIds.has(x.id));
 const problemById = new Map(publicProblemRecords.map(x => [x.id, x]));
@@ -86,11 +87,12 @@ if (unifiedExecutionRegistry.total !== 932 || unifiedExecutionRegistry.records.l
     unifiedExecutionRegistry.records.filter(x => x.implementationState === "CANONICAL_FAMILY_WORKFLOW").length !== 639 ||
     unifiedExecutionRegistry.records.filter(x => x.implementationState === "OVERLAY_ENGINE_FAMILY_ADAPTER").length !== 0 ||
     unifiedExecutionRegistry.records.filter(x => x.implementationState === "COMMERCIAL_DOMAIN_ADAPTER").length !== 0 ||
-    unifiedExecutionRegistry.records.filter(x => x.implementationState === "ENGINE_FAMILY_ADAPTER").length !== 71 ||
-    unifiedExecutionRegistry.records.filter(x => x.implementationState === "UNIT_SPECIFIC_DOMAIN_LOGIC").length !== 183 ||
-    overlayDomainHandlerCount !== 72 || catalogDomainHandlerCount !== 72 ||
+    unifiedExecutionRegistry.records.filter(x => x.implementationState === "ENGINE_FAMILY_ADAPTER").length !== 0 ||
+    unifiedExecutionRegistry.records.filter(x => x.implementationState === "UNIT_SPECIFIC_DOMAIN_LOGIC").length !== 254 ||
+    overlayDomainHandlerCount !== 72 || catalogDomainHandlerCount !== 72 || engineDomainHandlerCount !== 71 ||
     unifiedExecutionRegistry.records.filter(x => x.recordType === "HISTORICAL_OVERLAY_MODULE" && x.ownerStatus === "OWNED").some(x => x.workflowEntry !== "UNIT_SPECIFIC_DOMAIN_HANDLER" || x.executionContract.handlerKey !== "aria.overlay." + x.unitId || !ariaDomainRuntime.BY_ID.has(x.unitId)) ||
     unifiedExecutionRegistry.records.filter(x => x.recordType === "COMMERCIAL_MODULE" && x.ownerStatus === "OWNED").some(x => { const entry = commercialExecutionById.get(x.unitId); const id = entry?.catalogEntryId; const module = id ? moduleRegistryRuntime.MODULE_BY_ID.get("ARIA-CATALOG-" + id) : null; return !id || x.workflowEntry !== "UNIT_SPECIFIC_DOMAIN_HANDLER" || x.executionContract.handlerKey !== "aria.catalog." + id || x.executionContract.domainRuntimeModuleId !== "ARIA-CATALOG-" + id || !module || module.manifest.implementationState !== "DOMAIN_LOGIC_LOCAL"; }) ||
+    unifiedExecutionRegistry.records.filter(x => x.recordType === "ENGINE_SUBMODULE" && x.ownerStatus === "OWNED").some(x => { const module = moduleRegistryRuntime.MODULE_BY_ID.get(x.unitId); return x.workflowEntry !== "UNIT_SPECIFIC_DOMAIN_HANDLER" || x.executionContract.handlerKey !== "aria.engine." + x.unitId || x.executionContract.domainRuntimeModuleId !== x.unitId || !module || module.manifest.moduleType !== "CHILD_ENGINE_MODULE" || module.manifest.implementationState !== "DOMAIN_LOGIC_LOCAL"; }) ||
     unifiedExecutionRegistry.records.some(x => !x.executionContract || !Array.isArray(x.executionContract.operations) || x.executionContract.operations.length === 0) ||
     unifiedExecutionRegistry.records.some(x => x.recordType === "ENGINE_SUBMODULE" && (!x.parentModuleIds.length || x.parentModuleIds.some(id => !moduleCatalogById.has(id)))) ||
     unifiedExecutionRegistry.records.some(x => x.recordType === "COMMERCIAL_MODULE" && !canonicalModuleById.has(x.hostCanonicalContractId))) {
@@ -205,18 +207,18 @@ const implementationMaturity = Object.freeze({
     canonical: Object.freeze({ units: canonicalModules.length, executionMode: "CANONICAL_FAMILY_WORKFLOW", handlerFamilies: new Set(canonicalModules.map(x => x.designFamily)).size, unitSpecificHandlers: 0 }),
     overlay: Object.freeze({ units: moduleCatalog.length, executionMode: "UNIT_SPECIFIC_DOMAIN_LOGIC", handlerFamilies: overlayDomainHandlerCount, unitSpecificHandlers: overlayDomainHandlerCount }),
     commercial: Object.freeze({ units: commercialModules.length, executionMode: "UNIT_SPECIFIC_DOMAIN_LOGIC", handlerFamilies: catalogDomainHandlerCount, unitSpecificHandlers: catalogDomainHandlerCount }),
-    engines: Object.freeze({ units: engineSubmodules.length, executionMode: "ENGINE_FAMILY_ADAPTER", handlerFamilies: new Set(engineSubmodules.map(x => x.domain)).size, unitSpecificHandlers: 0 }),
+    engines: Object.freeze({ units: engineSubmodules.length, executionMode: "UNIT_SPECIFIC_DOMAIN_LOGIC", handlerFamilies: engineDomainHandlerCount, unitSpecificHandlers: engineDomainHandlerCount }),
     additional: Object.freeze({ units: replacementModuleRuntime.REGISTRY.records.length, executionMode: "UNIT_SPECIFIC_DOMAIN_LOGIC", handlerFamilies: replacementModuleRuntime.REGISTRY.records.length, unitSpecificHandlers: replacementModuleRuntime.REGISTRY.records.length })
   }),
   productionVerifiedCount: 0,
   externalProviderConnectedCount: 0,
   liveBillingEnabled: false,
   paymentExecuted: false,
-  unitSpecificLocalLogicCount: overlayDomainHandlerCount + catalogDomainHandlerCount + replacementModuleRuntime.REGISTRY.records.length,
-  unitSpecificLocalLogicTestedCount: overlayDomainHandlerCount + catalogDomainHandlerCount + replacementModuleRuntime.REGISTRY.records.length,
-  unitSpecificLocalLogicMissingCount: 893 - overlayDomainHandlerCount - catalogDomainHandlerCount - replacementModuleRuntime.REGISTRY.records.length,
+  unitSpecificLocalLogicCount: overlayDomainHandlerCount + catalogDomainHandlerCount + engineDomainHandlerCount + replacementModuleRuntime.REGISTRY.records.length,
+  unitSpecificLocalLogicTestedCount: overlayDomainHandlerCount + catalogDomainHandlerCount + engineDomainHandlerCount + replacementModuleRuntime.REGISTRY.records.length,
+  unitSpecificLocalLogicMissingCount: 893 - overlayDomainHandlerCount - catalogDomainHandlerCount - engineDomainHandlerCount - replacementModuleRuntime.REGISTRY.records.length,
   nextGate: "SPECIALIZED_UNIT_BEHAVIOR_AND_E2E_EVIDENCE",
-  interpretation: "72 historical overlays, 72 commercial catalog modules, and 39 additional ARIA modules have dedicated, tested local domain logic (183 total). The 639 canonical contracts and 71 child engines remain family-level. No external provider execution, live billing, or Production verification is implied."
+  interpretation: "72 historical overlays, 72 commercial catalog modules, 71 child engines, and 39 additional ARIA modules have dedicated, tested local domain logic (254 total). The 639 canonical contracts remain family-level. No external provider execution, live billing, or Production verification is implied."
 });
 const safeAutonomyActions = new Set(["draft", "summarize", "classify", "plan", "analyze_readonly"]);
 let schemaReady = false;
