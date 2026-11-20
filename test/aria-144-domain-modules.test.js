@@ -44,3 +44,27 @@ test("rejects missing tenant, actor, required input, and consent",async()=>{
  await assert.rejects(runtime.executeAriaDomainModule(item.moduleId,{goal:"test goal"},{tenantId:"t"}),{message:"MODULE_ACTOR_REQUIRED"});
  await assert.rejects(runtime.executeAriaDomainModule(item.moduleId,{goal:"test goal",consent:false},{actorId:"a",tenantId:"t"}),{message:"MODULE_CONSENT_REQUIRED"});
 });
+
+test("rejects oversized domain payloads before handler execution",async()=>{
+ const item=runtime.REGISTRY.records[0];
+ await assert.rejects(runtime.executeAriaDomainModule(item.moduleId,{goal:"valid goal",context:{note:"x".repeat(70000)},consent:true},{actorId:"actor",tenantId:"tenant"}),{message:"MODULE_INPUT_TOO_LARGE"});
+});
+test("rejects deeply nested domain payloads",async()=>{
+ const item=runtime.REGISTRY.records[0];let nested={value:"ok"};for(let i=0;i<10;i++)nested={child:nested};
+ await assert.rejects(runtime.executeAriaDomainModule(item.moduleId,{goal:"valid goal",context:nested,consent:true},{actorId:"actor",tenantId:"tenant"}),{message:"MODULE_INPUT_DEPTH_EXCEEDED"});
+});
+test("rejects prototype-pollution keys in domain payloads",async()=>{
+ const item=runtime.REGISTRY.records[0];
+ const context=JSON.parse('{"__proto__":{"polluted":true}}');
+ await assert.rejects(runtime.executeAriaDomainModule(item.moduleId,{goal:"valid goal",context,consent:true},{actorId:"actor",tenantId:"tenant"}),{message:"MODULE_INPUT_UNSAFE_KEY"});
+ assert.equal({}.polluted,undefined);
+});
+test("rejects excessive array and object cardinality",async()=>{
+ const item=runtime.REGISTRY.records[0];
+ await assert.rejects(runtime.executeAriaDomainModule(item.moduleId,{goal:"valid goal",context:{items:Array.from({length:501},(_,i)=>i)},consent:true},{actorId:"actor",tenantId:"tenant"}),{message:"MODULE_INPUT_COLLECTION_LIMIT"});
+});
+test("rejects malformed actor and tenant identifiers",async()=>{
+ const item=runtime.REGISTRY.records[0];
+ await assert.rejects(runtime.executeAriaDomainModule(item.moduleId,{goal:"valid goal",context:{},consent:true},{actorId:"\u0000bad",tenantId:"tenant"}),{message:"MODULE_ACTOR_INVALID"});
+ await assert.rejects(runtime.executeAriaDomainModule(item.moduleId,{goal:"valid goal",context:{},consent:true},{actorId:"actor",tenantId:"x".repeat(129)}),{message:"MODULE_TENANT_INVALID"});
+});
