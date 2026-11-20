@@ -27,6 +27,6 @@ test("all idea, control, catalog, child-engine and service modules have domain h
   const generic = MODULES.filter(module => !["SERVICE_DELIVERY_ENGINE", "GOVERNANCE_CONTROL_MODULE"].includes(module.manifest.moduleType));
   assert.equal(generic.length, 193);
   const target = generic.filter(module => ["IDEA_BACKLOG_MODULE", "COMMERCIAL_CATALOG_MODULE", "CHILD_ENGINE_MODULE"].includes(module.manifest.moduleType));
-  assert.equal(target.length, 183);
+  assert.equal(target.length, 193);
   for (const module of target) assert.equal(classifyModule(module).implementationState, "DOMAIN_LOGIC_LOCAL", module.manifest.moduleId);
 });
