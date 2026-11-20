@@ -30,7 +30,8 @@ Current source includes a Persian RTL mobile-first web interface, a Node.js API,
 - `ARIA_JWT_SECRET`: strong random secret, supplied through Railway variables, never committed to Git.
 - `OPENAI_API_KEY`: optional provider key to enable live AI; no key is included in source.
 - `OPENAI_BASE_URL` and `OPENAI_MODEL`: optional provider/model overrides.
-- `DATABASE_SSL=true`: enables TLS mode for a database that uses a self-signed certificate. Validate the provider's TLS configuration before production use.
+- `DATABASE_SSL=true`: enables PostgreSQL TLS with server-certificate verification enabled. Do not disable certificate verification in production.
+- `DATABASE_SSL_CA`: optional PEM-encoded CA certificate for a database provider using a private CA. Set it as a protected Railway variable; keep `rejectUnauthorized` enabled.
 
 The PostgreSQL service has been provisioned in the Railway project, and the web service has been configured to reference its `DATABASE_URL`. Confirm the latest deployment and `/api/health` before treating database connectivity as operational. Never enter a real provider key in source code or chat.
 
