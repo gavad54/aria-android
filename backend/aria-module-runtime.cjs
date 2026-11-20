@@ -87,6 +87,13 @@ function createDomainModule(definition) {
       externalExecutionPerformed: false
     };
 
+    const domainResult = typeof definition.domainHandler === "function"
+      ? await definition.domainHandler(Object.freeze({ ...input }), Object.freeze({ ...context }), Object.freeze({ manifest, workItemId, inputDigest, createdAt }))
+      : null;
+    if (domainResult !== null && (!domainResult || typeof domainResult !== "object" || Array.isArray(domainResult))) {
+      throw new Error("MODULE_DOMAIN_HANDLER_RESULT_INVALID");
+    }
+
     const output = {};
     for (const field of manifest.outputContract) {
       if (/status/i.test(field)) output[field] = "LOCAL_RESULT_READY";
@@ -94,7 +101,7 @@ function createDomainModule(definition) {
       else if (/explain|reason/i.test(field)) output[field] = { operations: manifest.operations, assumptions: manifest.assumptions || [] };
       else if (/source|provenance|reference/i.test(field)) output[field] = input.source_references || input.sourceReferences || [];
       else if (/plan|workflow|steps|checklist/i.test(field)) output[field] = operationPlan;
-      else if (/result|artifact|deliverable|report|scorecard|summary/i.test(field)) output[field] = artifact;
+      else if (/result|artifact|deliverable|report|scorecard|summary/i.test(field)) output[field] = domainResult || artifact;
       else output[field] = { state: "LOCAL_RESULT_READY", moduleId: manifest.moduleId, artifactId: workItemId };
     }
 
@@ -105,12 +112,13 @@ function createDomainModule(definition) {
       tenantId: String(context.tenantId),
       actorId: String(context.actorId),
       status: "LOCAL_RESULT_READY",
-      artifact,
+      artifact: domainResult ? { ...artifact, domainResult } : artifact,
       output,
       auditRecord,
       externalExecutionPerformed: false,
       paymentExecuted: false,
-      productionVerified: false
+      productionVerified: false,
+      domainLogicExecuted: Boolean(domainResult)
     };
   }
 
