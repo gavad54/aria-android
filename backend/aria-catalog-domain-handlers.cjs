@@ -8,6 +8,8 @@ function makeProfile(sequence, manifest){
  return Object.freeze({
   profileId:"PROFILE:"+manifest.moduleId,moduleId:manifest.moduleId,moduleName:manifest.name,
   specialization:manifest.commercialModuleId||manifest.name,
+  inputSchema:list(manifest.requiredInputs||manifest.inputContract).map(name=>({name,required:true})),
+  commercialContract:{entitlementKey:obj(manifest.revenueEngine).entitlementKey||null,state:"DESIGNED_NOT_MONETIZED",billingEnabled:false,paymentExecuted:false},
   executionBoundary:"TENANT_SCOPED_LOCAL_ONLY",
   operationPlan:list(manifest.operations).map((operation,i)=>({sequence:i+1,operation,state:"LOCAL_EXECUTABLE_STEP"})),
   reviewRequired:true,externalExecution:false,productionVerified:false
@@ -33,6 +35,7 @@ function createCatalogDomainHandler(sequence){
   return Object.freeze({
    moduleId:manifest.moduleId,tenantScope:String(context.tenantId),actorScope:String(context.actorId),
    artifactType:"ARIA_CATALOG_"+sequence,domainOutput:build(txt(input.goal,manifest.name),obj(input.context)),
+   domainArtifact:{artifactType:"ARIA_CATALOG_"+sequence,payload:build(txt(input.goal,manifest.name),obj(input.context)),moduleSpecificProfile:makeProfile(sequence,manifest)},
    moduleSpecificProfile:makeProfile(sequence,manifest),
    commercialization:{model:list(revenue.billingModes),entitlementKey:revenue.entitlementKey||null,meteringUnit:revenue.meteringUnit||null,state:"DESIGNED_NOT_MONETIZED",price:revenue.price||null,billingEnabled:false,paymentExecuted:false},
    reviewRequired:true,externalSideEffect:false,externalExecutionPerformed:false,paymentExecuted:false,productionVerified:false
