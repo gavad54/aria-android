@@ -635,18 +635,41 @@ async function handle(req, res, url, deps) {
     const data = await readJson(req, res); if (data === null) return true;
     const goal = cleanText(data.goal, 4, 1200);
     if (!goal) return json(res, 400, { error: "هدف باید بین ۴ تا ۱۲۰۰ نویسه باشد." });
+    const input = {
+      ...data, goal,
+      context: data.context && typeof data.context === "object" && !Array.isArray(data.context) ? data.context : {},
+      constraints: data.constraints === undefined ? [] : data.constraints,
+      sourceReferences: data.sourceReferences === undefined ? [] : data.sourceReferences
+    };
     let engineExecution;
-    try { engineExecution = buildEngineOperationPlan(engine, goal, data.context && typeof data.context === "object" && !Array.isArray(data.context) ? data.context : {}); }
-    catch (err) { return json(res, 409, { error: err.message }); }
-    const details = JSON.stringify({ engineSubmoduleId: engine.moduleId, engineId: engine.engineId, parentModuleIds: engine.parentModuleIds, operations: engine.operations, inputContract: engine.inputContract, outputContract: engine.outputContract, executionSpec: unifiedExecutionById.get(engine.moduleId) || null, engineExecution, domainArtifact: engineExecution.domainArtifact, goal, executionStatus: "LOCAL_ENGINE_FAMILY_ADAPTER_EXECUTED", externalExecutionPerformed: false, productionVerified: false });
-    if (details.length > 12000) return json(res, 400, { error: "جزئیات ورودی بیش از حد مجاز است." });
-    if (!await requireDb(res)) return true;
     try {
+      engineExecution = await ariaDomainRuntime.executeAriaEngineModule(engine.moduleId,input,{actorId:String(user.sub),tenantId:String(user.sub)});
+    } catch (err) {
+      const badInput = ["MODULE_INPUT_INVALID","MODULE_INPUT_TOO_LARGE","MODULE_INPUT_DEPTH_EXCEEDED","MODULE_INPUT_STRING_LIMIT","MODULE_INPUT_COLLECTION_LIMIT","MODULE_INPUT_UNSAFE_KEY","MODULE_INPUT_KEY_LIMIT","MODULE_INPUT_CYCLE","MODULE_CONTEXT_INVALID","MODULE_ACTOR_INVALID","MODULE_TENANT_INVALID","MODULE_INPUT_MISSING"].includes(err.message);
+      if (err.message === "MODULE_CONSENT_REQUIRED") return json(res,403,{error:err.message});
+      if (badInput) return json(res,400,{error:err.message,missingFields:err.missingFields||[]});
+      if (err.message === "ARIA_ENGINE_MODULE_NOT_FOUND") return json(res,404,{error:err.message});
+      return json(res,409,{error:err.message||"ARIA_ENGINE_DOMAIN_EXECUTION_REJECTED"});
+    }
+    const details = JSON.stringify({
+      engineSubmoduleId:engine.moduleId,engineId:engine.engineId,parentModuleIds:engine.parentModuleIds,
+      executionSpec:unifiedExecutionById.get(engine.moduleId)||null,
+      engineExecution,domainArtifact:engineExecution.artifact?.domainResult||engineExecution.domainArtifact,
+      goal,executionStatus:"LOCAL_UNIT_SPECIFIC_DOMAIN_LOGIC_EXECUTED",
+      tenantBoundary:"PERSONAL_ACCOUNT_SCOPE",externalExecutionPerformed:false,paymentExecuted:false,productionVerified:false
+    });
+    if(Buffer.byteLength(details,"utf8")>131072)return json(res,400,{error:"ARIA_DOMAIN_RESULT_TOO_LARGE"});
+    if(!await requireDb(res))return true;
+    try{
       await ensureTables(pool);
-      const parentModuleId = engine.parentModuleIds[0];
-      const q = await pool.query("INSERT INTO aria_expansion_work_items(user_id,module_id,title,details) VALUES($1,$2,$3,$4) RETURNING id,module_id,title,status,created_at", [user.sub, parentModuleId, engine.name + " — " + goal.slice(0, 100), details]);
-      return json(res, 201, { item: { ...q.rows[0], id: String(q.rows[0].id) }, engineSubmoduleId: engine.moduleId, parentModuleIds: engine.parentModuleIds, executionStatus: "LOCAL_WORK_ITEM_CREATED", externalExecutionPerformed: false, productionVerified: false });
-    } catch (err) { console.error("ARIA engine work item failed:", err.message); return json(res, 500, { error: "ثبت گردش‌کار موتور انجام نشد." }); }
+      const q=await pool.query("INSERT INTO aria_expansion_work_items(user_id,module_id,title,details) VALUES($1,$2,$3,$4) RETURNING id,module_id,title,status,created_at",[user.sub,engine.moduleId,engine.name+" — "+goal.slice(0,100),details]);
+      return json(res,201,{
+        item:{...q.rows[0],id:String(q.rows[0].id)},engineSubmoduleId:engine.moduleId,parentModuleIds:engine.parentModuleIds,
+        handlerKey:"aria.engine."+engine.moduleId,executionStatus:"LOCAL_DOMAIN_LOGIC_WORK_ITEM_CREATED",
+        domainLogicExecuted:true,tenantBoundary:"PERSONAL_ACCOUNT_SCOPE",
+        externalExecutionPerformed:false,paymentExecuted:false,productionVerified:false
+      });
+    }catch(err){console.error("ARIA engine domain work item failed:",err.message);return json(res,500,{error:"ثبت گردش‌کار موتور انجام نشد."});}
   }
   const replacementRunMatch = p.match(/^\/api\/aria-expansion\/additional-modules\/(ARIA-OWNED-ADDITIONAL-\d{3})\/run$/);
   if (replacementRunMatch && req.method === "POST") {
