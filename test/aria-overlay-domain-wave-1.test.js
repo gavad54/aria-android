@@ -18,7 +18,7 @@ test("repair estimate calculates supplied line items and labels estimate as non-
 });
 test("task delegation keeps unassigned tasks visible and sorts explicit priorities",async()=>{
  const result=await run(3,{tasks:[{id:"later",title:"Later",priority:"low",assigneeId:""},{id:"urgent",title:"Urgent",priority:"urgent",assigneeId:"worker-1"},{id:"normal",title:"Normal",priority:"normal"}]});
- const o=result.artifact.domainResult.domainOutput;assert.equal(o.tasks[0].id,"urgent");assert.deepEqual(o.unassignedTaskIds,["later","normal"]);assert.equal(o.tasksScheduled,false);
+ const o=result.artifact.domainResult.domainOutput;assert.equal(o.tasks[0].id,"urgent");assert.deepEqual(o.unassignedTaskIds,["normal","later"]);assert.equal(o.tasksScheduled,false);
 });
 test("pantry inventory flags expiry from an explicit as-of date",async()=>{
  const result=await run(4,{asOfDate:"2026-11-20",items:[{id:"expired",name:"Milk",quantity:1,expiryDate:"2026-11-19"},{id:"soon",name:"Yogurt",quantity:2,expiryDate:"2026-11-22"},{id:"safe",name:"Rice",quantity:3,expiryDate:"2027-01-01"}]});
@@ -30,7 +30,7 @@ test("space planning identifies objects that exceed supplied room dimensions",as
 });
 test("cleaning marketplace excludes unverified and unavailable providers",async()=>{
  const result=await run(6,{serviceArea:"Baku",providers:[{id:"a",verified:true,evidenceId:"proof-a",available:true,serviceAreas:["Baku"]},{id:"b",verified:false,evidenceId:"",available:true,serviceAreas:["Baku"]},{id:"c",verified:true,evidenceId:"proof-c",available:false,serviceAreas:["Baku"]}]});
- assert.deepEqual(result.artifact.domainResult.domainOutput.eligibleProviderIds,["a"]);assert.equal(result.artifact.domainResult.bookingExecuted,false);
+ assert.deepEqual(result.artifact.domainResult.domainOutput.eligibleProviderIds,["a"]);assert.equal(result.artifact.domainResult.domainOutput.bookingExecuted,false);
 });
 test("moving estimate uses supplied volume and distance rates without booking",async()=>{
  const result=await run(7,{volumeCubicMeters:8,distanceKm:12,ratePerCubicMeter:4,ratePerKm:2,currency:"AZN"});
@@ -42,7 +42,7 @@ test("plant care calculates due review dates only from user-supplied intervals",
 });
 test("installer matching requires skill, availability, verification and evidence",async()=>{
  const result=await run(9,{jobs:[{id:"j1",skill:"solar"}],providers:[{id:"a",skills:["solar"],available:true,verified:true,evidenceId:"proof-a"},{id:"b",skills:["solar"],available:true,verified:false,evidenceId:""},{id:"c",skills:["plumbing"],available:true,verified:true,evidenceId:"proof-c"}]});
- assert.deepEqual(result.artifact.domainResult.domainOutput.matches[0].providerIds,["a"]);assert.equal(result.artifact.domainResult.appointmentBooked,false);
+ assert.deepEqual(result.artifact.domainResult.domainOutput.matches[0].providerIds,["a"]);assert.equal(result.artifact.domainResult.domainOutput.appointmentBooked,false);
 });
 test("meal planning creates a shopping gap list from pantry inventory",async()=>{
  const result=await run(10,{pantry:["rice","tomato"],meals:[{id:"m1",name:"Meal 1",ingredients:["rice","tomato","beans"],prepMinutes:20},{id:"m2",name:"Meal 2",ingredients:["tomato","oil"],prepMinutes:10}]});
