@@ -97,6 +97,7 @@ class AdapterRegistry {
     }
 
     let timeout;
+    const controller = new AbortController();
     try {
       const result = await Promise.race([
         Promise.resolve().then(() => provider.execute({
@@ -105,7 +106,8 @@ class AdapterRegistry {
           actorId,
           requestId,
           idempotencyKey: idempotencyKey || null,
-          payload
+          payload,
+          signal: controller.signal
         })),
         new Promise((_, reject) => {
           timeout = setTimeout(() => {\n            controller.abort();\n            reject(new AdapterError("PROVIDER_TIMEOUT"));\n          }, this.timeoutMs);
