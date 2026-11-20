@@ -1,0 +1,33 @@
+{
+  "audit_date": "2026-11-20",
+  "source_version": "ARIA 32.0.0",
+  "canonical_modules": 639,
+  "adapter_demand_rows": 191,
+  "required_rows": 160,
+  "conditional_rows": 31,
+  "proposed_shared_adapter_families": 14,
+  "family_counts": {
+    "AI_MODEL_AND_AGENT_RUNTIME": 42,
+    "COMMERCE_AND_CATALOG": 33,
+    "PAYMENT_AND_FINANCIAL_RAILS": 27,
+    "MEDIA_AND_CREATIVE": 19,
+    "TRUST_SAFETY_AND_COMPLIANCE": 18,
+    "GENERAL_DOMAIN_API": 15,
+    "LOGISTICS_AND_DELIVERY": 9,
+    "ANALYTICS_AND_OBSERVABILITY": 7,
+    "IDENTITY_AND_ACCESS": 7,
+    "VOICE_AND_MESSAGING": 5,
+    "SEARCH_AND_DISCOVERY": 3,
+    "LOCALIZATION_AND_ACCESSIBILITY": 3,
+    "STORAGE_AND_FILE": 2,
+    "CLOUD_AND_INFRASTRUCTURE": 1
+  },
+  "selected_providers": 0,
+  "implemented_from_this_mapping": 0,
+  "sandbox_verified": 0,
+  "e2e_verified": 0,
+  "production_approved": 0,
+  "exact_historical_183_inventory_found": false,
+  "status": "DESIGN_MAPPING_ONLY",
+  "note": "191 rows are module-level requirements, not 191 unique providers. Candidate family grouping is not provider selection, implementation, live connectivity, or production approval."
+}
