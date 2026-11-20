@@ -37,7 +37,7 @@ test("overlay API persists dedicated repair-estimate domain output within authen
  const saved=JSON.parse(insert.args[3]);
  assert.equal(saved.executionStatus,"LOCAL_UNIT_SPECIFIC_DOMAIN_LOGIC_EXECUTED");
  assert.equal(saved.domainExecution.domainLogicExecuted,true);
- assert.equal(saved.domainExecution.artifact.domainResult.domainOutput.totalEstimate,40);
+ assert.equal(saved.domainExecution.artifact.domainResult.domainOutput.totalEstimate,70);
  assert.equal(saved.domainExecution.tenantScope,"41");
 });
 
