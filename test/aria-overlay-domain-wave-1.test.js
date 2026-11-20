@@ -247,7 +247,7 @@ test("language practice planner generates reviewable sessions from supplied goal
  assert.equal(o.plannedWeeklyMinutes,45);assert.equal(o.topicCount,2);assert.equal(o.externalLessonBooked,false);
 });
 test("overlay dispatch rejects an idea catalog item sharing a problem sequence number",async()=>{
- const result=await executeAriaDomainModule("ARIA-IDEA-MODULE-023",{goal:"Check exact dispatch"},{actorId:"actor",tenantId:"tenant"});
+ const result=await executeAriaDomainModule("ARIA-IDEA-MODULE-049",{goal:"Check exact dispatch"},{actorId:"actor",tenantId:"tenant"});
  assert.equal(result.domainLogicExecuted,false);
  assert.equal(result.executionState,"LOCAL_WORK_ITEM_ONLY");
 });
