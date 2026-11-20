@@ -22,7 +22,7 @@ test("preserves 639 canonical modules and adds 144 unique ARIA-owned domain modu
  assert.equal(runtime.REGISTRY.records.length,144);
  assert.equal(new Set(runtime.REGISTRY.records.map(x=>x.moduleId)).size,144);
  assert.deepEqual(runtime.REGISTRY.counts,{historicalOverlay:72,commercialCatalog:72});
- assert.deepEqual(runtime.REGISTRY.executionMaturity,{historicalOverlayDomainLogic:30,historicalOverlayWorkItemOnly:42,commercialCatalogContractModules:72,productionVerified:0});
+ assert.deepEqual(runtime.REGISTRY.executionMaturity,{historicalOverlayDomainLogic:40,historicalOverlayWorkItemOnly:32,commercialCatalogContractModules:72,productionVerified:0});
  assert.ok(runtime.REGISTRY.records.every(x=>x.ownerProduct==="ARIA"&&x.operations.length>0));
 });
 for(const item of runtime.REGISTRY.records) {
