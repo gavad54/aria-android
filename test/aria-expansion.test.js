@@ -72,6 +72,9 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(executionRegistry.counts.engines,71);
   assert.equal(executionRegistry.counts.replacements,39);
   assert.equal(executionRegistry.counts.active,893);
+  assert.equal(executionRegistry.counts.lineage,39);
+  assert.equal(executionRegistry.records.filter(x=>x.recordType==="NEW_OWNED_DOMAIN_MODULE").length,39);
+  assert.equal(executionRegistry.records.filter(x=>x.recordType==="NEW_OWNED_DOMAIN_MODULE").every(x=>x.ownerProduct==="ARIA"&&x.ownerStatus==="OWNED"),true);
   const missingSpec=await fetch(base+"/api/aria-expansion/execution-registry/UNKNOWN-MODULE");
   assert.equal(missingSpec.status,404);
 
