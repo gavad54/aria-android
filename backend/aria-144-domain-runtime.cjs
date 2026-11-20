@@ -26,7 +26,7 @@ if(overlayRecords.length!==72||commercialRecords.length!==72||records.length!==1
 const REGISTRY=Object.freeze({
  product:"ARIA",baselineCanonicalModuleCount:639,addedModuleCount:144,totalProductFacingModuleCount:783,
  counts:Object.freeze({historicalOverlay:72,commercialCatalog:72}),
- executionMaturity:Object.freeze({historicalOverlayDomainLogic:overlayHandlerCount,historicalOverlayWorkItemOnly:overlayRecords.length-overlayHandlerCount,commercialCatalogDomainLogic:commercialRecords.length,productionVerified:0}),
+ executionMaturity:Object.freeze({historicalOverlayDomainLogic:overlayHandlerCount,historicalOverlayWorkItemOnly:overlayRecords.length-overlayHandlerCount,commercialCatalogContractModules:commercialRecords.length,productionVerified:0}),
  records:Object.freeze(records)
 });
 async function executeAriaDomainModule(moduleId,input={},context={}) {
