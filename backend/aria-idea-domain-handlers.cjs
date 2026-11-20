@@ -21,6 +21,19 @@ function summarize(value) {
 function safeList(value) { return Array.isArray(value) ? value.slice(0, 100) : []; }
 function items(value, fallback) { return safeList(value).length ? safeList(value) : fallback; }
 
+const COMMERCIAL = Object.freeze({
+  1: ["SUBSCRIPTION_PLUS_STORAGE_METERING", "ACTIVE_MEMORY_ITEMS", "aria.idea.work-memory"],
+  2: ["FREEMIUM_PLUS_PRO_SUBSCRIPTION", "PLANS_CREATED", "aria.idea.goal-planner"],
+  3: ["PER_SEAT_SUBSCRIPTION", "MEETING_BRIEFS", "aria.idea.meeting-coordinator"],
+  4: ["PER_SEAT_PLUS_USAGE", "MESSAGES_TRIAGED", "aria.idea.smart-inbox"],
+  5: ["SUBSCRIPTION_PLUS_ACTIVE_RECORDS", "ACTIVE_COMMITMENTS", "aria.idea.commitment-tracker"],
+  6: ["SUBSCRIPTION_PLUS_QUERY_METERING", "AUTHORIZED_SEARCH_QUERIES", "aria.idea.federated-search"],
+  7: ["USAGE_METERING", "CHARACTERS_PROCESSED", "aria.idea.context-translator"],
+  8: ["SUBSCRIPTION_PLUS_PRACTICE_CREDITS", "PRACTICE_SESSIONS", "aria.idea.skill-coach"],
+  9: ["SUBSCRIPTION_PLUS_STORAGE_METERING", "DOCUMENT_STORAGE_UNITS", "aria.idea.document-manager"],
+  10: ["FREEMIUM_PLUS_TRANSFORMATION_USAGE", "ACCESSIBLE_TRANSFORMATIONS", "aria.idea.accessibility-assistant"]
+});
+
 function createIdeaDomainHandler(sequence) {
   const strategy = STRATEGIES[sequence];
   if (!strategy) throw new Error("ARIA_IDEA_STRATEGY_NOT_FOUND");
@@ -33,6 +46,16 @@ function createIdeaDomainHandler(sequence) {
       goal: input.goal.trim().slice(0, 500),
       domainOutput: strategy.build(input.goal.trim(), input.context),
       workflow: strategy.steps.map((label, index) => ({ sequence: index + 1, label, state: "PROPOSED" })),
+      commercialization: {
+        model: COMMERCIAL[sequence][0],
+        meteringUnit: COMMERCIAL[sequence][1],
+        entitlementKey: COMMERCIAL[sequence][2],
+        state: "DESIGNED_NOT_MONETIZED",
+        price: null,
+        currency: null,
+        billingEnabled: false,
+        paymentExecuted: false
+      },
       tenantScope: String(context.tenantId),
       requiresHumanReview: true,
       externalSideEffect: false
