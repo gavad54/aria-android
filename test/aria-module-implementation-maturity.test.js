@@ -8,7 +8,8 @@ test("201-module maturity report distinguishes shared-runtime handlers from dedi
   const report = buildMaturityReport(MODULES);
   assert.equal(report.total, 201);
   assert.deepEqual(report.counts, {
-    DOMAIN_LOGIC_LOCAL: 201
+    DOMAIN_LOGIC_LOCAL: 18,
+    DOMAIN_ADAPTER_LOCAL: 183
   });
   assert.equal(report.productionVerifiedCount, 0);
   assert.equal(report.externalExecutionEnabledCount, 0);
@@ -28,5 +29,8 @@ test("all idea, control, catalog, child-engine and service modules have domain h
   assert.equal(generic.length, 193);
   const target = generic.filter(module => ["IDEA_BACKLOG_MODULE", "COMMERCIAL_CATALOG_MODULE", "CHILD_ENGINE_MODULE"].includes(module.manifest.moduleType));
   assert.equal(target.length, 193);
-  for (const module of target) assert.equal(classifyModule(module).implementationState, "DOMAIN_LOGIC_LOCAL", module.manifest.moduleId);
+  for (const module of target) {
+    const expected = module.manifest.moduleType === "IDEA_BACKLOG_MODULE" && module.manifest.sequence <= 10 ? "DOMAIN_LOGIC_LOCAL" : "DOMAIN_ADAPTER_LOCAL";
+    assert.equal(classifyModule(module).implementationState, expected, module.manifest.moduleId);
+  }
 });
