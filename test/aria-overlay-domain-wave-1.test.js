@@ -51,3 +51,50 @@ test("meal planning creates a shopping gap list from pantry inventory",async()=>
 test("overlay domain execution never crosses tenant or performs external side effects",async()=>{
  const result=await run(1,{serviceType:"plumbing",providers:[]});assert.equal(result.domainLogicExecuted,true);assert.equal(result.externalExecutionPerformed,false);assert.equal(result.paymentExecuted,false);assert.equal(result.productionVerified,false);
 });
+
+test("returns and warranty triage separates return-window eligibility from warranty review",async()=>{
+ const result=await run(15,{asOfDate:"2026-11-20",returns:[
+  {id:"r1",purchaseDate:"2026-11-10",returnWindowDays:14,condition:"unused",orderId:"o1"},
+  {id:"r2",purchaseDate:"2026-10-01",returnWindowDays:14,condition:"used",orderId:"o2"}
+ ]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.equal(o.cases[0].returnEligibility,"POTENTIALLY_ELIGIBLE");
+ assert.equal(o.cases[1].returnEligibility,"OUTSIDE_RETURN_WINDOW");
+ assert.equal(o.refundIssued,false);
+});
+test("household budget totals supplied income and expenses without giving investment advice",async()=>{
+ const result=await run(16,{currency:"AZN",income:[{amount:2000}],expenses:[{category:"housing",amount:900},{category:"food",amount:300}],budgetLimits:{housing:1000,food:250}});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.equal(o.totalIncome,2000);assert.equal(o.totalExpenses,1200);assert.equal(o.remaining,800);
+ assert.deepEqual(o.overLimitCategories,["food"]);
+});
+test("tool rental excludes unavailable and maintenance-blocked inventory",async()=>{
+ const result=await run(17,{requestedToolType:"drill",tools:[
+  {id:"t1",type:"drill",available:true,maintenanceDue:false},
+  {id:"t2",type:"drill",available:false,maintenanceDue:false},
+  {id:"t3",type:"drill",available:true,maintenanceDue:true}
+ ]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.deepEqual(o.eligibleToolIds,["t1"]);assert.equal(o.rentalReserved,false);
+});
+test("clothing rental checks explicit date overlap without ranking body appearance",async()=>{
+ const result=await run(18,{itemIds:["coat-1","coat-2"],startDate:"2026-12-01",endDate:"2026-12-05",rentals:[
+  {itemId:"coat-1",startDate:"2026-12-03",endDate:"2026-12-07"},
+  {itemId:"coat-2",startDate:"2026-11-20",endDate:"2026-11-25"}
+ ]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.deepEqual(o.availableItemIds,["coat-2"]);assert.equal(o.rentalConfirmed,false);
+});
+test("gift suggestions match only supplied interests and budget bounds",async()=>{
+ const result=await run(19,{interests:["books","puzzles"],budgetMin:10,budgetMax:30,gifts:[
+  {id:"g1",price:20,interests:["books"]},{id:"g2",price:40,interests:["books"]},{id:"g3",price:15,interests:["sports"]}
+ ]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.deepEqual(o.recommendedGiftIds,["g1"]);assert.equal(o.purchaseExecuted,false);
+});
+test("recycling coordinator distinguishes accepted, unverified and rejected materials",async()=>{
+ const result=await run(20,{materials:["paper","glass","battery"],acceptedMaterials:["paper","glass"],rejectedMaterials:["battery"]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.deepEqual(o.acceptedMaterials,["paper","glass"]);assert.deepEqual(o.rejectedMaterials,["battery"]);
+ assert.equal(o.unclassifiedMaterials.length,0);assert.equal(o.collectionScheduled,false);
+});
