@@ -50,8 +50,8 @@ function validateDomainPayload(value,depth=0,seen=new WeakSet()) {
  }
 }
 function validateScopeIdentifier(value,errorCode) {
- if(typeof value!=="string") throw new Error(errorCode);
- const normalized=value.trim();
+ if(typeof value!=="string"&&!(typeof value==="number"&&Number.isFinite(value))) throw new Error(errorCode);
+ const normalized=String(value).trim();
  if(!normalized||normalized.length>128||normalized.split("").some(ch=>{const code=ch.charCodeAt(0);return code<32||code===127;})) throw new Error(errorCode);
  return normalized;
 }
