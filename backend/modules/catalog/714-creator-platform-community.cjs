@@ -73,4 +73,5 @@ module.exports = createDomainModule({
     "No payment or external provider is executed by this local module handler."
   ],
   "productionVerified": false
+  domainHandler: true
 });
