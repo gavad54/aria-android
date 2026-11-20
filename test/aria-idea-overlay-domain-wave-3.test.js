@@ -23,7 +23,7 @@ test("records retention review respects legal holds and never disposes records",
 test("data quality review reports missing fields and duplicate keys",async()=>{
  const r=await runIdea("035",{requiredFields:["name","email"],uniqueKey:"email",rows:[{id:"a",name:"A",email:"a@example.test"},{id:"b",name:"B",email:"a@example.test"},{id:"c",name:""}]});
  const o=r.artifact.domainResult.domainOutput;
- assert.deepEqual(o.missingFieldRows,[{rowId:"c",fields:["email"]}]);assert.deepEqual(o.duplicateKeyGroups,[["a","b"]]);
+ assert.deepEqual(o.missingFieldRows,[{rowId:"c",fields:["name","email"]}]);assert.deepEqual(o.duplicateKeyGroups,[["a","b"]]);
 });
 test("release readiness gate blocks when required evidence is missing",async()=>{
  const r=await runIdea("040",{gates:[{id:"tests",required:true,passed:true,evidenceId:"ci-1"},{id:"backup",required:true,passed:false,evidenceId:""},{id:"docs",required:false,passed:false,evidenceId:""}]});
