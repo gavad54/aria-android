@@ -26,8 +26,10 @@ test("service engines are classified only when a dedicated service function is c
 
 test("idea, control, catalog and child-engine records are not misreported as domain-complete", () => {
   const generic = MODULES.filter(module => !["SERVICE_DELIVERY_ENGINE", "GOVERNANCE_CONTROL_MODULE"].includes(module.manifest.moduleType));
-  assert.equal(generic.length, 183);
-  for (const module of generic) {
-    assert.equal(classifyModule(module).implementationState, "SHARED_RUNTIME_CONTRACT_ONLY");
-  }
+  assert.equal(generic.length, 193);
+  const ideaHandlers = generic.filter(module => module.manifest.moduleType === "IDEA_BACKLOG_MODULE" && module.manifest.sequence <= 10);
+  assert.equal(ideaHandlers.length, 10);
+  for (const module of ideaHandlers) assert.equal(classifyModule(module).implementationState, "DOMAIN_LOGIC_LOCAL");
+  const shared = generic.filter(module => classifyModule(module).implementationState === "SHARED_RUNTIME_CONTRACT_ONLY");
+  assert.equal(shared.length, 183);
 });
