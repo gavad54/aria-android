@@ -4,7 +4,27 @@ ARIA is a general-purpose AI super-app project. It is **not an accounting/ERP pr
 
 ## Unified app direction
 
-ARIA is intended to be one comprehensive app. The 369-module ARIA 25 report, the 639-module ARIA 32 source archive, and the 50 ideas from the reference image are different-version/different-purpose inventories and must not be summed. Use the [unified merge plan](docs/ARIA_UNIFIED_APP_MERGE_PLAN_FA.md) to reconcile IDs, map duplicate capabilities to shared engines, and keep web and Android on one versioned registry. The merge is not yet fully implemented: the complete Android source archive has not been imported into this repository, and Android build/device verification remains blocked.
+ARIA is intended to be one comprehensive app. The 369-module ARIA 25 report, the 639-module ARIA 32 source archive, and the 50 ideas from the reference image are different-version/different-purpose inventories and must not be summed. Use the [unified merge plan](docs/ARIA_UNIFIED_APP_MERGE_PLAN_FA.md) to reconcile IDs, map duplicate capabilities to shared engines, and keep web and Android on one versioned registry. The full ARIA 32.0.0 Android source archive has been located in the Library (original SHA-256: 9dcbb34ef98e4f11e661bd32bbd0573d4de7a3058743f45aa126322f44264f9f). A separate candidate fixes versionCode and stale verification gates, but neither archive nor candidate has yet been imported into this canonical Git repository. Android build, signing and device verification remain blocked.
+
+## ARIA 32 Android build input
+
+The isolated repaired candidate is not stored in this repository yet. To run the Android build workflow, upload the exact candidate ZIP from the repair report to this branch at:
+
+release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip
+
+Expected SHA-256: 0c45fb175fa6d44456ce33af5c975a2d74576096fae37aa4993a213759a5dbe8
+
+The workflow verifies this exact checksum, extracts the source, provisions the Gradle Wrapper, runs static/contract gates, then attempts debug APK and release bundle builds. Do not substitute the original archive; its SHA-256 is 9dcbb34ef98e4f11e661bd32bbd0573d4de7a3058743f45aa126322f44264f9f and it contains the versionCode mismatch fixed in the candidate.
+
+## Functional redesign (2026-11-19)
+
+The current web catalogue contains 65 records and is now grouped by functional domain through additive API metadata. The catalogue distinguishes 2 foundation records, 5 prototypes and 58 planned capabilities. "Foundation" is not a production-readiness claim. The new GET /api/modules/summary endpoint exposes this breakdown and its limitations.
+
+- [Functional product redesign and module map](docs/ARIA_FUNCTIONAL_REDESIGN_2026-11-19_FA.md)
+- [Legacy source inventory and ownership matrix](docs/ARIA_LEGACY_CAPABILITY_INVENTORY_2026-11-19_FA.md)
+- [ARIA 32 source repair report and exact verification](docs/ARIA_32_SOURCE_REPAIR_REPORT_FA.md)
+
+This is a web-catalogue classification, not the full Android 32 registry. Do not add the 65 web records to the reported 369 ARIA 25 records, 639 ARIA 32 records or 50 ideas. Those inventories require source provenance and ID-level reconciliation before migration.
 
 ## Web prototype
 
@@ -52,13 +72,13 @@ Original Library source archive SHA-256 (verified 2026-11-09):
 9dcbb34ef98e4f11e661bd32bbd0573d4de7a3058743f45aa126322f44264f9f
 ```
 
-A separate static-gate-repaired candidate was created and verified in the isolated workspace:
+A repaired candidate was created from the verified source archive in an isolated workspace:
 
 ```
-97cf5d9e1c3e9b3446861bc848ccfa8c682940d6d59b85655917c6412a8ce02a
+0c45fb175fa6d44456ce33af5c975a2d74576096fae37aa4993a213759a5dbe8
 ```
 
-The candidate preserves ARIA 32.0.0 source and fixes two stale/incorrect verification gates. It contains 504 ZIP entries and approximately 8.3 MB uncompressed. It is not an APK/AAB and is not imported into this repository. The Android workflow now pins the candidate checksum but still requires the archive to be uploaded to `release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip` before a build can run. The connected GitHub tools do not provide a binary upload action, so this upload remains an external prerequisite.
+The candidate has 504 ZIP entries and 8.3 MB uncompressed. It fixes Android/Backend versionCode parity, stale project and capability verifiers, migration-sequence assertion and bounded-executor gate; the package quality-gate now runs the current 32.0.0 checks. It is not an APK/AAB and is not imported into this repository. The Android workflow pins this exact checksum and waits for the archive at release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip. The binary upload remains an external prerequisite.
 
 ## Hosting status inspected 2026-10-21
 

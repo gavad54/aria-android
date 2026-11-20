@@ -1,0 +1,16 @@
+{
+  "audit_date": "2026-11-20",
+  "product": "ARIA",
+  "source_version": "32.0.0",
+  "source_zip_sha256": "9dcbb34ef98e4f11e661bd32bbd0573d4de7a3058743f45aa126322f44264f9f",
+  "canonical_registry_rows": 639,
+  "external_adapter_required_modules": 160,
+  "external_adapter_conditional_modules": 31,
+  "optional_modules": 448,
+  "adapter_demand_rows": 191,
+  "module_adapter_registry_declarations": 5,
+  "module_adapter_registry_runtime_verified": 0,
+  "module_adapter_registry_interface_only": 5,
+  "adapter_183_exact_inventory_found": false,
+  "interpretation": "191 module-level adapter requirements are not 191 unique provider adapters and do not validate the historical 183 count."
+}

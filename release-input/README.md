@@ -1,16 +1,12 @@
 # ARIA 32 Android build input
 
-Upload the exact source archive here before running the Android build workflow:
+Upload exactly this candidate archive into this directory before running the Android build workflow:
 
-`release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip`
+- Filename: ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip
+- Expected SHA-256: 0c45fb175fa6d44456ce33af5c975a2d74576096fae37aa4993a213759a5dbe8
 
-Expected SHA-256:
+The workflow verifies this exact checksum, extracts the archive, provisions the Gradle Wrapper JAR, installs Android SDK packages, installs backend dependencies, runs the current ARIA 32.0.0 static/contract gates, then attempts the debug APK and release AAB build. Build outputs are uploaded as a GitHub Actions artifact.
 
-`75c9826bd5de01f84d0429addeb49639a432006624b30a378581c349c3186f03`
+Do not upload signing keys, passwords, API secrets or private production data here. No production deployment or external payment is triggered by this workflow.
 
-The workflow verifies this checksum, provisions the Gradle Wrapper JAR with its own checksum verification, installs the Android SDK, runs the static gate, then attempts a debug APK and release AAB build. It uploads build outputs as a GitHub Actions artifact.
-
-Do not upload signing keys, passwords, API secrets, or private production data in this folder. Release signing is intentionally not configured until protected repository secrets are set.
-
-
-Release-gate fixes in this archive: the current release gate no longer invokes the obsolete ARIA 23.1 checks; it uses the ARIA 32 static gate. The source preflight no longer incorrectly requires system-wide Gradle, and the backend now has a standard `npm test` command that runs the quality/static gates. The workflow uses Node.js 22.14.0 and runs `npm test`. Static tests passed locally; Android compilation, release signing, deployment, and live integrations remain unverified until the GitHub Actions build runs.
+The original Library archive has a different checksum and contains a versionCode mismatch; use only the repaired candidate linked in the current conversation.
