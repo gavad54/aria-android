@@ -121,3 +121,26 @@ PR اصلی: [#3 — preserve and consolidate the unified ARIA module ecosystem]
 - **Production و تجاری فعال:** انتشار، مجوز، امنیت، پایداری، پرداخت و استفاده واقعی تأیید شده است.
 
 هیچ شمارش فایل، رجیستری یا تست واحدی به‌تنهایی مجوز اعلام وضعیت Production نیست.
+
+
+## ۱۰. بررسی مستقیم بسته Source آرشیوی ARIA 32
+
+بسته `ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE(20261119-193450).zip` در Library با SHA-256 زیر استخراج و بررسی شد:
+
+`6ebe65d8058ef83c9b8a0845054dd4fd01068cf249cdf29492d8fa6d451e0be9`
+
+- سه رجیستری Android/Backend با ۶۳۹ شناسه و نسخه 32.0.0 همگام‌اند؛ `scripts/verify_module_capability_matrix.sh` موفق شد.
+- `aria24_capability_registry.json` شامل ۱۰۹ کلید ماژول و ۸۱ موتور است؛ این دو شمارش بخشی از موجودی‌های تاریخی و جدا از ۶۳۹ و ۲۰۱ هستند.
+- ماتریس‌های قدیمی 15.19/15.20/15.23 هنوز ۲۳۲ ردیف دارند.
+- `verify_module_runtime_r3.sh` به علت انتظار ۲۳۲ ماژول شکست خورد.
+- `FINAL_VERIFY.sh` پس از عبور static verify 639، در assertion قدیمی ۲۳۲/15.24.0 شکست خورد.
+- `RELEASE_GATE.sh` چندین gate ایستا و تست قرارداد را پاس کرد، اما با `FAIL: missing gradle` و exit code 1 خاتمه یافت.
+- Gradle Wrapper JAR و build بازتولیدپذیر Android در بسته حاضر نیست؛ APK/AAB، نصب واقعی دستگاه، Provider، پرداخت و Production تأیید نشده‌اند.
+
+**نتیجه:** رجیستری ۶۳۹تایی از نظر سه فایل sync است، اما اسکریپت‌های Release و مستندات نسخه‌ای با هم ناسازگارند. آرشیو 32 یک candidate ایستاست، نه Release تأییدشده.
+
+## ۱۱. اصلاح قاعده انتخاب Source
+
+فایل `ARIANA_16.0.0_FINAL_REVENUE_FIRST.zip` با محتوای واقعی خود ARIA 15.18.4، شناسه `com.aria.ermian` و ۲۳۱ ماژول را نشان می‌دهد و نباید Source آریانا مستقل تلقی شود. Source کاندید ARIANA مستقل، بسته `ariaana_android_app_v42_benchmark_hardened(3).zip` است؛ ۱۰۹ تست Python آن موفق شد، اما migrationهای SQL ناسازگار، schemaهای موازی، default SQLite، نبود Gradle Wrapper و شناسه قدیمی `ir.aria.hesab` هنوز مانع Release هستند.
+
+هر Source باید با SHA-256، applicationId، versionCode/versionName، migration status، تست و build evidence ثبت شود. نام ZIP به‌تنهایی مرجع نسخه نیست.
