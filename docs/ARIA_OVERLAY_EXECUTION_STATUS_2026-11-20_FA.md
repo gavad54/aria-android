@@ -4,7 +4,7 @@
 
 - مخزن: `gavad54/aria-android`
 - شاخه: `engineering/aria-preserve-all-capabilities-2026-11-19`
-- Commit تأییدشده: `4fcb2256c374dd51db2c504202bf640f5a3ccbbd`
+- Commit تأییدشده: `83bca789a8ab3ae4d7ba146e32f9dd0e8448074f`
 - Pull Request: [شماره ۳](https://github.com/gavad54/aria-android/pull/3) — باز و Draft؛ هنوز ادغام نشده است.
 - شاخه مقصد PR: `engineering/aria-functional-redesign-2026-11-19`
 
@@ -20,22 +20,20 @@
 
 ## بلوغ اجرای واقعی در کد
 
-- **۶۰ از ۷۲ Overlay** اکنون به Handler دامنه‌ای اختصاصی و tenant-scoped متصل‌اند.
-- **۱۲ از ۷۲ Overlay** هنوز خروجی Work Item عمومی تولید می‌کنند و Handler اختصاصی آن‌ها باقی مانده است.
+- **۷۲ از ۷۲ Overlay** اکنون به Handler دامنه‌ای اختصاصی و tenant-scoped متصل‌اند.
+- **صفر از ۷۲ Overlay** بدون Handler دامنه‌ای باقی مانده‌اند؛ هر ۷۲ شناسه به Handler اختصاصی متصل شده‌اند.
 - هر ۷۲ ورودی کاتالوگ تجاری در Registry وجود دارند و به Handlerهای ماژولی متصل‌اند؛ این موضوع اثبات فعال‌سازی سرویس بیرونی یا Production نیست.
 - تعداد ماژول‌های تأییدشده در Production همچنان **صفر** است.
 
-### ۱۲ Overlay باقی‌مانده بدون Handler اختصاصی
+### پوشش ۷۲ Overlay
 
-- مسئله‌ها: `ARIA-PROBLEM-MODULE-046`، `ARIA-PROBLEM-MODULE-048`، `ARIA-PROBLEM-MODULE-050`
-- ایده‌ها: `ARIA-IDEA-MODULE-028`، `ARIA-IDEA-MODULE-030`، `ARIA-IDEA-MODULE-047`، `ARIA-IDEA-MODULE-048`، `ARIA-IDEA-MODULE-049`
-- ماژول‌های میراثی اپ‌ها: `ARIA-LEGACY-APP-MODULE-003` تا `ARIA-LEGACY-APP-MODULE-006`
+هر ۷۲ شناسه Overlay اکنون به Handler اختصاصی متصل است: ماژول‌های Problem، Idea، Control و Legacy با Dispatch مبتنی بر شناسه دقیق. این پوشش، وجود منطق محلی و آزمون‌پذیر را نشان می‌دهد؛ به معنی فعال‌سازی سرویس بیرونی یا تأیید Production نیست.
 
 ## شواهد آزمون خودکار
 
-برای Commit `4fcb2256c374dd51db2c504202bf640f5a3ccbbd`:
+برای Commit `83bca789a8ab3ae4d7ba146e32f9dd0e8448074f`:
 
-- ARIA CI: **موفق**؛ ۹۲۹ آزمون موفق و صفر آزمون ناموفق.
+- ARIA CI: **موفق**؛ ۹۴۱ آزمون موفق و صفر آزمون ناموفق.
 - ARIA Web Catalog CI: **موفق**.
 - بررسی Syntax: **موفق**.
 - مرزهای Tenant/Actor و جلوگیری از Side Effect خارجی در آزمون‌ها بررسی می‌شوند.
