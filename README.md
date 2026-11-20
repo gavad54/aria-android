@@ -138,4 +138,4 @@ Railway reports the `aria-web` service and PostgreSQL service as online, with th
 
 Do not treat ARIA as release-ready until the full source is present, CI and live integration tests pass, and the Android release has been built, tested, signed, and reviewed.
 
-> وضعیت اجرایی به‌روز Overlayها، بلوغ Handlerها، شواهد CI و موانع Production: [گزارش وضعیت اجرایی ARIA در ۲۰۲۶-۱۱-۲۰](docs/ARIA_OVERLAY_EXECUTION_STATUS_2026-11-20_FA.md). پوشش ۱۸۳/۱۸۳ Handler اختصاصی محلی به معنی Production readiness نیست؛ ۷۱۰ واحد دیگر هنوز در سطح خانواده‌ای‌اند.
+> وضعیت اجرایی به‌روز Overlayها، بلوغ Handlerها، شواهد CI و موانع Production: [گزارش وضعیت اجرایی ARIA در ۲۰۲۶-۱۱-۲۰](docs/ARIA_OVERLAY_EXECUTION_STATUS_2026-11-20_FA.md). پوشش ۲۵۴/۲۵۴ Handler اختصاصی محلی به معنی Production readiness نیست؛ ۶۳۹ قرارداد canonical هنوز در سطح Workflow خانواده‌ای‌اند.
