@@ -246,8 +246,9 @@ test("language practice planner generates reviewable sessions from supplied goal
  const o=result.artifact.domainResult.domainOutput;
  assert.equal(o.plannedWeeklyMinutes,45);assert.equal(o.topicCount,2);assert.equal(o.externalLessonBooked,false);
 });
-test("overlay dispatch rejects an idea catalog item sharing a problem sequence number",async()=>{
- const result=await executeAriaDomainModule("ARIA-IDEA-MODULE-049",{goal:"Check exact dispatch"},{actorId:"actor",tenantId:"tenant"});
- assert.equal(result.domainLogicExecuted,false);
- assert.equal(result.executionState,"LOCAL_WORK_ITEM_ONLY");
+test("idea dispatch uses its exact module identity rather than a colliding problem sequence",async()=>{
+ const result=await executeAriaDomainModule("ARIA-IDEA-MODULE-049",{goal:"Check exact dispatch",context:{sensitiveData:true,retentionDays:365,purpose:"service",controls:["access-control"],recipients:["internal-team"]}},{actorId:"actor",tenantId:"tenant"});
+ assert.equal(result.domainLogicExecuted,true);
+ assert.ok(result.artifact.domainResult.domainOutput.riskFlags.includes("SENSITIVE_DATA"));
+ assert.equal(result.artifact.domainResult.domainOutput.privacyApprovalIssued,false);
 });
