@@ -1,5 +1,6 @@
 "use strict";
 const { createDomainModule } = require("../../aria-module-runtime.cjs");
+const { createEngineDomainHandler } = require("../../aria-engine-domain-handlers.cjs");
 module.exports = createDomainModule({
   "moduleId": "ARIA-ENGINE-MODULE-044",
   "moduleType": "CHILD_ENGINE_MODULE",
@@ -45,5 +46,5 @@ module.exports = createDomainModule({
   ],
   "executionState": "LOCAL_WORK_ITEM_ONLY",
   "productionVerified": false,
-  domainHandler: true
+  domainHandler: createEngineDomainHandler(44)
 });
