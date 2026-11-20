@@ -96,3 +96,21 @@ test("never labels injected provider execution as production verified", async ()
   assert.equal(result.result.tenantId, "tenant-b");
   assert.equal(result.productionVerified, false);
 });
+
+test("requires review evidence before a provider can be marked production approved", () => {
+  const registry = new AdapterRegistry();
+  assert.throws(() => registry.registerProvider({
+    family: "PAYMENT_AND_FINANCIAL_RAILS",
+    providerId: "psp-provider",
+    approvalState: "PRODUCTION_APPROVED",
+    execute: async () => ({ ok: true })
+  }), /PRODUCTION_APPROVAL_EVIDENCE_REQUIRED/);
+  const registered = registry.registerProvider({
+    family: "PAYMENT_AND_FINANCIAL_RAILS",
+    providerId: "psp-provider",
+    approvalState: "PRODUCTION_APPROVED",
+    approvalEvidenceId: "review-ticket-2026-001",
+    execute: async () => ({ ok: true })
+  });
+  assert.equal(registered.approvalState, "PRODUCTION_APPROVED");
+});
