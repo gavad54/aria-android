@@ -31063,7 +31063,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-001",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31081,11 +31081,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-001",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 1
       },
       "launchId": "engine:problem-01-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-002",
@@ -31099,7 +31102,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-002",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31117,11 +31120,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-002",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 2
       },
       "launchId": "engine:problem-02-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-003",
@@ -31135,7 +31141,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-003",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31153,11 +31159,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-003",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 3
       },
       "launchId": "engine:problem-03-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-004",
@@ -31171,7 +31180,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-004",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31189,11 +31198,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-004",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 4
       },
       "launchId": "engine:problem-04-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-005",
@@ -31207,7 +31219,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-005",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31225,11 +31237,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-005",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 5
       },
       "launchId": "engine:problem-05-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-006",
@@ -31243,7 +31258,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-006",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31261,11 +31276,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-006",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 6
       },
       "launchId": "engine:problem-06-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-007",
@@ -31279,7 +31297,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-007",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31297,11 +31315,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-007",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 7
       },
       "launchId": "engine:problem-07-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-008",
@@ -31315,7 +31336,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-008",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31333,11 +31354,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-008",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 8
       },
       "launchId": "engine:problem-08-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-009",
@@ -31351,7 +31375,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-009",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31369,11 +31393,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-009",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 9
       },
       "launchId": "engine:problem-09-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-010",
@@ -31387,7 +31414,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-010",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31405,11 +31432,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-010",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 10
       },
       "launchId": "engine:problem-10-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-011",
@@ -31423,7 +31453,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-011",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31441,11 +31471,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-011",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 11
       },
       "launchId": "engine:problem-15-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-012",
@@ -31459,7 +31492,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-012",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31477,11 +31510,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-012",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 12
       },
       "launchId": "engine:problem-16-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-013",
@@ -31495,7 +31531,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-013",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31513,11 +31549,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-013",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 13
       },
       "launchId": "engine:problem-17-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-014",
@@ -31531,7 +31570,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-014",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31549,11 +31588,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-014",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 14
       },
       "launchId": "engine:problem-18-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-015",
@@ -31567,7 +31609,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-015",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31585,11 +31627,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-015",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 15
       },
       "launchId": "engine:problem-19-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-016",
@@ -31603,7 +31648,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-016",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31621,11 +31666,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-016",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 16
       },
       "launchId": "engine:problem-20-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-017",
@@ -31639,7 +31687,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-017",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31657,11 +31705,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-017",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 17
       },
       "launchId": "engine:problem-21-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-018",
@@ -31675,7 +31726,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-018",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31693,11 +31744,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-018",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 18
       },
       "launchId": "engine:problem-22-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-019",
@@ -31711,7 +31765,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-019",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31729,11 +31783,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-019",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 19
       },
       "launchId": "engine:problem-23-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-020",
@@ -31747,7 +31804,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-020",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31765,11 +31822,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-020",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 20
       },
       "launchId": "engine:problem-24-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-021",
@@ -31783,7 +31843,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-021",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31801,11 +31861,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-021",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 21
       },
       "launchId": "engine:problem-25-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-022",
@@ -31819,7 +31882,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-022",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31837,11 +31900,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-022",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 22
       },
       "launchId": "engine:problem-26-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-023",
@@ -31855,7 +31921,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-023",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31873,11 +31939,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-023",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 23
       },
       "launchId": "engine:problem-27-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-024",
@@ -31891,7 +31960,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-024",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31909,11 +31978,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-024",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 24
       },
       "launchId": "engine:problem-28-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-025",
@@ -31928,7 +32000,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-025",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31946,11 +32018,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-025",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 25
       },
       "launchId": "engine:pet-care-coordination-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-026",
@@ -31964,7 +32039,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-026",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -31982,11 +32057,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-026",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 26
       },
       "launchId": "engine:problem-30-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-027",
@@ -32000,7 +32078,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-027",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -32018,11 +32096,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-027",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 27
       },
       "launchId": "engine:problem-31-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-028",
@@ -32036,7 +32117,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-028",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -32054,11 +32135,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-028",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 28
       },
       "launchId": "engine:problem-32-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-029",
@@ -32072,7 +32156,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-029",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -32090,11 +32174,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-029",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 29
       },
       "launchId": "engine:problem-33-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-030",
@@ -32108,7 +32195,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-030",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -32126,11 +32213,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-030",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 30
       },
       "launchId": "engine:problem-34-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-031",
@@ -32144,7 +32234,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-031",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -32162,11 +32252,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-031",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 31
       },
       "launchId": "engine:problem-36-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-032",
@@ -32180,7 +32273,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-032",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -32198,11 +32291,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-032",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 32
       },
       "launchId": "engine:problem-38-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-033",
@@ -32216,7 +32312,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-033",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -32234,11 +32330,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-033",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 33
       },
       "launchId": "engine:problem-39-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-034",
@@ -32252,7 +32351,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-034",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -32270,11 +32369,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-034",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 34
       },
       "launchId": "engine:problem-41-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-035",
@@ -32288,7 +32390,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-035",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -32306,11 +32408,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-035",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 35
       },
       "launchId": "engine:problem-43-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-036",
@@ -32324,7 +32429,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-036",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -32342,11 +32447,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-036",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 36
       },
       "launchId": "engine:problem-44-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-037",
@@ -32360,7 +32468,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-037",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -32378,11 +32486,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-037",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 37
       },
       "launchId": "engine:problem-46-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-038",
@@ -32396,7 +32507,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-038",
         "operations": [
           "validate_input",
           "build_local_plan",
@@ -32414,11 +32525,14 @@
           "checklist",
           "riskFlags",
           "followUp"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-038",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 38
       },
       "launchId": "engine:problem-50-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-039",
@@ -32432,7 +32546,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.HISTORICAL_CONTROL_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-039",
         "operations": [
           "validate",
           "authorize_or_simulate",
@@ -32449,11 +32563,14 @@
           "decision_or_result",
           "audit_record",
           "explainability"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-039",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 39
       },
       "launchId": "engine:intent-matching-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-040",
@@ -32467,7 +32584,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.HISTORICAL_CONTROL_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-040",
         "operations": [
           "validate",
           "authorize_or_simulate",
@@ -32484,11 +32601,14 @@
           "decision_or_result",
           "audit_record",
           "explainability"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-040",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 40
       },
       "launchId": "engine:policy-decision-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-041",
@@ -32502,7 +32622,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.HISTORICAL_CONTROL_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-041",
         "operations": [
           "validate",
           "authorize_or_simulate",
@@ -32519,11 +32639,14 @@
           "decision_or_result",
           "audit_record",
           "explainability"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-041",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 41
       },
       "launchId": "engine:scenario-sensitivity-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-042",
@@ -32537,7 +32660,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.HISTORICAL_CONTROL_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-042",
         "operations": [
           "validate",
           "authorize_or_simulate",
@@ -32554,11 +32677,14 @@
           "decision_or_result",
           "audit_record",
           "explainability"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-042",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 42
       },
       "launchId": "engine:owner-operations-engine",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-043",
@@ -32572,7 +32698,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-043",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -32593,11 +32719,14 @@
           "purchase_request",
           "approval_chain",
           "purchase_order_draft"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-043",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 43
       },
       "launchId": "engine:idea-expansion-engine-003",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-044",
@@ -32611,7 +32740,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-044",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -32632,11 +32761,14 @@
           "traceability_timeline",
           "origin_record",
           "exception_alert"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-044",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 44
       },
       "launchId": "engine:idea-expansion-engine-006",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-045",
@@ -32650,7 +32782,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-045",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -32671,11 +32803,14 @@
           "product_dossier",
           "expiry_alerts",
           "market_readiness"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-045",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 45
       },
       "launchId": "engine:idea-expansion-engine-010",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-046",
@@ -32689,7 +32824,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-046",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -32709,11 +32844,14 @@
           "quality_record",
           "nonconformance",
           "corrective_action"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-046",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 46
       },
       "launchId": "engine:idea-expansion-engine-011",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-047",
@@ -32727,7 +32865,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-047",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -32747,11 +32885,14 @@
           "recall_case",
           "affected_batch_list",
           "notification_audit"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-047",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 47
       },
       "launchId": "engine:idea-expansion-engine-012",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-048",
@@ -32765,7 +32906,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-048",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -32785,11 +32926,14 @@
           "warranty_case",
           "decision",
           "service_history"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-048",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 48
       },
       "launchId": "engine:idea-expansion-engine-013",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-049",
@@ -32803,7 +32947,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-049",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -32823,11 +32967,14 @@
           "work_order",
           "maintenance_history",
           "downtime_report"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-049",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 49
       },
       "launchId": "engine:idea-expansion-engine-015",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-050",
@@ -32841,7 +32988,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-050",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -32861,11 +33008,14 @@
           "branch_audit",
           "compliance_score",
           "corrective_tasks"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-050",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 50
       },
       "launchId": "engine:idea-expansion-engine-023",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-051",
@@ -32879,7 +33029,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-051",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -32899,11 +33049,14 @@
           "dependency_graph",
           "critical_path",
           "change_impact"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-051",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 51
       },
       "launchId": "engine:idea-expansion-engine-026",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-052",
@@ -32917,7 +33070,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-052",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -32938,11 +33091,14 @@
           "capacity_plan",
           "utilization_view",
           "shortage_alerts"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-052",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 52
       },
       "launchId": "engine:idea-expansion-engine-027",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-053",
@@ -32956,7 +33112,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-053",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -32977,11 +33133,14 @@
           "acceptance_record",
           "open_gaps",
           "signoff_history"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-053",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 53
       },
       "launchId": "engine:idea-expansion-engine-028",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-054",
@@ -32995,7 +33154,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-054",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -33016,11 +33175,14 @@
           "incident_timeline",
           "action_log",
           "postmortem"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-054",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 54
       },
       "launchId": "engine:idea-expansion-engine-030",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-055",
@@ -33034,7 +33196,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-055",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -33055,11 +33217,14 @@
           "knowledge_article",
           "source_lineage",
           "review_status"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-055",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 55
       },
       "launchId": "engine:idea-expansion-engine-031",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-056",
@@ -33073,7 +33238,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-056",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -33093,11 +33258,14 @@
           "document_version",
           "approval_chain",
           "audit_log"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-056",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 56
       },
       "launchId": "engine:idea-expansion-engine-032",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-057",
@@ -33111,7 +33279,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-057",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -33131,11 +33299,14 @@
           "retention_schedule",
           "archive_job",
           "deletion_evidence"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-057",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 57
       },
       "launchId": "engine:idea-expansion-engine-033",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-058",
@@ -33149,7 +33320,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-058",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -33169,11 +33340,14 @@
           "quality_issue",
           "severity",
           "resolution_evidence"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-058",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 58
       },
       "launchId": "engine:idea-expansion-engine-035",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-059",
@@ -33187,7 +33361,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-059",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -33208,11 +33382,14 @@
           "release_dossier",
           "gate_status",
           "approval_record"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-059",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 59
       },
       "launchId": "engine:idea-expansion-engine-040",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-060",
@@ -33226,7 +33403,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-060",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -33247,11 +33424,14 @@
           "localized_copy",
           "terminology_record",
           "review_status"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-060",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 60
       },
       "launchId": "engine:idea-expansion-engine-041",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-061",
@@ -33265,7 +33445,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-061",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -33285,11 +33465,14 @@
           "audit_report",
           "issues",
           "remediation_status"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-061",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 61
       },
       "launchId": "engine:idea-expansion-engine-042",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-062",
@@ -33303,7 +33486,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-062",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -33325,11 +33508,14 @@
           "license_record",
           "usage_scope",
           "expiry_alert"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-062",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 62
       },
       "launchId": "engine:idea-expansion-engine-043",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-063",
@@ -33343,7 +33529,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-063",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -33364,11 +33550,14 @@
           "provenance_record",
           "contributor_graph",
           "rights_summary"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-063",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 63
       },
       "launchId": "engine:idea-expansion-engine-044",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-064",
@@ -33382,7 +33571,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-064",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -33403,11 +33592,14 @@
           "competency_matrix",
           "skill_gap",
           "development_plan"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-064",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 64
       },
       "launchId": "engine:idea-expansion-engine-046",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-065",
@@ -33421,7 +33613,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-065",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -33442,11 +33634,14 @@
           "shift_roster",
           "coverage_gaps",
           "conflict_alerts"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-065",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 65
       },
       "launchId": "engine:idea-expansion-engine-047",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-066",
@@ -33460,7 +33655,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-066",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -33481,11 +33676,14 @@
           "inspection_record",
           "corrective_action",
           "closure_evidence"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-066",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 66
       },
       "launchId": "engine:idea-expansion-engine-048",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-067",
@@ -33499,7 +33697,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-067",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -33520,11 +33718,14 @@
           "privacy_assessment",
           "risk_register",
           "mitigation_actions"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-067",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 67
       },
       "launchId": "engine:idea-expansion-engine-049",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-068",
@@ -33538,7 +33739,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.ARIA_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-068",
         "operations": [
           "validate_tenant_and_permissions",
           "validate_inputs_and_consent",
@@ -33560,11 +33761,14 @@
           "inventory_alerts",
           "sales_analytics",
           "return_case"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-068",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 68
       },
       "launchId": "engine:ARIA-LEGACY-APP-MODULE-003",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-069",
@@ -33578,7 +33782,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.ARIA_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-069",
         "operations": [
           "validate_tenant_and_permissions",
           "validate_inputs_and_consent",
@@ -33600,11 +33804,14 @@
           "content_variants",
           "approval_package",
           "rights_manifest"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-069",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 69
       },
       "launchId": "engine:ARIA-LEGACY-APP-MODULE-004",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-070",
@@ -33618,7 +33825,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.ARIA_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-070",
         "operations": [
           "validate_tenant_and_permissions",
           "validate_inputs_and_consent",
@@ -33639,11 +33846,14 @@
           "access_audit",
           "quota_report",
           "backup_restore_evidence"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-070",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 70
       },
       "launchId": "engine:ARIA-LEGACY-APP-MODULE-005",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-071",
@@ -33657,7 +33867,7 @@
       ],
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.ARIA_DOMAIN_ENGINE",
+        "handlerKey": "aria.engine.ARIA-ENGINE-MODULE-071",
         "operations": [
           "validate_tenant_and_permissions",
           "validate_inputs_and_consent",
@@ -33679,11 +33889,14 @@
           "publish_manifest",
           "seo_report",
           "analytics_summary"
-        ]
+        ],
+        "domainRuntimeModuleId": "ARIA-ENGINE-MODULE-071",
+        "domainRuntimeExport": "createEngineDomainHandler",
+        "handlerStrategyId": 71
       },
       "launchId": "engine:ARIA-LEGACY-APP-MODULE-006",
-      "implementationState": "ENGINE_FAMILY_ADAPTER",
-      "workflowEntry": "ENGINE_FAMILY_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-OWNED-ADDITIONAL-001",
