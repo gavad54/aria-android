@@ -45,6 +45,19 @@ function createIdeaDomainHandler(sequence) {
       moduleSequence: sequence,
       goal: input.goal.trim().slice(0, 500),
       domainOutput: strategy.build(input.goal.trim(), input.context),
+      domainArtifact: { artifactType: strategy.kind, payload: strategy.build(input.goal.trim(), input.context) },
+      moduleSpecificProfile: {
+        profileId: "PROFILE:ARIA-IDEA-BACKLOG-" + String(sequence).padStart(3, "0"),
+        moduleId: "ARIA-IDEA-BACKLOG-" + String(sequence).padStart(3, "0"),
+        moduleName: strategy.kind,
+        specialization: strategy.kind,
+        inputSchema: ["goal", "context", "consent"].map(name => ({ name, required: true })),
+        operationPlan: strategy.steps.map((operation, index) => ({ sequence: index + 1, operation, state: "LOCAL_EXECUTABLE_STEP" })),
+        decisionRules: ["TENANT_BOUNDARY", "HUMAN_REVIEW", "NO_EXTERNAL_SIDE_EFFECT"],
+        executionBoundary: "TENANT_SCOPED_LOCAL_ONLY",
+        externalExecution: false,
+        productionVerified: false
+      },
       workflow: strategy.steps.map((label, index) => ({ sequence: index + 1, label, state: "PROPOSED" })),
       commercialization: {
         model: COMMERCIAL[sequence][0],
