@@ -28,7 +28,7 @@ function createDomainModule(definition) {
     productionVerified: false,
     externalExecutionEnabled: false,
     paymentExecuted: false,
-    implementationState: "LOCAL_HANDLER_WITH_SHARED_RUNTIME"
+    implementationState: domainHandler ? "DOMAIN_LOGIC_LOCAL" : "LOCAL_HANDLER_WITH_SHARED_RUNTIME"
   });
 
   async function execute(input, context) {
