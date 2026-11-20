@@ -30,7 +30,7 @@ function createDomainModule(definition) {
     productionVerified: false,
     externalExecutionEnabled: false,
     paymentExecuted: false,
-    implementationState: domainHandler ? "DOMAIN_LOGIC_LOCAL" : "LOCAL_HANDLER_WITH_SHARED_RUNTIME"
+    implementationState: definition.domainHandler === true ? "DOMAIN_ADAPTER_LOCAL" : domainHandler ? "DOMAIN_LOGIC_LOCAL" : "LOCAL_HANDLER_WITH_SHARED_RUNTIME"
   });
 
   async function execute(input, context) {
