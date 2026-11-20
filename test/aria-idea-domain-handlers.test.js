@@ -22,6 +22,10 @@ test("first ten idea modules execute distinct local domain strategies", async ()
     assert.equal(result.productionVerified, false);
     assert.equal(result.artifact.domainResult.tenantScope, "tenant-test");
     assert.ok(result.artifact.domainResult.artifactType);
+    assert.equal(result.artifact.domainResult.commercialization.state, "DESIGNED_NOT_MONETIZED");
+    assert.equal(result.artifact.domainResult.commercialization.billingEnabled, false);
+    assert.equal(result.artifact.domainResult.commercialization.paymentExecuted, false);
+    assert.ok(result.artifact.domainResult.commercialization.entitlementKey.startsWith("aria.idea."));
     kinds.add(result.artifact.domainResult.artifactType);
   }
   assert.equal(kinds.size, 10);
