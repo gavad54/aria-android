@@ -59,7 +59,7 @@ class AdapterRegistry {
     }));
   }
 
-  registerProvider({ family, providerId, execute, approvalState = "MOCK_ONLY" }) {
+  registerProvider({ family, providerId, execute, approvalState = "MOCK_ONLY", approvalEvidenceId }) {
     if (!Object.prototype.hasOwnProperty.call(FAMILY_DEFINITIONS, family)) {
       throw new AdapterError("UNKNOWN_ADAPTER_FAMILY");
     }
@@ -108,7 +108,7 @@ class AdapterRegistry {
           payload
         })),
         new Promise((_, reject) => {
-          timeout = setTimeout(() => reject(new AdapterError("PROVIDER_TIMEOUT")), this.timeoutMs);
+          timeout = setTimeout(() => {\n            controller.abort();\n            reject(new AdapterError("PROVIDER_TIMEOUT"));\n          }, this.timeoutMs);
         })
       ]);
       return Object.freeze({
