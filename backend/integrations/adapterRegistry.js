@@ -68,11 +68,11 @@ class AdapterRegistry {
     if (!["MOCK_ONLY", "SANDBOX_APPROVED", "PRODUCTION_APPROVED"].includes(approvalState)) {
       throw new AdapterError("INVALID_APPROVAL_STATE");
     }
-    if (FAMILY_DEFINITIONS[family].sensitive && approvalState === "PRODUCTION_APPROVED") {
-      throw new AdapterError("SENSITIVE_PROVIDER_REQUIRES_EXTERNAL_REVIEW");
+    if (approvalState === "PRODUCTION_APPROVED") {
+      requireId(approvalEvidenceId, "PRODUCTION_APPROVAL_EVIDENCE_REQUIRED");
     }
-    this.providers.set(family, Object.freeze({ providerId, execute, approvalState }));
-    return { family, providerId, approvalState };
+    this.providers.set(family, Object.freeze({ providerId, execute, approvalState, approvalEvidenceId: approvalEvidenceId || null }));
+    return { family, providerId, approvalState, approvalEvidenceId: approvalEvidenceId || null };
   }
 
   async execute({ family, operation, tenantId, actorId, requestId, payload = {}, idempotencyKey }) {
