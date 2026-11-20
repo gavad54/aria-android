@@ -29,7 +29,7 @@ test("all 71 child engines have distinct domain handlers and bounded tenant-scop
   assert.equal(result.externalExecutionPerformed,false);
   assert.equal(result.paymentExecuted,false);
   assert.equal(result.productionVerified,false);
-  specializations.add(result.domainArtifact.moduleSpecificProfile.specialization);
+  specializations.add(result.artifact.domainResult.moduleSpecificProfile.specialization);
  }
  assert.equal(specializations.size,71);
 });
