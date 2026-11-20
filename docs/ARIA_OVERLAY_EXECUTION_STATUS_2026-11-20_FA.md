@@ -4,7 +4,7 @@
 
 - مخزن: `gavad54/aria-android`
 - شاخه: `engineering/aria-preserve-all-capabilities-2026-11-19`
-- Commit تأییدشده: `fe0e89efc5d6055379e7817f8f88ece8a9167da6`
+- Commit تأییدشده: `f602a58674f08e1149350125a3b036678ddcd8d5`
 - Pull Request: [شماره ۳](https://github.com/gavad54/aria-android/pull/3) — باز و Draft؛ هنوز ادغام نشده است.
 - شاخه مقصد PR: `engineering/aria-functional-redesign-2026-11-19`
 
