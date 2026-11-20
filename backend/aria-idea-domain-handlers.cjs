@@ -78,6 +78,7 @@ function createIdeaDomainHandler(sequence) {
     const commercial = COMMERCIAL[sequence];
     return Object.freeze({
       artifactType: strategy.kind,
+      moduleId: "ARIA-IDEA-BACKLOG-" + String(sequence).padStart(3, "0"),
       moduleSequence: sequence,
       goal: input.goal.trim().slice(0, 500),
       domainOutput,
