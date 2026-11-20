@@ -160,3 +160,28 @@ test("local experience discovery returns only supplied matching candidates and p
  const o=result.artifact.domainResult.domainOutput;
  assert.deepEqual(o.candidateIds,["e1","e2"]);assert.deepEqual(o.unverifiedCandidateIds,["e2"]);assert.equal(o.reservationExecuted,false);
 });
+
+test("intent marketplace matches only same-domain candidates with consent and evidence",async()=>{
+ const result=await run(51,{intent:{category:"repair",location:"Baku",consent:true},offers:[
+  {id:"o1",category:"repair",location:"Baku",visible:true,verified:true,evidenceId:"proof-1"},
+  {id:"o2",category:"repair",location:"Baku",visible:true,verified:false,evidenceId:""},
+  {id:"o3",category:"cleaning",location:"Baku",visible:true,verified:true,evidenceId:"proof-3"}
+ ]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.deepEqual(o.matchIds,["o1"]);assert.equal(o.contactExecuted,false);
+});
+test("agent autonomy denies by default and requires approval for sensitive actions",async()=>{
+ const result=await run(52,{agentId:"agent-1",action:{type:"external_publish",sensitive:true},policies:[]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.equal(o.decision,"DENY");assert.equal(o.reason,"NO_MATCHING_ALLOW_POLICY");assert.equal(o.actionExecuted,false);
+});
+test("scenario simulator computes transparent differences without choosing or executing",async()=>{
+ const result=await run(53,{scenarios:[{id:"base",value:100,weight:1},{id:"high",value:130,weight:0.5},{id:"low",value:80,weight:0.5}]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.equal(o.scenarios.length,3);assert.equal(o.range.minimum,80);assert.equal(o.range.maximum,130);assert.equal(o.decisionMade,false);
+});
+test("owner command center reports pending work and never executes queued actions",async()=>{
+ const result=await run(54,{workItems:[{id:"w1",status:"pending",priority:"high"},{id:"w2",status:"approved",priority:"normal"}],approvals:[{id:"a1",status:"pending"}]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.equal(o.pendingWorkCount,1);assert.equal(o.pendingApprovalCount,1);assert.equal(o.actionsExecuted,false);
+});
