@@ -2,7 +2,7 @@ name: ARIA CI
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, engineering/aria-functional-redesign-2026-11-19]
   push:
     branches:
       - main
