@@ -6,14 +6,14 @@
   "sourceDecision": "Preserve 39 transferred/archived lineage records outside ARIA ownership; add 39 distinct ARIA-owned replacements instead of reactivating sibling-product records.",
   "records": [
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-001",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-001",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "برنامه‌ریز مالی شخصی",
       "domain": "personal_finance",
       "description": "ساخت بودجه و سناریوهای هزینه بدون اجرای تراکنش",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -77,14 +77,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-002",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-002",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "راهنمای مسیر شغلی",
       "domain": "career_guidance",
       "description": "تبدیل مهارت‌ها و علایق به مسیر رشد شغلی",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -148,14 +148,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-003",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-003",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "مدیریت موجودی کسب‌وکار کوچک",
       "domain": "small_business_inventory",
       "description": "کنترل موجودی و هشدار کمبود بر اساس داده واردشده",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -219,14 +219,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-004",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-004",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "مدیریت درخواست مشتری",
       "domain": "customer_request_management",
       "description": "ثبت و اولویت‌بندی درخواست‌ها و پیگیری پاسخ",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -290,14 +290,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-005",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-005",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "هماهنگ‌کننده نوبت و قرار",
       "domain": "appointment_coordination",
       "description": "آماده‌سازی پیشنهاد زمان و پیگیری تأیید نوبت",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -361,14 +361,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-006",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-006",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "برنامه‌ریز رویداد",
       "domain": "event_planning",
       "description": "ساخت برنامه، وظایف، بودجه و چک‌لیست رویداد",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -433,14 +433,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-007",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-007",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "طراح برنامه سفر",
       "domain": "travel_planning",
       "description": "تهیه برنامه سفر با محدودیت زمان و بودجه",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -505,14 +505,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-008",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-008",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "راهنمای خدمات محلی",
       "domain": "local_services_discovery",
       "description": "ساخت معیارهای جست‌وجو و مقایسه خدمات محلی",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -576,14 +576,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-009",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-009",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "ممیزی دسترس‌پذیری دیجیتال",
       "domain": "digital_accessibility",
       "description": "بررسی چک‌لیست دسترس‌پذیری محتوا و رابط",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -647,14 +647,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-010",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-010",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "مدیریت واژگان و ترجمه تخصصی",
       "domain": "terminology_management",
       "description": "ساخت واژه‌نامه کنترل‌شده و ثبت معادل‌های تأییدشده",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -718,14 +718,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-011",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-011",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "سامانه پایگاه دانش",
       "domain": "knowledge_base",
       "description": "تبدیل منابع تأییدشده به مقاله و پاسخ قابل جست‌وجو",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -789,14 +789,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-012",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-012",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "دستیار مرور پژوهش",
       "domain": "research_synthesis",
       "description": "ترکیب یافته‌های ارائه‌شده با ردیابی منبع و محدودیت",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -860,14 +860,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-013",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-013",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "برنامه‌ریز مطالعه",
       "domain": "study_planning",
       "description": "طراحی برنامه یادگیری و مرور بر اساس زمان در دسترس",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -932,14 +932,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-014",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-014",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "مربی تمرین زبان",
       "domain": "language_practice",
       "description": "ساخت تمرین و بازخورد آموزشی متناسب با هدف",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -1003,14 +1003,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-015",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-015",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "مدیریت نمونه‌کار حرفه‌ای",
       "domain": "portfolio_management",
       "description": "سامان‌دهی نمونه‌کارها و شواهد مهارت",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -1075,14 +1075,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-016",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-016",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "هماهنگ‌کننده داوطلبان",
       "domain": "volunteer_coordination",
       "description": "سازمان‌دهی فرصت‌ها، ظرفیت‌ها و پیگیری مشارکت",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -1147,14 +1147,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-017",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-017",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "شفافیت کمک‌های اجتماعی",
       "domain": "donation_transparency",
       "description": "ردیابی گزارش‌های کمک و تخصیص با شواهد ارائه‌شده",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -1218,14 +1218,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-018",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-018",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "مدیریت چرخه تعمیر",
       "domain": "repair_lifecycle",
       "description": "پیگیری درخواست تعمیر از تشخیص اولیه تا تحویل",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -1290,14 +1290,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-019",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-019",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "پایش بهره‌وری انرژی ساختمان",
       "domain": "building_energy_review",
       "description": "تحلیل داده مصرف و پیشنهادهای کاهش اتلاف",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -1361,14 +1361,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-020",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-020",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "مدیریت تفکیک پسماند",
       "domain": "waste_sorting_guidance",
       "description": "طبقه‌بندی اقلام و برنامه جمع‌آوری مسئولانه",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -1432,14 +1432,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-021",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-021",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "برنامه‌ریز عملیات کشاورزی",
       "domain": "agriculture_planning",
       "description": "تنظیم تقویم عملیات مزرعه با داده و محدودیت‌های محلی",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -1504,14 +1504,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-022",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-022",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "مقایسه تأمین‌کنندگان",
       "domain": "supplier_comparison",
       "description": "مقایسه پیشنهادهای تأمین با معیارهای شفاف",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -1575,14 +1575,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-023",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-023",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "هماهنگی زنجیره تأمین",
       "domain": "supply_chain_coordination",
       "description": "ثبت وابستگی‌ها و هشدارهای زنجیره تأمین",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -1646,14 +1646,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-024",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-024",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "چک‌لیست بازبینی قرارداد",
       "domain": "contract_review_checklist",
       "description": "استخراج بندها و پرسش‌های نیازمند بررسی متخصص",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -1717,14 +1717,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-025",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-025",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "گردش‌کار اسناد",
       "domain": "document_workflow",
       "description": "مدیریت نسخه، تأیید و تحویل اسناد",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -1788,14 +1788,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-026",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-026",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "طراح فرم هوشمند",
       "domain": "form_design",
       "description": "تبدیل نیاز به فرم با قواعد اعتبارسنجی",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -1859,14 +1859,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-027",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-027",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "تحلیل نظرسنجی",
       "domain": "survey_analysis",
       "description": "پاک‌سازی و تحلیل پاسخ‌های نظرسنجی",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -1930,14 +1930,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-028",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-028",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "مدیریت بازخورد محصول",
       "domain": "product_feedback",
       "description": "تجمیع بازخورد و تبدیل آن به فرصت بهبود",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -2001,14 +2001,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-029",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-029",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "مدیریت تضمین کیفیت",
       "domain": "quality_assurance",
       "description": "تعریف معیار پذیرش و پیگیری نقص‌ها",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -2072,14 +2072,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-030",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-030",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "ثبت و پیگیری ریسک",
       "domain": "risk_register",
       "description": "ساخت دفتر ریسک و کنترل اقدامات کاهشی",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -2144,14 +2144,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-031",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-031",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "مدیریت انطباق سیاست‌ها",
       "domain": "policy_compliance",
       "description": "تبدیل سیاست‌ها به کنترل‌ها و شواهد قابل ممیزی",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -2215,14 +2215,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-032",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-032",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "مدیریت اتصال‌دهنده‌ها",
       "domain": "connector_governance",
       "description": "ثبت وضعیت APIها، مجوزها و وابستگی‌های اتصال",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -2286,14 +2286,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-033",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-033",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "حاکمیت حریم خصوصی داده",
       "domain": "privacy_governance",
       "description": "ثبت هدف پردازش، حداقل‌سازی و چرخه عمر داده",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -2357,14 +2357,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-034",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-034",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "پایش وضعیت پشتیبان‌گیری",
       "domain": "backup_assurance",
       "description": "ثبت شواهد پشتیبان و وضعیت آزمون بازیابی",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -2428,14 +2428,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-035",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-035",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "مدیریت بومی‌سازی محتوا",
       "domain": "localization",
       "description": "مدیریت ترجمه، قالب‌بندی و کنترل کیفیت زبان",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -2499,14 +2499,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-036",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-036",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "مدیریت چرخه انتشار",
       "domain": "release_management",
       "description": "هماهنگی نسخه، گیت‌ها، شواهد و تصمیم انتشار",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -2571,14 +2571,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-037",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-037",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "مدیریت دارایی‌های دیجیتال",
       "domain": "digital_asset_management",
       "description": "طبقه‌بندی، مجوز و نسخه‌بندی دارایی‌های دیجیتال",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -2643,14 +2643,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-038",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-038",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "هماهنگی خدمات پس از فروش",
       "domain": "after_sales",
       "description": "پیگیری ضمانت، درخواست و رضایت پس از تحویل",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
@@ -2714,14 +2714,14 @@
       "productionVerified": false
     },
     {
-      "moduleId": "ARIA-OWNED-REPLACEMENT-039",
+      "moduleId": "ARIA-OWNED-ADDITIONAL-039",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
       "name": "مدیریت دانش سازمانی",
       "domain": "organizational_memory",
       "description": "ثبت تصمیم‌ها، مسئولیت‌ها و دانش قابل بازیابی",
-      "sourceLineage": "ARIA_OWNED_REPLACEMENT_FOR_TRANSFERRED_OR_ARCHIVED_SCOPE_2026-11",
+      "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
       "requiredInputs": [
