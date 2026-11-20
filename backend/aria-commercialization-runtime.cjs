@@ -2,6 +2,10 @@
 const fs=require("node:fs");
 const path=require("node:path");
 const REGISTRY=JSON.parse(fs.readFileSync(path.join(__dirname,"data","aria_893_commercialization_registry.json"),"utf8"));
+
+const additionalManifest=JSON.parse(fs.readFileSync(path.join(__dirname,"data","aria_039_replacement_module_registry.json"),"utf8"));
+const additionalById=new Map(additionalManifest.records.map(x=>[x.moduleId,x]));
+for(const record of REGISTRY.records){const additional=additionalById.get(record.moduleId);if(additional)record.name=additional.name;}
 const BY_ID=new Map(REGISTRY.records.map(x=>[x.moduleId,x]));
 if(REGISTRY.ownedUnitCount!==893||REGISTRY.records.length!==893||BY_ID.size!==893||
  REGISTRY.records.some(x=>x.ownerProduct!=="ARIA"||x.revenueEngine?.billingEnabled!==false||x.revenueEngine?.paymentExecuted!==false||x.revenueEngine?.productionVerified!==false)||
