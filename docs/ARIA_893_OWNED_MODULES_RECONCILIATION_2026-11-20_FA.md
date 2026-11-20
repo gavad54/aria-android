@@ -76,3 +76,13 @@
 - کنترل کیفیت چیدمان RTL و بومی‌سازی رابط ← مرتبط با ترجمه؛ محدود به QA قالب‌بندی و جهت نوشتار.
 - ثبت تصمیم و زنجیره شواهد سازمانی ← مرتبط با کیوریشن دانش؛ محدود به decision log و lineage شواهد.
 تمام ۳۹ رکورد اکنون دارای scopeBoundary و وضعیت crosswalk هستند. این بررسی یک ممیزی متنی/قراردادی است؛ تأیید نهایی عدم هم‌پوشانی نیازمند بازبینی محصول و E2E هر دامنه است.
+
+
+## پیوست اصلاح و شواهد تکمیلی — ۲۰۲۶-۱۱-۲۰
+
+- در ممیزی مستقیم شاخه مشخص شد فایل `backend/data/aria_893_commercialization_registry.json` خالی بوده است؛ بنابراین ادعای آماده‌بودن رجیستری entitlement پیش از این اصلاح قابل اتکا نبود.
+- فایل بازسازی شد: ۸۹۳ قرارداد entitlement یکتا برای ۸۹۳ واحد ARIA؛ ۸۲۲ entitlement مستقل و ۷۱ موتور فرزند با entitlement والد. تمام وضعیت‌های billing/payment/production به‌صورت fail-closed خاموش باقی مانده‌اند.
+- پرچم‌های سطح رجیستری `liveBillingEnabled=false`، `paymentExecuted=false` و `productionVerifiedCount=0` اضافه شدند تا API وضعیت تجاری را صریح و بدون مقدار undefined اعلام کند.
+- آزمون پوشش سراسری جدید `test/aria-893-contract-coverage.test.js` اضافه شد: یکتایی ۸۹۳ شناسه و launchId، کامل‌بودن قراردادهای اجرا، تطبیق ۷۱ موتور با والد و entitlement، یکتایی ۸۲۲ entitlement، و کنترل crosswalk معنایی ۳۹ ماژول جدید.
+- CI روی head نهایی `d079e3d8f2b6040a1449d354f4ae69f3fdcc335f` موفق شد: **۶۲۴ آزمون موفق، صفر شکست**؛ شامل گیت‌های expansion registry integrity و catalog-to-contract.
+- این شواهد، رجیستری و قراردادهای محلی را تأیید می‌کند؛ هنوز معادل اجرای E2E همه ۸۹۳ واحد در PostgreSQL زنده یا عملیات بیرونی نیست. `productionVerifiedCount=0` باقی می‌ماند.
