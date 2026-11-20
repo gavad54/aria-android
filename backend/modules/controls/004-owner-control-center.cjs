@@ -1,5 +1,6 @@
 "use strict";
 const { createDomainModule } = require("../../aria-module-runtime.cjs");
+const { ownerControlCenter } = require("../../aria-governance-handlers.cjs");
 module.exports = createDomainModule({
   "moduleId": "ARIA-CONTROL-MODULE-004",
   "moduleType": "GOVERNANCE_CONTROL_MODULE",
@@ -42,5 +43,6 @@ module.exports = createDomainModule({
     "عدم نمایش secrets در UI"
   ],
   "executionBoundary": "نمایش سلامت، ممیزی دسترسی، کنترل انتشار و اقتصاد مالک؛ بدون افشای کلیدها",
-  "productionVerified": false
+  "productionVerified": false,
+  domainHandler: ownerControlCenter
 });
