@@ -69,7 +69,7 @@ test("customer renewal requires owner approval and never executes a charge", () 
   const { evaluateCustomerSuccess, approveCustomerRenewal } = require("../backend/aria-service-delivery.cjs");
   const report = evaluateCustomerSuccess({
     period: "2026-11", activeDays: 12, completedTasks: 30, targetTasks: 25, unresolvedTickets: 1
-  });
+  }, { userId: "user-1", tenantId: "tenant-1" });
   assert.throws(() => approveCustomerRenewal(report, { userId: "user-1", tenantId: "tenant-1" }), /OWNER_APPROVAL_REQUIRED/);
   const approved = approveCustomerRenewal(report, { userId: "owner-1", isOwner: true, tenantId: "tenant-1" });
   assert.equal(approved.renewalDecision, "OWNER_APPROVED_RECOMMENDATION");
