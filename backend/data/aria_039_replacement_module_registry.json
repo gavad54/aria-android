@@ -108,16 +108,19 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-002",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
-      "name": "راهنمای مسیر شغلی",
+      "name": "مربی مصاحبه و ارزیابی درخواست استخدام",
       "domain": "career_guidance",
-      "description": "تبدیل مهارت‌ها و علایق به مسیر رشد شغلی",
+      "description": "تمرین مصاحبه، ارزیابی پاسخ و کنترل کیفیت پرونده درخواست استخدام؛ نه طراحی مسیر شغلی یا جست‌وجوی فرصت.",
       "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
@@ -139,11 +142,11 @@
         "auditRecord"
       ],
       "operations": [
-        "profile_skills",
-        "map_roles",
-        "identify_gaps",
-        "build_learning_path",
-        "define_milestones"
+        "capture_job_requirements",
+        "prepare_interview_questions",
+        "evaluate_practice_responses",
+        "identify_evidence_gaps",
+        "prepare_application_review"
       ],
       "dataEntities": [
         "career",
@@ -163,7 +166,8 @@
         "tenant boundary is enforced",
         "each operation produces a traceable step",
         "output includes limitations and acceptance checks",
-        "external side effects remain disabled until separately approved and integrated"
+        "external side effects remain disabled until separately approved and integrated",
+        "semantic scope is distinct from related existing modules in relatedExistingModules"
       ],
       "kpis": [
         "completion_rate",
@@ -213,7 +217,12 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "scopeBoundary": "فقط آماده‌سازی درخواست استخدام و مصاحبه؛ مسیر شغلی و جست‌وجوی فرصت در ARIA-PROBLEM-MODULE-031 باقی می‌ماند.",
+      "relatedExistingModules": [
+        "ARIA-PROBLEM-MODULE-031"
+      ],
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED"
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-003",
@@ -320,7 +329,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-004",
@@ -425,7 +437,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-005",
@@ -532,7 +547,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-006",
@@ -638,16 +656,19 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-007",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
-      "name": "طراح برنامه سفر",
+      "name": "هماهنگ‌کننده سفر گروهی و اختلالات مسیر",
       "domain": "travel_planning",
-      "description": "تهیه برنامه سفر با محدودیت زمان و بودجه",
+      "description": "هماهنگی تغییرات، وابستگی‌های گروه و برنامه جایگزین در اختلال سفر؛ نه طراحی برنامه سفر معمول.",
       "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
@@ -670,11 +691,11 @@
         "auditRecord"
       ],
       "operations": [
-        "capture_constraints",
-        "organize_stops",
-        "estimate_time_blocks",
-        "prepare_options",
-        "verify_requirements"
+        "register_group_constraints",
+        "map_shared_reservations",
+        "detect_schedule_conflicts",
+        "prepare_disruption_options",
+        "record_group_confirmation"
       ],
       "dataEntities": [
         "travel",
@@ -694,7 +715,8 @@
         "tenant boundary is enforced",
         "each operation produces a traceable step",
         "output includes limitations and acceptance checks",
-        "external side effects remain disabled until separately approved and integrated"
+        "external side effects remain disabled until separately approved and integrated",
+        "semantic scope is distinct from related existing modules in relatedExistingModules"
       ],
       "kpis": [
         "completion_rate",
@@ -744,16 +766,22 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "scopeBoundary": "فقط مدیریت گروه، تغییرات و اختلال سفر؛ ساخت itinerary عمومی در ARIA-PROBLEM-MODULE-041 باقی می‌ماند.",
+      "relatedExistingModules": [
+        "ARIA-PROBLEM-MODULE-041",
+        "travel-leisure-planner"
+      ],
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED"
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-008",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
-      "name": "راهنمای خدمات محلی",
+      "name": "ارزیاب شواهد اعتبار ارائه‌دهنده",
       "domain": "local_services_discovery",
-      "description": "ساخت معیارهای جست‌وجو و مقایسه خدمات محلی",
+      "description": "بررسی ساختاری مدارک و شواهد ارائه‌شده برای اعتبار ارائه‌دهنده؛ نه جست‌وجوی خدمات یا رتبه‌بندی محلی.",
       "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
@@ -775,11 +803,11 @@
         "auditRecord"
       ],
       "operations": [
-        "normalize_need",
-        "define_verification_checks",
-        "compare_submitted_options",
-        "flag_missing_evidence",
-        "prepare_shortlist"
+        "register_provider_evidence",
+        "validate_document_completeness",
+        "map_claims_to_evidence",
+        "flag_unverified_claims",
+        "prepare_review_decision"
       ],
       "dataEntities": [
         "local_discovery",
@@ -799,7 +827,8 @@
         "tenant boundary is enforced",
         "each operation produces a traceable step",
         "output includes limitations and acceptance checks",
-        "external side effects remain disabled until separately approved and integrated"
+        "external side effects remain disabled until separately approved and integrated",
+        "semantic scope is distinct from related existing modules in relatedExistingModules"
       ],
       "kpis": [
         "completion_rate",
@@ -849,16 +878,22 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "scopeBoundary": "فقط ارزیابی شواهد و نواقص پرونده ارائه‌دهنده؛ کشف خدمات محلی در ARIA-PROBLEM-MODULE-046 و بازار خدمات در on-demand-local-services باقی می‌ماند.",
+      "relatedExistingModules": [
+        "ARIA-PROBLEM-MODULE-046",
+        "on-demand-local-services"
+      ],
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED"
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-009",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
-      "name": "ممیزی دسترس‌پذیری دیجیتال",
+      "name": "برنامه‌ریز آزمون فناوری‌های کمکی",
       "domain": "digital_accessibility",
-      "description": "بررسی چک‌لیست دسترس‌پذیری محتوا و رابط",
+      "description": "طراحی ماتریس آزمون سازگاری صفحه با صفحه‌خوان، صفحه‌کلید و فناوری‌های کمکی؛ نه ممیزی عمومی دسترس‌پذیری.",
       "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
@@ -880,11 +915,11 @@
         "auditRecord"
       ],
       "operations": [
-        "parse_findings",
-        "map_barriers",
-        "prioritize_fixes",
-        "prepare_remediation",
-        "verify_checklist"
+        "identify_assistive_technology_targets",
+        "map_user_journeys",
+        "prepare_keyboard_and_reader_tests",
+        "record_observed_barriers",
+        "prepare_compatibility_report"
       ],
       "dataEntities": [
         "accessibility",
@@ -904,7 +939,8 @@
         "tenant boundary is enforced",
         "each operation produces a traceable step",
         "output includes limitations and acceptance checks",
-        "external side effects remain disabled until separately approved and integrated"
+        "external side effects remain disabled until separately approved and integrated",
+        "semantic scope is distinct from related existing modules in relatedExistingModules"
       ],
       "kpis": [
         "completion_rate",
@@ -954,7 +990,12 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "scopeBoundary": "فقط برنامه آزمون و شواهد سازگاری فناوری کمکی؛ ممیزی دسترس‌پذیری عمومی در ARIA-IDEA-MODULE-042 باقی می‌ماند.",
+      "relatedExistingModules": [
+        "ARIA-IDEA-MODULE-042"
+      ],
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED"
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-010",
@@ -1059,7 +1100,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-011",
@@ -1164,7 +1208,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-012",
@@ -1271,7 +1318,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-013",
@@ -1377,16 +1427,19 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-014",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
-      "name": "مربی تمرین زبان",
+      "name": "سامانه سنجش و ارزیابی مهارت زبان",
       "domain": "language_practice",
-      "description": "ساخت تمرین و بازخورد آموزشی متناسب با هدف",
+      "description": "ساخت ارزیابی سطح زبان و گزارش پیشرفت مهارت؛ نه آموزش مکالمه یا مدیریت واژه‌نامه تخصصی.",
       "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
@@ -1408,11 +1461,11 @@
         "auditRecord"
       ],
       "operations": [
-        "set_learning_target",
-        "generate_practice_spec",
-        "assess_response",
-        "explain_feedback",
-        "adapt_next_session"
+        "define_proficiency_rubric",
+        "prepare_skill_assessment",
+        "score_submitted_responses",
+        "map_competency_gaps",
+        "prepare_progress_report"
       ],
       "dataEntities": [
         "language_learning",
@@ -1432,7 +1485,8 @@
         "tenant boundary is enforced",
         "each operation produces a traceable step",
         "output includes limitations and acceptance checks",
-        "external side effects remain disabled until separately approved and integrated"
+        "external side effects remain disabled until separately approved and integrated",
+        "semantic scope is distinct from related existing modules in relatedExistingModules"
       ],
       "kpis": [
         "completion_rate",
@@ -1482,7 +1536,13 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "scopeBoundary": "فقط سنجش سطح و گزارش پیشرفت؛ مربی زبان کاربردی در ARIA-PROBLEM-MODULE-030 و مدیریت اصطلاحات در ماژول 010 باقی می‌ماند.",
+      "relatedExistingModules": [
+        "ARIA-PROBLEM-MODULE-030",
+        "ARIA-OWNED-ADDITIONAL-010"
+      ],
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED"
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-015",
@@ -1588,7 +1648,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-016",
@@ -1694,7 +1757,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-017",
@@ -1799,7 +1865,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-018",
@@ -1907,7 +1976,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-019",
@@ -2012,7 +2084,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-020",
@@ -2117,7 +2192,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-021",
@@ -2223,7 +2301,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-022",
@@ -2328,7 +2409,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-023",
@@ -2435,7 +2519,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-024",
@@ -2540,16 +2627,19 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-025",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
-      "name": "گردش‌کار اسناد",
+      "name": "مدیریت بایگانی و نگهداری سوابق",
       "domain": "document_workflow",
-      "description": "مدیریت نسخه، تأیید و تحویل اسناد",
+      "description": "طبقه‌بندی، دوره نگهداری، نسخه آرشیوی و ثبت امحای مجاز سوابق؛ نه گردش تأیید سند.",
       "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
@@ -2571,11 +2661,11 @@
         "auditRecord"
       ],
       "operations": [
-        "register_document",
-        "validate_version",
-        "route_review",
-        "capture_approval",
-        "archive_decision"
+        "classify_record_series",
+        "assign_retention_rule",
+        "validate_archive_metadata",
+        "prepare_legal_hold_check",
+        "record_disposition_approval"
       ],
       "dataEntities": [
         "documents",
@@ -2595,7 +2685,8 @@
         "tenant boundary is enforced",
         "each operation produces a traceable step",
         "output includes limitations and acceptance checks",
-        "external side effects remain disabled until separately approved and integrated"
+        "external side effects remain disabled until separately approved and integrated",
+        "semantic scope is distinct from related existing modules in relatedExistingModules"
       ],
       "kpis": [
         "completion_rate",
@@ -2645,7 +2736,13 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "scopeBoundary": "فقط چرخه عمر آرشیو و نگهداری سوابق؛ تصویب و گردش اسناد در ARIA-IDEA-MODULE-032 باقی می‌ماند.",
+      "relatedExistingModules": [
+        "ARIA-IDEA-MODULE-032",
+        "workflows"
+      ],
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED"
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-026",
@@ -2750,7 +2847,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-027",
@@ -2857,7 +2957,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-028",
@@ -2962,7 +3065,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-029",
@@ -3067,7 +3173,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-030",
@@ -3173,7 +3282,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-031",
@@ -3278,7 +3390,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-032",
@@ -3383,16 +3498,19 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-033",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
-      "name": "حاکمیت حریم خصوصی داده",
+      "name": "مدیریت درخواست دسترسی و حقوق داده",
       "domain": "privacy_governance",
-      "description": "ثبت هدف پردازش، حداقل‌سازی و چرخه عمر داده",
+      "description": "ثبت و پیگیری درخواست دسترسی، دریافت نسخه، اصلاح یا حذف داده با کنترل هویت و مهلت پاسخ؛ نه ارزیابی اثر حریم خصوصی.",
       "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
@@ -3414,11 +3532,11 @@
         "auditRecord"
       ],
       "operations": [
-        "classify_data",
-        "map_purposes",
-        "check_minimization",
-        "define_retention",
-        "prepare_privacy_review"
+        "register_data_subject_request",
+        "verify_request_scope",
+        "locate_declared_data_sources",
+        "prepare_access_export_or_deletion_tasks",
+        "record_completion_evidence"
       ],
       "dataEntities": [
         "privacy",
@@ -3438,7 +3556,8 @@
         "tenant boundary is enforced",
         "each operation produces a traceable step",
         "output includes limitations and acceptance checks",
-        "external side effects remain disabled until separately approved and integrated"
+        "external side effects remain disabled until separately approved and integrated",
+        "semantic scope is distinct from related existing modules in relatedExistingModules"
       ],
       "kpis": [
         "completion_rate",
@@ -3488,7 +3607,13 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "scopeBoundary": "فقط گردش‌کار حقوق صاحب داده؛ ارزیابی اثر و ریسک حریم خصوصی در ARIA-IDEA-MODULE-049 و 050 باقی می‌ماند.",
+      "relatedExistingModules": [
+        "ARIA-IDEA-MODULE-049",
+        "ARIA-IDEA-MODULE-050"
+      ],
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED"
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-034",
@@ -3593,16 +3718,19 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-035",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
-      "name": "مدیریت بومی‌سازی محتوا",
+      "name": "کنترل کیفیت چیدمان RTL و بومی‌سازی رابط",
       "domain": "localization",
-      "description": "مدیریت ترجمه، قالب‌بندی و کنترل کیفیت زبان",
+      "description": "بررسی برش متن، جهت نوشتار، اعداد، تاریخ، جای‌نگهدارها و سازگاری رابط در localeهای هدف؛ نه ترجمه محتوا.",
       "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
@@ -3624,11 +3752,11 @@
         "auditRecord"
       ],
       "operations": [
-        "inventory_assets",
-        "assign_locales",
-        "validate_rtl_ltr",
-        "check_placeholders",
-        "prepare_linguistic_review"
+        "inventory_locale_surfaces",
+        "validate_rtl_ltr_direction",
+        "check_date_number_and_currency_formats",
+        "detect_overflow_and_placeholder_errors",
+        "prepare_locale_qa_report"
       ],
       "dataEntities": [
         "localization",
@@ -3648,7 +3776,8 @@
         "tenant boundary is enforced",
         "each operation produces a traceable step",
         "output includes limitations and acceptance checks",
-        "external side effects remain disabled until separately approved and integrated"
+        "external side effects remain disabled until separately approved and integrated",
+        "semantic scope is distinct from related existing modules in relatedExistingModules"
       ],
       "kpis": [
         "completion_rate",
@@ -3700,7 +3829,13 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "scopeBoundary": "فقط QA چیدمان و قالب‌بندی locale/RTL؛ ترجمه و بومی‌سازی متنی در translation-localization باقی می‌ماند.",
+      "relatedExistingModules": [
+        "translation-localization",
+        "ARIA-IDEA-MODULE-041"
+      ],
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED"
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-036",
@@ -3806,7 +3941,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-037",
@@ -3912,7 +4050,10 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-038",
@@ -4019,16 +4160,19 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED",
+      "scopeBoundary": "دامنه این ماژول بر اساس ورودی‌ها، خروجی‌ها و عملیات ثبت‌شده مستقل است؛ ماژول‌های مرتبط فقط برای crosswalk و جلوگیری از ادغام بی‌ردپا ذکر شده‌اند.",
+      "relatedExistingModules": []
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-039",
       "recordType": "NEW_OWNED_DOMAIN_MODULE",
       "ownerProduct": "ARIA",
       "ownerStatus": "OWNED",
-      "name": "مدیریت دانش سازمانی",
+      "name": "ثبت تصمیم و زنجیره شواهد سازمانی",
       "domain": "organizational_memory",
-      "description": "ثبت تصمیم‌ها، مسئولیت‌ها و دانش قابل بازیابی",
+      "description": "ثبت تصمیم، مالک، مبنای شواهد، نسخه و تاریخ بازبینی برای قابلیت ردیابی تصمیم‌ها؛ نه ساخت پایگاه دانش عمومی.",
       "sourceLineage": "ARIA_OWNED_ADDITIONAL_SCOPE_WITHOUT_RECLAIMING_SIBLING_LINEAGE_2026-11",
       "parentModuleIds": [],
       "hostCanonicalContractId": null,
@@ -4051,11 +4195,11 @@
         "auditRecord"
       ],
       "operations": [
-        "capture_decision",
-        "map_ownership",
-        "link_evidence",
-        "set_access_scope",
-        "schedule_review"
+        "capture_decision_record",
+        "assign_decision_owner",
+        "link_supporting_evidence",
+        "track_superseding_decisions",
+        "schedule_decision_review"
       ],
       "dataEntities": [
         "knowledge_ops",
@@ -4075,7 +4219,8 @@
         "tenant boundary is enforced",
         "each operation produces a traceable step",
         "output includes limitations and acceptance checks",
-        "external side effects remain disabled until separately approved and integrated"
+        "external side effects remain disabled until separately approved and integrated",
+        "semantic scope is distinct from related existing modules in relatedExistingModules"
       ],
       "kpis": [
         "completion_rate",
@@ -4125,7 +4270,12 @@
         "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
         "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
         "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
-      }
+      },
+      "scopeBoundary": "فقط decision log و lineage شواهد تصمیم؛ کیوریشن دانش سازمانی در ARIA-IDEA-MODULE-031 باقی می‌ماند.",
+      "relatedExistingModules": [
+        "ARIA-IDEA-MODULE-031"
+      ],
+      "semanticDeduplicationStatus": "DISTINCT_SCOPE_CROSSWALK_RECORDED"
     }
   ]
 }
