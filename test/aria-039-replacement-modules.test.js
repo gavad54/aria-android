@@ -7,6 +7,7 @@ const overlay=require("../backend/data/aria_111_module_expansion_registry.json")
 const ownership=require("../backend/data/aria_product_ownership_migration.json");
 const commercial=require("../backend/data/aria_commercial_module_registry.json");
 const unified=require("../backend/data/aria_893_module_execution_registry.json");
+const additionalManifest=require("../backend/data/aria_039_replacement_module_registry.json");
 
 test("ARIA has 893 owned module and engine units without reclaiming 39 sibling lineage records",()=>{
  const transferred=new Set(Object.values(ownership.products).flatMap(p=>p.ownedModuleIds));
@@ -20,6 +21,8 @@ test("ARIA has 893 owned module and engine units without reclaiming 39 sibling l
  assert.equal(639+ariaOverlay.length+commercial.records.length+71+replacement.REGISTRY.records.length,893);
  assert.equal(transferred.size+archived.size,39);
  assert.ok(replacement.REGISTRY.records.every(x=>x.ownerProduct==="ARIA"));
+ assert.ok(additionalManifest.records.every(x=>x.scopeBoundary&&x.semanticDeduplicationStatus==="DISTINCT_SCOPE_CROSSWALK_RECORDED"));
+ assert.ok(additionalManifest.records.filter(x=>x.relatedExistingModules.length>0).length>=9);
  assert.ok(replacement.REGISTRY.records.every(x=>x.revenueEngine?.state==="DESIGNED_NOT_MONETIZED"&&x.revenueEngine.price.policy==="OWNER_CONFIGURED"&&x.revenueEngine.paymentProviderState==="NOT_CONNECTED"));
  assert.ok(replacement.REGISTRY.records.every(x=>x.commercialization.billingEnabled===false&&x.commercialization.paymentExecuted===false));
  assert.ok(unified.records.filter(x=>x.ownerStatus!=="OWNED").length===39);
