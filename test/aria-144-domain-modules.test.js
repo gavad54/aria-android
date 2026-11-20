@@ -25,10 +25,10 @@ test("preserves 639 canonical modules and adds 144 unique ARIA-owned domain modu
  assert.ok(runtime.REGISTRY.records.every(x=>x.ownerProduct==="ARIA"&&x.operations.length>0));
 });
 for(const item of runtime.REGISTRY.records) {
- test("domain workflow is tenant-scoped and bounded: "+item.moduleId,()=>{
+ test("domain workflow is tenant-scoped and bounded: "+item.moduleId,async()=>{
   const backendModule=item.recordType==="COMMERCIAL_CATALOG_MODULE"?modules.MODULE_BY_ID.get("ARIA-CATALOG-"+item.catalogEntryId):null;
   const input=backendModule?inputFor(backendModule.manifest):{goal:"آزمون گردش‌کار محلی ماژول",context:{},consent:true};
-  const result=runtime.executeAriaDomainModule(item.moduleId,input,{actorId:"test-actor",tenantId:"tenant-144"});
+  const result=await runtime.executeAriaDomainModule(item.moduleId,input,{actorId:"test-actor",tenantId:"tenant-144"});
   assert.equal(result.tenantScope,"tenant-144");
   assert.equal(result.externalExecutionPerformed,false);
   assert.equal(result.paymentExecuted,false);
@@ -37,9 +37,9 @@ for(const item of runtime.REGISTRY.records) {
   else assert.equal(result.localWorkItemPrepared,true);
  });
 }
-test("rejects missing tenant, actor, required input, and consent",()=>{
+test("rejects missing tenant, actor, required input, and consent",async()=>{
  const item=runtime.REGISTRY.records.find(x=>x.recordType==="HISTORICAL_OVERLAY_MODULE"&&x.requiredInputs.includes("consent"));
- assert.throws(()=>runtime.executeAriaDomainModule(item.moduleId,{goal:"test goal"},{actorId:"a"}),{message:"MODULE_TENANT_REQUIRED"});
- assert.throws(()=>runtime.executeAriaDomainModule(item.moduleId,{goal:"test goal"},{tenantId:"t"}),{message:"MODULE_ACTOR_REQUIRED"});
- assert.throws(()=>runtime.executeAriaDomainModule(item.moduleId,{goal:"test goal",consent:false},{actorId:"a",tenantId:"t"}),{message:"MODULE_CONSENT_REQUIRED"});
+ await assert.rejects(runtime.executeAriaDomainModule(item.moduleId,{goal:"test goal"},{actorId:"a"}),{message:"MODULE_TENANT_REQUIRED"});
+ await assert.rejects(runtime.executeAriaDomainModule(item.moduleId,{goal:"test goal"},{tenantId:"t"}),{message:"MODULE_ACTOR_REQUIRED"});
+ await assert.rejects(runtime.executeAriaDomainModule(item.moduleId,{goal:"test goal",consent:false},{actorId:"a",tenantId:"t"}),{message:"MODULE_CONSENT_REQUIRED"});
 });
