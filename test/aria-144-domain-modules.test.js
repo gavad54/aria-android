@@ -9,7 +9,7 @@ function inputFor(module) {
  for(const field of module.requiredInputs||[]) {
   if(input[field]!==undefined) continue;
   if(field==="context"||field==="data") input[field]={};
-  else if(/references|sources|participants|documents|items|tasks|steps|agenda/i.test(field)) input[field]=[];
+  else if(field==="constraints"||/references|sources|participants|documents|items|tasks|steps|agenda/i.test(field)) input[field]=[];
   else if(/count|amount|budget|score|capacity|duration|limit|quantity|price|rate/i.test(field)) input[field]=1;
   else input[field]="test input";
  }
