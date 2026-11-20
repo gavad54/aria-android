@@ -138,6 +138,28 @@ const engineWorkflowHandlers = {
   ARIA_DOMAIN_ENGINE: (engine, goal) => ({ artifactType: "DOMAIN_WORKFLOW_PLAN", domainGoal: goal, operations: engine.operations, checks: ["تعریف دامنه", "ورودی و خروجی", "وابستگی‌ها", "کیفیت و تحویل"] })
 };
 
+function buildEngineOperationPlan(engine, goal, context = {}) {
+  const handler = engineWorkflowHandlers[engine.domain];
+  if (!handler) throw new Error("ARIA_ENGINE_HANDLER_NOT_FOUND");
+  return {
+    engineSubmoduleId: engine.moduleId,
+    engineId: engine.engineId,
+    engineFamily: engine.domain,
+    executionMode: "ENGINE_FAMILY_ADAPTER",
+    operations: engine.operations,
+    operationResults: engine.operations.map((operation, index) => ({
+      sequence: index + 1,
+      operation,
+      status: "EXECUTED_LOCAL",
+      reviewRequired: true
+    })),
+    domainArtifact: handler(engine, goal, context),
+    externalExecutionPerformed: false,
+    paymentExecuted: false,
+    productionVerified: false
+  };
+}
+
 function buildOverlayEngineExecution(module, goal, context = {}) {
   const linkedEngines = engineSubmodules.filter(engine => engine.parentModuleIds.includes(module.moduleId));
   if (!linkedEngines.length) throw new Error("ARIA_OVERLAY_ENGINE_NOT_MAPPED");
@@ -540,9 +562,10 @@ async function handle(req, res, url, deps) {
     const data = await readJson(req, res); if (data === null) return true;
     const goal = cleanText(data.goal, 4, 1200);
     if (!goal) return json(res, 400, { error: "هدف باید بین ۴ تا ۱۲۰۰ نویسه باشد." });
-    const engineHandler = engineWorkflowHandlers[engine.domain];
-    if (!engineHandler) return json(res, 409, { error: "برای این موتور، handler اجرایی ثبت نشده است." });
-    const details = JSON.stringify({ engineSubmoduleId: engine.moduleId, engineId: engine.engineId, parentModuleIds: engine.parentModuleIds, operations: engine.operations, inputContract: engine.inputContract, outputContract: engine.outputContract, executionSpec: unifiedExecutionById.get(engine.moduleId) || null, domainArtifact: engineHandler(engine, goal), goal, executionStatus: "LOCAL_ENGINE_WORK_ITEM_ONLY", externalExecutionPerformed: false, productionVerified: false });
+    let engineExecution;
+    try { engineExecution = buildEngineOperationPlan(engine, goal, data.context && typeof data.context === "object" && !Array.isArray(data.context) ? data.context : {}); }
+    catch (err) { return json(res, 409, { error: err.message }); }
+    const details = JSON.stringify({ engineSubmoduleId: engine.moduleId, engineId: engine.engineId, parentModuleIds: engine.parentModuleIds, operations: engine.operations, inputContract: engine.inputContract, outputContract: engine.outputContract, executionSpec: unifiedExecutionById.get(engine.moduleId) || null, engineExecution, domainArtifact: engineExecution.domainArtifact, goal, executionStatus: "LOCAL_ENGINE_FAMILY_ADAPTER_EXECUTED", externalExecutionPerformed: false, productionVerified: false });
     if (details.length > 12000) return json(res, 400, { error: "جزئیات ورودی بیش از حد مجاز است." });
     if (!await requireDb(res)) return true;
     try {
@@ -1055,4 +1078,4 @@ async function handle(req, res, url, deps) {
   }
   return false;
 }
-module.exports = { handle, registry, buildOverlayEngineExecution };
+module.exports = { handle, registry, buildOverlayEngineExecution, buildEngineOperationPlan, buildCanonicalOperationPlan, buildCommercialOperationPlan, engineSubmodules };
