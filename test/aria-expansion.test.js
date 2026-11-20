@@ -192,7 +192,7 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(replacementCatalog.status,200);
   assert.equal(replacementData.total,39);
   assert.equal(new Set(replacementData.modules.map(x=>x.moduleId)).size,39);
-  const unauthReplacementRun=await fetch(base+"/api/aria-expansion/replacement-modules/ARIA-OWNED-REPLACEMENT-001/run",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"آزمون ماژول جایگزین"})});
+  const unauthReplacementRun=await fetch(base+"/api/aria-expansion/replacement-modules/ARIA-OWNED-ADDITIONAL-001/run",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"آزمون ماژول جایگزین"})});
   assert.equal(unauthReplacementRun.status,401);
 
   const enginesResponse=await fetch(base+"/api/aria-expansion/engines");
