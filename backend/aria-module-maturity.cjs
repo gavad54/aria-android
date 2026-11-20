@@ -4,7 +4,7 @@ function classifyModule(module) {
   const type = module?.manifest?.moduleType || "UNKNOWN";
   const source = typeof module?.execute === "function" ? Function.prototype.toString.call(module.execute) : "";
   const hasDomainAdapter = source.includes("serviceDelivery.") && source.includes("preflight");
-  if (type === "SERVICE_DELIVERY_ENGINE" && hasDomainAdapter) {
+  if ((type === "SERVICE_DELIVERY_ENGINE" && hasDomainAdapter) || module?.manifest?.implementationState === "DOMAIN_LOGIC_LOCAL") {
     return {
       implementationState: "DOMAIN_LOGIC_LOCAL",
       evidence: "Dedicated service-delivery function is called by the module handler",
