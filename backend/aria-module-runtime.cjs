@@ -12,7 +12,9 @@ function stableJson(value) {
 }
 
 function createDomainModule(definition) {
-  const domainHandler = definition?.domainHandler;
+  const domainHandler = definition?.domainHandler === true
+    ? require("./aria-module-domain-handlers.cjs").createModuleDomainHandler(definition)
+    : definition?.domainHandler;
   const publicDefinition = definition ? Object.fromEntries(Object.entries(definition).filter(([key]) => key !== "domainHandler")) : definition;
   if (!definition || typeof definition.moduleId !== "string" || !definition.moduleId ||
       typeof definition.name !== "string" || !Array.isArray(definition.inputContract) ||
