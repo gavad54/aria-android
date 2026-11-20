@@ -547,7 +547,7 @@ async function handle(req, res, url, deps) {
       replacementModules: replacementModuleRuntime.REGISTRY.records,
       canonicalBaseline: 639,
       ariaOwnedModuleAndSubmoduleRecords: moduleInventory.ariaOwnedModuleAndSubmoduleRecords,
-      replacementModules: replacementModuleRuntime.REGISTRY.records.length,
+      replacementModuleCount: replacementModuleRuntime.REGISTRY.records.length,
       unifiedInventoryRecords: unifiedExecutionRegistry.total,
       activeLocalWorkflowUnits: unifiedExecutionRegistry.activeLocalWorkflowCount,
       lineageOnlyUnits: unifiedExecutionRegistry.lineageOnlyCount,
