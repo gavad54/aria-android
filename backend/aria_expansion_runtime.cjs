@@ -12,6 +12,13 @@ const commercialRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data
 const canonicalRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_639_canonical_execution_registry.json"), "utf8"));
 const commercialExecutionManifest = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_commercial_execution_manifest.json"), "utf8"));
 const unifiedExecutionRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_893_module_execution_registry.json"), "utf8"));
+for (const additionalModule of replacementModuleRuntime.REGISTRY.records) {
+  const inventoryRecord = unifiedExecutionRegistry.records.find(record => record.unitId === additionalModule.moduleId);
+  if (inventoryRecord) {
+    inventoryRecord.name = additionalModule.name;
+    inventoryRecord.executionContract.operations = additionalModule.operations;
+  }
+}
 const unifiedExecutionById = new Map(unifiedExecutionRegistry.records.map(x => [x.unitId, x]));
 const unifiedExecutionByLaunchId = new Map(unifiedExecutionRegistry.records.map(x => [x.launchId, x]));
 const canonicalModules = canonicalRegistry.records;
