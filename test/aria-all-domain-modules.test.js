@@ -2,6 +2,7 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const { MODULES, MODULE_COUNTS } = require("../backend/modules");
+const activationStatus = require("../backend/data/aria_201_domain_activation_status.json");
 
 function valueFor(key) {
   if (key === "context" || key === "data") return {};
@@ -26,10 +27,16 @@ test("201 ARIA modules remain independently registered with unchanged family cou
   assert.deepEqual(MODULE_COUNTS, { ideas: 50, governanceControls: 4, commercialCatalog: 72, childEngines: 71, serviceDeliveryEngines: 4 });
   assert.equal(new Set(MODULES.map(module => module.manifest.moduleId)).size, 201);
   assert.equal(targets.length, 193);
+  assert.equal(activationStatus.inventoryCount, 201);
+  assert.equal(activationStatus.records.length, 201);
+  assert.deepEqual(activationStatus.counts, { DOMAIN_LOGIC_LOCAL: 18, DOMAIN_ADAPTER_LOCAL: 183, productionVerified: 0, externalExecutionEnabled: 0, paymentExecuted: 0 });
 });
 
 for (const module of targets) {
   const id = module.manifest.moduleId;
+  const status = activationStatus.records.find(record => record.moduleId === id);
+  if (!status) throw new Error("ACTIVATION_STATUS_RECORD_MISSING:" + id);
+  if (status.productionVerified || status.externalExecutionEnabled || status.paymentExecuted) throw new Error("UNVERIFIED_CAPABILITY_MARKED_ACTIVE:" + id);
   test("domain execution: " + id + " — " + module.manifest.name, async () => {
     const result = await module.execute(inputFor(module), { actorId: "domain-test-actor", tenantId: "domain-test-tenant" });
     assert.equal(result.domainLogicExecuted, true, id);
