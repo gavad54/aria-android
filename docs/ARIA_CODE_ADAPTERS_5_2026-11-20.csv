@@ -1,0 +1,6 @@
+adapter_key,family,mode,status,source_path
+HEALTH_PROVIDER_V1,HEALTH,EXTERNAL_PROVIDER,INTERFACE_ONLY,backend/src/services/moduleAdapters.js
+MOBILITY_PROVIDER_V1,MOBILITY,EXTERNAL_PROVIDER,INTERFACE_ONLY,backend/src/services/moduleAdapters.js
+SMART_CITY_PROVIDER_V1,SMART_CITY,EXTERNAL_PROVIDER,INTERFACE_ONLY,backend/src/services/moduleAdapters.js
+AGRICULTURE_PROVIDER_V1,AGRICULTURE,EXTERNAL_PROVIDER,INTERFACE_ONLY,backend/src/services/moduleAdapters.js
+INDUSTRY_PROVIDER_V1,INDUSTRY,EXTERNAL_PROVIDER,INTERFACE_ONLY,backend/src/services/moduleAdapters.js
