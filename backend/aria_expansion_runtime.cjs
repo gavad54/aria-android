@@ -470,7 +470,7 @@ async function handle(req, res, url, deps) {
       return json(res, 201, { item: { ...q.rows[0], id: String(q.rows[0].id) }, engineSubmoduleId: engine.moduleId, parentModuleIds: engine.parentModuleIds, executionStatus: "LOCAL_WORK_ITEM_CREATED", externalExecutionPerformed: false, productionVerified: false });
     } catch (err) { console.error("ARIA engine work item failed:", err.message); return json(res, 500, { error: "ثبت گردش‌کار موتور انجام نشد." }); }
   }
-  const replacementRunMatch = p.match(/^\/api\/aria-expansion\/replacement-modules\/(ARIA-OWNED-REPLACEMENT-\d{3})\/run$/);
+  const replacementRunMatch = p.match(/^\/api\/aria-expansion\/replacement-modules\/(ARIA-OWNED-ADDITIONAL-\d{3})\/run$/);
   if (replacementRunMatch && req.method === "POST") {
     const user = requireUser(req, json, res, authUser); if (!user) return true;
     const data = await readJson(req, res); if (data === null) return true;
@@ -489,7 +489,7 @@ async function handle(req, res, url, deps) {
       const q = await pool.query("INSERT INTO aria_expansion_work_items(user_id,module_id,title,details) VALUES($1,$2,$3,$4) RETURNING id,module_id,title,status,created_at", [user.sub, result.moduleId, result.moduleName + " — " + data.goal.slice(0, 100), details]);
       return json(res, 201, { item: { ...q.rows[0], id: String(q.rows[0].id) }, executionState: "LOCAL_WORK_ITEM_CREATED", externalExecutionPerformed: false, paymentExecuted: false, productionVerified: false });
     } catch (err) {
-      console.error("ARIA replacement module persistence failed:", err.message);
+      console.error("ARIA additional ARIA module persistence failed:", err.message);
       return json(res, 500, { error: "ذخیره گردش‌کار ماژول انجام نشد." });
     }
   }
