@@ -32,6 +32,11 @@ for(const module of replacement.REGISTRY.records){
  test("additional ARIA module executes a tenant-scoped local workflow: "+module.moduleId,()=>{
   const result=replacement.executeReplacementModule(module.moduleId,{goal:"Validate the local module workflow",context:{}},{actorId:"test-actor",tenantId:"tenant-a"});
   assert.equal(result.domainLogicExecuted,true);
+  assert.equal(result.domainExecution.domain,module.domain);
+  assert.equal(result.domainExecution.executionMode,"LOCAL_DOMAIN_LOGIC");
+  assert.equal(result.domainExecution.operationResults.length,module.operations.length);
+  assert.ok(result.domainExecution.operationResults.every(step=>step.status==="EXECUTED_LOCAL"));
+  assert.equal(result.domainExecution.externalExecutionPerformed,false);
   assert.equal(result.tenantScope,"tenant-a");
   assert.equal(result.operationPlan.length,module.operations.length);
   assert.equal(result.externalExecutionPerformed,false);
