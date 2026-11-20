@@ -1,5 +1,6 @@
 "use strict";
 const { createDomainModule } = require("../../aria-module-runtime.cjs");
+const { scenarioSimulator } = require("../../aria-governance-handlers.cjs");
 module.exports = createDomainModule({
   "moduleId": "ARIA-CONTROL-MODULE-003",
   "moduleType": "GOVERNANCE_CONTROL_MODULE",
@@ -42,5 +43,6 @@ module.exports = createDomainModule({
     "عدم اجرای اقدام بیرونی"
   ],
   "executionBoundary": "مدیریت فرض، گزینه، نسخه مدل، دامنه نتایج و تحلیل حساسیت؛ بدون تضمین پیش‌بینی",
-  "productionVerified": false
+  "productionVerified": false,
+  domainHandler: scenarioSimulator
 });
