@@ -5,6 +5,7 @@ const serviceDelivery = require("./aria-service-delivery.cjs");
 const moduleRegistryRuntime = require("./modules");
 const replacementModuleRuntime = require("./aria-039-replacement-runtime.cjs");
 const commercializationRuntime = require("./aria-commercialization-runtime.cjs");
+const adapterRuntimeContracts = require("./integrations/adapter-runtime.cjs");
 if (moduleRegistryRuntime.MODULES.length !== 201) throw new Error("ARIA_INDEPENDENT_MODULE_COUNT_INVALID");
 const registry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_expansion_registry.json"), "utf8"));
 const moduleRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_111_module_expansion_registry.json"), "utf8"));
@@ -466,6 +467,42 @@ async function handle(req, res, url, deps) {
       transferredModuleIds: [...transferredIds].sort(),
       publicAriaModuleIds: moduleCatalog.map(x => x.moduleId).sort(),
       note: moduleInventory.countingRule
+    });
+  }
+  if (p === "/api/aria-expansion/adapter-runtime" && req.method === "GET") {
+    const families = Object.entries(adapterRuntimeContracts.MANIFEST.families).map(([family, moduleIds]) => ({
+      family,
+      moduleCount: moduleIds.length,
+      moduleIds,
+      operations: adapterRuntimeContracts.FAMILY_CONTRACTS[family].operations,
+      providerState: "NOT_CONFIGURED_FAIL_CLOSED",
+      productionEnabled: false
+    }));
+    return json(res, 200, {
+      product: "ARIA",
+      totalRequirements: adapterRuntimeContracts.MANIFEST.totalRequirements,
+      familyCount: families.length,
+      mappedModuleCount: adapterRuntimeContracts.moduleToFamily.size,
+      providerConfiguredCount: 0,
+      sandboxVerifiedCount: 0,
+      e2eVerifiedCount: 0,
+      productionVerifiedCount: 0,
+      activationState: "INACTIVE_FAIL_CLOSED",
+      families
+    });
+  }
+  const adapterModuleMatch = p.match(/^\\/api\\/aria-expansion\\/adapter-runtime\\/modules\\/(\\d+)$/);
+  if (adapterModuleMatch && req.method === "GET") {
+    const moduleId = Number(adapterModuleMatch[1]);
+    const family = adapterRuntimeContracts.moduleToFamily.get(moduleId);
+    if (!family) return json(res, 404, { error: "برای این شناسه نیاز آداپتری ثبت نشده است." });
+    return json(res, 200, {
+      product: "ARIA",
+      moduleId,
+      family,
+      operations: adapterRuntimeContracts.FAMILY_CONTRACTS[family].operations,
+      providerState: "NOT_CONFIGURED_FAIL_CLOSED",
+      productionVerified: false
     });
   }
   if (p === "/api/aria-expansion/execution-registry" && req.method === "GET") {
