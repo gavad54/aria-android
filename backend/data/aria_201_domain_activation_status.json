@@ -2626,8 +2626,9 @@
     }
   ],
   "limitations": [
-    "Local handlers and adapters only; not proof of provider execution, persistent DB operation, E2E, Production, or revenue.",
-    "DOMAIN_ADAPTER_LOCAL uses a shared family engine parameterized by each module manifest; it is not a claim of bespoke algorithmic implementation for every module.",
-    "Commercial catalog prices/currency and payment activation remain owner-configured and disabled."
+    "DOMAIN_LOGIC_LOCAL means a module-specific strategy executes locally through a shared family handler factory; it does not mean a separate runtime process or independent external provider integration for every module.",
+    "Local execution is not proof of persistent production database operation, end-to-end provider execution, Production deployment, real customer usage, or revenue.",
+    "The historical 183-module cohort and the 191-row external-adapter demand mapping are different inventories; they must be reconciled by canonical module ID and must never be added together.",
+    "Commercial catalog prices, currency, entitlement activation, billing, and payment execution remain owner-configured and disabled."
   ]
 }
