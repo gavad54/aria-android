@@ -1,5 +1,6 @@
 "use strict";
 const { createDomainModule } = require("../../aria-module-runtime.cjs");
+const { autonomyControl } = require("../../aria-governance-handlers.cjs");
 module.exports = createDomainModule({
   "moduleId": "ARIA-CONTROL-MODULE-002",
   "moduleType": "GOVERNANCE_CONTROL_MODULE",
@@ -42,5 +43,6 @@ module.exports = createDomainModule({
     "لغو فوری اختیار و ثبت ممیزی"
   ],
   "executionBoundary": "سیاست و مجوز پیش از اجرای عامل؛ deny-by-default و حداقل دسترسی",
-  "productionVerified": false
+  "productionVerified": false,
+  domainHandler: autonomyControl
 });
