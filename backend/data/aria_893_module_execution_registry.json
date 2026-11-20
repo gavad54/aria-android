@@ -28400,7 +28400,7 @@
       "domain": "workspace",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "workspace.orchestration",
+        "handlerKey": "aria.catalog.651",
         "operations": [
           "capture_request",
           "clarify_goal",
@@ -28416,11 +28416,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-651",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 651
       },
       "launchId": "command-center",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "idea-to-value",
@@ -28434,7 +28437,7 @@
       "domain": "workspace",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "workspace.orchestration",
+        "handlerKey": "aria.catalog.652",
         "operations": [
           "capture_request",
           "clarify_goal",
@@ -28450,11 +28453,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-652",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 652
       },
       "launchId": "idea-to-value",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "opportunities",
@@ -28468,7 +28474,7 @@
       "domain": "workspace",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "workspace.orchestration",
+        "handlerKey": "aria.catalog.653",
         "operations": [
           "capture_request",
           "clarify_goal",
@@ -28484,11 +28490,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-653",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 653
       },
       "launchId": "opportunities",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "learning-creator",
@@ -28502,7 +28511,7 @@
       "domain": "learning",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "learning.design",
+        "handlerKey": "aria.catalog.654",
         "operations": [
           "define_learning_goal",
           "build_learning_path",
@@ -28518,11 +28527,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-654",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 654
       },
       "launchId": "learning-creator",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "workflows",
@@ -28536,7 +28548,7 @@
       "domain": "workspace",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "workspace.orchestration",
+        "handlerKey": "aria.catalog.655",
         "operations": [
           "capture_request",
           "clarify_goal",
@@ -28552,11 +28564,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-655",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 655
       },
       "launchId": "workflows",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "trust-control",
@@ -28570,7 +28585,7 @@
       "domain": "trust",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "trust.validation",
+        "handlerKey": "aria.catalog.656",
         "operations": [
           "validate_input",
           "evaluate_policy",
@@ -28585,11 +28600,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-656",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 656
       },
       "launchId": "trust-control",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ai-instagram",
@@ -28603,7 +28621,7 @@
       "domain": "creative",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "creative.production_brief",
+        "handlerKey": "aria.catalog.657",
         "operations": [
           "capture_creative_brief",
           "define_visual_direction",
@@ -28619,11 +28637,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-657",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 657
       },
       "launchId": "ai-instagram",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "image-editing",
@@ -28637,7 +28658,7 @@
       "domain": "creative",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "creative.production_brief",
+        "handlerKey": "aria.catalog.658",
         "operations": [
           "capture_creative_brief",
           "define_visual_direction",
@@ -28653,11 +28674,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-658",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 658
       },
       "launchId": "image-editing",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "profile-photo",
@@ -28671,7 +28695,7 @@
       "domain": "creative",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "creative.production_brief",
+        "handlerKey": "aria.catalog.659",
         "operations": [
           "capture_creative_brief",
           "define_visual_direction",
@@ -28687,11 +28711,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-659",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 659
       },
       "launchId": "profile-photo",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "product-photo",
@@ -28705,7 +28732,7 @@
       "domain": "creative",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "creative.production_brief",
+        "handlerKey": "aria.catalog.660",
         "operations": [
           "capture_creative_brief",
           "define_visual_direction",
@@ -28721,11 +28748,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-660",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 660
       },
       "launchId": "product-photo",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "image-to-image",
@@ -28739,7 +28769,7 @@
       "domain": "creative",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "creative.production_brief",
+        "handlerKey": "aria.catalog.661",
         "operations": [
           "capture_creative_brief",
           "define_visual_direction",
@@ -28755,11 +28785,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-661",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 661
       },
       "launchId": "image-to-image",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ad-banner",
@@ -28773,7 +28806,7 @@
       "domain": "creative",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "creative.production_brief",
+        "handlerKey": "aria.catalog.662",
         "operations": [
           "capture_creative_brief",
           "define_visual_direction",
@@ -28789,11 +28822,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-662",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 662
       },
       "launchId": "ad-banner",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "social-post-story",
@@ -28807,7 +28843,7 @@
       "domain": "creative",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "creative.production_brief",
+        "handlerKey": "aria.catalog.663",
         "operations": [
           "capture_creative_brief",
           "define_visual_direction",
@@ -28823,11 +28859,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-663",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 663
       },
       "launchId": "social-post-story",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "youtube-thumbnail",
@@ -28841,7 +28880,7 @@
       "domain": "creative",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "creative.production_brief",
+        "handlerKey": "aria.catalog.664",
         "operations": [
           "capture_creative_brief",
           "define_visual_direction",
@@ -28857,11 +28896,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-664",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 664
       },
       "launchId": "youtube-thumbnail",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "face-reel",
@@ -28875,7 +28917,7 @@
       "domain": "media",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "media.production_brief",
+        "handlerKey": "aria.catalog.665",
         "operations": [
           "capture_media_brief",
           "prepare_script_or_storyboard",
@@ -28891,11 +28933,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-665",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 665
       },
       "launchId": "face-reel",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "avatar",
@@ -28909,7 +28954,7 @@
       "domain": "creative",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "creative.production_brief",
+        "handlerKey": "aria.catalog.666",
         "operations": [
           "capture_creative_brief",
           "define_visual_direction",
@@ -28925,11 +28970,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-666",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 666
       },
       "launchId": "avatar",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "voice-video",
@@ -28943,7 +28991,7 @@
       "domain": "media",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "media.production_brief",
+        "handlerKey": "aria.catalog.667",
         "operations": [
           "capture_media_brief",
           "prepare_script_or_storyboard",
@@ -28959,11 +29007,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-667",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 667
       },
       "launchId": "voice-video",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "subtitles-captions",
@@ -28977,7 +29028,7 @@
       "domain": "media",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "media.production_brief",
+        "handlerKey": "aria.catalog.668",
         "operations": [
           "capture_media_brief",
           "prepare_script_or_storyboard",
@@ -28993,11 +29044,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-668",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 668
       },
       "launchId": "subtitles-captions",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "text-to-video",
@@ -29011,7 +29065,7 @@
       "domain": "media",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "media.production_brief",
+        "handlerKey": "aria.catalog.669",
         "operations": [
           "capture_media_brief",
           "prepare_script_or_storyboard",
@@ -29027,11 +29081,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-669",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 669
       },
       "launchId": "text-to-video",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "podcast-clips",
@@ -29045,7 +29102,7 @@
       "domain": "media",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "media.production_brief",
+        "handlerKey": "aria.catalog.670",
         "operations": [
           "capture_media_brief",
           "prepare_script_or_storyboard",
@@ -29061,11 +29118,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-670",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 670
       },
       "launchId": "podcast-clips",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "product-video-ad",
@@ -29079,7 +29139,7 @@
       "domain": "media",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "media.production_brief",
+        "handlerKey": "aria.catalog.671",
         "operations": [
           "capture_media_brief",
           "prepare_script_or_storyboard",
@@ -29095,11 +29155,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-671",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 671
       },
       "launchId": "product-video-ad",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "logo-design",
@@ -29113,7 +29176,7 @@
       "domain": "creative",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "creative.production_brief",
+        "handlerKey": "aria.catalog.672",
         "operations": [
           "capture_creative_brief",
           "define_visual_direction",
@@ -29129,11 +29192,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-672",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 672
       },
       "launchId": "logo-design",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "product-packaging",
@@ -29147,7 +29213,7 @@
       "domain": "creative",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "creative.production_brief",
+        "handlerKey": "aria.catalog.673",
         "operations": [
           "capture_creative_brief",
           "define_visual_direction",
@@ -29163,11 +29229,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-673",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 673
       },
       "launchId": "product-packaging",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "professional-catalog",
@@ -29181,7 +29250,7 @@
       "domain": "creative",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "creative.production_brief",
+        "handlerKey": "aria.catalog.674",
         "operations": [
           "capture_creative_brief",
           "define_visual_direction",
@@ -29197,11 +29266,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-674",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 674
       },
       "launchId": "professional-catalog",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "mockup-maker",
@@ -29215,7 +29287,7 @@
       "domain": "creative",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "creative.production_brief",
+        "handlerKey": "aria.catalog.675",
         "operations": [
           "capture_creative_brief",
           "define_visual_direction",
@@ -29231,11 +29303,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-675",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 675
       },
       "launchId": "mockup-maker",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "character-design",
@@ -29249,7 +29324,7 @@
       "domain": "creative",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "creative.production_brief",
+        "handlerKey": "aria.catalog.676",
         "operations": [
           "capture_creative_brief",
           "define_visual_direction",
@@ -29265,11 +29340,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-676",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 676
       },
       "launchId": "character-design",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "business-prompts",
@@ -29283,7 +29361,7 @@
       "domain": "content",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "content.editorial",
+        "handlerKey": "aria.catalog.677",
         "operations": [
           "capture_content_brief",
           "create_outline",
@@ -29299,11 +29377,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-677",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 677
       },
       "launchId": "business-prompts",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "prompt-pack",
@@ -29317,7 +29398,7 @@
       "domain": "content",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "content.editorial",
+        "handlerKey": "aria.catalog.678",
         "operations": [
           "capture_content_brief",
           "create_outline",
@@ -29333,11 +29414,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-678",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 678
       },
       "launchId": "prompt-pack",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "instagram-caption",
@@ -29351,7 +29435,7 @@
       "domain": "content",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "content.editorial",
+        "handlerKey": "aria.catalog.679",
         "operations": [
           "capture_content_brief",
           "create_outline",
@@ -29367,11 +29451,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-679",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 679
       },
       "launchId": "instagram-caption",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "content-ideas",
@@ -29385,7 +29472,7 @@
       "domain": "content",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "content.editorial",
+        "handlerKey": "aria.catalog.680",
         "operations": [
           "capture_content_brief",
           "create_outline",
@@ -29401,11 +29488,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-680",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 680
       },
       "launchId": "content-ideas",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "content-calendar",
@@ -29419,7 +29509,7 @@
       "domain": "content",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "content.editorial",
+        "handlerKey": "aria.catalog.681",
         "operations": [
           "capture_content_brief",
           "create_outline",
@@ -29435,11 +29525,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-681",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 681
       },
       "launchId": "content-calendar",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "content-management",
@@ -29453,7 +29546,7 @@
       "domain": "content",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "content.editorial",
+        "handlerKey": "aria.catalog.682",
         "operations": [
           "capture_content_brief",
           "create_outline",
@@ -29469,11 +29562,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-682",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 682
       },
       "launchId": "content-management",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "resume-portfolio",
@@ -29487,7 +29583,7 @@
       "domain": "content",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "content.editorial",
+        "handlerKey": "aria.catalog.683",
         "operations": [
           "capture_content_brief",
           "create_outline",
@@ -29503,11 +29599,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-683",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 683
       },
       "launchId": "resume-portfolio",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "translation-localization",
@@ -29521,7 +29620,7 @@
       "domain": "content",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "content.editorial",
+        "handlerKey": "aria.catalog.684",
         "operations": [
           "capture_content_brief",
           "create_outline",
@@ -29537,11 +29636,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-684",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 684
       },
       "launchId": "translation-localization",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "pdf-summary",
@@ -29555,7 +29657,7 @@
       "domain": "knowledge",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "knowledge.management",
+        "handlerKey": "aria.catalog.685",
         "operations": [
           "register_source",
           "summarize_knowledge",
@@ -29571,11 +29673,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-685",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 685
       },
       "launchId": "pdf-summary",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "flashcards-quizzes",
@@ -29589,7 +29694,7 @@
       "domain": "learning",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "learning.design",
+        "handlerKey": "aria.catalog.686",
         "operations": [
           "define_learning_goal",
           "build_learning_path",
@@ -29605,11 +29710,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-686",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 686
       },
       "launchId": "flashcards-quizzes",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ai-tool-tutorials",
@@ -29623,7 +29731,7 @@
       "domain": "learning",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "learning.design",
+        "handlerKey": "aria.catalog.687",
         "operations": [
           "define_learning_goal",
           "build_learning_path",
@@ -29639,11 +29747,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-687",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 687
       },
       "launchId": "ai-tool-tutorials",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "chatbot-builder",
@@ -29657,7 +29768,7 @@
       "domain": "knowledge",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "knowledge.management",
+        "handlerKey": "aria.catalog.688",
         "operations": [
           "register_source",
           "summarize_knowledge",
@@ -29673,11 +29784,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-688",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 688
       },
       "launchId": "chatbot-builder",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "customer-support",
@@ -29691,7 +29805,7 @@
       "domain": "knowledge",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "knowledge.management",
+        "handlerKey": "aria.catalog.689",
         "operations": [
           "register_source",
           "summarize_knowledge",
@@ -29707,11 +29821,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-689",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 689
       },
       "launchId": "customer-support",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "faq-builder",
@@ -29725,7 +29842,7 @@
       "domain": "knowledge",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "knowledge.management",
+        "handlerKey": "aria.catalog.690",
         "operations": [
           "register_source",
           "summarize_knowledge",
@@ -29741,11 +29858,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-690",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 690
       },
       "launchId": "faq-builder",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "data-analysis",
@@ -29759,7 +29879,7 @@
       "domain": "data",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "data.analysis",
+        "handlerKey": "aria.catalog.691",
         "operations": [
           "validate_dataset",
           "profile_data",
@@ -29775,11 +29895,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-691",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 691
       },
       "launchId": "data-analysis",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "reports-dashboards",
@@ -29793,7 +29916,7 @@
       "domain": "data",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "data.analysis",
+        "handlerKey": "aria.catalog.692",
         "operations": [
           "validate_dataset",
           "profile_data",
@@ -29809,11 +29932,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-692",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 692
       },
       "launchId": "reports-dashboards",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "data-cleaning",
@@ -29827,7 +29953,7 @@
       "domain": "data",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "data.analysis",
+        "handlerKey": "aria.catalog.693",
         "operations": [
           "validate_dataset",
           "profile_data",
@@ -29843,11 +29969,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-693",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 693
       },
       "launchId": "data-cleaning",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "no-code-site",
@@ -29861,7 +29990,7 @@
       "domain": "web-builder",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "web.specification",
+        "handlerKey": "aria.catalog.694",
         "operations": [
           "capture_site_requirements",
           "create_sitemap",
@@ -29877,11 +30006,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-694",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 694
       },
       "launchId": "no-code-site",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "landing-page",
@@ -29895,7 +30027,7 @@
       "domain": "web-builder",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "web.specification",
+        "handlerKey": "aria.catalog.695",
         "operations": [
           "capture_site_requirements",
           "create_sitemap",
@@ -29911,11 +30043,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-695",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 695
       },
       "launchId": "landing-page",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "no-code-app",
@@ -29929,7 +30064,7 @@
       "domain": "web-builder",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "web.specification",
+        "handlerKey": "aria.catalog.696",
         "operations": [
           "capture_site_requirements",
           "create_sitemap",
@@ -29945,11 +30080,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-696",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 696
       },
       "launchId": "no-code-app",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "seo-content",
@@ -29963,7 +30101,7 @@
       "domain": "content",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "content.editorial",
+        "handlerKey": "aria.catalog.697",
         "operations": [
           "capture_content_brief",
           "create_outline",
@@ -29979,11 +30117,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-697",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 697
       },
       "launchId": "seo-content",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "product-copy",
@@ -29997,7 +30138,7 @@
       "domain": "content",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "content.editorial",
+        "handlerKey": "aria.catalog.698",
         "operations": [
           "capture_content_brief",
           "create_outline",
@@ -30013,11 +30154,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-698",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 698
       },
       "launchId": "product-copy",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "digital-products",
@@ -30031,7 +30175,7 @@
       "domain": "content",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "content.editorial",
+        "handlerKey": "aria.catalog.699",
         "operations": [
           "capture_content_brief",
           "create_outline",
@@ -30047,11 +30191,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-699",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 699
       },
       "launchId": "digital-products",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "photo-restoration",
@@ -30065,7 +30212,7 @@
       "domain": "creative",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "creative.production_brief",
+        "handlerKey": "aria.catalog.700",
         "operations": [
           "capture_creative_brief",
           "define_visual_direction",
@@ -30081,11 +30228,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-700",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 700
       },
       "launchId": "photo-restoration",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "workflow-automation",
@@ -30099,7 +30249,7 @@
       "domain": "automation",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "automation.design",
+        "handlerKey": "aria.catalog.701",
         "operations": [
           "capture_trigger",
           "design_workflow_graph",
@@ -30115,11 +30265,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-701",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 701
       },
       "launchId": "workflow-automation",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "reels-script",
@@ -30133,7 +30286,7 @@
       "domain": "content",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "content.editorial",
+        "handlerKey": "aria.catalog.702",
         "operations": [
           "capture_content_brief",
           "create_outline",
@@ -30149,11 +30302,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-702",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 702
       },
       "launchId": "reels-script",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ad-copywriting",
@@ -30167,7 +30323,7 @@
       "domain": "content",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "content.editorial",
+        "handlerKey": "aria.catalog.703",
         "operations": [
           "capture_content_brief",
           "create_outline",
@@ -30183,11 +30339,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-703",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 703
       },
       "launchId": "ad-copywriting",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "educational-content",
@@ -30201,7 +30360,7 @@
       "domain": "content",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "content.editorial",
+        "handlerKey": "aria.catalog.704",
         "operations": [
           "capture_content_brief",
           "create_outline",
@@ -30217,11 +30376,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-704",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 704
       },
       "launchId": "educational-content",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ai-sales-assistant",
@@ -30235,7 +30397,7 @@
       "domain": "business",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "business.strategy",
+        "handlerKey": "aria.catalog.705",
         "operations": [
           "define_business_model",
           "map_opportunities",
@@ -30251,11 +30413,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-705",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 705
       },
       "launchId": "ai-sales-assistant",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ai-voiceover",
@@ -30269,7 +30434,7 @@
       "domain": "media",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "media.production_brief",
+        "handlerKey": "aria.catalog.706",
         "operations": [
           "capture_media_brief",
           "prepare_script_or_storyboard",
@@ -30285,11 +30450,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-706",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 706
       },
       "launchId": "ai-voiceover",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "life-home-assistant",
@@ -30303,7 +30471,7 @@
       "domain": "personal",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "personal.planning",
+        "handlerKey": "aria.catalog.707",
         "operations": [
           "capture_personal_goal",
           "identify_constraints",
@@ -30319,11 +30487,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-707",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 707
       },
       "launchId": "life-home-assistant",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "smart-shopping-household",
@@ -30337,7 +30508,7 @@
       "domain": "personal",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "personal.planning",
+        "handlerKey": "aria.catalog.708",
         "operations": [
           "capture_personal_goal",
           "identify_constraints",
@@ -30353,11 +30524,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-708",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 708
       },
       "launchId": "smart-shopping-household",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "family-health-wellbeing",
@@ -30371,7 +30545,7 @@
       "domain": "personal",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "personal.planning",
+        "handlerKey": "aria.catalog.709",
         "operations": [
           "capture_personal_goal",
           "identify_constraints",
@@ -30387,11 +30561,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-709",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 709
       },
       "launchId": "family-health-wellbeing",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "career-learning-productivity",
@@ -30405,7 +30582,7 @@
       "domain": "learning",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "learning.design",
+        "handlerKey": "aria.catalog.710",
         "operations": [
           "define_learning_goal",
           "build_learning_path",
@@ -30421,11 +30598,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-710",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 710
       },
       "launchId": "career-learning-productivity",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "travel-leisure-planner",
@@ -30439,7 +30619,7 @@
       "domain": "personal",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "personal.planning",
+        "handlerKey": "aria.catalog.711",
         "operations": [
           "capture_personal_goal",
           "identify_constraints",
@@ -30455,11 +30635,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-711",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 711
       },
       "launchId": "travel-leisure-planner",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "business-model-studio",
@@ -30473,7 +30656,7 @@
       "domain": "business",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "business.strategy",
+        "handlerKey": "aria.catalog.712",
         "operations": [
           "define_business_model",
           "map_opportunities",
@@ -30489,11 +30672,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-712",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 712
       },
       "launchId": "business-model-studio",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "revenue-commerce-engine",
@@ -30507,7 +30693,7 @@
       "domain": "business",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "business.strategy",
+        "handlerKey": "aria.catalog.713",
         "operations": [
           "define_business_model",
           "map_opportunities",
@@ -30523,11 +30709,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-713",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 713
       },
       "launchId": "revenue-commerce-engine",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "creator-platform-community",
@@ -30541,7 +30730,7 @@
       "domain": "community",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "community.operations",
+        "handlerKey": "aria.catalog.714",
         "operations": [
           "define_community_need",
           "design_participation_flow",
@@ -30557,11 +30746,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-714",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 714
       },
       "launchId": "creator-platform-community",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "on-demand-local-services",
@@ -30575,7 +30767,7 @@
       "domain": "community",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "community.operations",
+        "handlerKey": "aria.catalog.715",
         "operations": [
           "define_community_need",
           "design_participation_flow",
@@ -30591,11 +30783,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-715",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 715
       },
       "launchId": "on-demand-local-services",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "international-trade-studio",
@@ -30609,7 +30804,7 @@
       "domain": "business",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "business.strategy",
+        "handlerKey": "aria.catalog.716",
         "operations": [
           "define_business_model",
           "map_opportunities",
@@ -30625,11 +30820,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-716",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 716
       },
       "launchId": "international-trade-studio",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "market-intelligence",
@@ -30643,7 +30841,7 @@
       "domain": "community",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "community.operations",
+        "handlerKey": "aria.catalog.717",
         "operations": [
           "define_community_need",
           "design_participation_flow",
@@ -30659,11 +30857,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW"
+        "externalAdapter": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "domainRuntimeModuleId": "ARIA-CATALOG-717",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 717
       },
       "launchId": "market-intelligence",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "digital-commerce-studio",
@@ -30677,7 +30878,7 @@
       "domain": "business",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "business.strategy",
+        "handlerKey": "aria.catalog.718",
         "operations": [
           "define_business_model",
           "map_opportunities",
@@ -30693,11 +30894,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-718",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 718
       },
       "launchId": "digital-commerce-studio",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "creative-media-studio",
@@ -30711,7 +30915,7 @@
       "domain": "creative",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "creative.production_brief",
+        "handlerKey": "aria.catalog.719",
         "operations": [
           "capture_creative_brief",
           "define_visual_direction",
@@ -30727,11 +30931,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-719",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 719
       },
       "launchId": "creative-media-studio",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "cloud-workspace-management",
@@ -30745,7 +30952,7 @@
       "domain": "automation",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "automation.design",
+        "handlerKey": "aria.catalog.720",
         "operations": [
           "capture_trigger",
           "design_workflow_graph",
@@ -30761,11 +30968,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-720",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 720
       },
       "launchId": "cloud-workspace-management",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "website-page-builder",
@@ -30779,7 +30989,7 @@
       "domain": "web-builder",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "web.specification",
+        "handlerKey": "aria.catalog.721",
         "operations": [
           "capture_site_requirements",
           "create_sitemap",
@@ -30795,11 +31005,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-721",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 721
       },
       "launchId": "website-page-builder",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "growth-marketing-engine",
@@ -30813,7 +31026,7 @@
       "domain": "content",
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "content.editorial",
+        "handlerKey": "aria.catalog.722",
         "operations": [
           "capture_content_brief",
           "create_outline",
@@ -30829,11 +31042,14 @@
           "domainArtifact",
           "workItem"
         ],
-        "externalAdapter": "NOT_CONNECTED"
+        "externalAdapter": "NOT_CONNECTED",
+        "domainRuntimeModuleId": "ARIA-CATALOG-722",
+        "domainRuntimeExport": "createCatalogDomainHandler",
+        "handlerStrategyId": 722
       },
       "launchId": "growth-marketing-engine",
-      "implementationState": "COMMERCIAL_DOMAIN_ADAPTER",
-      "workflowEntry": "COMMERCIAL_DOMAIN_HANDLER"
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-ENGINE-MODULE-001",
