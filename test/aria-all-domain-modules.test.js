@@ -29,7 +29,7 @@ test("201 ARIA modules remain independently registered with unchanged family cou
   assert.equal(targets.length, 193);
   assert.equal(activationStatus.inventoryCount, 201);
   assert.equal(activationStatus.records.length, 201);
-  assert.deepEqual(activationStatus.counts, { DOMAIN_LOGIC_LOCAL: 38, DOMAIN_ADAPTER_LOCAL: 163, productionVerified: 0, externalExecutionEnabled: 0, paymentExecuted: 0 });
+  assert.deepEqual(activationStatus.counts, { DOMAIN_LOGIC_LOCAL: 48, DOMAIN_ADAPTER_LOCAL: 153, productionVerified: 0, externalExecutionEnabled: 0, paymentExecuted: 0 });
 });
 
 for (const module of targets) {
