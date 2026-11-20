@@ -24,7 +24,7 @@ test("ARIA has 893 owned module and engine units without reclaiming 39 sibling l
 });
 
 for(const module of replacement.REGISTRY.records){
- test("replacement module executes a tenant-scoped local workflow: "+module.moduleId,()=>{
+ test("additional ARIA module executes a tenant-scoped local workflow: "+module.moduleId,()=>{
   const result=replacement.executeReplacementModule(module.moduleId,{goal:"Validate the local module workflow",context:{}},{actorId:"test-actor",tenantId:"tenant-a"});
   assert.equal(result.domainLogicExecuted,true);
   assert.equal(result.tenantScope,"tenant-a");
@@ -34,7 +34,7 @@ for(const module of replacement.REGISTRY.records){
   assert.equal(result.productionVerified,false);
  });
 }
-test("replacement modules reject missing actor and tenant",()=>{
+test("additional ARIA modules reject missing actor and tenant",()=>{
  const id=replacement.REGISTRY.records[0].moduleId;
  assert.throws(()=>replacement.executeReplacementModule(id,{goal:"test goal"},{actorId:"a"}),{message:"MODULE_TENANT_REQUIRED"});
  assert.throws(()=>replacement.executeReplacementModule(id,{goal:"test goal"},{tenantId:"t"}),{message:"MODULE_ACTOR_REQUIRED"});
