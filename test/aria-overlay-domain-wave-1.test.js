@@ -3,7 +3,10 @@ const test=require("node:test");
 const assert=require("node:assert/strict");
 const {executeAriaDomainModule}=require("../backend/aria-144-domain-runtime.cjs");
 async function run(sequence,context) {
-  return executeAriaDomainModule("ARIA-PROBLEM-MODULE-"+String(sequence).padStart(3,"0"),{goal:"Prepare a reviewable domain result",context,consent:true},{actorId:"overlay-wave-1-test",tenantId:"tenant-overlay-wave-1"});
+  const moduleId=sequence>=51&&sequence<=54
+    ?"ARIA-CONTROL-MODULE-"+String(sequence-50).padStart(3,"0")
+    :"ARIA-PROBLEM-MODULE-"+String(sequence).padStart(3,"0");
+  return executeAriaDomainModule(moduleId,{goal:"Prepare a reviewable domain result",context,consent:true},{actorId:"overlay-wave-1-test",tenantId:"tenant-overlay-wave-1"});
 }
 test("repairer discovery ranks only verified providers with matching service and evidence",async()=>{
  const result=await run(1,{serviceType:"plumbing",serviceArea:"Baku",providers:[
