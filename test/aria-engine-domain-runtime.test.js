@@ -23,7 +23,7 @@ test("all 71 child engines have distinct domain handlers and bounded tenant-scop
  for(const module of engines){
   const result=await runtime.executeAriaEngineModule(module.manifest.moduleId,inputFor(module.manifest),{actorId:"engine-test-actor",tenantId:"engine-test-tenant"});
   assert.equal(result.domainLogicExecuted,true,module.manifest.moduleId+" must execute a dedicated handler");
-  assert.equal(result.domainArtifact.moduleSpecificProfile.moduleId,module.manifest.moduleId);
+  assert.equal(result.artifact.domainResult.moduleSpecificProfile.moduleId,module.manifest.moduleId);
   assert.equal(result.tenantScope,"engine-test-tenant");
   assert.equal(result.actorScope,"engine-test-actor");
   assert.equal(result.externalExecutionPerformed,false);
