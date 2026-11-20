@@ -37,7 +37,7 @@ async function executeAriaDomainModule(moduleId,input={},context={}) {
  if(record.recordType==="COMMERCIAL_CATALOG_MODULE") {
   const backendModuleId="ARIA-CATALOG-"+record.catalogEntryId;
   const result=await modulesRuntime.executeModule(backendModuleId,input,{actorId:String(context.actorId),tenantId:String(context.tenantId)});
-  return Object.freeze({...result,inventoryModuleId:record.moduleId,executionState:"LOCAL_DOMAIN_LOGIC_EXECUTED",externalExecutionPerformed:false,paymentExecuted:false,productionVerified:false});
+  return Object.freeze({...result,inventoryModuleId:record.moduleId,tenantScope:String(context.tenantId),actorScope:String(context.actorId),executionState:"LOCAL_DOMAIN_LOGIC_EXECUTED",externalExecutionPerformed:false,paymentExecuted:false,productionVerified:false});
  }
  const operationPlan=record.operations.map((operation,index)=>({sequence:index+1,operation,state:"LOCAL_STEP_PREPARED",tenantScope:String(context.tenantId),requiresHumanReview:true}));
  const artifact={
