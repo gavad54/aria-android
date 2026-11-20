@@ -13,6 +13,15 @@ function classifyModule(module) {
       production: false
     };
   }
+  if (module?.manifest?.implementationState === "DOMAIN_ADAPTER_LOCAL") {
+    return {
+      implementationState: "DOMAIN_ADAPTER_LOCAL",
+      evidence: "Module-specific adapter executes a family workflow using this module's manifest, operations, ownership and commercial contract",
+      externalExecution: false,
+      payment: false,
+      production: false
+    };
+  }
   return {
     implementationState: "SHARED_RUNTIME_CONTRACT_ONLY",
     evidence: "Module uses the shared contract/planning/audit runtime without a dedicated domain adapter",
