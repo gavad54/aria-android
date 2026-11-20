@@ -1,7 +1,7 @@
 "use strict";
 const test=require("node:test");
 const assert=require("node:assert/strict");
-const {handle}=require("../backend/aria_expansion_runtime.cjs");
+const {handle,engineSubmodules}=require("../backend/aria_expansion_runtime.cjs");
 
 function makeHarness(payload,user={sub:41}){
  const calls=[];
@@ -73,4 +73,22 @@ test("commercial catalog API executes its exact catalog-entry handler and persis
  assert.equal(saved.executionStatus,"LOCAL_UNIT_SPECIFIC_DOMAIN_LOGIC_EXECUTED");
  assert.equal(saved.domainExecution.domainLogicExecuted,true);
  assert.equal(saved.domainExecution.artifact.domainResult.moduleSpecificProfile.profileId,"PROFILE:ARIA-CATALOG-707");
+});
+
+test("child-engine API executes its dedicated engine strategy and stores the engine ID",async()=>{
+ const engine=engineSubmodules[0];
+ const h=makeHarness({goal:"Compare verified repair providers",context:{},constraints:[],consent:true,sourceReferences:[]});
+ h.url=new URL("http://localhost/api/aria-expansion/engines/"+engine.engineId+"/run");
+ await handle(h.req,h.res,h.url,h.deps);
+ assert.equal(h.res.statusCode,201);
+ assert.equal(h.res.body.domainLogicExecuted,true);
+ assert.equal(h.res.body.engineSubmoduleId,engine.moduleId);
+ assert.equal(h.res.body.handlerKey,"aria.engine."+engine.moduleId);
+ assert.equal(h.res.body.paymentExecuted,false);
+ const insert=h.calls.find(x=>x.sql.includes("INSERT INTO aria_expansion_work_items"));
+ assert.ok(insert);
+ assert.equal(insert.args[1],engine.moduleId);
+ const saved=JSON.parse(insert.args[3]);
+ assert.equal(saved.executionStatus,"LOCAL_UNIT_SPECIFIC_DOMAIN_LOGIC_EXECUTED");
+ assert.equal(saved.domainArtifact.moduleSpecificProfile.moduleId,engine.moduleId);
 });
