@@ -76,6 +76,13 @@ if (unifiedExecutionRegistry.total !== 932 || unifiedExecutionRegistry.records.l
     unifiedExecutionRegistry.lineageOnlyCount !== 39 ||
     unifiedExecutionRegistry.records.filter(x => x.executionState === "LOCAL_WORK_ITEM_ONLY").length !== 893 ||
     unifiedExecutionRegistry.records.filter(x => x.executionState === "LINEAGE_ONLY").length !== 39 ||
+    unifiedExecutionRegistry.records.filter(x => x.ownerStatus === "OWNED").length !== 893 ||
+    unifiedExecutionRegistry.records.some(x => x.ownerStatus === "OWNED" && (!x.workflowEntry || !x.implementationState || !x.executionContract?.handlerKey)) ||
+    unifiedExecutionRegistry.records.filter(x => x.implementationState === "CANONICAL_FAMILY_WORKFLOW").length !== 639 ||
+    unifiedExecutionRegistry.records.filter(x => x.implementationState === "OVERLAY_ENGINE_FAMILY_ADAPTER").length !== 72 ||
+    unifiedExecutionRegistry.records.filter(x => x.implementationState === "COMMERCIAL_DOMAIN_ADAPTER").length !== 72 ||
+    unifiedExecutionRegistry.records.filter(x => x.implementationState === "ENGINE_FAMILY_ADAPTER").length !== 71 ||
+    unifiedExecutionRegistry.records.filter(x => x.implementationState === "UNIT_SPECIFIC_DOMAIN_LOGIC").length !== 39 ||
     unifiedExecutionRegistry.records.some(x => !x.executionContract || !Array.isArray(x.executionContract.operations) || x.executionContract.operations.length === 0) ||
     unifiedExecutionRegistry.records.some(x => x.recordType === "ENGINE_SUBMODULE" && (!x.parentModuleIds.length || x.parentModuleIds.some(id => !moduleCatalogById.has(id)))) ||
     unifiedExecutionRegistry.records.some(x => x.recordType === "COMMERCIAL_MODULE" && !canonicalModuleById.has(x.hostCanonicalContractId))) {
