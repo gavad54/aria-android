@@ -110,7 +110,10 @@ class AdapterRegistry {
           signal: controller.signal
         })),
         new Promise((_, reject) => {
-          timeout = setTimeout(() => {\n            controller.abort();\n            reject(new AdapterError("PROVIDER_TIMEOUT"));\n          }, this.timeoutMs);
+          timeout = setTimeout(() => {
+            reject(new AdapterError("PROVIDER_TIMEOUT"));
+            controller.abort();
+          }, this.timeoutMs);
         })
       ]);
       return Object.freeze({
