@@ -8,8 +8,8 @@ test("201-module maturity report distinguishes domain-specific handlers from fam
   const report = buildMaturityReport(MODULES);
   assert.equal(report.total, 201);
   assert.deepEqual(report.counts, {
-    DOMAIN_LOGIC_LOCAL: 158,
-    DOMAIN_ADAPTER_LOCAL: 43
+    DOMAIN_LOGIC_LOCAL: 169,
+    DOMAIN_ADAPTER_LOCAL: 32
   });
   assert.equal(report.productionVerifiedCount, 0);
   assert.equal(report.externalExecutionEnabledCount, 0);
@@ -30,7 +30,7 @@ test("all idea, control, catalog, child-engine and service modules have domain h
   const target = generic.filter(module => ["IDEA_BACKLOG_MODULE", "COMMERCIAL_CATALOG_MODULE", "CHILD_ENGINE_MODULE"].includes(module.manifest.moduleType));
   assert.equal(target.length, 193);
   for (const module of target) {
-    const expected = (module.manifest.moduleType === "IDEA_BACKLOG_MODULE" && module.manifest.sequence <= 50) || (module.manifest.moduleType === "COMMERCIAL_CATALOG_MODULE" && module.manifest.catalogEntryId <= 690) || (module.manifest.moduleType === "CHILD_ENGINE_MODULE" && Number(module.manifest.moduleId.split("-").pop()) <= 60) ? "DOMAIN_LOGIC_LOCAL" : "DOMAIN_ADAPTER_LOCAL";
+    const expected = (module.manifest.moduleType === "IDEA_BACKLOG_MODULE" && module.manifest.sequence <= 50) || (module.manifest.moduleType === "COMMERCIAL_CATALOG_MODULE" && module.manifest.catalogEntryId <= 690) || (module.manifest.moduleType === "CHILD_ENGINE_MODULE" && Number(module.manifest.moduleId.split("-").pop()) <= 71) ? "DOMAIN_LOGIC_LOCAL" : "DOMAIN_ADAPTER_LOCAL";
     assert.equal(classifyModule(module).implementationState, expected, module.manifest.moduleId);
   }
 });
