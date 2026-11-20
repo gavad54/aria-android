@@ -20,6 +20,8 @@ test("ARIA has 893 owned module and engine units without reclaiming 39 sibling l
  assert.equal(639+ariaOverlay.length+commercial.records.length+71+replacement.REGISTRY.records.length,893);
  assert.equal(transferred.size+archived.size,39);
  assert.ok(replacement.REGISTRY.records.every(x=>x.ownerProduct==="ARIA"));
+ assert.ok(replacement.REGISTRY.records.every(x=>x.revenueEngine?.state==="DESIGNED_NOT_MONETIZED"&&x.revenueEngine.price.policy==="OWNER_CONFIGURED"&&x.revenueEngine.paymentProviderState==="NOT_CONNECTED"));
+ assert.ok(replacement.REGISTRY.records.every(x=>x.commercialization.billingEnabled===false&&x.commercialization.paymentExecuted===false));
  assert.ok(unified.records.filter(x=>x.ownerStatus!=="OWNED").length===39);
 });
 
