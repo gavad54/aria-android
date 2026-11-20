@@ -8,8 +8,8 @@ test("201-module maturity report distinguishes shared-runtime handlers from dedi
   const report = buildMaturityReport(MODULES);
   assert.equal(report.total, 201);
   assert.deepEqual(report.counts, {
-    SHARED_RUNTIME_CONTRACT_ONLY: 193,
-    DOMAIN_LOGIC_LOCAL: 8
+    SHARED_RUNTIME_CONTRACT_ONLY: 183,
+    DOMAIN_LOGIC_LOCAL: 18
   });
   assert.equal(report.productionVerifiedCount, 0);
   assert.equal(report.externalExecutionEnabledCount, 0);
@@ -26,7 +26,7 @@ test("service engines are classified only when a dedicated service function is c
 
 test("idea, control, catalog and child-engine records are not misreported as domain-complete", () => {
   const generic = MODULES.filter(module => !["SERVICE_DELIVERY_ENGINE", "GOVERNANCE_CONTROL_MODULE"].includes(module.manifest.moduleType));
-  assert.equal(generic.length, 193);
+  assert.equal(generic.length, 183);
   for (const module of generic) {
     assert.equal(classifyModule(module).implementationState, "SHARED_RUNTIME_CONTRACT_ONLY");
   }
