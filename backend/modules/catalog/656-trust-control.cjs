@@ -69,6 +69,6 @@ module.exports = createDomainModule({
   "assumptions": [
     "No payment or external provider is executed by this local module handler."
   ],
-  "productionVerified": false
+  "productionVerified": false,
   domainHandler: true
 });
