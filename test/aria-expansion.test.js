@@ -61,6 +61,8 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
     ENGINE_FAMILY_ADAPTER:71,
     UNIT_SPECIFIC_DOMAIN_LOGIC:39
   });
+  assert.ok(ownedExecutionRecords.filter(x=>x.recordType==="HISTORICAL_OVERLAY_MODULE").every(x=>x.workflowEntry==="OVERLAY_ENGINE_FAMILY_HANDLER"&&x.executionContract.handlerKey.startsWith("engine.")));
+  assert.ok(ownedExecutionRecords.filter(x=>x.recordType==="NEW_OWNED_DOMAIN_MODULE").every(x=>x.workflowEntry==="ADDITIONAL_UNIT_DOMAIN_HANDLER"&&x.executionContract.handlerKey.startsWith("additional.")));
   assert.equal(executionRegistry.records.filter(x=>x.executionState==="LINEAGE_ONLY").length,39);
   assert.equal(executionRegistry.records.filter(x=>x.executionState==="LOCAL_WORK_ITEM_ONLY").length,893);
   const sampleSpec=await fetch(base+"/api/aria-expansion/execution-registry/ARIA-CANONICAL-MODULE-001");
