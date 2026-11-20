@@ -39,4 +39,5 @@ module.exports = createDomainModule({
   ],
   "executionState": "LOCAL_WORK_ITEM_ONLY",
   "productionVerified": false
+  domainHandler: true
 });
