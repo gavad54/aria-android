@@ -4,6 +4,7 @@ const path = require("node:path");
 const serviceDelivery = require("./aria-service-delivery.cjs");
 const moduleRegistryRuntime = require("./modules");
 const replacementModuleRuntime = require("./aria-039-replacement-runtime.cjs");
+const commercializationRuntime = require("./aria-commercialization-runtime.cjs");
 if (moduleRegistryRuntime.MODULES.length !== 201) throw new Error("ARIA_INDEPENDENT_MODULE_COUNT_INVALID");
 const registry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_expansion_registry.json"), "utf8"));
 const moduleRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_111_module_expansion_registry.json"), "utf8"));
@@ -131,7 +132,7 @@ const safeAutonomyActions = new Set(["draft", "summarize", "classify", "plan", "
 let schemaReady = false;
 let schemaPromise = null;
 
-if (canonicalRegistry.count !== 639 || canonicalModules.length !== 639 || canonicalModuleById.size !== 639 || new Set(canonicalModules.map(x => x.canonicalId)).size !== 639 || canonicalModules.some(x => !canonicalFamilyHandlers[x.designFamily]) || commercialExecutionManifest.recordCount !== 72 || commercialExecutionManifest.records.length !== 72 || commercialExecutionById.size !== 72 || commercialExecutionManifest.records.some(x => !canonicalModuleById.has(x.parentCanonicalContractId) || !x.executionContract?.handlerKey || !domainWorkflowHandlers[x.executionContract.handlerKey] || !Array.isArray(x.executionContract.operations) || x.executionContract.operations.length === 0) || commercialRegistry.records.some(x => commercialExecutionById.get(x.commercialModuleId)?.catalogEntryId !== x.catalogEntryId || commercialExecutionById.get(x.commercialModuleId)?.parentCanonicalContractId !== x.parentCanonicalContractId) || engineSubmodules.some(x => !engineWorkflowHandlers[x.domain]) || commercialRegistry.records.length !== 72 || new Set(commercialRegistry.records.map(x => x.catalogEntryId)).size !== 72 || engineSubmodules.length !== 71 || new Set(engineSubmodules.map(x => x.moduleId)).size !== 71 || moduleInventory.totalModuleAndSubmoduleRecords !== 932 || moduleInventory.ariaOwnedModuleAndSubmoduleRecords !== 893 || replacementModuleRuntime.REGISTRY.records.length !== 39 || new Set(replacementModuleRuntime.REGISTRY.records.map(x => x.moduleId)).size !== 39 || registry.baselineCanonicalModuleCount !== 639 || registry.problems.length !== 50 ||
+if (canonicalRegistry.count !== 639 || canonicalModules.length !== 639 || canonicalModuleById.size !== 639 || new Set(canonicalModules.map(x => x.canonicalId)).size !== 639 || canonicalModules.some(x => !canonicalFamilyHandlers[x.designFamily]) || commercialExecutionManifest.recordCount !== 72 || commercialExecutionManifest.records.length !== 72 || commercialExecutionById.size !== 72 || commercialExecutionManifest.records.some(x => !canonicalModuleById.has(x.parentCanonicalContractId) || !x.executionContract?.handlerKey || !domainWorkflowHandlers[x.executionContract.handlerKey] || !Array.isArray(x.executionContract.operations) || x.executionContract.operations.length === 0) || commercialRegistry.records.some(x => commercialExecutionById.get(x.commercialModuleId)?.catalogEntryId !== x.catalogEntryId || commercialExecutionById.get(x.commercialModuleId)?.parentCanonicalContractId !== x.parentCanonicalContractId) || engineSubmodules.some(x => !engineWorkflowHandlers[x.domain]) || commercialRegistry.records.length !== 72 || new Set(commercialRegistry.records.map(x => x.catalogEntryId)).size !== 72 || engineSubmodules.length !== 71 || new Set(engineSubmodules.map(x => x.moduleId)).size !== 71 || moduleInventory.totalModuleAndSubmoduleRecords !== 932 || moduleInventory.ariaOwnedModuleAndSubmoduleRecords !== 893 || replacementModuleRuntime.REGISTRY.records.length !== 39 || new Set(replacementModuleRuntime.REGISTRY.records.map(x => x.moduleId)).size !== 39 || commercializationRuntime.REGISTRY.ownedUnitCount !== 893 || commercializationRuntime.REGISTRY.records.length !== 893 || new Set(commercializationRuntime.REGISTRY.records.map(x => x.moduleId)).size !== 893 || registry.baselineCanonicalModuleCount !== 639 || registry.problems.length !== 50 ||
     registry.domains.length !== 5 || registry.candidates.length !== 4 ||
     registry.revenueModels.length !== 20 || new Set(registry.problems.map(x => x.id)).size !== 50 ||
     allModuleCatalog.length !== 111 || new Set(allModuleCatalog.map(x => x.moduleId)).size !== 111 ||
@@ -405,6 +406,20 @@ async function handle(req, res, url, deps) {
   }
   if (p === "/api/aria-expansion/canonical-modules" && req.method === "GET") {
     return json(res, 200, { product: "ARIA", total: canonicalModules.length, immutable: true, modules: canonicalModules });
+  }
+  if (p === "/api/aria-expansion/commercialization-registry" && req.method === "GET") {
+    return json(res, 200, { product: "ARIA", total: commercializationRuntime.REGISTRY.ownedUnitCount, counts: commercializationRuntime.REGISTRY.counts, liveBillingEnabled: commercializationRuntime.REGISTRY.liveBillingEnabled, paymentExecuted: commercializationRuntime.REGISTRY.paymentExecuted, productionVerifiedCount: commercializationRuntime.REGISTRY.productionVerifiedCount, records: commercializationRuntime.REGISTRY.records });
+  }
+  if (p === "/api/aria-expansion/commercialization/usage-preview" && req.method === "POST") {
+    const user = requireUser(req, json, res, authUser); if (!user) return true;
+    const data = await readJson(req, res); if (data === null) return true;
+    try {
+      const event = commercializationRuntime.prepareUsageEvent(data.moduleId, { quantity: data.quantity, idempotencyKey: data.idempotencyKey }, { actorId: String(user.sub), tenantId: String(user.sub) });
+      return json(res, 200, { event, paymentExecuted: false, revenueRecognized: false });
+    } catch (err) {
+      if (["ARIA_COMMERCIAL_CONTRACT_NOT_FOUND","ARIA_COMMERCIAL_ACTOR_REQUIRED","ARIA_COMMERCIAL_TENANT_REQUIRED","ARIA_USAGE_QUANTITY_INVALID","ARIA_USAGE_IDEMPOTENCY_REQUIRED"].includes(err.message)) return json(res, 400, { error: err.message });
+      return json(res, 500, { error: "پیش‌نمایش مصرف ماژول انجام نشد." });
+    }
   }
   if (p === "/api/aria-expansion/additional-modules" && req.method === "GET") {
     return json(res, 200, { product: "ARIA", total: replacementModuleRuntime.REGISTRY.records.length, modules: replacementModuleRuntime.REGISTRY.records, externalExecutionEnabled: false, paymentExecuted: false, productionVerified: false });
