@@ -188,3 +188,66 @@ test("owner command center reports pending work and never executes queued action
  const o=result.artifact.domainResult.domainOutput;
  assert.equal(o.pendingWorkCount,1);assert.equal(o.pendingApprovalCount,1);assert.equal(o.actionsExecuted,false);
 });
+
+test("childcare organizer records verified caregiver options without making contact",async()=>{
+ const result=await run(21,{careWindow:"2026-11-21 AM",children:[{id:"c1",careNotes:"school pickup"}],caregivers:[
+ {id:"g1",verified:true,evidenceId:"ref-1",availability:["2026-11-21 AM"],consentToList:true},
+ {id:"g2",verified:false,evidenceId:"",availability:["2026-11-21 AM"],consentToList:true}
+ ]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.deepEqual(o.eligibleCaregiverIds,["g1"]);assert.equal(o.contactExecuted,false);assert.equal(o.careArrangementConfirmed,false);
+});
+test("general meal planner reports ingredient gaps without calorie or diet prescriptions",async()=>{
+ const result=await run(22,{meals:[{id:"m1",name:"Lunch",ingredients:["rice","beans","tomato"]}],availableIngredients:["rice","tomato"],preferences:["vegetarian"]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.deepEqual(o.shoppingGaps,["beans"]);assert.equal(o.calorieTarget,null);assert.equal(o.medicalDietAdviceIssued,false);
+});
+test("movement habit planner uses user-set gentle goals and never schedules unsafe intensity",async()=>{
+ const result=await run(23,{asOfDate:"2026-11-20",habits:[{id:"walk",label:"Walk",frequencyPerWeek:3,minutesPerSession:15},{id:"stretch",label:"Stretch",frequencyPerWeek:2,minutesPerSession:5}]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.equal(o.weeklyPlannedMinutes,55);assert.equal(o.intensityPrescriptionIssued,false);assert.equal(o.activitiesScheduled,false);
+});
+test("relaxation toolkit produces optional non-clinical grounding prompts",async()=>{
+ const result=await run(24,{preferredDurationMinutes:3,preferences:["quiet","sitting"],avoid:["audio"]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.equal(o.durationMinutes,3);assert.equal(o.clinicalTreatmentClaimed,false);assert.equal(o.optionalParticipation,true);
+});
+test("sleep habit journal summarizes only user-provided entries",async()=>{
+ const result=await run(25,{entries:[{date:"2026-11-18",sleepHours:8,restedRating:3},{date:"2026-11-19",sleepHours:7.5,restedRating:2}]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.equal(o.entryCount,2);assert.equal(o.averageReportedHours,7.75);assert.equal(o.diagnosisMade,false);
+});
+test("family leisure planner filters activities by supplied age suitability and budget",async()=>{
+ const result=await run(26,{budget:30,activities:[
+ {id:"a",cost:10,ageSuitable:true,verified:true,evidenceId:"src-a"},
+ {id:"b",cost:40,ageSuitable:true,verified:true,evidenceId:"src-b"},
+ {id:"c",cost:5,ageSuitable:false,verified:true,evidenceId:"src-c"}
+ ]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.deepEqual(o.candidateActivityIds,["a"]);assert.equal(o.bookingExecuted,false);
+});
+test("learning coach turns a skill into achievable milestones without claiming certification",async()=>{
+ const result=await run(27,{skill:"basic coding",currentLevel:"beginner",milestones:[{id:"m1",title:"variables",estimatedMinutes:30},{id:"m2",title:"conditions",estimatedMinutes:45}]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.equal(o.milestoneCount,2);assert.equal(o.totalEstimatedMinutes,75);assert.equal(o.certificationIssued,false);
+});
+test("work life planner detects schedule conflicts and preserves user-selected priorities",async()=>{
+ const result=await run(28,{priorities:["school","family","rest"],events:[{id:"e1",day:"Mon",startTime:"09:00",endTime:"10:00"},{id:"e2",day:"Mon",startTime:"09:30",endTime:"10:30"}]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.deepEqual(o.conflictPairs,[["e1","e2"]]);assert.deepEqual(o.priorities,["school","family","rest"]);assert.equal(o.calendarChanged,false);
+});
+test("pet care organizer tracks owner-entered care tasks without veterinary diagnosis",async()=>{
+ const result=await run(29,{tasks:[{id:"food",label:"Food",dueDate:"2026-11-20",completed:false},{id:"walk",label:"Walk",dueDate:"2026-11-21",completed:false}],asOfDate:"2026-11-20"});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.deepEqual(o.dueTaskIds,["food"]);assert.equal(o.veterinaryAdviceIssued,false);assert.equal(o.externalReminderSent,false);
+});
+test("language practice planner generates reviewable sessions from supplied goals",async()=>{
+ const result=await run(30,{language:"English",level:"beginner",topics:["greetings","directions"],minutesPerSession:15,sessionsPerWeek:3});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.equal(o.plannedWeeklyMinutes,45);assert.equal(o.topicCount,2);assert.equal(o.externalLessonBooked,false);
+});
+test("overlay dispatch rejects an idea catalog item sharing a problem sequence number",async()=>{
+ const result=await executeAriaDomainModule("ARIA-IDEA-MODULE-023",{goal:"Check exact dispatch"},{actorId:"actor",tenantId:"tenant"});
+ assert.equal(result.domainLogicExecuted,false);
+ assert.equal(result.executionState,"LOCAL_WORK_ITEM_ONLY");
+});
