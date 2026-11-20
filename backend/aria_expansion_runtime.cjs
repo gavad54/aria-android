@@ -78,7 +78,7 @@ const moduleInventory = {
   preservedHistoricalOverlayModules: allModuleCatalog.length,
   commercialCatalogModules: commercialModules.length,
   engineSubmodules: engineSubmodules.length,
-  replacementModules: replacementModuleRuntime.REGISTRY.records.length,
+  additionalAriaModules: replacementModuleRuntime.REGISTRY.records.length,
   ariaOwnedModuleAndSubmoduleRecords: canonicalModules.length + moduleCatalog.length + commercialModules.length + engineSubmodules.length + replacementModuleRuntime.REGISTRY.records.length,
   totalModuleAndSubmoduleRecords: canonicalModules.length + allModuleCatalog.length + commercialModules.length + engineSubmodules.length + replacementModuleRuntime.REGISTRY.records.length,
   countingRule: "Total inventory records = 639 canonical + 111 preserved overlay (72 ARIA-owned and 39 lineage-only) + 72 commercial + 71 child engines + 39 new ARIA-owned replacements = 932. ARIA-owned units = 893; the 39 sibling-product/archive lineage records remain excluded from ARIA ownership. This inventory count is not a claim of production verification."
@@ -355,7 +355,7 @@ async function handle(req, res, url, deps) {
   const p = url.pathname;
   if (p === "/api/aria-expansion/summary" && req.method === "GET") {
     return json(res, 200, {
-      product: "ARIA", canonicalModuleCount: canonicalModules.length, canonicalCountChanged: false, moduleInventory, totalModuleInventory: moduleInventory.totalModuleAndSubmoduleRecords, commercialCatalogModules: commercialModules.length, engineSubmodules: engineSubmodules.length, localWorkflowLaunchers: canonicalModules.length + moduleCatalog.length + commercialModules.length + engineSubmodules.length + replacementModuleRuntime.REGISTRY.records.length, ariaOwnedModuleCount: moduleInventory.ariaOwnedModuleAndSubmoduleRecords, replacementModules: replacementModuleRuntime.REGISTRY.records.length, lineageOnlyHistoricalRecords: allModuleCatalog.length - moduleCatalog.length,
+      product: "ARIA", canonicalModuleCount: canonicalModules.length, canonicalCountChanged: false, moduleInventory, totalModuleInventory: moduleInventory.totalModuleAndSubmoduleRecords, commercialCatalogModules: commercialModules.length, engineSubmodules: engineSubmodules.length, localWorkflowLaunchers: canonicalModules.length + moduleCatalog.length + commercialModules.length + engineSubmodules.length + replacementModuleRuntime.REGISTRY.records.length, ariaOwnedModuleCount: moduleInventory.ariaOwnedModuleAndSubmoduleRecords, additionalAriaModules: replacementModuleRuntime.REGISTRY.records.length, lineageOnlyHistoricalRecords: allModuleCatalog.length - moduleCatalog.length,
       parentDomains: registry.domains.length, problemRecords: publicProblemRecords.length,
       historicalProblemModules: publicProblemRecords.length, ideaModules: 25, controlModules: 4, legacyAppModules: 4, totalModules: moduleCatalog.length,
       historicalOverlayModules: allModuleCatalog.length, transferredModules: transferredIds.size, archivedDomainPackages: archivedDomainIds.size, sharedAriaServices: ownership.sharedAriaModuleIds.length,
@@ -377,7 +377,7 @@ async function handle(req, res, url, deps) {
       moduleInventory,
       canonicalRegistry: { count: 639, source: "docs/aria/ARIA_639_CANONICAL_MODULES_COMPACT_2026-11-19.csv", immutable: true },
       preservedHistoricalOverlay: allModuleCatalog,
-      replacementModules: replacementModuleRuntime.REGISTRY.records,
+      additionalAriaModules: replacementModuleRuntime.REGISTRY.records,
       commercialModules,
       engineSubmodules,
       transferredModuleIds: [...transferredIds].sort(),
@@ -406,7 +406,7 @@ async function handle(req, res, url, deps) {
   if (p === "/api/aria-expansion/canonical-modules" && req.method === "GET") {
     return json(res, 200, { product: "ARIA", total: canonicalModules.length, immutable: true, modules: canonicalModules });
   }
-  if (p === "/api/aria-expansion/replacement-modules" && req.method === "GET") {
+  if (p === "/api/aria-expansion/additional-modules" && req.method === "GET") {
     return json(res, 200, { product: "ARIA", total: replacementModuleRuntime.REGISTRY.records.length, modules: replacementModuleRuntime.REGISTRY.records, externalExecutionEnabled: false, paymentExecuted: false, productionVerified: false });
   }
   if (p === "/api/aria-expansion/commercial-modules" && req.method === "GET") {
@@ -544,10 +544,10 @@ async function handle(req, res, url, deps) {
       moduleInventory,
       commercialModules,
       engineSubmodules,
-      replacementModules: replacementModuleRuntime.REGISTRY.records,
+      additionalAriaModules: replacementModuleRuntime.REGISTRY.records,
       canonicalBaseline: 639,
       ariaOwnedModuleAndSubmoduleRecords: moduleInventory.ariaOwnedModuleAndSubmoduleRecords,
-      replacementModuleCount: replacementModuleRuntime.REGISTRY.records.length,
+      additionalAriaModuleCount: replacementModuleRuntime.REGISTRY.records.length,
       unifiedInventoryRecords: unifiedExecutionRegistry.total,
       activeLocalWorkflowUnits: unifiedExecutionRegistry.activeLocalWorkflowCount,
       lineageOnlyUnits: unifiedExecutionRegistry.lineageOnlyCount,
