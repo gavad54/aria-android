@@ -589,15 +589,42 @@ async function handle(req, res, url, deps) {
     const goal = cleanText(data.goal, 4, 1200);
     if (!goal) return json(res, 400, { error: "هدف باید بین ۴ تا ۱۲۰۰ نویسه باشد." });
     const context = data.context && typeof data.context === "object" && !Array.isArray(data.context) ? data.context : {};
-    let details; try { details = JSON.stringify(buildCommercialOperationPlan(module, goal, context)); } catch { return json(res, 400, { error: "زمینه ورودی معتبر نیست." }); }
-    if (details.length > 12000) return json(res, 400, { error: "زمینه ورودی بیش از حد مجاز است." });
+    const inventoryModuleId = "ARIA-COMMERCIAL-MODULE-" + module.catalogEntryId;
+    let domainExecution;
+    try {
+      domainExecution = await ariaDomainRuntime.executeAriaDomainModule(inventoryModuleId, {
+        goal, context, consent: data.consent === true
+      }, { actorId: String(user.sub), tenantId: String(user.sub) });
+    } catch (err) {
+      const badInput = ["MODULE_INPUT_INVALID","MODULE_INPUT_TOO_LARGE","MODULE_INPUT_DEPTH_EXCEEDED","MODULE_INPUT_STRING_LIMIT","MODULE_INPUT_COLLECTION_LIMIT","MODULE_INPUT_UNSAFE_KEY","MODULE_INPUT_KEY_LIMIT","MODULE_INPUT_CYCLE","MODULE_CONTEXT_INVALID","MODULE_ACTOR_INVALID","MODULE_TENANT_INVALID","MODULE_INPUT_MISSING"].includes(err.message);
+      if (err.message === "MODULE_CONSENT_REQUIRED") return json(res, 403, { error: err.message });
+      if (badInput) return json(res, 400, { error: err.message, missingFields: err.missingFields || [] });
+      if (err.message === "ARIA_DOMAIN_MODULE_NOT_FOUND") return json(res, 404, { error: err.message });
+      return json(res, 409, { error: err.message || "ARIA_COMMERCIAL_DOMAIN_EXECUTION_REJECTED" });
+    }
+    const details = JSON.stringify({
+      moduleId: inventoryModuleId, commercialModuleId: module.commercialModuleId,
+      executionSpec: unifiedExecutionById.get(module.commercialModuleId) || null,
+      ownerProduct: "ARIA", ownerDomain: module.domain,
+      domainExecution, goal, executionStatus: "LOCAL_UNIT_SPECIFIC_DOMAIN_LOGIC_EXECUTED",
+      tenantBoundary: "PERSONAL_ACCOUNT_SCOPE", externalExecutionPerformed: false,
+      paymentExecuted: false, productionVerified: false
+    });
+    if (Buffer.byteLength(details, "utf8") > 131072) return json(res, 400, { error: "ARIA_DOMAIN_RESULT_TOO_LARGE" });
     if (!await requireDb(res)) return true;
     try {
       await ensureTables(pool);
-      const moduleId = "ARIA-COMMERCIAL-MODULE-" + module.catalogEntryId;
-      const q = await pool.query("INSERT INTO aria_expansion_work_items(user_id,module_id,title,details) VALUES($1,$2,$3,$4) RETURNING id,module_id,title,status,created_at", [user.sub, moduleId, module.name + " — " + goal.slice(0, 100), details]);
-      return json(res, 201, { item: { ...q.rows[0], id: String(q.rows[0].id) }, handlerKey: module.executionContract.handlerKey, executionStatus: "LOCAL_WORK_ITEM_CREATED", providerState: module.executionContract.providerState, externalExecutionPerformed: false, productionVerified: false });
-    } catch (err) { console.error("ARIA commercial work item failed:", err.message); return json(res, 500, { error: "ثبت گردش‌کار تجاری انجام نشد." }); }
+      const q = await pool.query("INSERT INTO aria_expansion_work_items(user_id,module_id,title,details) VALUES($1,$2,$3,$4) RETURNING id,module_id,title,status,created_at", [user.sub, inventoryModuleId, module.name + " — " + goal.slice(0, 100), details]);
+      return json(res, 201, {
+        item: { ...q.rows[0], id: String(q.rows[0].id) },
+        handlerKey: "aria.catalog." + module.catalogEntryId,
+        contractHandlerKey: module.executionContract.handlerKey,
+        executionStatus: "LOCAL_DOMAIN_LOGIC_WORK_ITEM_CREATED",
+        domainLogicExecuted: true, tenantBoundary: "PERSONAL_ACCOUNT_SCOPE",
+        providerState: module.executionContract.providerState,
+        externalExecutionPerformed: false, paymentExecuted: false, productionVerified: false
+      });
+    } catch (err) { console.error("ARIA commercial domain work item failed:", err.message); return json(res, 500, { error: "ثبت گردش‌کار تجاری انجام نشد." }); }
   }
   const engineRunMatch = p.match(/^\/api\/aria-expansion\/engines\/([^/]+)\/run$/);
   if (engineRunMatch && req.method === "POST") {
