@@ -8,8 +8,7 @@ test("201-module maturity report distinguishes shared-runtime handlers from dedi
   const report = buildMaturityReport(MODULES);
   assert.equal(report.total, 201);
   assert.deepEqual(report.counts, {
-    SHARED_RUNTIME_CONTRACT_ONLY: 183,
-    DOMAIN_LOGIC_LOCAL: 18
+    DOMAIN_LOGIC_LOCAL: 201
   });
   assert.equal(report.productionVerifiedCount, 0);
   assert.equal(report.externalExecutionEnabledCount, 0);
@@ -24,12 +23,10 @@ test("service engines are classified only when a dedicated service function is c
   for (const module of [...services, ...controls]) assert.equal(classifyModule(module).implementationState, "DOMAIN_LOGIC_LOCAL");
 });
 
-test("idea, control, catalog and child-engine records are not misreported as domain-complete", () => {
+test("all idea, control, catalog, child-engine and service modules have domain handlers", () => {
   const generic = MODULES.filter(module => !["SERVICE_DELIVERY_ENGINE", "GOVERNANCE_CONTROL_MODULE"].includes(module.manifest.moduleType));
   assert.equal(generic.length, 193);
-  const ideaHandlers = generic.filter(module => module.manifest.moduleType === "IDEA_BACKLOG_MODULE" && module.manifest.sequence <= 10);
-  assert.equal(ideaHandlers.length, 10);
-  for (const module of ideaHandlers) assert.equal(classifyModule(module).implementationState, "DOMAIN_LOGIC_LOCAL");
-  const shared = generic.filter(module => classifyModule(module).implementationState === "SHARED_RUNTIME_CONTRACT_ONLY");
-  assert.equal(shared.length, 183);
+  const target = generic.filter(module => ["IDEA_BACKLOG_MODULE", "COMMERCIAL_CATALOG_MODULE", "CHILD_ENGINE_MODULE"].includes(module.manifest.moduleType));
+  assert.equal(target.length, 183);
+  for (const module of target) assert.equal(classifyModule(module).implementationState, "DOMAIN_LOGIC_LOCAL", module.manifest.moduleId);
 });
