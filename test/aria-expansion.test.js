@@ -28,28 +28,31 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(summary.historicalCandidates,4);
   assert.equal(summary.revenueModels,20);
   assert.equal(summary.engines,71);
-  assert.equal(summary.totalModuleInventory,893);
-  assert.equal(summary.localWorkflowLaunchers,854);
+  assert.equal(summary.totalModuleInventory,932);
+  assert.equal(summary.ariaOwnedModuleCount,893);
+  assert.equal(summary.replacementModules,39);
+  assert.equal(summary.localWorkflowLaunchers,893);
   assert.equal(summary.lineageOnlyHistoricalRecords,39);
   assert.equal(summary.moduleInventory.canonicalModules,639);
   assert.equal(summary.moduleInventory.preservedHistoricalOverlayModules,111);
   assert.equal(summary.moduleInventory.commercialCatalogModules,72);
   assert.equal(summary.moduleInventory.engineSubmodules,71);
-  assert.equal(summary.moduleInventory.totalModuleAndSubmoduleRecords,893);
+  assert.equal(summary.moduleInventory.totalModuleAndSubmoduleRecords,932);
+  assert.equal(summary.moduleInventory.ariaOwnedModuleAndSubmoduleRecords,893);
   assert.equal(summary.liveRevenueEnabled,false);
 
   const executionRegistryResponse=await fetch(base+"/api/aria-expansion/execution-registry");
   const executionRegistry=await executionRegistryResponse.json();
   assert.equal(executionRegistryResponse.status,200);
-  assert.equal(executionRegistry.total,893);
-  assert.equal(executionRegistry.activeLocalWorkflowCount,854);
+  assert.equal(executionRegistry.total,932);
+  assert.equal(executionRegistry.activeLocalWorkflowCount,893);
   assert.equal(executionRegistry.lineageOnlyCount,39);
-  assert.equal(executionRegistry.records.length,893);
-  assert.equal(new Set(executionRegistry.records.map(x=>x.unitId)).size,893);
-  assert.equal(new Set(executionRegistry.records.map(x=>x.launchId)).size,893);
+  assert.equal(executionRegistry.records.length,932);
+  assert.equal(new Set(executionRegistry.records.map(x=>x.unitId)).size,932);
+  assert.equal(new Set(executionRegistry.records.map(x=>x.launchId)).size,932);
   assert.ok(executionRegistry.records.every(x=>x.executionContract&&Array.isArray(x.executionContract.operations)&&x.executionContract.operations.length>0));
   assert.equal(executionRegistry.records.filter(x=>x.executionState==="LINEAGE_ONLY").length,39);
-  assert.equal(executionRegistry.records.filter(x=>x.executionState==="LOCAL_WORK_ITEM_ONLY").length,854);
+  assert.equal(executionRegistry.records.filter(x=>x.executionState==="LOCAL_WORK_ITEM_ONLY").length,893);
   const sampleSpec=await fetch(base+"/api/aria-expansion/execution-registry/ARIA-CANONICAL-MODULE-001");
   const sampleSpecJson=await sampleSpec.json();
   assert.equal(sampleSpec.status,200);
@@ -67,6 +70,8 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(executionRegistry.counts.overlay,111);
   assert.equal(executionRegistry.counts.commercial,72);
   assert.equal(executionRegistry.counts.engines,71);
+  assert.equal(executionRegistry.counts.replacements,39);
+  assert.equal(executionRegistry.counts.active,893);
   const missingSpec=await fetch(base+"/api/aria-expansion/execution-registry/UNKNOWN-MODULE");
   assert.equal(missingSpec.status,404);
 
@@ -95,7 +100,9 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(matrix.publicCatalog.productionVerified,0);
   assert.equal(matrix.publicCatalog.notProductionVerified,72);
   assert.equal(matrix.engines.total,71);
-  assert.equal(matrix.moduleInventory.totalModuleAndSubmoduleRecords,893);
+  assert.equal(matrix.moduleInventory.totalModuleAndSubmoduleRecords,932);
+  assert.equal(matrix.moduleInventory.ariaOwnedModuleAndSubmoduleRecords,893);
+  assert.equal(matrix.replacementModules.length,39);
   assert.equal(matrix.commercialModules.length,72);
   assert.equal(matrix.engineSubmodules.length,71);
   assert.equal(new Set(matrix.commercialModules.map(x=>x.moduleId)).size,72);
@@ -141,7 +148,9 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   const inventoryResponse=await fetch(base+"/api/aria-expansion/inventory");
   const inventory=await inventoryResponse.json();
   assert.equal(inventoryResponse.status,200);
-  assert.equal(inventory.moduleInventory.totalModuleAndSubmoduleRecords,893);
+  assert.equal(inventory.moduleInventory.totalModuleAndSubmoduleRecords,932);
+  assert.equal(inventory.moduleInventory.ariaOwnedModuleAndSubmoduleRecords,893);
+  assert.equal(inventory.replacementModules.length,39);
   assert.equal(inventory.preservedHistoricalOverlay.length,111);
   assert.equal(inventory.commercialModules.length,72);
   assert.equal(inventory.engineSubmodules.length,71);
@@ -175,6 +184,13 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(unauthEngineRun.status,401);
   const unauthOverlayRun=await fetch(base+"/api/aria-expansion/modules/ARIA-PROBLEM-MODULE-001/run",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"آزمون ماژول تاریخی فعال"})});
   assert.equal(unauthOverlayRun.status,401);
+  const replacementCatalog=await fetch(base+"/api/aria-expansion/replacement-modules");
+  const replacementData=await replacementCatalog.json();
+  assert.equal(replacementCatalog.status,200);
+  assert.equal(replacementData.total,39);
+  assert.equal(new Set(replacementData.modules.map(x=>x.moduleId)).size,39);
+  const unauthReplacementRun=await fetch(base+"/api/aria-expansion/replacement-modules/ARIA-OWNED-REPLACEMENT-001/run",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"آزمون ماژول جایگزین"})});
+  assert.equal(unauthReplacementRun.status,401);
 
   const enginesResponse=await fetch(base+"/api/aria-expansion/engines");
   const engines=await enginesResponse.json();
