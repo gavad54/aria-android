@@ -22206,29 +22206,37 @@
       "hostCanonicalContractId": 237,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-001",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-001",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-001",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -22255,7 +22263,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-002",
@@ -22268,29 +22276,37 @@
       "hostCanonicalContractId": 237,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-002",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-002",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-002",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -22317,7 +22333,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-003",
@@ -22330,29 +22346,37 @@
       "hostCanonicalContractId": 237,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-003",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-003",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-003",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -22379,7 +22403,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-004",
@@ -22392,29 +22416,37 @@
       "hostCanonicalContractId": 237,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-004",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-004",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-004",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -22441,7 +22473,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-005",
@@ -22454,29 +22486,37 @@
       "hostCanonicalContractId": 237,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-005",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-005",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-005",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -22503,7 +22543,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-006",
@@ -22516,29 +22556,37 @@
       "hostCanonicalContractId": 237,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-006",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-006",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-006",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -22565,7 +22613,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-007",
@@ -22578,29 +22626,37 @@
       "hostCanonicalContractId": 237,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-007",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-007",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-007",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -22627,7 +22683,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-008",
@@ -22640,29 +22696,37 @@
       "hostCanonicalContractId": 237,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-008",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-008",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-008",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -22689,7 +22753,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-009",
@@ -22702,29 +22766,37 @@
       "hostCanonicalContractId": 237,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-009",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-009",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-009",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -22751,7 +22823,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-010",
@@ -22764,29 +22836,37 @@
       "hostCanonicalContractId": 237,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-010",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-010",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-010",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -22813,7 +22893,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-011",
@@ -22978,29 +23058,37 @@
       "hostCanonicalContractId": 11,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-015",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-015",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-015",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -23027,7 +23115,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-016",
@@ -23040,29 +23128,37 @@
       "hostCanonicalContractId": 11,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-016",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-016",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-016",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -23089,7 +23185,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-017",
@@ -23102,29 +23198,37 @@
       "hostCanonicalContractId": 11,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-017",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-017",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-017",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -23151,7 +23255,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-018",
@@ -23164,29 +23268,37 @@
       "hostCanonicalContractId": 11,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-018",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-018",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-018",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -23213,7 +23325,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-019",
@@ -23226,29 +23338,37 @@
       "hostCanonicalContractId": 11,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-019",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-019",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-019",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -23275,7 +23395,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-020",
@@ -23288,29 +23408,37 @@
       "hostCanonicalContractId": 11,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-020",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-020",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-020",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -23337,7 +23465,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-021",
@@ -23350,29 +23478,37 @@
       "hostCanonicalContractId": 233,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-021",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-021",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-021",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -23399,7 +23535,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-022",
@@ -23412,29 +23548,37 @@
       "hostCanonicalContractId": 233,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-022",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-022",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-022",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -23461,7 +23605,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-023",
@@ -23474,29 +23618,37 @@
       "hostCanonicalContractId": 233,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-023",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-023",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-023",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -23523,7 +23675,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-024",
@@ -23536,29 +23688,37 @@
       "hostCanonicalContractId": 233,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-024",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-024",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-024",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -23585,7 +23745,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-025",
@@ -23598,29 +23758,37 @@
       "hostCanonicalContractId": 233,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-025",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-025",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-025",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -23647,7 +23815,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-026",
@@ -23660,29 +23828,37 @@
       "hostCanonicalContractId": 233,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-026",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-026",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-026",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -23709,7 +23885,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-027",
@@ -23722,29 +23898,37 @@
       "hostCanonicalContractId": 233,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-027",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-027",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-027",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -23771,7 +23955,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-028",
@@ -23784,29 +23968,37 @@
       "hostCanonicalContractId": 233,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-028",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-028",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-028",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -23833,7 +24025,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-029",
@@ -23846,29 +24038,37 @@
       "hostCanonicalContractId": 233,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-029",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-029",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-029",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -23895,7 +24095,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-030",
@@ -23908,29 +24108,37 @@
       "hostCanonicalContractId": 233,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-030",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-030",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-030",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -23957,7 +24165,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-031",
@@ -23970,29 +24178,37 @@
       "hostCanonicalContractId": 169,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-031",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-031",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-031",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -24019,7 +24235,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-032",
@@ -24032,29 +24248,37 @@
       "hostCanonicalContractId": 169,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-032",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-032",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-032",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -24081,7 +24305,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-033",
@@ -24094,29 +24318,37 @@
       "hostCanonicalContractId": 169,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-033",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-033",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-033",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -24143,7 +24375,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-034",
@@ -24156,29 +24388,37 @@
       "hostCanonicalContractId": 169,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-034",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-034",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-034",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -24205,7 +24445,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-035",
@@ -24256,29 +24496,37 @@
       "hostCanonicalContractId": 169,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-036",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-036",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-036",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -24305,7 +24553,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-037",
@@ -24356,29 +24604,37 @@
       "hostCanonicalContractId": 169,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-038",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-038",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-038",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -24405,7 +24661,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-039",
@@ -24418,29 +24674,37 @@
       "hostCanonicalContractId": 169,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-039",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-039",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-039",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -24467,7 +24731,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-040",
@@ -24518,29 +24782,37 @@
       "hostCanonicalContractId": 235,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-041",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-041",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-041",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -24567,7 +24839,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-042",
@@ -24618,29 +24890,37 @@
       "hostCanonicalContractId": 235,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-043",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-043",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-043",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -24667,7 +24947,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-044",
@@ -24680,29 +24960,37 @@
       "hostCanonicalContractId": 235,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-044",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-044",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-044",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -24729,7 +25017,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-045",
@@ -24780,29 +25068,37 @@
       "hostCanonicalContractId": 235,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-046",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-046",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-046",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -24829,7 +25125,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-047",
@@ -24880,29 +25176,37 @@
       "hostCanonicalContractId": 233,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-048",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-048",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-048",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -24929,7 +25233,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-PROBLEM-MODULE-049",
@@ -24980,29 +25284,37 @@
       "hostCanonicalContractId": 235,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.PROBLEM_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-PROBLEM-MODULE-050",
         "operations": [
           "validate_input",
-          "build_local_plan",
+          "check_authorization_and_consent",
+          "collect_or_process_allowed_data",
+          "produce_result",
           "quality_review",
-          "track_outcome"
+          "record_outcome"
         ],
         "inputContract": [
-          "goal",
+          "authenticated_actor",
+          "tenant_context",
+          "user_goal",
           "constraints",
           "consent",
-          "sourceReferences"
+          "source_references"
         ],
         "outputContract": [
-          "actionPlan",
-          "checklist",
-          "riskFlags",
-          "followUp"
+          "validated_result",
+          "action_plan",
+          "status",
+          "source_trace",
+          "audit_record",
+          "follow_up"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-PROBLEM-MODULE-050",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-PROBLEM-MODULE-050",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -25029,7 +25341,7 @@
           "record_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-CONTROL-MODULE-001",
@@ -25042,7 +25354,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.HISTORICAL_CONTROL_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-CONTROL-MODULE-001",
         "operations": [
           "validate",
           "authorize_or_simulate",
@@ -25060,10 +25372,12 @@
           "audit_record",
           "explainability"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-CONTROL-MODULE-001",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-CONTROL-MODULE-001",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -25083,7 +25397,7 @@
           "review"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-CONTROL-MODULE-002",
@@ -25096,7 +25410,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.HISTORICAL_CONTROL_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-CONTROL-MODULE-002",
         "operations": [
           "validate",
           "authorize_or_simulate",
@@ -25114,10 +25428,12 @@
           "audit_record",
           "explainability"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-CONTROL-MODULE-002",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-CONTROL-MODULE-002",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -25137,7 +25453,7 @@
           "review"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-CONTROL-MODULE-003",
@@ -25150,7 +25466,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.HISTORICAL_CONTROL_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-CONTROL-MODULE-003",
         "operations": [
           "validate",
           "authorize_or_simulate",
@@ -25168,10 +25484,12 @@
           "audit_record",
           "explainability"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-CONTROL-MODULE-003",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-CONTROL-MODULE-003",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -25191,7 +25509,7 @@
           "review"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-CONTROL-MODULE-004",
@@ -25204,7 +25522,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.HISTORICAL_CONTROL_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-CONTROL-MODULE-004",
         "operations": [
           "validate",
           "authorize_or_simulate",
@@ -25222,10 +25540,12 @@
           "audit_record",
           "explainability"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-CONTROL-MODULE-004",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-CONTROL-MODULE-004",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -25245,7 +25565,7 @@
           "review"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-LEGACY-APP-MODULE-001",
@@ -25333,7 +25653,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.ARIA_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-LEGACY-APP-MODULE-003",
         "operations": [
           "validate_tenant_and_permissions",
           "validate_inputs_and_consent",
@@ -25356,10 +25676,12 @@
           "sales_analytics",
           "return_case"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-LEGACY-APP-MODULE-003",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-LEGACY-APP-MODULE-003",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "merchant_profile",
@@ -25384,7 +25706,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-LEGACY-APP-MODULE-004",
@@ -25397,7 +25719,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.ARIA_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-LEGACY-APP-MODULE-004",
         "operations": [
           "validate_tenant_and_permissions",
           "validate_inputs_and_consent",
@@ -25420,10 +25742,12 @@
           "approval_package",
           "rights_manifest"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-LEGACY-APP-MODULE-004",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-LEGACY-APP-MODULE-004",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "creative_brief",
@@ -25448,7 +25772,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-LEGACY-APP-MODULE-005",
@@ -25461,7 +25785,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.ARIA_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-LEGACY-APP-MODULE-005",
         "operations": [
           "validate_tenant_and_permissions",
           "validate_inputs_and_consent",
@@ -25483,10 +25807,12 @@
           "quota_report",
           "backup_restore_evidence"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-LEGACY-APP-MODULE-005",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-LEGACY-APP-MODULE-005",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "tenant_context",
@@ -25510,7 +25836,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-LEGACY-APP-MODULE-006",
@@ -25523,7 +25849,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.ARIA_DOMAIN_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-LEGACY-APP-MODULE-006",
         "operations": [
           "validate_tenant_and_permissions",
           "validate_inputs_and_consent",
@@ -25546,10 +25872,12 @@
           "seo_report",
           "analytics_summary"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-LEGACY-APP-MODULE-006",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-LEGACY-APP-MODULE-006",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "site_brief",
@@ -25574,7 +25902,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-LEGACY-APP-MODULE-007",
@@ -25693,7 +26021,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-003",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -25715,10 +26043,12 @@
           "approval_chain",
           "purchase_order_draft"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-003",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-003",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -25742,7 +26072,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-004",
@@ -25824,7 +26154,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-006",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -25846,10 +26176,12 @@
           "origin_record",
           "exception_alert"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-006",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-006",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -25873,7 +26205,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-007",
@@ -25991,7 +26323,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-010",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -26013,10 +26345,12 @@
           "expiry_alerts",
           "market_readiness"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-010",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-010",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -26040,7 +26374,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-011",
@@ -26053,7 +26387,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-011",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -26074,10 +26408,12 @@
           "nonconformance",
           "corrective_action"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-011",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-011",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -26100,7 +26436,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-012",
@@ -26113,7 +26449,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-012",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -26134,10 +26470,12 @@
           "affected_batch_list",
           "notification_audit"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-012",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-012",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -26160,7 +26498,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-013",
@@ -26173,7 +26511,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-013",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -26194,10 +26532,12 @@
           "decision",
           "service_history"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-013",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-013",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -26220,7 +26560,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-014",
@@ -26268,7 +26608,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-015",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -26289,10 +26629,12 @@
           "maintenance_history",
           "downtime_report"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-015",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-015",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -26315,7 +26657,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-016",
@@ -26567,7 +26909,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-023",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -26588,10 +26930,12 @@
           "compliance_score",
           "corrective_tasks"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-023",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-023",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -26614,7 +26958,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-024",
@@ -26696,7 +27040,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-026",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -26717,10 +27061,12 @@
           "critical_path",
           "change_impact"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-026",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-026",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -26743,7 +27089,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-027",
@@ -26756,7 +27102,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-027",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -26778,10 +27124,12 @@
           "utilization_view",
           "shortage_alerts"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-027",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-027",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -26805,7 +27153,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-028",
@@ -26818,7 +27166,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-028",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -26840,10 +27188,12 @@
           "open_gaps",
           "signoff_history"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-028",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-028",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -26867,7 +27217,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-029",
@@ -26914,7 +27264,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-030",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -26936,10 +27286,12 @@
           "action_log",
           "postmortem"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-030",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-030",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -26963,7 +27315,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-031",
@@ -26976,7 +27328,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-031",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -26998,10 +27350,12 @@
           "source_lineage",
           "review_status"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-031",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-031",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -27025,7 +27379,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-032",
@@ -27038,7 +27392,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-032",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -27059,10 +27413,12 @@
           "approval_chain",
           "audit_log"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-032",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-032",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -27085,7 +27441,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-033",
@@ -27098,7 +27454,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-033",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -27119,10 +27475,12 @@
           "archive_job",
           "deletion_evidence"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-033",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-033",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -27145,7 +27503,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-034",
@@ -27193,7 +27551,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-035",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -27214,10 +27572,12 @@
           "severity",
           "resolution_evidence"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-035",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-035",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -27240,7 +27600,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-036",
@@ -27393,7 +27753,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-040",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -27415,10 +27775,12 @@
           "gate_status",
           "approval_record"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-040",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-040",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -27442,7 +27804,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-041",
@@ -27455,7 +27817,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-041",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -27477,10 +27839,12 @@
           "terminology_record",
           "review_status"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-041",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-041",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -27504,7 +27868,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-042",
@@ -27517,7 +27881,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-042",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -27538,10 +27902,12 @@
           "issues",
           "remediation_status"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-042",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-042",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -27564,7 +27930,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-043",
@@ -27577,7 +27943,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-043",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -27600,10 +27966,12 @@
           "usage_scope",
           "expiry_alert"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-043",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-043",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -27628,7 +27996,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-044",
@@ -27641,7 +28009,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-044",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -27663,10 +28031,12 @@
           "contributor_graph",
           "rights_summary"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-044",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-044",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -27690,7 +28060,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-045",
@@ -27738,7 +28108,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-046",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -27760,10 +28130,12 @@
           "skill_gap",
           "development_plan"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-046",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-046",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -27787,7 +28159,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-047",
@@ -27800,7 +28172,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-047",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -27822,10 +28194,12 @@
           "coverage_gaps",
           "conflict_alerts"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-047",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-047",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -27849,7 +28223,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-048",
@@ -27862,7 +28236,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-048",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -27884,10 +28258,12 @@
           "corrective_action",
           "closure_evidence"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-048",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-048",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -27911,7 +28287,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-049",
@@ -27924,7 +28300,7 @@
       "hostCanonicalContractId": null,
       "executionState": "LOCAL_WORK_ITEM_ONLY",
       "executionContract": {
-        "handlerKey": "engine.NEW_IDEA_ENGINE",
+        "handlerKey": "aria.overlay.ARIA-IDEA-MODULE-049",
         "operations": [
           "validate_input",
           "authorize_tenant_and_role",
@@ -27946,10 +28322,12 @@
           "risk_register",
           "mitigation_actions"
         ],
-        "sourceContractPreserved": true
+        "sourceContractPreserved": true,
+        "domainRuntimeModuleId": "ARIA-IDEA-MODULE-049",
+        "domainRuntimeExport": "executeAriaDomainModule"
       },
       "launchId": "ARIA-IDEA-MODULE-049",
-      "implementationState": "OVERLAY_ENGINE_FAMILY_ADAPTER",
+      "implementationState": "UNIT_SPECIFIC_DOMAIN_LOGIC",
       "sourceContract": {
         "inputContract": [
           "authenticated_actor",
@@ -27973,7 +28351,7 @@
           "record_audit_and_outcome"
         ]
       },
-      "workflowEntry": "OVERLAY_ENGINE_FAMILY_HANDLER"
+      "workflowEntry": "UNIT_SPECIFIC_DOMAIN_HANDLER"
     },
     {
       "unitId": "ARIA-IDEA-MODULE-050",
