@@ -3,6 +3,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const serviceDelivery = require("./aria-service-delivery.cjs");
 const moduleRegistryRuntime = require("./modules");
+const ariaDomainRuntime = require("./aria-144-domain-runtime.cjs");
 const replacementModuleRuntime = require("./aria-039-replacement-runtime.cjs");
 const commercializationRuntime = require("./aria-commercialization-runtime.cjs");
 const adapterRuntimeContracts = require("./integrations/adapter-runtime.cjs");
@@ -645,17 +646,43 @@ async function handle(req, res, url, deps) {
     const data = await readJson(req, res); if (data === null) return true;
     const goal = cleanText(data.goal, 4, 1200);
     if (!goal) return json(res, 400, { error: "هدف باید بین ۴ تا ۱۲۰۰ نویسه باشد." });
+    const tenantId = String(user.sub);
     let domainExecution;
-    try { domainExecution = buildOverlayEngineExecution(module, goal, data.context && typeof data.context === "object" && !Array.isArray(data.context) ? data.context : {}); }
-    catch (err) { return json(res, 409, { error: err.message }); }
-    const details = JSON.stringify({ moduleId: module.moduleId, moduleType: module.moduleType, executionSpec: unifiedExecutionById.get(module.moduleId) || null, ownerProduct: "ARIA", ownerDomain: module.legacyAppName || module.parentDomainName || module.domainPackId || "ARIA_GENERAL", engineId: module.engineId || null, inputContract: module.inputContract, outputContract: module.outputContract, workflow: module.workflow, acceptanceCriteria: module.acceptanceCriteria, domainExecution, goal, executionStatus: "LOCAL_ENGINE_FAMILY_ADAPTER_EXECUTED", externalExecutionPerformed: false, productionVerified: false });
-    if (details.length > 12000) return json(res, 400, { error: "جزئیات ورودی بیش از حد مجاز است." });
+    try {
+      domainExecution = await ariaDomainRuntime.executeAriaDomainModule(module.moduleId, {
+        goal,
+        context: data.context && typeof data.context === "object" && !Array.isArray(data.context) ? data.context : {},
+        consent: data.consent === true
+      }, { actorId: String(user.sub), tenantId });
+    } catch (err) {
+      const badInput = ["MODULE_INPUT_INVALID","MODULE_INPUT_TOO_LARGE","MODULE_INPUT_DEPTH_EXCEEDED","MODULE_INPUT_STRING_LIMIT","MODULE_INPUT_COLLECTION_LIMIT","MODULE_INPUT_UNSAFE_KEY","MODULE_INPUT_KEY_LIMIT","MODULE_INPUT_CYCLE","MODULE_CONTEXT_INVALID","MODULE_ACTOR_INVALID","MODULE_TENANT_INVALID","MODULE_INPUT_MISSING"].includes(err.message);
+      if (err.message === "MODULE_CONSENT_REQUIRED") return json(res, 403, { error: err.message });
+      if (badInput) return json(res, 400, { error: err.message });
+      if (err.message === "ARIA_DOMAIN_MODULE_NOT_FOUND") return json(res, 404, { error: err.message });
+      return json(res, 409, { error: err.message || "ARIA_DOMAIN_EXECUTION_REJECTED" });
+    }
+    const details = JSON.stringify({
+      moduleId: module.moduleId, moduleType: module.moduleType,
+      executionSpec: unifiedExecutionById.get(module.moduleId) || null,
+      ownerProduct: "ARIA", ownerDomain: module.legacyAppName || module.parentDomainName || module.domainPackId || "ARIA_GENERAL",
+      engineId: module.engineId || null, inputContract: module.inputContract, outputContract: module.outputContract,
+      workflow: module.workflow, acceptanceCriteria: module.acceptanceCriteria,
+      domainExecution, goal, executionStatus: "LOCAL_UNIT_SPECIFIC_DOMAIN_LOGIC_EXECUTED",
+      tenantBoundary: "PERSONAL_ACCOUNT_SCOPE", externalExecutionPerformed: false,
+      paymentExecuted: false, productionVerified: false
+    });
+    if (Buffer.byteLength(details, "utf8") > 131072) return json(res, 400, { error: "ARIA_DOMAIN_RESULT_TOO_LARGE" });
     if (!await requireDb(res)) return true;
     try {
       await ensureTables(pool);
       const q = await pool.query("INSERT INTO aria_expansion_work_items(user_id,module_id,title,details) VALUES($1,$2,$3,$4) RETURNING id,module_id,title,status,created_at", [user.sub, module.moduleId, module.name + " — " + goal.slice(0, 100), details]);
-      return json(res, 201, { item: { ...q.rows[0], id: String(q.rows[0].id) }, executionStatus: "LOCAL_WORK_ITEM_CREATED", externalExecutionPerformed: false, productionVerified: false });
-    } catch (err) { console.error("ARIA overlay work item failed:", err.message); return json(res, 500, { error: "ثبت گردش‌کار ماژول انجام نشد." }); }
+      return json(res, 201, {
+        item: { ...q.rows[0], id: String(q.rows[0].id) },
+        executionStatus: "LOCAL_DOMAIN_LOGIC_WORK_ITEM_CREATED",
+        domainLogicExecuted: true, tenantBoundary: "PERSONAL_ACCOUNT_SCOPE",
+        externalExecutionPerformed: false, paymentExecuted: false, productionVerified: false
+      });
+    } catch (err) { console.error("ARIA overlay domain work item failed:", err.message); return json(res, 500, { error: "ثبت گردش‌کار ماژول انجام نشد." }); }
   }
   if (p === "/api/aria-expansion/capability-matrix" && req.method === "GET") {
     const byType = Object.fromEntries(
