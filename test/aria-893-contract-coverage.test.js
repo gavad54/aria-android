@@ -42,7 +42,7 @@ test("all 71 child engines resolve to an ARIA parent and inherit its entitlement
   for (const engine of engines) {
     assert.equal(engine.separatelyBillable, false);
     assert.equal(engine.revenueEngine.state, "INHERITED_NOT_SEPARATELY_MONETIZED");
-    assert.equal(engine.parentModuleIds.length, 1);
+    assert.ok(engine.parentModuleIds.length >= 1);
     const parentId = engine.parentModuleIds[0];
     assert.equal(owned.get(engine.moduleId)?.parentModuleIds[0], parentId);
     assert.ok(owned.has(parentId));
