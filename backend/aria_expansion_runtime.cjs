@@ -131,6 +131,32 @@ const engineWorkflowHandlers = {
   ARIA_DOMAIN_ENGINE: (engine, goal) => ({ artifactType: "DOMAIN_WORKFLOW_PLAN", domainGoal: goal, operations: engine.operations, checks: ["تعریف دامنه", "ورودی و خروجی", "وابستگی‌ها", "کیفیت و تحویل"] })
 };
 
+function buildOverlayEngineExecution(module, goal, context = {}) {
+  const linkedEngines = engineSubmodules.filter(engine => engine.parentModuleIds.includes(module.moduleId));
+  if (!linkedEngines.length) throw new Error("ARIA_OVERLAY_ENGINE_NOT_MAPPED");
+  return linkedEngines.map(engine => {
+    const handler = engineWorkflowHandlers[engine.domain];
+    if (!handler) throw new Error("ARIA_OVERLAY_ENGINE_HANDLER_MISSING");
+    return {
+      engineSubmoduleId: engine.moduleId,
+      engineId: engine.engineId,
+      engineFamily: engine.domain,
+      executionMode: "ENGINE_FAMILY_ADAPTER",
+      operations: engine.operations,
+      operationResults: engine.operations.map((operation, index) => ({
+        sequence: index + 1,
+        operation,
+        status: "EXECUTED_LOCAL",
+        reviewRequired: true
+      })),
+      domainArtifact: handler(engine, goal, context),
+      externalExecutionPerformed: false,
+      paymentExecuted: false,
+      productionVerified: false
+    };
+  });
+}
+
 const overlayModuleIds = new Set(allModuleCatalog.map(item => item.moduleId));
 if (engineSubmodules.some(engine => engine.parentModuleIds.length === 0 || engine.parentModuleIds.some(id => !overlayModuleIds.has(id) || !moduleCatalogById.has(id)))) {
   throw new Error("ARIA_ENGINE_SUBMODULE_HOST_MAPPING_INVALID");
@@ -140,7 +166,7 @@ const implementationMaturity = Object.freeze({
   totalInventoryRecords: 932,
   counts: Object.freeze({
     canonical: Object.freeze({ units: canonicalModules.length, executionMode: "CANONICAL_FAMILY_WORKFLOW", handlerFamilies: new Set(canonicalModules.map(x => x.designFamily)).size, unitSpecificHandlers: 0 }),
-    overlay: Object.freeze({ units: moduleCatalog.length, executionMode: "LOCAL_WORK_ITEM_PREPARATION", handlerFamilies: 0, unitSpecificHandlers: 0 }),
+    overlay: Object.freeze({ units: moduleCatalog.length, executionMode: "OVERLAY_ENGINE_FAMILY_ADAPTER", handlerFamilies: new Set(engineSubmodules.map(x => x.domain)).size, unitSpecificHandlers: 0 }),
     commercial: Object.freeze({ units: commercialModules.length, executionMode: "COMMERCIAL_DOMAIN_ADAPTER", handlerFamilies: new Set(commercialExecutionManifest.records.map(x => x.executionContract.handlerKey)).size, unitSpecificHandlers: 0 }),
     engines: Object.freeze({ units: engineSubmodules.length, executionMode: "ENGINE_FAMILY_ADAPTER", handlerFamilies: new Set(engineSubmodules.map(x => x.domain)).size, unitSpecificHandlers: 0 }),
     additional: Object.freeze({ units: replacementModuleRuntime.REGISTRY.records.length, executionMode: "UNIT_SPECIFIC_DOMAIN_LOGIC", handlerFamilies: replacementModuleRuntime.REGISTRY.records.length, unitSpecificHandlers: replacementModuleRuntime.REGISTRY.records.length })
@@ -550,7 +576,10 @@ async function handle(req, res, url, deps) {
     const data = await readJson(req, res); if (data === null) return true;
     const goal = cleanText(data.goal, 4, 1200);
     if (!goal) return json(res, 400, { error: "هدف باید بین ۴ تا ۱۲۰۰ نویسه باشد." });
-    const details = JSON.stringify({ moduleId: module.moduleId, moduleType: module.moduleType, executionSpec: unifiedExecutionById.get(module.moduleId) || null, ownerProduct: "ARIA", ownerDomain: module.legacyAppName || module.parentDomainName || module.domainPackId || "ARIA_GENERAL", engineId: module.engineId || null, inputContract: module.inputContract, outputContract: module.outputContract, workflow: module.workflow, acceptanceCriteria: module.acceptanceCriteria, goal, executionStatus: "LOCAL_MODULE_WORK_ITEM_ONLY", externalExecutionPerformed: false, productionVerified: false });
+    let domainExecution;
+    try { domainExecution = buildOverlayEngineExecution(module, goal, data.context && typeof data.context === "object" && !Array.isArray(data.context) ? data.context : {}); }
+    catch (err) { return json(res, 409, { error: err.message }); }
+    const details = JSON.stringify({ moduleId: module.moduleId, moduleType: module.moduleType, executionSpec: unifiedExecutionById.get(module.moduleId) || null, ownerProduct: "ARIA", ownerDomain: module.legacyAppName || module.parentDomainName || module.domainPackId || "ARIA_GENERAL", engineId: module.engineId || null, inputContract: module.inputContract, outputContract: module.outputContract, workflow: module.workflow, acceptanceCriteria: module.acceptanceCriteria, domainExecution, goal, executionStatus: "LOCAL_ENGINE_FAMILY_ADAPTER_EXECUTED", externalExecutionPerformed: false, productionVerified: false });
     if (details.length > 12000) return json(res, 400, { error: "جزئیات ورودی بیش از حد مجاز است." });
     if (!await requireDb(res)) return true;
     try {
@@ -1019,4 +1048,4 @@ async function handle(req, res, url, deps) {
   }
   return false;
 }
-module.exports = { handle, registry };
+module.exports = { handle, registry, buildOverlayEngineExecution };
