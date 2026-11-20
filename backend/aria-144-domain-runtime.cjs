@@ -52,7 +52,7 @@ function validateDomainPayload(value,depth=0,seen=new WeakSet()) {
 function validateScopeIdentifier(value,errorCode) {
  if(typeof value!=="string") throw new Error(errorCode);
  const normalized=value.trim();
- if(!normalized||normalized.length>128||/[\\u0000-\\u001f\\u007f]/.test(normalized)) throw new Error(errorCode);
+ if(!normalized||normalized.length>128||normalized.split("").some(ch=>{const code=ch.charCodeAt(0);return code<32||code===127;})) throw new Error(errorCode);
  return normalized;
 }
 async function executeAriaDomainModule(moduleId,input={},context={}) {
