@@ -29,21 +29,54 @@ const REGISTRY=Object.freeze({
  executionMaturity:Object.freeze({historicalOverlayDomainLogic:overlayHandlerCount,historicalOverlayWorkItemOnly:overlayRecords.length-overlayHandlerCount,commercialCatalogContractModules:commercialRecords.length,productionVerified:0}),
  records:Object.freeze(records)
 });
+
+function validateDomainPayload(value,depth=0,seen=new WeakSet()) {
+ if(depth>8) throw new Error("MODULE_INPUT_DEPTH_EXCEEDED");
+ if(typeof value==="string") { if(value.length>10000) throw new Error("MODULE_INPUT_STRING_LIMIT"); return; }
+ if(value===null||typeof value!=="object") return;
+ if(seen.has(value)) throw new Error("MODULE_INPUT_CYCLE");
+ seen.add(value);
+ if(Array.isArray(value)) {
+  if(value.length>500) throw new Error("MODULE_INPUT_COLLECTION_LIMIT");
+  for(const entry of value) validateDomainPayload(entry,depth+1,seen);
+  return;
+ }
+ const keys=Object.keys(value);
+ if(keys.length>100) throw new Error("MODULE_INPUT_COLLECTION_LIMIT");
+ for(const key of keys) {
+  if(["__proto__","prototype","constructor"].includes(key)) throw new Error("MODULE_INPUT_UNSAFE_KEY");
+  if(key.length>128) throw new Error("MODULE_INPUT_KEY_LIMIT");
+  validateDomainPayload(value[key],depth+1,seen);
+ }
+}
+function validateScopeIdentifier(value,errorCode) {
+ if(typeof value!=="string") throw new Error(errorCode);
+ const normalized=value.trim();
+ if(!normalized||normalized.length>128||/[\\u0000-\\u001f\\u007f]/.test(normalized)) throw new Error(errorCode);
+ return normalized;
+}
 async function executeAriaDomainModule(moduleId,input={},context={}) {
  const record=BY_ID.get(String(moduleId));
  if(!record) throw new Error("ARIA_DOMAIN_MODULE_NOT_FOUND");
+ if(!context||typeof context!=="object"||Array.isArray(context)) throw new Error("MODULE_CONTEXT_INVALID");
  if(!context.tenantId) throw new Error("MODULE_TENANT_REQUIRED");
  if(!context.actorId) throw new Error("MODULE_ACTOR_REQUIRED");
+ const tenantId=validateScopeIdentifier(context.tenantId,"MODULE_TENANT_INVALID");
+ const actorId=validateScopeIdentifier(context.actorId,"MODULE_ACTOR_INVALID");
  if(!input||typeof input!=="object"||Array.isArray(input)) throw new Error("MODULE_INPUT_INVALID");
+ let serializedInput;
+ try { serializedInput=JSON.stringify(input); } catch { throw new Error("MODULE_INPUT_INVALID"); }
+ if(typeof serializedInput!=="string"||Buffer.byteLength(serializedInput,"utf8")>65536) throw new Error("MODULE_INPUT_TOO_LARGE");
+ validateDomainPayload(input);
  const goal=typeof input.goal==="string"?input.goal.trim():"";
  if(goal.length<4||goal.length>1200) throw new Error("MODULE_INPUT_MISSING");
  if(record.requiredInputs.includes("consent")&&input.consent!==true) throw new Error("MODULE_CONSENT_REQUIRED");
  if(record.recordType==="COMMERCIAL_CATALOG_MODULE") {
   const backendModuleId="ARIA-CATALOG-"+record.catalogEntryId;
-  const result=await modulesRuntime.executeModule(backendModuleId,input,{actorId:String(context.actorId),tenantId:String(context.tenantId)});
-  return Object.freeze({...result,inventoryModuleId:record.moduleId,tenantScope:String(context.tenantId),actorScope:String(context.actorId),executionState:"LOCAL_DOMAIN_LOGIC_EXECUTED",externalExecutionPerformed:false,paymentExecuted:false,productionVerified:false});
+  const result=await modulesRuntime.executeModule(backendModuleId,input,{actorId:actorId,tenantId:tenantId});
+  return Object.freeze({...result,inventoryModuleId:record.moduleId,tenantScope:tenantId,actorScope:actorId,executionState:"LOCAL_DOMAIN_LOGIC_EXECUTED",externalExecutionPerformed:false,paymentExecuted:false,productionVerified:false});
  }
- const operationPlan=record.operations.map((operation,index)=>({sequence:index+1,operation,state:"LOCAL_STEP_PREPARED",tenantScope:String(context.tenantId),requiresHumanReview:true}));
+ const operationPlan=record.operations.map((operation,index)=>({sequence:index+1,operation,state:"LOCAL_STEP_PREPARED",tenantScope:tenantId,requiresHumanReview:true}));
  const domainResult=executeOverlayDomain(record,input,context);
  const artifact={
   moduleId:record.moduleId,moduleName:record.name,domain:record.domain,objective:goal,
@@ -52,9 +85,9 @@ async function executeAriaDomainModule(moduleId,input={},context={}) {
   operationPlan,acceptanceCriteria:record.acceptanceCriteria,
   monetizationModel:record.monetizationModel,
   domainResult,
-  auditRecord:{actorId:String(context.actorId),tenantId:String(context.tenantId),event:domainResult?"OVERLAY_DOMAIN_LOGIC_EXECUTED":"OVERLAY_LOCAL_WORK_ITEM_PREPARED"},
+  auditRecord:{actorId:actorId,tenantId:tenantId,event:domainResult?"OVERLAY_DOMAIN_LOGIC_EXECUTED":"OVERLAY_LOCAL_WORK_ITEM_PREPARED"},
   externalExecutionPerformed:false,paymentExecuted:false,productionVerified:false
  };
- return Object.freeze({moduleId:record.moduleId,tenantScope:String(context.tenantId),actorScope:String(context.actorId),localWorkItemPrepared:true,domainLogicExecuted:Boolean(domainResult),artifact,operationPlan,executionState:domainResult?"LOCAL_DOMAIN_LOGIC_EXECUTED":"LOCAL_WORK_ITEM_ONLY",externalExecutionPerformed:false,paymentExecuted:false,productionVerified:false});
+ return Object.freeze({moduleId:record.moduleId,tenantScope:tenantId,actorScope:actorId,localWorkItemPrepared:true,domainLogicExecuted:Boolean(domainResult),artifact,operationPlan,executionState:domainResult?"LOCAL_DOMAIN_LOGIC_EXECUTED":"LOCAL_WORK_ITEM_ONLY",externalExecutionPerformed:false,paymentExecuted:false,productionVerified:false});
 }
 module.exports={REGISTRY,BY_ID,executeAriaDomainModule};
