@@ -1,5 +1,6 @@
 "use strict";
 const { createDomainModule } = require("../../aria-module-runtime.cjs");
+const { createIdeaDomainHandler } = require("../../aria-idea-domain-handlers.cjs");
 module.exports = createDomainModule({
   "moduleId": "ARIA-IDEA-BACKLOG-020",
   "moduleType": "IDEA_BACKLOG_MODULE",
@@ -44,5 +45,5 @@ module.exports = createDomainModule({
     "Local workflow only; no external connector is invoked."
   ],
   "revenueModel": "NOT_MONETIZED_UNTIL_ENTITLEMENT_AND_PAYMENT_VERIFIED",
-  domainHandler: true
+  domainHandler: createIdeaDomainHandler(20)
 });
