@@ -3,7 +3,7 @@
 function classifyModule(module) {
   const type = module?.manifest?.moduleType || "UNKNOWN";
   const source = typeof module?.execute === "function" ? Function.prototype.toString.call(module.execute) : "";
-  const hasDomainAdapter = /serviceDelivery\\.[A-Za-z_$][\\w$]*/.test(source);
+  const hasDomainAdapter = /serviceDelivery\.[A-Za-z_$][\w$]*/.test(source);
   if (type === "SERVICE_DELIVERY_ENGINE" && hasDomainAdapter) {
     return {
       implementationState: "DOMAIN_LOGIC_LOCAL",
