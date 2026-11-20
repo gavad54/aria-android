@@ -494,7 +494,7 @@ async function handle(req, res, url, deps) {
   const adapterModulePrefix = "/api/aria-expansion/adapter-runtime/modules/";
   if (p.startsWith(adapterModulePrefix) && req.method === "GET") {
     const rawModuleId = p.slice(adapterModulePrefix.length);
-    if (!/^\\d+$/.test(rawModuleId)) return json(res, 404, { error: "شناسه ماژول معتبر نیست." });
+    if (!/^\d+$/.test(rawModuleId)) return json(res, 404, { error: "شناسه ماژول معتبر نیست." });
     const moduleId = Number(rawModuleId);
     const family = adapterRuntimeContracts.moduleToFamily.get(moduleId);
     if (!family) return json(res, 404, { error: "برای این شناسه نیاز آداپتری ثبت نشده است." });
