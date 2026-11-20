@@ -75,8 +75,8 @@ function executeOverlayDomain(record,input,context){
  const sequence=Number(record?.sourceRecord?.sequence);
  const isProblem=moduleId.startsWith("ARIA-PROBLEM-MODULE-");
  const isControl=moduleId.startsWith("ARIA-CONTROL-MODULE-");
- if(!isProblem&&!isControl&&!isIdea)return null;
  const isIdea=moduleId.startsWith("ARIA-IDEA-MODULE-");
+ if(!isProblem&&!isControl&&!isIdea)return null;
  const strategySequence=isControl?50+Number(moduleId.slice("ARIA-CONTROL-MODULE-".length)):sequence;
  const strategy=isIdea?STRATEGIES[moduleId]:STRATEGIES[strategySequence];
  if(!strategy)return null;
