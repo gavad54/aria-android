@@ -41,14 +41,14 @@ async function intentMarketplace(input) {
   };
 }
 
-async function autonomyControl(input) {
+async function autonomyControl(input, context) {
   const request = requireObject(input.request_payload, "AUTONOMY_REQUEST_INVALID");
   const policy = requireObject(input.policy_or_assumptions, "AUTONOMY_POLICY_INVALID");
   const agentId = requireText(request.agentId, "AUTONOMY_AGENT_REQUIRED", 120);
   const action = requireText(request.action, "AUTONOMY_ACTION_REQUIRED", 120);
   const decision = ["allow", "deny", "require_approval"].includes(policy.decision) ? policy.decision : "deny";
   const sensitive = request.sensitive === true || policy.sensitiveActions?.includes?.(action) === true;
-  const actorCanApprove = input.actorApproval === true && input.actorRole === "OWNER";
+  const actorCanApprove = context?.isOwner === true && context?.ownerApprovalVerified === true;
   const effectiveDecision = decision === "allow" && sensitive && !actorCanApprove ? "require_approval" : decision;
   return {
     artifactType: "AUTONOMY_POLICY_DECISION",
@@ -108,9 +108,9 @@ async function ownerControlCenter(input, context) {
       paymentExecuted: false
     };
   }
-  const approvals = requireArray(request.approvals || [], "OWNER_CONTROL_APPROVALS_INVALID", 5);
-  const uniqueApprovers = new Set(approvals.filter(x => x && typeof x.userId === "string" && x.userId).map(x => x.userId));
-  const approved = uniqueApprovers.size >= 2 && request.requiresDualApproval === true;
+  const approvers = Array.isArray(context.approvingUserIds) ? context.approvingUserIds : [];
+  const uniqueApprovers = new Set(approvers.filter(x => typeof x === "string" && x));
+  const approved = context.dualApprovalVerified === true && uniqueApprovers.size >= 2;
   return {
     artifactType: "OWNER_SENSITIVE_CONTROL_REQUEST",
     action,
