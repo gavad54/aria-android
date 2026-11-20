@@ -21,10 +21,13 @@ const commercialRecords=commercialSource.records.map(x=>({
 }));
 const records=[...overlayRecords,...commercialRecords];
 const BY_ID=new Map(records.map(x=>[x.moduleId,x]));
-if(overlayRecords.length!==72||commercialRecords.length!==72||records.length!==144||BY_ID.size!==144) throw new Error("ARIA_144_DOMAIN_MODULE_REGISTRY_INVALID");
+const overlayHandlerCount=Object.keys(require("./aria-overlay-domain-handlers.cjs").STRATEGIES).length;
+if(overlayRecords.length!==72||commercialRecords.length!==72||records.length!==144||BY_ID.size!==144||overlayHandlerCount>overlayRecords.length) throw new Error("ARIA_144_DOMAIN_MODULE_REGISTRY_INVALID");
 const REGISTRY=Object.freeze({
  product:"ARIA",baselineCanonicalModuleCount:639,addedModuleCount:144,totalProductFacingModuleCount:783,
- counts:Object.freeze({historicalOverlay:72,commercialCatalog:72}),records:Object.freeze(records)
+ counts:Object.freeze({historicalOverlay:72,commercialCatalog:72}),
+ executionMaturity:Object.freeze({historicalOverlayDomainLogic:overlayHandlerCount,historicalOverlayWorkItemOnly:overlayRecords.length-overlayHandlerCount,commercialCatalogDomainLogic:commercialRecords.length,productionVerified:0}),
+ records:Object.freeze(records)
 });
 async function executeAriaDomainModule(moduleId,input={},context={}) {
  const record=BY_ID.get(String(moduleId));
