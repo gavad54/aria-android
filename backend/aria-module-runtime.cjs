@@ -12,13 +12,15 @@ function stableJson(value) {
 }
 
 function createDomainModule(definition) {
+  const domainHandler = definition?.domainHandler;
+  const publicDefinition = definition ? Object.fromEntries(Object.entries(definition).filter(([key]) => key !== "domainHandler")) : definition;
   if (!definition || typeof definition.moduleId !== "string" || !definition.moduleId ||
       typeof definition.name !== "string" || !Array.isArray(definition.inputContract) ||
       !Array.isArray(definition.outputContract) || !Array.isArray(definition.operations)) {
     throw new Error("MODULE_DEFINITION_INVALID");
   }
   const manifest = Object.freeze({
-    ...definition,
+    ...publicDefinition,
     inputContract: Object.freeze([...definition.inputContract]),
     outputContract: Object.freeze([...definition.outputContract]),
     operations: Object.freeze([...definition.operations]),
@@ -87,8 +89,8 @@ function createDomainModule(definition) {
       externalExecutionPerformed: false
     };
 
-    const domainResult = typeof definition.domainHandler === "function"
-      ? await definition.domainHandler(Object.freeze({ ...input }), Object.freeze({ ...context }), Object.freeze({ manifest, workItemId, inputDigest, createdAt }))
+    const domainResult = typeof domainHandler === "function"
+      ? await domainHandler(Object.freeze({ ...input }), Object.freeze({ ...context }), Object.freeze({ manifest, workItemId, inputDigest, createdAt }))
       : null;
     if (domainResult !== null && (!domainResult || typeof domainResult !== "object" || Array.isArray(domainResult))) {
       throw new Error("MODULE_DOMAIN_HANDLER_RESULT_INVALID");
