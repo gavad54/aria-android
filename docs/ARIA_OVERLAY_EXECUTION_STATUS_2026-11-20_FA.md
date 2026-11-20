@@ -4,7 +4,7 @@
 
 - مخزن: `gavad54/aria-android`
 - شاخه: `engineering/aria-preserve-all-capabilities-2026-11-19`
-- Commit تأییدشده: `f602a58674f08e1149350125a3b036678ddcd8d5`
+- Commit تأییدشده: `9ca695060f3e7409a13dd6b2398b8154692b8362`
 - Pull Request: [شماره ۳](https://github.com/gavad54/aria-android/pull/3) — باز و Draft؛ هنوز ادغام نشده است.
 - شاخه مقصد PR: `engineering/aria-functional-redesign-2026-11-19`
 
@@ -29,7 +29,7 @@
 
 ### پوشش ۷۲ Overlay
 
-تمام ۷۲ Overlay و ۷۲ ماژول تجاری با Dispatch مبتنی بر شناسه دقیق به Handler اختصاصی متصل‌اند. مسیر `POST /api/aria-expansion/modules/{moduleId}/run` برای Overlayها و مسیر `POST /api/aria-expansion/commercial-modules/{commercialModuleId}/run` برای کاتالوگ تجاری، پس از احراز هویت، منطق دامنه‌ای مربوط به همان ماژول را اجرا و خروجی را به‌صورت Work Item ذخیره می‌کنند. شناسه Actor و Tenant از حساب احرازشده گرفته می‌شود و محدوده فعلی `PERSONAL_ACCOUNT_SCOPE` است؛ سازمان‌دهی چندکاربره هنوز تأیید نشده است. ماژول‌های نیازمند رضایت بدون `consent: true` اجرا نمی‌شوند. این پوشش به معنی فعال‌سازی سرویس بیرونی یا تأیید Production نیست.
+تمام ۷۲ Overlay، ۷۲ ماژول تجاری و ۷۱ موتور فرزند با Dispatch مبتنی بر شناسه دقیق به Handler اختصاصی متصل‌اند. مسیرهای `POST /api/aria-expansion/modules/{moduleId}/run`، `POST /api/aria-expansion/commercial-modules/{commercialModuleId}/run` و `POST /api/aria-expansion/engines/{engineId}/run` پس از احراز هویت، منطق همان واحد را اجرا و خروجی را به‌صورت Work Item ذخیره می‌کنند. شناسه Actor و Tenant از حساب احرازشده گرفته می‌شود و محدوده فعلی `PERSONAL_ACCOUNT_SCOPE` است؛ سازمان‌دهی چندکاربره هنوز تأیید نشده است. ماژول‌های نیازمند رضایت بدون `consent: true` اجرا نمی‌شوند. این پوشش به معنی فعال‌سازی سرویس بیرونی یا تأیید Production نیست.
 
 ## شواهد آزمون خودکار
 
@@ -52,7 +52,7 @@
 ۵. مانیتورینگ Production، شواهد Backup/Restore، کارایی و گواهی امنیت.
 ۶. ادغام PR و تأیید مالک.
 
-در Handlerهای جدید، عملیات بیرونی غیرفعال است و فقط خروجی محلی قابل بازبینی تولید می‌شود. تعداد ۱۸۳ Handler اختصاصی به معنی ۱۸۳ سرویس عملیاتی Production یا درآمد فعال نیست. پرداخت، رزرو، اعلان، انتشار، حذف داده یا تأیید Production انجام نمی‌شود.
+در Handlerهای جدید، عملیات بیرونی غیرفعال است و فقط خروجی محلی قابل بازبینی تولید می‌شود. تعداد ۲۵۴ Handler اختصاصی به معنی ۲۵۴ سرویس عملیاتی Production یا درآمد فعال نیست. ۶۳۹ قرارداد canonical هنوز خانواده‌ای‌اند. پرداخت، رزرو، اعلان، انتشار، حذف داده یا تأیید Production انجام نمی‌شود.
 
 ## قواعد حفظ ساختار
 
