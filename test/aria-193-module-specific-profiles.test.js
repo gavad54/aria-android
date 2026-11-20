@@ -21,7 +21,10 @@ test("all 193 idea, commercial and child-engine modules emit unique module-speci
     assert.equal(result.externalExecutionPerformed, false);
     assert.equal(result.paymentExecuted, false);
     assert.equal(result.productionVerified, false);
-    const profile = result.artifact.domainResult.domainArtifact.moduleSpecificProfile;
+    const domainResult = result.artifact.domainResult;
+    const profile = domainResult.moduleSpecificProfile || domainResult.domainArtifact?.moduleSpecificProfile;
+    assert.ok(profile, module.manifest.moduleId);
+    if (module.manifest.moduleType === "IDEA_BACKLOG_MODULE") ideaArtifactTypes.add(domainResult.artifactType || domainResult.domainArtifact?.artifactType);
     assert.equal(profile.moduleId, module.manifest.moduleId);
     assert.equal(profile.profileId, "PROFILE:" + module.manifest.moduleId);
     assert.equal(profile.executionBoundary, "TENANT_SCOPED_LOCAL_ONLY");
@@ -29,7 +32,6 @@ test("all 193 idea, commercial and child-engine modules emit unique module-speci
     assert.ok(profile.operationPlan.length > 0, module.manifest.moduleId);
     assert.ok(profile.inputSchema.length > 0, module.manifest.moduleId);
     profileIds.add(profile.profileId);
-    if (module.manifest.moduleType === "IDEA_BACKLOG_MODULE") ideaArtifactTypes.add(result.artifact.domainResult.domainArtifact.artifactType);
     if (module.manifest.moduleType === "COMMERCIAL_CATALOG_MODULE") {
       assert.equal(profile.commercialContract.state, "DESIGNED_NOT_MONETIZED");
       assert.equal(profile.commercialContract.billingEnabled, false);
@@ -43,10 +45,11 @@ test("module-specific profiles are tenant-scoped and do not claim verified produ
   const module = MODULES.find(item => item.manifest.moduleType === "COMMERCIAL_CATALOG_MODULE");
   const input = Object.fromEntries(module.manifest.requiredInputs.map(field => [field, valueFor(field)]));
   const result = await module.execute(input, { actorId: "actor-a", tenantId: "tenant-a" });
-  const profile = result.artifact.domainResult.domainArtifact.moduleSpecificProfile;
+  const domainResult = result.artifact.domainResult;
+  const profile = domainResult.moduleSpecificProfile || domainResult.domainArtifact?.moduleSpecificProfile;
   assert.equal(profile.moduleId, module.manifest.moduleId);
-  assert.equal(result.artifact.domainResult.tenantScope, "tenant-a");
+  assert.equal(domainResult.tenantScope, "tenant-a");
   assert.equal(profile.productionVerified, false);
-  assert.equal(result.artifact.domainResult.commercialization.paymentExecuted, false);
+  assert.equal(domainResult.commercialization.paymentExecuted, false);
   await assert.rejects(module.execute(input, { actorId: "actor-a" }), { message: "MODULE_TENANT_REQUIRED" });
 });
