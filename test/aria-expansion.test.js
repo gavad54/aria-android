@@ -203,7 +203,7 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(maturity.totalInventoryRecords,932);
   assert.deepEqual(maturity.counts,{
     canonical:{units:639,executionMode:"CANONICAL_FAMILY_WORKFLOW",handlerFamilies:15,unitSpecificHandlers:0},
-    overlay:{units:72,executionMode:"LOCAL_WORK_ITEM_PREPARATION",handlerFamilies:0,unitSpecificHandlers:0},
+    overlay:{units:72,executionMode:"OVERLAY_ENGINE_FAMILY_ADAPTER",handlerFamilies:4,unitSpecificHandlers:0},
     commercial:{units:72,executionMode:"COMMERCIAL_DOMAIN_ADAPTER",handlerFamilies:13,unitSpecificHandlers:0},
     engines:{units:71,executionMode:"ENGINE_FAMILY_ADAPTER",handlerFamilies:4,unitSpecificHandlers:0},
     additional:{units:39,executionMode:"UNIT_SPECIFIC_DOMAIN_LOGIC",handlerFamilies:39,unitSpecificHandlers:39}
