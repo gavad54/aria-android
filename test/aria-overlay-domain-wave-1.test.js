@@ -98,3 +98,65 @@ test("recycling coordinator distinguishes accepted, unverified and rejected mate
  assert.deepEqual(o.acceptedMaterials,["paper","glass"]);assert.deepEqual(o.rejectedMaterials,["battery"]);
  assert.equal(o.unclassifiedMaterials.length,0);assert.equal(o.collectionScheduled,false);
 });
+
+test("career guidance maps supplied skills to role requirements and flags evidence gaps",async()=>{
+ const result=await run(31,{requiredSkills:["writing","analysis","excel"],providedSkills:["writing","analysis"],requiredEvidence:["portfolio","certificate"],providedEvidence:["portfolio"]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.deepEqual(o.skillGaps,["excel"]);assert.deepEqual(o.evidenceGaps,["certificate"]);assert.equal(o.employmentDecisionMade,false);
+});
+test("skill map creates prerequisite-aware learning stages without claiming certification",async()=>{
+ const result=await run(32,{skills:[{id:"s1",name:"Basics"},{id:"s2",name:"Advanced",prerequisites:["s1"]}],completedSkillIds:["s1"]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.equal(o.stages[1].prerequisitesMet,true);assert.deepEqual(o.remainingSkillIds,["s2"]);assert.equal(o.certificationIssued,false);
+});
+test("focus planner prioritizes tasks within supplied time capacity without scheduling",async()=>{
+ const result=await run(33,{availableMinutes:60,tasks:[{id:"a",priority:"high",estimatedMinutes:40},{id:"b",priority:"normal",estimatedMinutes:30},{id:"c",priority:"low",estimatedMinutes:10}]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.deepEqual(o.selectedTaskIds,["a","c"]);assert.deepEqual(o.deferredTaskIds,["b"]);assert.equal(o.scheduleCreated,false);
+});
+test("content studio creates channel-specific drafts and blocks unconfirmed rights",async()=>{
+ const result=await run(34,{topic:"Product launch",platforms:["instagram","youtube"],formats:["post","short"],rightsConfirmed:false,assets:[{id:"a1",rightsConfirmed:false}]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.equal(o.draftVariants.length,4);assert.equal(o.rightsGate,"BLOCKED_PENDING_RIGHTS_REVIEW");assert.equal(o.published,false);
+});
+test("website builder detects duplicate slugs and requires domain and owner approval",async()=>{
+ const result=await run(36,{pages:[{id:"p1",slug:"/about"},{id:"p2",slug:"/about"}],domainVerified:false,publishApproved:false});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.deepEqual(o.duplicateSlugs,["/about"]);assert.equal(o.publicationReadiness,"BLOCKED");assert.equal(o.sitePublished,false);
+});
+test("data analyst computes descriptive metrics only from supplied numeric observations",async()=>{
+ const result=await run(38,{rows:[{sales:10,units:2},{sales:20,units:3},{sales:30,units:5}],numericFields:["sales","units"]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.equal(o.metrics.sales.sum,60);assert.equal(o.metrics.sales.average,20);assert.equal(o.rowCount,3);
+});
+test("payment follow-up calculates outstanding balances without initiating payments",async()=>{
+ const result=await run(39,{asOfDate:"2026-11-20",invoices:[
+  {id:"i1",amount:100,paidAmount:40,dueDate:"2026-11-19"},
+  {id:"i2",amount:50,paidAmount:50,dueDate:"2026-11-25"}
+ ]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.equal(o.totalOutstanding,60);assert.deepEqual(o.overdueInvoiceIds,["i1"]);assert.equal(o.paymentInitiated,false);
+});
+test("trip planner detects overlapping itinerary slots and never books",async()=>{
+ const result=await run(41,{items:[
+  {id:"a",day:"2026-12-01",startTime:"10:00",endTime:"12:00"},
+  {id:"b",day:"2026-12-01",startTime:"11:00",endTime:"13:00"},
+  {id:"c",day:"2026-12-01",startTime:"14:00",endTime:"15:00"}
+ ]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.deepEqual(o.conflictPairs,[["a","b"]]);assert.equal(o.bookingExecuted,false);
+});
+test("travel budget totals itemized costs and reports budget variance",async()=>{
+ const result=await run(43,{currency:"AZN",budget:500,costs:[{category:"stay",amount:200},{category:"transport",amount:100},{category:"food",amount:80}]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.equal(o.totalEstimatedCost,380);assert.equal(o.remainingBudget,120);assert.equal(o.withinBudget,true);
+});
+test("local experience discovery returns only supplied matching candidates and preserves evidence state",async()=>{
+ const result=await run(44,{location:"Baku",interests:["museum"],experiences:[
+  {id:"e1",location:"Baku",categories:["museum"],evidenceId:"src-1",verified:true},
+  {id:"e2",location:"Baku",categories:["museum"],evidenceId:"",verified:false},
+  {id:"e3",location:"Ganja",categories:["museum"],evidenceId:"src-3",verified:true}
+ ]});
+ const o=result.artifact.domainResult.domainOutput;
+ assert.deepEqual(o.candidateIds,["e1","e2"]);assert.deepEqual(o.unverifiedCandidateIds,["e2"]);assert.equal(o.reservationExecuted,false);
+});
