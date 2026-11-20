@@ -150,7 +150,6 @@ function evaluateCustomerSuccess(input, actor) {
   const { period, activeDays, completedTasks, targetTasks, unresolvedTickets } = input || {};
   const actorId = actor && actor.userId != null ? String(actor.userId) : "";
   const tenantId = actor && actor.tenantId != null ? String(actor.tenantId) : "";
-  if (!actorId || !tenantId) throw new Error("CUSTOMER_SUCCESS_ACTOR_REQUIRED");
   if (typeof period !== "string" || !/^\d{4}-\d{2}$/.test(period) ||
       !Number.isInteger(activeDays) || activeDays < 0 || activeDays > 31 ||
       !Number.isInteger(completedTasks) || completedTasks < 0 ||
@@ -158,6 +157,7 @@ function evaluateCustomerSuccess(input, actor) {
       !Number.isInteger(unresolvedTickets) || unresolvedTickets < 0) {
     throw new Error("CUSTOMER_SUCCESS_INPUT_INVALID");
   }
+  if (!actorId || !tenantId) throw new Error("CUSTOMER_SUCCESS_ACTOR_REQUIRED");
   let health = "NEEDS_ATTENTION";
   if (unresolvedTickets >= 3 || activeDays < 3) health = "AT_RISK";
   else if (activeDays >= 10 && completedTasks >= targetTasks) health = "HEALTHY";
