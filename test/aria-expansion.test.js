@@ -57,11 +57,12 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.deepEqual(Object.fromEntries(["CANONICAL_FAMILY_WORKFLOW","OVERLAY_ENGINE_FAMILY_ADAPTER","COMMERCIAL_DOMAIN_ADAPTER","ENGINE_FAMILY_ADAPTER","UNIT_SPECIFIC_DOMAIN_LOGIC"].map(state=>[state,ownedExecutionRecords.filter(x=>x.implementationState===state).length])),{
     CANONICAL_FAMILY_WORKFLOW:639,
     OVERLAY_ENGINE_FAMILY_ADAPTER:0,
-    COMMERCIAL_DOMAIN_ADAPTER:72,
+    COMMERCIAL_DOMAIN_ADAPTER:0,
     ENGINE_FAMILY_ADAPTER:71,
-    UNIT_SPECIFIC_DOMAIN_LOGIC:111
+    UNIT_SPECIFIC_DOMAIN_LOGIC:183
   });
   assert.ok(ownedExecutionRecords.filter(x=>x.recordType==="HISTORICAL_OVERLAY_MODULE").every(x=>x.workflowEntry==="UNIT_SPECIFIC_DOMAIN_HANDLER"&&x.executionContract.handlerKey.startsWith("aria.overlay.")));
+  assert.ok(ownedExecutionRecords.filter(x=>x.recordType==="COMMERCIAL_MODULE").every(x=>x.workflowEntry==="UNIT_SPECIFIC_DOMAIN_HANDLER"&&x.executionContract.handlerKey.startsWith("aria.catalog.")&&x.executionContract.domainRuntimeModuleId.startsWith("ARIA-CATALOG-")));
   assert.ok(ownedExecutionRecords.filter(x=>x.recordType==="NEW_OWNED_DOMAIN_MODULE").every(x=>x.workflowEntry==="ADDITIONAL_UNIT_DOMAIN_HANDLER"&&x.executionContract.handlerKey.startsWith("additional.")));
   assert.equal(executionRegistry.records.filter(x=>x.executionState==="LINEAGE_ONLY").length,39);
   assert.equal(executionRegistry.records.filter(x=>x.executionState==="LOCAL_WORK_ITEM_ONLY").length,893);
@@ -216,7 +217,7 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.deepEqual(maturity.counts,{
     canonical:{units:639,executionMode:"CANONICAL_FAMILY_WORKFLOW",handlerFamilies:15,unitSpecificHandlers:0},
     overlay:{units:72,executionMode:"UNIT_SPECIFIC_DOMAIN_LOGIC",handlerFamilies:72,unitSpecificHandlers:72},
-    commercial:{units:72,executionMode:"COMMERCIAL_DOMAIN_ADAPTER",handlerFamilies:13,unitSpecificHandlers:0},
+    commercial:{units:72,executionMode:"UNIT_SPECIFIC_DOMAIN_LOGIC",handlerFamilies:72,unitSpecificHandlers:72},
     engines:{units:71,executionMode:"ENGINE_FAMILY_ADAPTER",handlerFamilies:4,unitSpecificHandlers:0},
     additional:{units:39,executionMode:"UNIT_SPECIFIC_DOMAIN_LOGIC",handlerFamilies:39,unitSpecificHandlers:39}
   });
@@ -224,9 +225,9 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(maturity.externalProviderConnectedCount,0);
   assert.equal(maturity.liveBillingEnabled,false);
   assert.equal(maturity.paymentExecuted,false);
-  assert.equal(maturity.unitSpecificLocalLogicCount,111);
-  assert.equal(maturity.unitSpecificLocalLogicTestedCount,111);
-  assert.equal(maturity.unitSpecificLocalLogicMissingCount,782);
+  assert.equal(maturity.unitSpecificLocalLogicCount,183);
+  assert.equal(maturity.unitSpecificLocalLogicTestedCount,183);
+  assert.equal(maturity.unitSpecificLocalLogicMissingCount,710);
   assert.equal(maturity.nextGate,"SPECIALIZED_UNIT_BEHAVIOR_AND_E2E_EVIDENCE");
   const unauthUsagePreview=await fetch(base+"/api/aria-expansion/commercialization/usage-preview",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({moduleId:"ARIA-CANONICAL-MODULE-001",quantity:1,idempotencyKey:"unauth-test-001"})});
   assert.equal(unauthUsagePreview.status,401);
