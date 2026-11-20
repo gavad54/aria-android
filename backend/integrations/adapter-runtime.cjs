@@ -135,8 +135,8 @@ class AdapterRuntime {
         })),
         new Promise((_, reject) => {
           timeoutHandle = setTimeout(() => {
-            controller.abort();
             reject(new AdapterRuntimeError("PROVIDER_TIMEOUT"));
+            controller.abort();
           }, this.timeoutMs);
         })
       ]);
