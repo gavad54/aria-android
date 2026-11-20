@@ -30,7 +30,7 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(summary.engines,71);
   assert.equal(summary.totalModuleInventory,932);
   assert.equal(summary.ariaOwnedModuleCount,893);
-  assert.equal(summary.replacementModules,39);
+  assert.equal(summary.additionalAriaModules,39);
   assert.equal(summary.localWorkflowLaunchers,893);
   assert.equal(summary.lineageOnlyHistoricalRecords,39);
   assert.equal(summary.moduleInventory.canonicalModules,639);
@@ -70,7 +70,7 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(executionRegistry.counts.overlay,111);
   assert.equal(executionRegistry.counts.commercial,72);
   assert.equal(executionRegistry.counts.engines,71);
-  assert.equal(executionRegistry.counts.replacements,39);
+  assert.equal(executionRegistry.counts.additionalAriaModules,39);
   assert.equal(executionRegistry.counts.active,893);
   assert.equal(executionRegistry.counts.lineage,39);
   assert.equal(executionRegistry.records.filter(x=>x.recordType==="NEW_OWNED_DOMAIN_MODULE").length,39);
@@ -105,7 +105,7 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(matrix.engines.total,71);
   assert.equal(matrix.moduleInventory.totalModuleAndSubmoduleRecords,932);
   assert.equal(matrix.moduleInventory.ariaOwnedModuleAndSubmoduleRecords,893);
-  assert.equal(matrix.replacementModules.length,39);
+  assert.equal(matrix.additionalAriaModules.length,39);
   assert.equal(matrix.commercialModules.length,72);
   assert.equal(matrix.engineSubmodules.length,71);
   assert.equal(new Set(matrix.commercialModules.map(x=>x.moduleId)).size,72);
@@ -153,7 +153,7 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(inventoryResponse.status,200);
   assert.equal(inventory.moduleInventory.totalModuleAndSubmoduleRecords,932);
   assert.equal(inventory.moduleInventory.ariaOwnedModuleAndSubmoduleRecords,893);
-  assert.equal(inventory.replacementModules.length,39);
+  assert.equal(inventory.additionalAriaModules.length,39);
   assert.equal(inventory.preservedHistoricalOverlay.length,111);
   assert.equal(inventory.commercialModules.length,72);
   assert.equal(inventory.engineSubmodules.length,71);
@@ -187,12 +187,12 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(unauthEngineRun.status,401);
   const unauthOverlayRun=await fetch(base+"/api/aria-expansion/modules/ARIA-PROBLEM-MODULE-001/run",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"آزمون ماژول تاریخی فعال"})});
   assert.equal(unauthOverlayRun.status,401);
-  const replacementCatalog=await fetch(base+"/api/aria-expansion/replacement-modules");
+  const replacementCatalog=await fetch(base+"/api/aria-expansion/additional-modules");
   const replacementData=await replacementCatalog.json();
   assert.equal(replacementCatalog.status,200);
   assert.equal(replacementData.total,39);
   assert.equal(new Set(replacementData.modules.map(x=>x.moduleId)).size,39);
-  const unauthReplacementRun=await fetch(base+"/api/aria-expansion/replacement-modules/ARIA-OWNED-ADDITIONAL-001/run",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"آزمون ماژول جایگزین"})});
+  const unauthReplacementRun=await fetch(base+"/api/aria-expansion/additional-modules/ARIA-OWNED-ADDITIONAL-001/run",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"آزمون ماژول جایگزین"})});
   assert.equal(unauthReplacementRun.status,401);
 
   const enginesResponse=await fetch(base+"/api/aria-expansion/engines");
