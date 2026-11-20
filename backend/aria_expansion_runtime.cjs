@@ -415,7 +415,11 @@ async function handle(req, res, url, deps) {
     return json(res, 200, { product: "ARIA", total: canonicalModules.length, immutable: true, modules: canonicalModules });
   }
   if (p === "/api/aria-expansion/commercialization-registry" && req.method === "GET") {
-    return json(res, 200, { product: "ARIA", total: commercializationRuntime.REGISTRY.ownedUnitCount, counts: commercializationRuntime.REGISTRY.counts, liveBillingEnabled: commercializationRuntime.REGISTRY.liveBillingEnabled, paymentExecuted: commercializationRuntime.REGISTRY.paymentExecuted, productionVerifiedCount: commercializationRuntime.REGISTRY.productionVerifiedCount, records: commercializationRuntime.REGISTRY.records });
+    const commercialRecords = commercializationRuntime.REGISTRY.records;
+    const liveBillingEnabled = commercialRecords.some(record => record.revenueEngine?.billingEnabled === true);
+    const paymentExecuted = commercialRecords.some(record => record.revenueEngine?.paymentExecuted === true);
+    const productionVerifiedCount = commercialRecords.filter(record => record.revenueEngine?.productionVerified === true).length;
+    return json(res, 200, { product: "ARIA", total: commercializationRuntime.REGISTRY.ownedUnitCount, counts: commercializationRuntime.REGISTRY.counts, liveBillingEnabled, paymentExecuted, productionVerifiedCount, records: commercialRecords });
   }
   if (p === "/api/aria-expansion/commercialization/usage-preview" && req.method === "POST") {
     const user = requireUser(req, json, res, authUser); if (!user) return true;
