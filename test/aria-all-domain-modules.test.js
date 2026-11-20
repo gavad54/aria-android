@@ -19,36 +19,30 @@ function inputFor(module) {
   input.consent = true;
   return input;
 }
+const targets = MODULES.filter(module => ["IDEA_BACKLOG_MODULE", "COMMERCIAL_CATALOG_MODULE", "CHILD_ENGINE_MODULE"].includes(module.manifest.moduleType));
 
-test("all 201 ARIA modules are independently registered and preserve family counts", () => {
+test("201 ARIA modules remain independently registered with unchanged family counts", () => {
   assert.equal(MODULES.length, 201);
-  assert.deepEqual(MODULE_COUNTS, {
-    ideas: 50,
-    governanceControls: 4,
-    commercialCatalog: 72,
-    childEngines: 71,
-    serviceDeliveryEngines: 4
-  });
+  assert.deepEqual(MODULE_COUNTS, { ideas: 50, governanceControls: 4, commercialCatalog: 72, childEngines: 71, serviceDeliveryEngines: 4 });
   assert.equal(new Set(MODULES.map(module => module.manifest.moduleId)).size, 201);
+  assert.equal(targets.length, 193);
 });
 
-test("all 183 remaining ideas, catalog modules and child engines execute dedicated local domain logic", async () => {
-  const targets = MODULES.filter(module => ["IDEA_BACKLOG_MODULE", "COMMERCIAL_CATALOG_MODULE", "CHILD_ENGINE_MODULE"].includes(module.manifest.moduleType));
-  assert.equal(targets.length, 193);
-  let passed = 0;
-  for (const module of targets) {
+for (const module of targets) {
+  const id = module.manifest.moduleId;
+  test("domain execution: " + id + " — " + module.manifest.name, async () => {
     const result = await module.execute(inputFor(module), { actorId: "domain-test-actor", tenantId: "domain-test-tenant" });
-    assert.equal(result.domainLogicExecuted, true, module.manifest.moduleId);
-    assert.equal(result.externalExecutionPerformed, false, module.manifest.moduleId);
-    assert.equal(result.paymentExecuted, false, module.manifest.moduleId);
-    assert.equal(result.productionVerified, false, module.manifest.moduleId);
-    assert.equal(result.artifact.domainResult.tenantScope, "domain-test-tenant", module.manifest.moduleId);
-    if (module.manifest.sequence <= 10 && module.manifest.moduleType === "IDEA_BACKLOG_MODULE") {
+    assert.equal(result.domainLogicExecuted, true, id);
+    assert.equal(result.externalExecutionPerformed, false, id);
+    assert.equal(result.paymentExecuted, false, id);
+    assert.equal(result.productionVerified, false, id);
+    assert.equal(result.artifact.domainResult.tenantScope, "domain-test-tenant", id);
+    if (module.manifest.moduleType === "IDEA_BACKLOG_MODULE" && module.manifest.sequence <= 10) {
       assert.equal(result.artifact.domainResult.moduleSequence, module.manifest.sequence);
       assert.ok(result.artifact.domainResult.domainOutput);
     } else {
-      assert.equal(result.artifact.domainResult.moduleId, module.manifest.moduleId);
-      assert.ok(result.artifact.domainResult.domainArtifact, module.manifest.moduleId);
+      assert.equal(result.artifact.domainResult.moduleId, id);
+      assert.ok(result.artifact.domainResult.domainArtifact);
     }
     if (module.manifest.moduleType === "COMMERCIAL_CATALOG_MODULE") {
       assert.equal(result.artifact.domainResult.commercialization.billingEnabled, false);
@@ -58,13 +52,18 @@ test("all 183 remaining ideas, catalog modules and child engines execute dedicat
       assert.ok(Array.isArray(result.artifact.domainResult.domainArtifact.executionPlan));
       assert.ok(Array.isArray(result.artifact.domainResult.domainArtifact.riskFlags));
     }
-    passed++;
-  }
-  assert.equal(passed, 193);
-});
+  });
+  test("input validation: " + id + " rejects missing required input", async () => {
+    const input = inputFor(module);
+    const required = (module.manifest.requiredInputs || [])[0];
+    if (!required) return;
+    delete input[required];
+    await assert.rejects(module.execute(input, { actorId: "domain-test-actor", tenantId: "domain-test-tenant" }), { message: "MODULE_INPUT_MISSING" });
+  });
+}
 
 test("module-specific handlers reject missing tenant and actor context", async () => {
-  const module = MODULES.find(item => item.manifest.moduleType === "CHILD_ENGINE_MODULE");
+  const module = targets.find(item => item.manifest.moduleType === "CHILD_ENGINE_MODULE");
   await assert.rejects(module.execute(inputFor(module), { actorId: "actor-only" }), { message: "MODULE_TENANT_REQUIRED" });
   await assert.rejects(module.execute(inputFor(module), { tenantId: "tenant-only" }), { message: "MODULE_ACTOR_REQUIRED" });
 });
