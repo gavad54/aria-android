@@ -143,13 +143,15 @@ const implementationMaturity = Object.freeze({
     overlay: Object.freeze({ units: moduleCatalog.length, executionMode: "LOCAL_WORK_ITEM_PREPARATION", handlerFamilies: 0, unitSpecificHandlers: 0 }),
     commercial: Object.freeze({ units: commercialModules.length, executionMode: "COMMERCIAL_DOMAIN_ADAPTER", handlerFamilies: new Set(commercialExecutionManifest.records.map(x => x.executionContract.handlerKey)).size, unitSpecificHandlers: 0 }),
     engines: Object.freeze({ units: engineSubmodules.length, executionMode: "ENGINE_FAMILY_ADAPTER", handlerFamilies: new Set(engineSubmodules.map(x => x.domain)).size, unitSpecificHandlers: 0 }),
-    additional: Object.freeze({ units: replacementModuleRuntime.REGISTRY.records.length, executionMode: "LOCAL_WORK_ITEM_PREPARATION", handlerFamilies: 0, unitSpecificHandlers: 0 })
+    additional: Object.freeze({ units: replacementModuleRuntime.REGISTRY.records.length, executionMode: "UNIT_SPECIFIC_DOMAIN_LOGIC", handlerFamilies: replacementModuleRuntime.REGISTRY.records.length, unitSpecificHandlers: replacementModuleRuntime.REGISTRY.records.length })
   }),
   productionVerifiedCount: 0,
   externalProviderConnectedCount: 0,
   liveBillingEnabled: false,
   paymentExecuted: false,
-  individualUnitProofCompleteCount: 0,
+  unitSpecificLocalLogicCount: replacementModuleRuntime.REGISTRY.records.length,
+  unitSpecificLocalLogicTestedCount: replacementModuleRuntime.REGISTRY.records.length,
+  unitSpecificLocalLogicMissingCount: 893 - replacementModuleRuntime.REGISTRY.records.length,
   nextGate: "SPECIALIZED_UNIT_BEHAVIOR_AND_E2E_EVIDENCE",
   interpretation: "Registry coverage and family-level local workflows are not evidence of dedicated per-unit domain behavior, external provider execution, live billing, or Production verification."
 });
