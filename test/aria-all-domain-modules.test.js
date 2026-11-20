@@ -4,7 +4,8 @@ const assert = require("node:assert/strict");
 const { MODULES, MODULE_COUNTS } = require("../backend/modules");
 
 function valueFor(key) {
-  if (key === "context" || key === "data" || key === "constraints") return {};
+  if (key === "context" || key === "data") return {};
+  if (key === "constraints") return [];
   if (key === "sourceReferences" || key === "source_references" || key === "participants" || key === "items") return [];
   if (key === "consent") return true;
   if (/count|amount|budget|score|capacity|duration|limit|quantity|price|rate/i.test(key)) return 1;
@@ -42,8 +43,13 @@ test("all 183 remaining ideas, catalog modules and child engines execute dedicat
     assert.equal(result.paymentExecuted, false, module.manifest.moduleId);
     assert.equal(result.productionVerified, false, module.manifest.moduleId);
     assert.equal(result.artifact.domainResult.tenantScope, "domain-test-tenant", module.manifest.moduleId);
-    assert.equal(result.artifact.domainResult.moduleId, module.manifest.moduleId);
-    assert.ok(result.artifact.domainResult.domainArtifact, module.manifest.moduleId);
+    if (module.manifest.sequence <= 10 && module.manifest.moduleType === "IDEA_BACKLOG_MODULE") {
+      assert.equal(result.artifact.domainResult.moduleSequence, module.manifest.sequence);
+      assert.ok(result.artifact.domainResult.domainOutput);
+    } else {
+      assert.equal(result.artifact.domainResult.moduleId, module.manifest.moduleId);
+      assert.ok(result.artifact.domainResult.domainArtifact, module.manifest.moduleId);
+    }
     if (module.manifest.moduleType === "COMMERCIAL_CATALOG_MODULE") {
       assert.equal(result.artifact.domainResult.monetization.billingEnabled, false);
       assert.equal(result.artifact.domainResult.monetization.paymentExecuted, false);
