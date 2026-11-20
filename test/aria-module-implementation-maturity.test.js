@@ -4,12 +4,12 @@ const assert = require("node:assert/strict");
 const { MODULES } = require("../backend/modules");
 const { classifyModule, buildMaturityReport } = require("../backend/aria-module-maturity.cjs");
 
-test("201-module maturity report distinguishes shared-runtime handlers from dedicated service logic", () => {
+test("201-module maturity report distinguishes domain-specific handlers from family adapters", () => {
   const report = buildMaturityReport(MODULES);
   assert.equal(report.total, 201);
   assert.deepEqual(report.counts, {
-    DOMAIN_LOGIC_LOCAL: 18,
-    DOMAIN_ADAPTER_LOCAL: 183
+    DOMAIN_LOGIC_LOCAL: 28,
+    DOMAIN_ADAPTER_LOCAL: 173
   });
   assert.equal(report.productionVerifiedCount, 0);
   assert.equal(report.externalExecutionEnabledCount, 0);
@@ -30,7 +30,7 @@ test("all idea, control, catalog, child-engine and service modules have domain h
   const target = generic.filter(module => ["IDEA_BACKLOG_MODULE", "COMMERCIAL_CATALOG_MODULE", "CHILD_ENGINE_MODULE"].includes(module.manifest.moduleType));
   assert.equal(target.length, 193);
   for (const module of target) {
-    const expected = module.manifest.moduleType === "IDEA_BACKLOG_MODULE" && module.manifest.sequence <= 10 ? "DOMAIN_LOGIC_LOCAL" : "DOMAIN_ADAPTER_LOCAL";
+    const expected = module.manifest.moduleType === "IDEA_BACKLOG_MODULE" && module.manifest.sequence <= 20 ? "DOMAIN_LOGIC_LOCAL" : "DOMAIN_ADAPTER_LOCAL";
     assert.equal(classifyModule(module).implementationState, expected, module.manifest.moduleId);
   }
 });
