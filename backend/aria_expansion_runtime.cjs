@@ -3,6 +3,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const serviceDelivery = require("./aria-service-delivery.cjs");
 const moduleRegistryRuntime = require("./modules");
+const replacementModuleRuntime = require("./aria-039-replacement-runtime.cjs");
 if (moduleRegistryRuntime.MODULES.length !== 201) throw new Error("ARIA_INDEPENDENT_MODULE_COUNT_INVALID");
 const registry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_expansion_registry.json"), "utf8"));
 const moduleRegistry = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "aria_111_module_expansion_registry.json"), "utf8"));
@@ -62,10 +63,10 @@ const commercialModules = commercialRegistry.records.map(item => ({
   implementationStatus: item.moduleState === "LOCAL_WORKFLOW_AVAILABLE" ? "LOCAL_WORKFLOW_AVAILABLE_NOT_E2E_VERIFIED" : "DESIGNED_NOT_IMPLEMENTED",
   productionStatus: "NOT_PRODUCTION_VERIFIED"
 }));
-if (unifiedExecutionRegistry.total !== 893 || unifiedExecutionRegistry.records.length !== 893 ||
-    unifiedExecutionById.size !== 893 || unifiedExecutionByLaunchId.size !== 893 || unifiedExecutionRegistry.activeLocalWorkflowCount !== 854 ||
+if (unifiedExecutionRegistry.total !== 932 || unifiedExecutionRegistry.records.length !== 932 ||
+    unifiedExecutionById.size !== 932 || unifiedExecutionByLaunchId.size !== 932 || unifiedExecutionRegistry.activeLocalWorkflowCount !== 893 ||
     unifiedExecutionRegistry.lineageOnlyCount !== 39 ||
-    unifiedExecutionRegistry.records.filter(x => x.executionState === "LOCAL_WORK_ITEM_ONLY").length !== 854 ||
+    unifiedExecutionRegistry.records.filter(x => x.executionState === "LOCAL_WORK_ITEM_ONLY").length !== 893 ||
     unifiedExecutionRegistry.records.filter(x => x.executionState === "LINEAGE_ONLY").length !== 39 ||
     unifiedExecutionRegistry.records.some(x => !x.executionContract || !Array.isArray(x.executionContract.operations) || x.executionContract.operations.length === 0) ||
     unifiedExecutionRegistry.records.some(x => x.recordType === "ENGINE_SUBMODULE" && (!x.parentModuleIds.length || x.parentModuleIds.some(id => !moduleCatalogById.has(id)))) ||
@@ -77,7 +78,9 @@ const moduleInventory = {
   preservedHistoricalOverlayModules: allModuleCatalog.length,
   commercialCatalogModules: commercialModules.length,
   engineSubmodules: engineSubmodules.length,
-  totalModuleAndSubmoduleRecords: canonicalModules.length + allModuleCatalog.length + commercialModules.length + engineSubmodules.length,
+  replacementModules: replacementModuleRuntime.REGISTRY.records.length,
+  ariaOwnedModuleAndSubmoduleRecords: canonicalModules.length + moduleCatalog.length + commercialModules.length + engineSubmodules.length + replacementModuleRuntime.REGISTRY.records.length,
+  totalModuleAndSubmoduleRecords: canonicalModules.length + allModuleCatalog.length + commercialModules.length + engineSubmodules.length + replacementModuleRuntime.REGISTRY.records.length,
   countingRule: "Hierarchical inventory: canonical modules + preserved historical overlay + commercial catalog modules + separately identified engine submodules. Parent/host mappings remain explicit; this is not a claim of 893 independent production execution contracts."
 };
 const canonicalFamilyHandlers = {
@@ -128,7 +131,7 @@ const safeAutonomyActions = new Set(["draft", "summarize", "classify", "plan", "
 let schemaReady = false;
 let schemaPromise = null;
 
-if (canonicalRegistry.count !== 639 || canonicalModules.length !== 639 || canonicalModuleById.size !== 639 || new Set(canonicalModules.map(x => x.canonicalId)).size !== 639 || canonicalModules.some(x => !canonicalFamilyHandlers[x.designFamily]) || commercialExecutionManifest.recordCount !== 72 || commercialExecutionManifest.records.length !== 72 || commercialExecutionById.size !== 72 || commercialExecutionManifest.records.some(x => !canonicalModuleById.has(x.parentCanonicalContractId) || !x.executionContract?.handlerKey || !domainWorkflowHandlers[x.executionContract.handlerKey] || !Array.isArray(x.executionContract.operations) || x.executionContract.operations.length === 0) || commercialRegistry.records.some(x => commercialExecutionById.get(x.commercialModuleId)?.catalogEntryId !== x.catalogEntryId || commercialExecutionById.get(x.commercialModuleId)?.parentCanonicalContractId !== x.parentCanonicalContractId) || engineSubmodules.some(x => !engineWorkflowHandlers[x.domain]) || commercialRegistry.records.length !== 72 || new Set(commercialRegistry.records.map(x => x.catalogEntryId)).size !== 72 || engineSubmodules.length !== 71 || new Set(engineSubmodules.map(x => x.moduleId)).size !== 71 || moduleInventory.totalModuleAndSubmoduleRecords !== 893 || registry.baselineCanonicalModuleCount !== 639 || registry.problems.length !== 50 ||
+if (canonicalRegistry.count !== 639 || canonicalModules.length !== 639 || canonicalModuleById.size !== 639 || new Set(canonicalModules.map(x => x.canonicalId)).size !== 639 || canonicalModules.some(x => !canonicalFamilyHandlers[x.designFamily]) || commercialExecutionManifest.recordCount !== 72 || commercialExecutionManifest.records.length !== 72 || commercialExecutionById.size !== 72 || commercialExecutionManifest.records.some(x => !canonicalModuleById.has(x.parentCanonicalContractId) || !x.executionContract?.handlerKey || !domainWorkflowHandlers[x.executionContract.handlerKey] || !Array.isArray(x.executionContract.operations) || x.executionContract.operations.length === 0) || commercialRegistry.records.some(x => commercialExecutionById.get(x.commercialModuleId)?.catalogEntryId !== x.catalogEntryId || commercialExecutionById.get(x.commercialModuleId)?.parentCanonicalContractId !== x.parentCanonicalContractId) || engineSubmodules.some(x => !engineWorkflowHandlers[x.domain]) || commercialRegistry.records.length !== 72 || new Set(commercialRegistry.records.map(x => x.catalogEntryId)).size !== 72 || engineSubmodules.length !== 71 || new Set(engineSubmodules.map(x => x.moduleId)).size !== 71 || moduleInventory.totalModuleAndSubmoduleRecords !== 932 || moduleInventory.ariaOwnedModuleAndSubmoduleRecords !== 893 || replacementModuleRuntime.REGISTRY.records.length !== 39 || new Set(replacementModuleRuntime.REGISTRY.records.map(x => x.moduleId)).size !== 39 || registry.baselineCanonicalModuleCount !== 639 || registry.problems.length !== 50 ||
     registry.domains.length !== 5 || registry.candidates.length !== 4 ||
     registry.revenueModels.length !== 20 || new Set(registry.problems.map(x => x.id)).size !== 50 ||
     allModuleCatalog.length !== 111 || new Set(allModuleCatalog.map(x => x.moduleId)).size !== 111 ||
@@ -402,6 +405,9 @@ async function handle(req, res, url, deps) {
   if (p === "/api/aria-expansion/canonical-modules" && req.method === "GET") {
     return json(res, 200, { product: "ARIA", total: canonicalModules.length, immutable: true, modules: canonicalModules });
   }
+  if (p === "/api/aria-expansion/replacement-modules" && req.method === "GET") {
+    return json(res, 200, { product: "ARIA", total: replacementModuleRuntime.REGISTRY.records.length, modules: replacementModuleRuntime.REGISTRY.records, externalExecutionEnabled: false, paymentExecuted: false, productionVerified: false });
+  }
   if (p === "/api/aria-expansion/commercial-modules" && req.method === "GET") {
     return json(res, 200, { product: "ARIA", total: commercialExecutionManifest.records.length, domainProfiles: commercialExecutionManifest.domainProfiles, modules: commercialExecutionManifest.records });
   }
@@ -462,6 +468,29 @@ async function handle(req, res, url, deps) {
       const q = await pool.query("INSERT INTO aria_expansion_work_items(user_id,module_id,title,details) VALUES($1,$2,$3,$4) RETURNING id,module_id,title,status,created_at", [user.sub, parentModuleId, engine.name + " — " + goal.slice(0, 100), details]);
       return json(res, 201, { item: { ...q.rows[0], id: String(q.rows[0].id) }, engineSubmoduleId: engine.moduleId, parentModuleIds: engine.parentModuleIds, executionStatus: "LOCAL_WORK_ITEM_CREATED", externalExecutionPerformed: false, productionVerified: false });
     } catch (err) { console.error("ARIA engine work item failed:", err.message); return json(res, 500, { error: "ثبت گردش‌کار موتور انجام نشد." }); }
+  }
+  const replacementRunMatch = p.match(/^\\/api\\/aria-expansion\\/replacement-modules\\/(ARIA-OWNED-REPLACEMENT-\\d{3})\\/run$/);
+  if (replacementRunMatch && req.method === "POST") {
+    const user = requireUser(req, json, res, authUser); if (!user) return true;
+    const data = await readJson(req, res); if (data === null) return true;
+    const tenantId = String(user.sub);
+    let result;
+    try { result = replacementModuleRuntime.executeReplacementModule(replacementRunMatch[1], data, { actorId: String(user.sub), tenantId }); }
+    catch (err) {
+      if (["MODULE_TENANT_REQUIRED","MODULE_ACTOR_REQUIRED","MODULE_INPUT_INVALID","MODULE_INPUT_MISSING"].includes(err.message)) return json(res, 400, { error: err.message });
+      if (err.message === "ARIA_REPLACEMENT_MODULE_NOT_FOUND") return json(res, 404, { error: err.message });
+      return json(res, 500, { error: "اجرای گردش‌کار محلی ماژول انجام نشد." });
+    }
+    if (!await requireDb(res)) return true;
+    try {
+      await ensureTables(pool);
+      const details = JSON.stringify(result);
+      const q = await pool.query("INSERT INTO aria_expansion_work_items(user_id,module_id,title,details) VALUES($1,$2,$3,$4) RETURNING id,module_id,title,status,created_at", [user.sub, result.moduleId, result.moduleName + " — " + data.goal.slice(0, 100), details]);
+      return json(res, 201, { item: { ...q.rows[0], id: String(q.rows[0].id) }, executionState: "LOCAL_WORK_ITEM_CREATED", externalExecutionPerformed: false, paymentExecuted: false, productionVerified: false });
+    } catch (err) {
+      console.error("ARIA replacement module persistence failed:", err.message);
+      return json(res, 500, { error: "ذخیره گردش‌کار ماژول انجام نشد." });
+    }
   }
   const overlayRunMatch = p.match(/^\/api\/aria-expansion\/modules\/(ARIA-(?:PROBLEM|IDEA|CONTROL|LEGACY-APP)-MODULE-\d{3})\/run$/);
   if (overlayRunMatch && req.method === "POST") {
