@@ -44,6 +44,6 @@ module.exports = createDomainModule({
   "assumptions": [
     "Local workflow only; no external connector is invoked."
   ],
-  "revenueModel": "NOT_MONETIZED_UNTIL_ENTITLEMENT_AND_PAYMENT_VERIFIED"
+  "revenueModel": "NOT_MONETIZED_UNTIL_ENTITLEMENT_AND_PAYMENT_VERIFIED",
   domainHandler: createIdeaDomainHandler(10)
 });
