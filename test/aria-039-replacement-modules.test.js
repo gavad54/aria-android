@@ -44,6 +44,12 @@ for(const module of replacement.REGISTRY.records){
   assert.equal(result.productionVerified,false);
  });
 }
+test("all 39 additional domains have distinct specialized local handlers",()=>{
+ const handlers=require("../backend/aria-039-domain-handlers.cjs").handlers;
+ assert.equal(Object.keys(handlers).length,39);
+ assert.equal(new Set(Object.values(handlers)).size,39);
+ assert.ok(replacement.REGISTRY.records.every(module=>typeof handlers[module.domain]==="function"));
+});
 test("additional ARIA modules reject missing actor and tenant",()=>{
  const id=replacement.REGISTRY.records[0].moduleId;
  assert.throws(()=>replacement.executeReplacementModule(id,{goal:"test goal"},{actorId:"a"}),{message:"MODULE_TENANT_REQUIRED"});
