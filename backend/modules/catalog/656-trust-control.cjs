@@ -1,5 +1,6 @@
 "use strict";
 const { createDomainModule } = require("../../aria-module-runtime.cjs");
+const { createCatalogDomainHandler } = require("../../aria-catalog-domain-handlers.cjs");
 module.exports = createDomainModule({
   "moduleId": "ARIA-CATALOG-656",
   "moduleType": "COMMERCIAL_CATALOG_MODULE",
@@ -70,5 +71,5 @@ module.exports = createDomainModule({
     "No payment or external provider is executed by this local module handler."
   ],
   "productionVerified": false,
-  domainHandler: true
+  domainHandler: createCatalogDomainHandler(656)
 });
