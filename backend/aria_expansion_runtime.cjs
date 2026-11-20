@@ -22,8 +22,6 @@ for (const additionalModule of replacementModuleRuntime.REGISTRY.records) {
   }
 }
 const unifiedExecutionById = new Map(unifiedExecutionRegistry.records.map(x => [x.unitId, x]));
-const overlayDomainHandlerIds = new Set(ariaDomainRuntime.REGISTRY.records.filter(x => x.recordType === "HISTORICAL_OVERLAY_MODULE").map(x => x.moduleId));
-const overlayDomainHandlerCount = moduleCatalog.filter(x => overlayDomainHandlerIds.has(x.moduleId) && ariaDomainRuntime.BY_ID.has(x.moduleId)).length;
 const unifiedExecutionByLaunchId = new Map(unifiedExecutionRegistry.records.map(x => [x.launchId, x]));
 const canonicalModules = canonicalRegistry.records;
 const canonicalModuleById = new Map(canonicalModules.map(x => [x.canonicalId, x]));
@@ -34,6 +32,8 @@ const transferredIds = new Set(Object.values(ownership.products).flatMap(x => x.
 const archivedDomainIds = new Set(ownership.archivedDomainModuleIds);
 const moduleCatalog = allModuleCatalog.filter(x => !transferredIds.has(x.moduleId) && !archivedDomainIds.has(x.moduleId));
 const moduleCatalogById = new Map(moduleCatalog.map(x => [x.moduleId, x]));
+const overlayDomainHandlerIds = new Set(ariaDomainRuntime.REGISTRY.records.filter(x => x.recordType === "HISTORICAL_OVERLAY_MODULE").map(x => x.moduleId));
+const overlayDomainHandlerCount = moduleCatalog.filter(x => overlayDomainHandlerIds.has(x.moduleId) && ariaDomainRuntime.BY_ID.has(x.moduleId)).length;
 const publicProblemIds = new Set(moduleCatalog.filter(x => x.sourceProblemId).map(x => x.sourceProblemId));
 const publicProblemRecords = registry.problems.filter(x => publicProblemIds.has(x.id));
 const problemById = new Map(publicProblemRecords.map(x => [x.id, x]));
