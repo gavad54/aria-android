@@ -51,6 +51,16 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(new Set(executionRegistry.records.map(x=>x.unitId)).size,932);
   assert.equal(new Set(executionRegistry.records.map(x=>x.launchId)).size,932);
   assert.ok(executionRegistry.records.every(x=>x.executionContract&&Array.isArray(x.executionContract.operations)&&x.executionContract.operations.length>0));
+  const ownedExecutionRecords=executionRegistry.records.filter(x=>x.ownerStatus==="OWNED");
+  assert.equal(ownedExecutionRecords.length,893);
+  assert.ok(ownedExecutionRecords.every(x=>x.workflowEntry&&x.implementationState&&x.executionContract.handlerKey));
+  assert.deepEqual(Object.fromEntries(["CANONICAL_FAMILY_WORKFLOW","OVERLAY_ENGINE_FAMILY_ADAPTER","COMMERCIAL_DOMAIN_ADAPTER","ENGINE_FAMILY_ADAPTER","UNIT_SPECIFIC_DOMAIN_LOGIC"].map(state=>[state,ownedExecutionRecords.filter(x=>x.implementationState===state).length])),{
+    CANONICAL_FAMILY_WORKFLOW:639,
+    OVERLAY_ENGINE_FAMILY_ADAPTER:72,
+    COMMERCIAL_DOMAIN_ADAPTER:72,
+    ENGINE_FAMILY_ADAPTER:71,
+    UNIT_SPECIFIC_DOMAIN_LOGIC:39
+  });
   assert.equal(executionRegistry.records.filter(x=>x.executionState==="LINEAGE_ONLY").length,39);
   assert.equal(executionRegistry.records.filter(x=>x.executionState==="LOCAL_WORK_ITEM_ONLY").length,893);
   const sampleSpec=await fetch(base+"/api/aria-expansion/execution-registry/ARIA-CANONICAL-MODULE-001");
