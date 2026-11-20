@@ -57,3 +57,20 @@ test("overlay API rejects oversized and unsafe payloads before database writes",
  assert.equal(h.res.body.error,"MODULE_INPUT_TOO_LARGE");
  assert.equal(h.calls.some(x=>x.sql.includes("INSERT INTO aria_expansion_work_items")),false);
 });
+
+test("commercial catalog API executes its exact catalog-entry handler and persists scoped output",async()=>{
+ const h=makeHarness({goal:"Prepare a household workflow",consent:true,context:{tasks:[{id:"t1",title:"Inspect home maintenance"}],preferences:["local"]}});
+ h.url=new URL("http://localhost/api/aria-expansion/commercial-modules/life-home-assistant/run");
+ await handle(h.req,h.res,h.url,h.deps);
+ assert.equal(h.res.statusCode,201);
+ assert.equal(h.res.body.domainLogicExecuted,true);
+ assert.equal(h.res.body.handlerKey,"aria.catalog.707");
+ assert.equal(h.res.body.tenantBoundary,"PERSONAL_ACCOUNT_SCOPE");
+ assert.equal(h.res.body.paymentExecuted,false);
+ const insert=h.calls.find(x=>x.sql.includes("INSERT INTO aria_expansion_work_items"));
+ assert.ok(insert);
+ const saved=JSON.parse(insert.args[3]);
+ assert.equal(saved.executionStatus,"LOCAL_UNIT_SPECIFIC_DOMAIN_LOGIC_EXECUTED");
+ assert.equal(saved.domainExecution.domainLogicExecuted,true);
+ assert.equal(saved.domainExecution.artifact.domainResult.moduleSpecificProfile.profileId,"PROFILE:ARIA-CATALOG-707");
+});
