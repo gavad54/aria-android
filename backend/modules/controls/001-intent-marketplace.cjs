@@ -1,5 +1,6 @@
 "use strict";
 const { createDomainModule } = require("../../aria-module-runtime.cjs");
+const { intentMarketplace } = require("../../aria-governance-handlers.cjs");
 module.exports = createDomainModule({
   "moduleId": "ARIA-CONTROL-MODULE-001",
   "moduleType": "GOVERNANCE_CONTROL_MODULE",
@@ -44,5 +45,6 @@ module.exports = createDomainModule({
     "عدم نمایش اطلاعات خصوصی پیش‌فرض"
   ],
   "executionBoundary": "ثبت قصد، تطبیق توضیح‌پذیر، پاسخ و نتیجه؛ بدون تکرار بازارگاه و Lead Market",
-  "productionVerified": false
+  "productionVerified": false,
+  domainHandler: intentMarketplace
 });
