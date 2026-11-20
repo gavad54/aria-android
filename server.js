@@ -6,6 +6,7 @@ const expansionRuntime = require("./backend/aria_expansion_runtime.cjs");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const {Pool}=require("pg");
+const {databaseSslConfig}=require("./db-config");
 const {inspectRuntimeReadiness}=require("./backend/runtime-readiness.cjs");
 const root=__dirname;
 const bridgeManifest=JSON.parse(fs.readFileSync(path.join(root,"backend/data/aria_web_catalog_bridge.json"),"utf8"));
@@ -157,7 +158,7 @@ const catalogModules = modules.map((module) => {
 });
 if(catalogModules.length!==72||new Set(catalogModules.map(x=>x.catalogEntryId)).size!==72||new Set(catalogModules.map(x=>x.capabilityContractId)).size!==47)throw new Error("ARIA_CATALOG_ALIAS_COUNTS_INVALID");
 const rateBuckets=new Map();
-const pool=process.env.DATABASE_URL?new Pool({connectionString:process.env.DATABASE_URL,max:10,idleTimeoutMillis:30000,connectionTimeoutMillis:5000,ssl:process.env.DATABASE_SSL==="true"?{rejectUnauthorized:false}:undefined}):null;
+const pool=process.env.DATABASE_URL?new Pool({connectionString:process.env.DATABASE_URL,max:10,idleTimeoutMillis:30000,connectionTimeoutMillis:5000,ssl:databaseSslConfig()}):null;
 let dbInitPromise=null,dbConnected=false;
 async function initDb(){
  if(!pool)throw new Error("DATABASE_URL is not configured");
