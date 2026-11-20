@@ -102,15 +102,68 @@ function buildEngineArtifact(manifest, signals) {
     outputs: (manifest.outputContract || []).map(name => ({ name, state: "LOCAL_RESULT_READY" }))
   };
 }
+function buildModuleSpecificProfile(manifest) {
+  const operations = boundedList(manifest.operations, 40).map((operation, index) => ({
+    sequence: index + 1,
+    operation,
+    acceptanceCriteria: [
+      "ورودی معتبر و محدود به tenant جاری باشد",
+      "خروجی این گام قابل بازبینی و قابل ثبت باشد",
+      "هیچ اقدام بیرونی بدون مجوز و تأیید انجام نشود"
+    ],
+    state: "LOCAL_EXECUTABLE_STEP"
+  }));
+  const inputs = boundedList(manifest.requiredInputs || manifest.inputContract, 40);
+  const outputs = boundedList(manifest.outputContract, 40);
+  const revenue = plainObject(manifest.revenueEngine);
+  const profile = {
+    profileId: "PROFILE:" + manifest.moduleId,
+    moduleId: manifest.moduleId,
+    moduleName: manifest.name,
+    moduleType: manifest.moduleType,
+    specialization: textValue(manifest.engine || manifest.purpose || manifest.description, manifest.name),
+    purpose: textValue(manifest.purpose || manifest.description || manifest.deliverable, manifest.name),
+    inputSchema: inputs.map(name => ({ name, required: true, validation: name === "consent" ? "must_be_true_when_policy_requires" : "type_and_size_checked" })),
+    outputSchema: outputs.map(name => ({ name, produced: true, reviewRequired: true })),
+    operationPlan: operations,
+    decisionRules: [
+      { id: "TENANT_BOUNDARY", rule: "تمام داده‌ها فقط در tenant جاری پردازش شوند", failState: "DENY" },
+      { id: "EVIDENCE_BOUNDARY", rule: "ادعاهای نتیجه فقط بر اساس ورودی یا منبع ارائه‌شده باشند", failState: "UNVERIFIED" },
+      { id: "HUMAN_REVIEW", rule: "خروجی حساس یا قابل انتشار پیش از اقدام بیرونی بازبینی شود", failState: "REVIEW_REQUIRED" }
+    ],
+    qualityMetrics: [
+      { metric: "input_completeness", unit: "required_fields", target: inputs.length, state: "MEASURE_ON_EXECUTION" },
+      { metric: "operation_coverage", unit: "steps", target: operations.length, state: "MEASURE_ON_EXECUTION" },
+      { metric: "evidence_coverage", unit: "references", target: "USER_OR_CONNECTOR_SUPPLIED", state: "MEASURE_ON_EXECUTION" }
+    ],
+    commercialContract: manifest.moduleType === "COMMERCIAL_CATALOG_MODULE" ? {
+      entitlementKey: revenue.entitlementKey || null,
+      billingModes: boundedList(revenue.billingModes),
+      meteringUnit: revenue.meteringUnit || null,
+      state: "DESIGNED_NOT_MONETIZED",
+      billingEnabled: false,
+      paymentExecuted: false,
+      price: revenue.price || null
+    } : null,
+    parentModuleIds: boundedList(manifest.parentModuleIds),
+    sourceLineage: manifest.sourceLineage || null,
+    executionBoundary: "TENANT_SCOPED_LOCAL_ONLY",
+    externalExecution: false,
+    productionVerified: false
+  };
+  return Object.freeze(profile);
+}
+
 function createModuleDomainHandler(manifest) {
   if (!manifest || typeof manifest.moduleId !== "string" || !manifest.moduleType) throw new Error("ARIA_DOMAIN_HANDLER_MANIFEST_INVALID");
   return async function moduleDomainHandler(input, context) {
     if (!context || !context.tenantId || !context.actorId) throw new Error("ARIA_DOMAIN_HANDLER_CONTEXT_INVALID");
     const signals = deriveSignals(input, manifest);
+    const moduleSpecificProfile = buildModuleSpecificProfile(manifest);
     let domainArtifact;
-    if (manifest.moduleType === "IDEA_BACKLOG_MODULE") domainArtifact = buildIdeaArtifact(manifest, signals);
-    else if (manifest.moduleType === "COMMERCIAL_CATALOG_MODULE") domainArtifact = buildCatalogArtifact(manifest, signals);
-    else if (manifest.moduleType === "CHILD_ENGINE_MODULE") domainArtifact = buildEngineArtifact(manifest, signals);
+    if (manifest.moduleType === "IDEA_BACKLOG_MODULE") domainArtifact = { ...buildIdeaArtifact(manifest, signals), moduleSpecificProfile };
+    else if (manifest.moduleType === "COMMERCIAL_CATALOG_MODULE") domainArtifact = { ...buildCatalogArtifact(manifest, signals), moduleSpecificProfile };
+    else if (manifest.moduleType === "CHILD_ENGINE_MODULE") domainArtifact = { ...buildEngineArtifact(manifest, signals), moduleSpecificProfile };
     else throw new Error("ARIA_DOMAIN_HANDLER_TYPE_UNSUPPORTED");
     return Object.freeze({
       moduleId: manifest.moduleId,
