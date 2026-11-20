@@ -51,8 +51,8 @@ test("all 183 remaining ideas, catalog modules and child engines execute dedicat
       assert.ok(result.artifact.domainResult.domainArtifact, module.manifest.moduleId);
     }
     if (module.manifest.moduleType === "COMMERCIAL_CATALOG_MODULE") {
-      assert.equal(result.artifact.domainResult.monetization.billingEnabled, false);
-      assert.equal(result.artifact.domainResult.monetization.paymentExecuted, false);
+      assert.equal(result.artifact.domainResult.commercialization.billingEnabled, false);
+      assert.equal(result.artifact.domainResult.commercialization.paymentExecuted, false);
     }
     if (module.manifest.moduleType === "CHILD_ENGINE_MODULE") {
       assert.ok(Array.isArray(result.artifact.domainResult.domainArtifact.executionPlan));
