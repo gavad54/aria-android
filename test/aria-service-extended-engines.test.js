@@ -21,7 +21,7 @@ test("support ticket records ownership, priority and SLA target without sending 
 test("customer success evaluation requires measurable inputs and never auto-renews", () => {
   const result = evaluateCustomerSuccess({
     period: "2026-11", activeDays: 12, completedTasks: 30, targetTasks: 25, unresolvedTickets: 1
-  });
+  }, { userId: "user-1", tenantId: "tenant-1" });
   assert.equal(result.health, "HEALTHY");
   assert.equal(result.renewalDecision, "OWNER_REVIEW_REQUIRED");
   assert.equal(result.renewalExecuted, false);
@@ -58,11 +58,11 @@ test("support SLA is evaluated from stored target and ticket lifecycle is audita
     serviceCaseId: "case-1", title: "پیگیری", description: "شرح کافی برای پیگیری", priority: "high", responseHours: 1
   }, { userId: "user-1", tenantId: "tenant-1" });
   assert.equal(evaluateSupportSla(ticket, new Date(Date.now() + 2 * 3600000)).state, "OVERDUE");
-  const active = transitionSupportTicket(ticket, "START_WORK", { userId: "user-1" });
+  const active = transitionSupportTicket(ticket, "START_WORK", { userId: "user-1", tenantId: "tenant-1" });
   assert.equal(active.status, "IN_PROGRESS");
-  const resolved = transitionSupportTicket(active, "RESOLVE", { userId: "user-1" });
+  const resolved = transitionSupportTicket(active, "RESOLVE", { userId: "user-1", tenantId: "tenant-1" });
   assert.equal(resolved.status, "RESOLVED");
-  assert.throws(() => transitionSupportTicket(ticket, "RESOLVE", { userId: "user-1" }), /SUPPORT_TRANSITION_NOT_ALLOWED/);
+  assert.throws(() => transitionSupportTicket(ticket, "RESOLVE", { userId: "user-1", tenantId: "tenant-1" }), /SUPPORT_TRANSITION_NOT_ALLOWED/);
 });
 
 test("customer renewal requires owner approval and never executes a charge", () => {
@@ -70,8 +70,8 @@ test("customer renewal requires owner approval and never executes a charge", () 
   const report = evaluateCustomerSuccess({
     period: "2026-11", activeDays: 12, completedTasks: 30, targetTasks: 25, unresolvedTickets: 1
   });
-  assert.throws(() => approveCustomerRenewal(report, { userId: "user-1" }), /OWNER_APPROVAL_REQUIRED/);
-  const approved = approveCustomerRenewal(report, { userId: "owner-1", isOwner: true });
+  assert.throws(() => approveCustomerRenewal(report, { userId: "user-1", tenantId: "tenant-1" }), /OWNER_APPROVAL_REQUIRED/);
+  const approved = approveCustomerRenewal(report, { userId: "owner-1", isOwner: true, tenantId: "tenant-1" });
   assert.equal(approved.renewalDecision, "OWNER_APPROVED_RECOMMENDATION");
   assert.equal(approved.renewalExecuted, false);
 });
@@ -81,11 +81,11 @@ test("service package lifecycle requires owner approval before local catalog pub
   const pack = createServicePackage({
     name: "بسته محتوا", version: 1, serviceModuleIds: ["ARIA-SVC-INTAKE"], steps: ["دریافت brief"], currency: "IRR"
   }, { userId: "user-1", tenantId: "tenant-1" });
-  const review = transitionServicePackage(pack, "SUBMIT_REVIEW", { userId: "user-1" });
+  const review = transitionServicePackage(pack, "SUBMIT_REVIEW", { userId: "user-1", tenantId: "tenant-1" });
   assert.equal(review.state, "REVIEW_PENDING");
-  assert.throws(() => transitionServicePackage(review, "APPROVE", { userId: "user-1" }), /OWNER_APPROVAL_REQUIRED/);
-  const approved = transitionServicePackage(review, "APPROVE", { userId: "owner-1", isOwner: true });
-  const published = transitionServicePackage(approved, "PUBLISH_LOCAL", { userId: "owner-1", isOwner: true });
+  assert.throws(() => transitionServicePackage(review, "APPROVE", { userId: "user-1", tenantId: "tenant-1" }), /OWNER_APPROVAL_REQUIRED/);
+  const approved = transitionServicePackage(review, "APPROVE", { userId: "owner-1", isOwner: true, tenantId: "tenant-1" });
+  const published = transitionServicePackage(approved, "PUBLISH_LOCAL", { userId: "owner-1", isOwner: true, tenantId: "tenant-1" });
   assert.equal(published.state, "PUBLISHED_LOCAL");
   assert.equal(published.entitlementActivated, false);
   assert.equal(published.externalExecutionPerformed, false);
