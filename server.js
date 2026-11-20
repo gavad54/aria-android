@@ -5,6 +5,7 @@ const path = require("node:path");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const {Pool}=require("pg");
+const {databaseSslConfig}=require("./db-config");
 const root=__dirname;
 const port=Number(process.env.PORT||3000);
 const types={".html":"text/html; charset=utf-8",".css":"text/css; charset=utf-8",".js":"text/javascript; charset=utf-8",".json":"application/json; charset=utf-8",".svg":"image/svg+xml"};
@@ -77,7 +78,7 @@ const modules=[
 
 ];
 const rateBuckets=new Map();
-const pool=process.env.DATABASE_URL?new Pool({connectionString:process.env.DATABASE_URL,max:10,idleTimeoutMillis:30000,connectionTimeoutMillis:5000,ssl:process.env.DATABASE_SSL==="true"?{rejectUnauthorized:false}:undefined}):null;
+const pool=process.env.DATABASE_URL?new Pool({connectionString:process.env.DATABASE_URL,max:10,idleTimeoutMillis:30000,connectionTimeoutMillis:5000,ssl:databaseSslConfig()}):null;
 let dbInitPromise=null,dbConnected=false;
 async function initDb(){
  if(!pool)throw new Error("DATABASE_URL is not configured");
