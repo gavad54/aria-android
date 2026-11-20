@@ -71,10 +71,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-001",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-001",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-002",
@@ -142,10 +176,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-002",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-002",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-003",
@@ -213,10 +281,46 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-003",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "completed_task_or_case",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "completed_task_or_case",
+        "entitlementKey": "aria.module.aria-owned-additional-003",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-004",
@@ -284,10 +388,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-004",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-004",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-005",
@@ -355,10 +493,46 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-005",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "completed_task_or_case",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "completed_task_or_case",
+        "entitlementKey": "aria.module.aria-owned-additional-005",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-006",
@@ -427,10 +601,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-006",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-006",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-007",
@@ -499,10 +707,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-007",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-007",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-008",
@@ -570,10 +812,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-008",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-008",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-009",
@@ -641,10 +917,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-009",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-009",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-010",
@@ -712,10 +1022,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-010",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-010",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-011",
@@ -783,10 +1127,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-011",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-011",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-012",
@@ -854,10 +1232,46 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-012",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "completed_task_or_case",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "completed_task_or_case",
+        "entitlementKey": "aria.module.aria-owned-additional-012",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-013",
@@ -926,10 +1340,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-013",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-013",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-014",
@@ -997,10 +1445,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-014",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-014",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-015",
@@ -1069,10 +1551,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-015",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-015",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-016",
@@ -1141,10 +1657,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-016",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-016",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-017",
@@ -1212,10 +1762,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-017",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-017",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-018",
@@ -1284,10 +1868,46 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-018",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "completed_task_or_case",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "completed_task_or_case",
+        "entitlementKey": "aria.module.aria-owned-additional-018",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-019",
@@ -1355,10 +1975,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-019",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-019",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-020",
@@ -1426,10 +2080,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-020",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-020",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-021",
@@ -1498,10 +2186,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-021",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-021",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-022",
@@ -1569,10 +2291,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-022",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-022",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-023",
@@ -1640,10 +2396,46 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-023",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "completed_task_or_case",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "completed_task_or_case",
+        "entitlementKey": "aria.module.aria-owned-additional-023",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-024",
@@ -1711,10 +2503,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-024",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-024",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-025",
@@ -1782,10 +2608,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-025",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-025",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-026",
@@ -1853,10 +2713,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-026",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-026",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-027",
@@ -1924,10 +2818,46 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-027",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "completed_task_or_case",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "completed_task_or_case",
+        "entitlementKey": "aria.module.aria-owned-additional-027",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-028",
@@ -1995,10 +2925,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-028",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-028",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-029",
@@ -2066,10 +3030,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-029",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-029",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-030",
@@ -2138,10 +3136,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-030",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-030",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-031",
@@ -2209,10 +3241,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-031",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-031",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-032",
@@ -2280,10 +3346,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-032",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-032",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-033",
@@ -2351,10 +3451,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-033",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-033",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-034",
@@ -2422,10 +3556,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-034",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-034",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-035",
@@ -2493,10 +3661,46 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-035",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "completed_task_or_case",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "completed_task_or_case",
+        "entitlementKey": "aria.module.aria-owned-additional-035",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-036",
@@ -2565,10 +3769,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-036",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-036",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-037",
@@ -2637,10 +3875,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-037",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-037",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-038",
@@ -2708,10 +3980,46 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-038",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "completed_task_or_case",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "completed_task_or_case",
+        "entitlementKey": "aria.module.aria-owned-additional-038",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     },
     {
       "moduleId": "ARIA-OWNED-ADDITIONAL-039",
@@ -2780,10 +4088,44 @@
         "state": "DESIGNED_NOT_MONETIZED",
         "billingEnabled": false,
         "paymentExecuted": false,
-        "paymentProviderState": "NOT_CONNECTED"
+        "paymentProviderState": "NOT_CONNECTED",
+        "entitlementKey": "aria.module.aria-owned-additional-039",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "ownerPricingRequired": true
       },
       "executionState": "LOCAL_WORK_ITEM_ONLY",
-      "productionVerified": false
+      "productionVerified": false,
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.aria-owned-additional-039",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      }
     }
   ]
 }
