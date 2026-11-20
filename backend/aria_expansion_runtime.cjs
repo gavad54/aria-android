@@ -135,6 +135,24 @@ const overlayModuleIds = new Set(allModuleCatalog.map(item => item.moduleId));
 if (engineSubmodules.some(engine => engine.parentModuleIds.length === 0 || engine.parentModuleIds.some(id => !overlayModuleIds.has(id) || !moduleCatalogById.has(id)))) {
   throw new Error("ARIA_ENGINE_SUBMODULE_HOST_MAPPING_INVALID");
 }
+const implementationMaturity = Object.freeze({
+  totalOwnedUnits: 893,
+  totalInventoryRecords: 932,
+  counts: Object.freeze({
+    canonical: Object.freeze({ units: canonicalModules.length, executionMode: "CANONICAL_FAMILY_WORKFLOW", handlerFamilies: new Set(canonicalModules.map(x => x.designFamily)).size, unitSpecificHandlers: 0 }),
+    overlay: Object.freeze({ units: moduleCatalog.length, executionMode: "LOCAL_WORK_ITEM_PREPARATION", handlerFamilies: 0, unitSpecificHandlers: 0 }),
+    commercial: Object.freeze({ units: commercialModules.length, executionMode: "COMMERCIAL_DOMAIN_ADAPTER", handlerFamilies: new Set(commercialExecutionManifest.records.map(x => x.executionContract.handlerKey)).size, unitSpecificHandlers: 0 }),
+    engines: Object.freeze({ units: engineSubmodules.length, executionMode: "ENGINE_FAMILY_ADAPTER", handlerFamilies: new Set(engineSubmodules.map(x => x.domain)).size, unitSpecificHandlers: 0 }),
+    additional: Object.freeze({ units: replacementModuleRuntime.REGISTRY.records.length, executionMode: "LOCAL_WORK_ITEM_PREPARATION", handlerFamilies: 0, unitSpecificHandlers: 0 })
+  }),
+  productionVerifiedCount: 0,
+  externalProviderConnectedCount: 0,
+  liveBillingEnabled: false,
+  paymentExecuted: false,
+  individualUnitProofCompleteCount: 0,
+  nextGate: "SPECIALIZED_UNIT_BEHAVIOR_AND_E2E_EVIDENCE",
+  interpretation: "Registry coverage and family-level local workflows are not evidence of dedicated per-unit domain behavior, external provider execution, live billing, or Production verification."
+});
 const safeAutonomyActions = new Set(["draft", "summarize", "classify", "plan", "analyze_readonly"]);
 let schemaReady = false;
 let schemaPromise = null;
@@ -413,6 +431,9 @@ async function handle(req, res, url, deps) {
   }
   if (p === "/api/aria-expansion/canonical-modules" && req.method === "GET") {
     return json(res, 200, { product: "ARIA", total: canonicalModules.length, immutable: true, modules: canonicalModules });
+  }
+  if (p === "/api/aria-expansion/implementation-maturity" && req.method === "GET") {
+    return json(res, 200, implementationMaturity);
   }
   if (p === "/api/aria-expansion/commercialization-registry" && req.method === "GET") {
     const commercialRecords = commercializationRuntime.REGISTRY.records;
