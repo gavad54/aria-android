@@ -187,6 +187,16 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(unauthEngineRun.status,401);
   const unauthOverlayRun=await fetch(base+"/api/aria-expansion/modules/ARIA-PROBLEM-MODULE-001/run",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"آزمون ماژول تاریخی فعال"})});
   assert.equal(unauthOverlayRun.status,401);
+  const commercialRegistryResponse=await fetch(base+"/api/aria-expansion/commercialization-registry");
+  const commercialRegistry=await commercialRegistryResponse.json();
+  assert.equal(commercialRegistryResponse.status,200);
+  assert.equal(commercialRegistry.total,893);
+  assert.equal(commercialRegistry.counts.separatelyBillable,822);
+  assert.equal(commercialRegistry.counts.inheritedEntitlements,71);
+  assert.equal(commercialRegistry.liveBillingEnabled,false);
+  assert.equal(commercialRegistry.paymentExecuted,false);
+  const unauthUsagePreview=await fetch(base+"/api/aria-expansion/commercialization/usage-preview",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({moduleId:"ARIA-CANONICAL-MODULE-001",quantity:1,idempotencyKey:"unauth-test-001"})});
+  assert.equal(unauthUsagePreview.status,401);
   const replacementCatalog=await fetch(base+"/api/aria-expansion/additional-modules");
   const replacementData=await replacementCatalog.json();
   assert.equal(replacementCatalog.status,200);
