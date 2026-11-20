@@ -41,6 +41,6 @@ module.exports = createDomainModule({
     "audit_log"
   ],
   "executionState": "LOCAL_WORK_ITEM_ONLY",
-  "productionVerified": false
+  "productionVerified": false,
   domainHandler: true
 });
