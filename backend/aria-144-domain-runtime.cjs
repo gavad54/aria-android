@@ -106,6 +106,7 @@ async function executeAriaEngineModule(moduleId,input={},context={}) {
  validateDomainPayload(input);
  const goal=typeof input.goal==="string"?input.goal.trim():"";
  if(goal.length<4||goal.length>1200) throw new Error("MODULE_INPUT_MISSING");
+ if(module.manifest.requiredInputs.includes("consent")&&input.consent!==true) throw new Error("MODULE_CONSENT_REQUIRED");
  const result=await modulesRuntime.executeModule(String(moduleId),input,{actorId,tenantId});
  return Object.freeze({...result,tenantScope:tenantId,actorScope:actorId,executionState:"LOCAL_DOMAIN_LOGIC_EXECUTED",externalExecutionPerformed:false,paymentExecuted:false,productionVerified:false});
 }
