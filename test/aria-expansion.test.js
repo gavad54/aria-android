@@ -195,6 +195,25 @@ test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates an
   assert.equal(commercialRegistry.counts.inheritedEntitlements,71);
   assert.equal(commercialRegistry.liveBillingEnabled,false);
   assert.equal(commercialRegistry.paymentExecuted,false);
+
+  const maturityResponse=await fetch(base+"/api/aria-expansion/implementation-maturity");
+  const maturity=await maturityResponse.json();
+  assert.equal(maturityResponse.status,200);
+  assert.equal(maturity.totalOwnedUnits,893);
+  assert.equal(maturity.totalInventoryRecords,932);
+  assert.deepEqual(maturity.counts,{
+    canonical:{units:639,executionMode:"CANONICAL_FAMILY_WORKFLOW",handlerFamilies:15,unitSpecificHandlers:0},
+    overlay:{units:72,executionMode:"LOCAL_WORK_ITEM_PREPARATION",handlerFamilies:0,unitSpecificHandlers:0},
+    commercial:{units:72,executionMode:"COMMERCIAL_DOMAIN_ADAPTER",handlerFamilies:13,unitSpecificHandlers:0},
+    engines:{units:71,executionMode:"ENGINE_FAMILY_ADAPTER",handlerFamilies:4,unitSpecificHandlers:0},
+    additional:{units:39,executionMode:"LOCAL_WORK_ITEM_PREPARATION",handlerFamilies:0,unitSpecificHandlers:0}
+  });
+  assert.equal(maturity.productionVerifiedCount,0);
+  assert.equal(maturity.externalProviderConnectedCount,0);
+  assert.equal(maturity.liveBillingEnabled,false);
+  assert.equal(maturity.paymentExecuted,false);
+  assert.equal(maturity.individualUnitProofCompleteCount,0);
+  assert.equal(maturity.nextGate,"SPECIALIZED_UNIT_BEHAVIOR_AND_E2E_EVIDENCE");
   const unauthUsagePreview=await fetch(base+"/api/aria-expansion/commercialization/usage-preview",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({moduleId:"ARIA-CANONICAL-MODULE-001",quantity:1,idempotencyKey:"unauth-test-001"})});
   assert.equal(unauthUsagePreview.status,401);
   const replacementCatalog=await fetch(base+"/api/aria-expansion/additional-modules");
