@@ -75,3 +75,22 @@ test("runtime rejects a domain handler result that changes tenant or actor scope
     { message: "MODULE_DOMAIN_HANDLER_SCOPE_MISMATCH" }
   );
 });
+
+
+test("runtime preserves legacy domain handlers that omit optional identity fields", async () => {
+  const module = createDomainModule({
+    moduleId: "ARIA.TEST.SECURITY",
+    name: "Legacy-compatible domain handler",
+    inputContract: [],
+    outputContract: [],
+    operations: [],
+    domainHandler: async () => ({ result: "locally-computed" })
+  });
+  const result = await module.execute({}, { actorId: "actor-1", tenantId: "tenant-1" });
+
+  assert.equal(result.domainLogicExecuted, true);
+  assert.equal(result.artifact.domainResult.result, "locally-computed");
+  assert.equal(result.tenantId, "tenant-1");
+  assert.equal(result.actorId, "actor-1");
+  assert.equal(result.externalExecutionPerformed, false);
+});
