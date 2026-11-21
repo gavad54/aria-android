@@ -1,0 +1,5 @@
+part,record_count,path,meaning
+CANONICAL_MODULES,639,ARIA_MASTER_PRODUCTIZATION_CANONICAL_639_V2_2026-11-19.csv,Canonical product modules with operational and revenue treatment
+ARCHIVE_LINEAGE,842,ARIA_MASTER_PRODUCTIZATION_ARCHIVE_LINEAGE_842_V2_2026-11-19.csv,Historical snapshots module keys shared engines engineering contracts and value paths
+COMMERCIAL_AND_BRIDGE,144,ARIA_MASTER_PRODUCTIZATION_COMMERCIAL_BRIDGE_144_V2_2026-11-19.csv,72 commercial offers plus 72 bridge relationships
+TOTAL,1625,ARIA_MASTER_PRODUCTIZATION_CROSSWALK_V2_INDEX_2026-11-19.md,Complete preservation-first productization overlay; no source structures overwritten

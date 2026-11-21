@@ -2,10 +2,18 @@
 const http = require("node:http");
 const fs = require("node:fs");
 const path = require("node:path");
+const expansionRuntime = require("./backend/aria_expansion_runtime.cjs");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const {Pool}=require("pg");
+const {databaseSslConfig}=require("./db-config");
+const {inspectRuntimeReadiness}=require("./backend/runtime-readiness.cjs");
 const root=__dirname;
+const bridgeManifest=JSON.parse(fs.readFileSync(path.join(root,"backend/data/aria_web_catalog_bridge.json"),"utf8"));
+const commercialManifest=JSON.parse(fs.readFileSync(path.join(root,"backend/data/aria_commercial_module_registry.json"),"utf8"));
+const commercialById=new Map(commercialManifest.records.map(record=>[record.commercialModuleId,record]));
+if(commercialManifest.records.length!==72||commercialManifest.totalProductFacingModuleCount!==711||commercialManifest.canonicalExecutionContractCount!==639)throw new Error("ARIA_COMMERCIAL_MODULE_REGISTRY_INVALID");
+const bridgeByCatalogId=new Map(bridgeManifest.records.map(record=>[record.id,record]));
 const port=Number(process.env.PORT||3000);
 const types={".html":"text/html; charset=utf-8",".css":"text/css; charset=utf-8",".js":"text/javascript; charset=utf-8",".json":"application/json; charset=utf-8",".svg":"image/svg+xml"};
 const modules=[
@@ -74,13 +82,13 @@ const modules=[
  {id:"revenue-commerce-engine",name:"موتور درآمد، تجارت و تسویه",status:"planned",description:"پیکربندی اشتراک، فریمیوم، بازارگاه، تجارت الکترونیک، فروش مستقیم و عمده، تبلیغات، همکاری در فروش، مجوز، فرانچایز، خرده‌فروشی، توزیع، پرداخت مصرفی، اجاره و لیزینگ؛ نیازمند قرارداد، پرداخت و کنترل مالی",revenueModel:"کارمزد تراکنش شفاف؛ اشتراک فروشنده؛ هزینه راه‌اندازی؛ هزینه خدمات و تسویه"},
  {id:"creator-platform-community",name:"موتور پلتفرم، محتوا و جامعه",status:"planned",description:"خدمات حرفه‌ای، محصولات دیجیتال، جامعه مشتریان، پلتفرم چندطرفه، مدل داده‌محور، محتوای اشتراکی و ارجاع؛ همراه مدیریت سازنده، کیفیت و حقوق محتوا",revenueModel:"اشتراک سازنده؛ کارمزد بازارگاه؛ فروش محصول دیجیتال؛ خدمات حرفه‌ای"},
  {id:"on-demand-local-services",name:"بازار خدمات درخواستی و محلی",status:"planned",description:"ثبت درخواست، تطبیق متخصص، دریافت پیشنهاد، زمان‌بندی، امتیازدهی و پیگیری خدمات خانه و زندگی؛ احراز ارائه‌دهنده و رسیدگی به شکایت لازم است",revenueModel:"کارمزد سرنخ یا سفارش با افشای شفاف؛ اشتراک متخصص؛ جایگاه تبلیغاتی مشخص"},
- {id:"arvand-global-trade",name:"استودیوی تجارت و بازرگانی ARVAND",status:"planned",description:"تحلیل بازار و کشور مقصد، غربال فرصت‌های صادرات و واردات، چک‌لیست اسناد، مقایسه تأمین‌کننده، برآورد سناریویی هزینه و ریسک، آماده‌سازی پیش‌نویس پیشنهاد تجاری و پیگیری معامله؛ قیمت و مقررات باید از منبع معتبر و تاریخ‌دار تأیید شوند",revenueModel:"اشتراک حرفه‌ای تجارت؛ گزارش بازار پولی؛ اعتبار تحلیل؛ خدمات راه‌اندازی سازمانی",legacyProduct:"ARVAND"},
- {id:"charsu-market-intelligence",name:"هوشمندی بازار و کشف فرصت CHARSU",status:"planned",description:"کشف نیاز و دسته‌بندی بازار، مقایسه عرضه و تقاضا، تحلیل رقبا و جایگاه‌یابی، امتیازدهی فرصت با شواهد، ساخت فهرست فروشندگان و خریداران و ارجاع کنترل‌شده به ARMIN MARKET بدون تکرار یا تصاحب بازارگاه مستقل",revenueModel:"اشتراک تحلیل بازار؛ گزارش رقابتی؛ سرنخ تجاری با رضایت و افشای منبع",legacyProduct:"CHARSU"},
- {id:"ganjineh-commerce-studio",name:"استودیوی فروشگاه و تجارت دیجیتال GANJINEH",status:"planned",description:"ساخت کاتالوگ و صفحه محصول، مدیریت ویژگی و تنوع کالا، موجودی نمایشی، پیشنهاد قیمت و بسته، سبد و سفارش در صورت اتصال واقعی، محتوای محصول و تحلیل تبدیل؛ دفترکل، حسابداری و ERP خارج از ARIA و متعلق به ARIANA است",revenueModel:"اشتراک فروشنده؛ قالب فروشگاهی؛ هزینه راه‌اندازی؛ کارمزد شفاف سفارش در اتصال مجاز",legacyProduct:"GANJINEH"},
- {id:"negah-creative-studio",name:"استودیوی خلاقیت و رسانه NEGAH",status:"planned",description:"تبدیل بریف به ایده و هویت بصری، طراحی لوگو و اقلام برند، تصویر محصول، بنر، پست، استوری، سناریوی ریلز، ویدئو و کاتالوگ؛ مدیریت نسخه‌ها، حقوق رسانه، رضایت افراد و کنترل کیفیت خروجی",revenueModel:"اعتبار تصویر و ویدئو؛ بسته طراحی؛ اشتراک سازنده؛ فروش قالب اصیل",legacyProduct:"NEGAH"},
- {id:"sepehr-cloud-workspace",name:"فضای ابری و مدیریت منابع SEPEHR",status:"planned",description:"مدیریت فضای فایل، پروژه‌ها، سهمیه و مصرف، پایش سلامت سرویس‌های متصل، گزارش هزینه، سیاست نگهداری و درخواست پشتیبان‌گیری؛ عملیات زیرساختی حساس فقط از طریق اتصال رسمی، مجوز حداقلی، تأیید مالک و ثبت ممیزی؛ بدون دسترسی خودکار به حساب‌های ابری",revenueModel:"اشتراک فضای کاری؛ سهمیه ذخیره‌سازی؛ گزارش هزینه و مدیریت سازمانی",legacyProduct:"SEPEHR"},
- {id:"nama-web-studio",name:"استودیوی سایت و صفحه‌ساز NAMA",status:"planned",description:"تبدیل نیاز کسب‌وکار به ساختار سایت، تولید صفحه فارسی و چندزبانه، ویرایش بلوکی، قالب و مؤلفه، پیش‌نمایش موبایل، بررسی دسترس‌پذیری و SEO، نسخه‌بندی و انتشار کنترل‌شده با دامنه تأییدشده و امکان بازگشت نسخه",revenueModel:"اشتراک سایت‌ساز؛ فروش قالب؛ میزبانی و دامنه با هزینه شفاف؛ خدمات راه‌اندازی",legacyProduct:"NAMA"},
- {id:"payam-growth-marketing",name:"موتور بازاریابی و رشد PAYAM",status:"planned",description:"تقسیم‌بندی مخاطب با داده مجاز، طراحی کمپین، تقویم محتوا، متن و پیشنهاد، فرم جذب سرنخ، مدیریت رضایت و لغو عضویت، تحلیل قیف و گزارش عملکرد؛ ارسال یا انتشار فقط از API رسمی، با مجوز کاربر و محدودیت نرخ",revenueModel:"اشتراک بازاریابی؛ اعتبار تحلیل؛ بسته کمپین؛ خدمات مدیریت رشد با شاخص‌های قابل سنجش",legacyProduct:"PAYAM"}
+ {id:"international-trade-studio",name:"استودیوی تجارت بین‌الملل",status:"planned",description:"تحلیل بازار و کشور مقصد، غربال فرصت‌های صادرات و واردات، چک‌لیست اسناد، مقایسه تأمین‌کننده، برآورد سناریویی هزینه و ریسک، آماده‌سازی پیش‌نویس پیشنهاد تجاری و پیگیری معامله؛ قیمت و مقررات باید از منبع معتبر و تاریخ‌دار تأیید شوند",revenueModel:"اشتراک حرفه‌ای تجارت؛ گزارش بازار پولی؛ اعتبار تحلیل؛ خدمات راه‌اندازی سازمانی"},
+ {id:"market-intelligence",name:"هوشمندی بازار و کشف فرصت",status:"planned",description:"کشف نیاز و دسته‌بندی بازار، مقایسه عرضه و تقاضا، تحلیل رقبا و جایگاه‌یابی، امتیازدهی فرصت با شواهد، ساخت فهرست فروشندگان و خریداران و ارجاع کنترل‌شده به ARMIN MARKET بدون تکرار یا تصاحب بازارگاه مستقل",revenueModel:"اشتراک تحلیل بازار؛ گزارش رقابتی؛ سرنخ تجاری با رضایت و افشای منبع"},
+ {id:"digital-commerce-studio",name:"استودیوی تجارت و فروشگاه دیجیتال",status:"planned",description:"ساخت کاتالوگ و صفحه محصول، مدیریت ویژگی و تنوع کالا، موجودی نمایشی، پیشنهاد قیمت و بسته، سبد و سفارش در صورت اتصال واقعی، محتوای محصول و تحلیل تبدیل؛ دفترکل، حسابداری و ERP خارج از ARIA و متعلق به ARIANA است",revenueModel:"اشتراک فروشنده؛ قالب فروشگاهی؛ هزینه راه‌اندازی؛ کارمزد شفاف سفارش در اتصال مجاز"},
+ {id:"creative-media-studio",name:"استودیوی خلاقیت و رسانه",status:"planned",description:"تبدیل بریف به ایده و هویت بصری، طراحی لوگو و اقلام برند، تصویر محصول، بنر، پست، استوری، سناریوی ریلز، ویدئو و کاتالوگ؛ مدیریت نسخه‌ها، حقوق رسانه، رضایت افراد و کنترل کیفیت خروجی",revenueModel:"اعتبار تصویر و ویدئو؛ بسته طراحی؛ اشتراک سازنده؛ فروش قالب اصیل"},
+ {id:"cloud-workspace-management",name:"مدیریت فضای ابری و منابع",status:"planned",description:"مدیریت فضای فایل، پروژه‌ها، سهمیه و مصرف، پایش سلامت سرویس‌های متصل، گزارش هزینه، سیاست نگهداری و درخواست پشتیبان‌گیری؛ عملیات زیرساختی حساس فقط از طریق اتصال رسمی، مجوز حداقلی، تأیید مالک و ثبت ممیزی؛ بدون دسترسی خودکار به حساب‌های ابری",revenueModel:"اشتراک فضای کاری؛ سهمیه ذخیره‌سازی؛ گزارش هزینه و مدیریت سازمانی"},
+ {id:"website-page-builder",name:"سایت‌ساز و صفحه‌ساز",status:"planned",description:"تبدیل نیاز کسب‌وکار به ساختار سایت، تولید صفحه فارسی و چندزبانه، ویرایش بلوکی، قالب و مؤلفه، پیش‌نمایش موبایل، بررسی دسترس‌پذیری و SEO، نسخه‌بندی و انتشار کنترل‌شده با دامنه تأییدشده و امکان بازگشت نسخه",revenueModel:"اشتراک سایت‌ساز؛ فروش قالب؛ میزبانی و دامنه با هزینه شفاف؛ خدمات راه‌اندازی"},
+ {id:"growth-marketing-engine",name:"موتور بازاریابی و رشد",status:"planned",description:"تقسیم‌بندی مخاطب با داده مجاز، طراحی کمپین، تقویم محتوا، متن و پیشنهاد، فرم جذب سرنخ، مدیریت رضایت و لغو عضویت، تحلیل قیف و گزارش عملکرد؛ ارسال یا انتشار فقط از API رسمی، با مجوز کاربر و محدودیت نرخ",revenueModel:"اشتراک بازاریابی؛ اعتبار تحلیل؛ بسته کمپین؛ خدمات مدیریت رشد با شاخص‌های قابل سنجش"}
 
 ];
 const MODULE_DOMAIN_BY_ID = Object.freeze({
@@ -97,8 +105,8 @@ const MODULE_DOMAIN_BY_ID = Object.freeze({
  "life-home-assistant":"personal","smart-shopping-household":"personal","family-health-wellbeing":"personal","travel-leisure-planner":"personal",
  "business-model-studio":"business","revenue-commerce-engine":"business","ai-sales-assistant":"business",
 "creator-platform-community":"community","on-demand-local-services":"community",
- "arvand-global-trade":"business","charsu-market-intelligence":"community","ganjineh-commerce-studio":"business",
- "negah-creative-studio":"creative","sepehr-cloud-workspace":"automation","nama-web-studio":"web-builder","payam-growth-marketing":"content","digital-products":"content","ai-voiceover":"media"
+ "international-trade-studio":"business","market-intelligence":"community","digital-commerce-studio":"business",
+ "creative-media-studio":"creative","cloud-workspace-management":"automation","website-page-builder":"web-builder","growth-marketing-engine":"content","digital-products":"content","ai-voiceover":"media"
 });
 const MODULE_DOMAIN_LABELS = Object.freeze({
  workspace:"فضای کار و فرماندهی",trust:"اعتماد و کنترل",learning:"یادگیری و رشد",
@@ -107,17 +115,50 @@ const MODULE_DOMAIN_LABELS = Object.freeze({
  automation:"اتوماسیون",personal:"دستیار زندگی و امور شخصی",business:"کسب‌وکار و درآمد",
  community:"جامعه و خدمات"
 });
-const catalogModules = modules.map((module) => ({
- ...module,
- product: "ARIA",
- legacyProduct: module.legacyProduct || null,
- domain: MODULE_DOMAIN_BY_ID[module.id] || "unclassified",
- domainLabel: MODULE_DOMAIN_LABELS[MODULE_DOMAIN_BY_ID[module.id]] || "نیازمند طبقه‌بندی",
- executionState: module.status === "available" ? "foundation" : module.status,
- source: "aria-web-catalog-v0.4.0"
-}));
+const EXTERNAL_EXECUTION_REQUIRED = new Set(["ai-instagram","image-editing","profile-photo","product-photo","image-to-image","ad-banner","social-post-story","youtube-thumbnail","face-reel","avatar","voice-video","text-to-video","podcast-clips","product-video-ad","logo-design","product-packaging","professional-catalog","mockup-maker","character-design","prompt-pack","no-code-site","no-code-app","workflow-automation","ai-voiceover","revenue-commerce-engine","creator-platform-community","on-demand-local-services","travel-leisure-planner","cloud-workspace-management","website-page-builder","growth-marketing-engine","digital-commerce-studio","creative-media-studio"]);
+// Product ownership routing is explicit: ARIA retains general workflows while specialist capabilities route to their VAYRO sibling or internal ARIA domain.
+const PRODUCT_OWNERSHIP_BY_CATALOG_ID = {
+ "international-trade-studio": { ownerProduct: "ARVAND", ownerDomain: "international_trade", executionBoundary: "ROUTE_TO_OWNER_PRODUCT", productRouteState: "PRODUCT_CONNECTOR_NOT_CONNECTED" },
+ "market-intelligence": { ownerProduct: "ARMIN MARKET", ownerDomain: "market_intelligence", executionBoundary: "ROUTE_TO_OWNER_PRODUCT", productRouteState: "PRODUCT_CONNECTOR_NOT_CONNECTED" },
+ "growth-marketing-engine": { ownerProduct: "LEADORA", ownerDomain: "marketing_growth", executionBoundary: "ROUTE_TO_OWNER_PRODUCT", productRouteState: "PRODUCT_CONNECTOR_NOT_CONNECTED" },
+ "ai-sales-assistant": { ownerProduct: "LEADORA", ownerDomain: "business_operations", executionBoundary: "ROUTE_TO_OWNER_PRODUCT", productRouteState: "PRODUCT_CONNECTOR_NOT_CONNECTED" },
+ "digital-commerce-studio": { ownerProduct: "ARIA", ownerDomain: "GANJINEH", executionBoundary: "ARIA_INTERNAL_DOMAIN" },
+ "creative-media-studio": { ownerProduct: "ARIA", ownerDomain: "NEGAH", executionBoundary: "ARIA_INTERNAL_DOMAIN" },
+ "cloud-workspace-management": { ownerProduct: "ARIA", ownerDomain: "SEPEHR", executionBoundary: "ARIA_INTERNAL_DOMAIN" },
+ "website-page-builder": { ownerProduct: "ARIA", ownerDomain: "NAMA", executionBoundary: "ARIA_INTERNAL_DOMAIN" }
+};
+const catalogModules = modules.map((module) => {
+ const alias=bridgeByCatalogId.get(module.id);
+ if(!alias||!Number.isInteger(alias.catalogEntryId)||!Number.isInteger(alias.capabilityContractId))throw new Error("ARIA_CATALOG_ALIAS_MAPPING_INVALID:"+module.id);
+ const ownership = PRODUCT_OWNERSHIP_BY_CATALOG_ID[module.id] || {
+  ownerProduct: "ARIA",
+  ownerDomain: MODULE_DOMAIN_BY_ID[module.id],
+  executionBoundary: "ARIA_LOCAL_WORKFLOW"
+ };
+ return {
+  ...module,
+  ...ownership,
+  catalogStatus: module.status || "planned",
+  status: "active",
+  product: "ARIA",
+  catalogEntryId: alias.catalogEntryId,
+  capabilityContractId: alias.capabilityContractId,
+  aliasOfContractId: alias.capabilityContractId,
+  runtimeState: "ACTIVE_LOCAL_WORKFLOW",
+  externalExecutionState: EXTERNAL_EXECUTION_REQUIRED.has(module.id) ? "ADAPTER_REQUIRED_FOR_EXTERNAL_ACTIONS" : "LOCAL_WORKFLOW_ONLY",
+  domain: MODULE_DOMAIN_BY_ID[module.id] || "unclassified",
+  domainLabel: MODULE_DOMAIN_LABELS[MODULE_DOMAIN_BY_ID[module.id]] || "نیازمند طبقه‌بندی",
+  executionState: "active_local_workflow",
+  catalogMaturity: module.status === "available" ? "foundation" : module.status || "planned",
+  commercialModuleId: module.id,
+  revenueEngine: commercialById.get(module.id)?.revenueEngine || null,
+  commercialState: commercialById.get(module.id)?.commercialState || "NOT_CONFIGURED",
+  source: "aria-web-catalog-v0.6.0"
+ };
+});
+if(catalogModules.length!==72||new Set(catalogModules.map(x=>x.catalogEntryId)).size!==72||new Set(catalogModules.map(x=>x.capabilityContractId)).size!==47)throw new Error("ARIA_CATALOG_ALIAS_COUNTS_INVALID");
 const rateBuckets=new Map();
-const pool=process.env.DATABASE_URL?new Pool({connectionString:process.env.DATABASE_URL,max:10,idleTimeoutMillis:30000,connectionTimeoutMillis:5000,ssl:process.env.DATABASE_SSL==="true"?{rejectUnauthorized:false}:undefined}):null;
+const pool=process.env.DATABASE_URL?new Pool({connectionString:process.env.DATABASE_URL,max:10,idleTimeoutMillis:30000,connectionTimeoutMillis:5000,ssl:databaseSslConfig()}):null;
 let dbInitPromise=null,dbConnected=false;
 async function initDb(){
  if(!pool)throw new Error("DATABASE_URL is not configured");
@@ -218,16 +259,65 @@ function authUser(req){
 function tokenFor(user){const secret=process.env.ARIA_JWT_SECRET;if(!secret)throw new Error("Authentication secret unavailable");return jwt.sign({sub:String(user.id),email:user.email},secret,{expiresIn:"2h",issuer:"aria-web",audience:"aria-user"});}
 async function requireDb(res){try{await initDb();return true;}catch(err){console.error("ARIA database unavailable:",err.message);json(res,503,{error:"پایگاه داده هنوز آماده نیست. کمی بعد دوباره تلاش کنید."});return false;}}
 async function handle(req,res,url){
+ if(url.pathname==="/api/ready"){
+  if(req.method!=="GET")return json(res,405,{error:"روش درخواست پشتیبانی نمی‌شود."});
+  const databaseRequired=process.env.NODE_ENV==="production"||process.env.DATABASE_REQUIRED==="true";
+  const readiness=await inspectRuntimeReadiness({
+   databaseRequired,
+   databaseConfigured:Boolean(pool),
+   databaseProbe:async()=>{await initDb();await pool.query("SELECT 1");},
+   providers:[{
+    name:"openai",
+    required:process.env.ARIA_REQUIRE_OPENAI==="true",
+    configured:Boolean(process.env.OPENAI_API_KEY),
+    probe:async()=>{
+     const response=await fetch("https://api.openai.com/v1/models",{headers:{authorization:"Bearer "+process.env.OPENAI_API_KEY},signal:AbortSignal.timeout(5000)});
+     if(!response.ok)throw new Error("provider unavailable");
+    }
+   }]
+  });
+  return json(res,readiness.ready?200:503,{ok:readiness.ready,service:"aria-web",version:"0.5.0",...readiness,externalExecutionEnabled:false,productionVerified:false});
+ }
  if(url.pathname==="/health"||url.pathname==="/api/health"){
   if(req.method!=="GET")return json(res,405,{error:"روش درخواست پشتیبانی نمی‌شود."});
-  return json(res,200,{ok:true,service:"aria-web",version:"0.4.0",mode:process.env.OPENAI_API_KEY?"ai-enabled-prototype":"rule-based-prototype",aiConfigured:Boolean(process.env.OPENAI_API_KEY),databaseConfigured:Boolean(pool),databaseConnected:dbConnected,authenticationConfigured:Boolean(process.env.ARIA_JWT_SECRET),productionIntegrations:false});
+  return json(res,200,{ok:true,service:"aria-web",version:"0.5.0",mode:process.env.OPENAI_API_KEY?"ai-enabled-prototype":"rule-based-prototype",aiConfigured:Boolean(process.env.OPENAI_API_KEY),databaseConfigured:Boolean(pool),databaseConnected:dbConnected,authenticationConfigured:Boolean(process.env.ARIA_JWT_SECRET),productionIntegrations:false,readinessEndpoint:"/api/ready"});
  }
  if(url.pathname.startsWith("/api/")&&rateLimited(req))return json(res,429,{error:"تعداد درخواست‌ها زیاد است. یک دقیقه دیگر دوباره تلاش کنید."},{"retry-after":"60"});
  if(url.pathname==="/api/modules/summary"&&req.method==="GET"){
-  const counts=catalogModules.reduce((acc,module)=>{acc[module.executionState]=(acc[module.executionState]||0)+1;acc.byDomain[module.domain]=(acc.byDomain[module.domain]||0)+1;return acc;},{byDomain:{}});
-  return json(res,200,{product:"ARIA",catalogVersion:"web-prototype-0.4.0",source:"current server.js catalogue",total:catalogModules.length,executionStates:{foundation:counts.foundation||0,prototype:counts.prototype||0,planned:counts.planned||0},domains:counts.byDomain,limitations:["This is the current web catalogue, not the full ARIA 32 Android registry.","foundation means code-level foundation only; it does not imply production readiness.","planned modules are not executable capabilities."]});
+  const counts=catalogModules.reduce((acc,module)=>{acc[module.catalogMaturity]=(acc[module.catalogMaturity]||0)+1;acc.byDomain[module.domain]=(acc.byDomain[module.domain]||0)+1;acc.runtime[module.runtimeState]=(acc.runtime[module.runtimeState]||0)+1;return acc;},{byDomain:{},runtime:{}});
+  return json(res,200,{product:"ARIA",catalogVersion:"web-prototype-0.5.0",source:"639 canonical execution contracts plus 72 separately addressable commercial modules",total:catalogModules.length,linkedCatalogRecords:catalogModules.length,contractCount:639,catalogEntryCount:72,aliasCount:72,uniqueAliasTargets:47,commercialModuleCount:commercialManifest.records.length,totalProductFacingModuleCount:commercialManifest.totalProductFacingModuleCount,revenueEngineState:"DESIGNED_NOT_MONETIZED",catalogEntryIdRange:[651,722],runtimeStates:counts.runtime,executionStates:{foundation:counts.foundation||0,prototype:counts.prototype||0,planned:counts.planned||0},domains:counts.byDomain,limitations:["ACTIVE_LOCAL_WORKFLOW means structured local planning is available; it does not mean third-party publishing, media rendering, booking, payment or cloud operations are connected.","External actions remain gated until the required official provider adapter is configured, authorized and tested.","All 72 catalog entries resolve to 47 of the 639 canonical contracts; no duplicate executable contracts are added."]});
  }
- if(url.pathname==="/api/modules"&&req.method==="GET")return json(res,200,{catalogVersion:"web-prototype-0.4.0",modules:catalogModules});
+ if(url.pathname==="/api/modules"&&req.method==="GET")return json(res,200,{catalogVersion:"web-prototype-0.5.0",modules:catalogModules});
+ if(url.pathname==="/api/revenue/catalog"&&req.method==="GET")return json(res,200,{product:"ARIA",state:"DESIGNED_NOT_MONETIZED",currency:null,pricingPolicy:"OWNER_CONFIGURED",paymentProviderState:"NOT_CONNECTED",total:commercialManifest.records.length,modules:commercialManifest.records});
+ if(url.pathname==="/api/revenue/summary"&&req.method==="GET")return json(res,200,{product:"ARIA",commercialModuleCount:commercialManifest.records.length,totalProductFacingModuleCount:commercialManifest.totalProductFacingModuleCount,canonicalExecutionContractCount:commercialManifest.canonicalExecutionContractCount,billingModes:[...new Set(commercialManifest.records.flatMap(x=>x.revenueEngine.billingModes))],paymentProviderState:"NOT_CONNECTED",liveRevenueEnabled:false,limitations:["تعریف موتور درآمدی و سیاست‌های قیمت‌گذاری ثبت شده است؛ پرداخت واقعی فعال نیست.","مبلغ و ارز تا تعیین و تأیید مالک خالی می‌ماند.","ثبت درآمد فقط پس از رویداد پرداخت یا ارائه خدمت تأییدشده مجاز است."]});
+  if(url.pathname.startsWith("/api/aria-expansion/")||url.pathname.startsWith("/api/aria-modules/")){
+  const handled=await expansionRuntime.handle(req,res,url,{json,readJson,authUser,requireDb,pool});
+  if(handled)return;
+ }
+ const catalogPlanMatch=url.pathname.match(new RegExp("^\/api\/modules\/(\\d+)\/plan$"));
+ if(catalogPlanMatch&&req.method==="POST"){
+  const module=catalogModules.find(x=>x.catalogEntryId===Number(catalogPlanMatch[1]));
+  if(!module)return json(res,404,{error:"قابلیت در کاتالوگ وب پیدا نشد."});
+  const data=await readJson(req,res);if(data===null)return;
+  const command=typeof data.command==="string"?data.command.trim():"";
+  if(command.length<4||command.length>1600)return json(res,400,{error:"شرح درخواست باید بین ۴ تا ۱۶۰۰ نویسه باشد."});
+  const stepsByDomain={
+   workspace:["اعتبارسنجی درخواست","ساخت برنامه اقدام","بررسی مجوز فضای کار","ارائه گام‌های بعدی"],
+   learning:["تعیین هدف یادگیری","ساخت مسیر و تمرین","تعریف معیار پیشرفت"],
+   trust:["ارزیابی ریسک","اعمال سیاست ایمنی","تعیین نیاز تأیید انسانی"],
+   creative:["اعتبارسنجی بریف و حقوق","ساخت مسیر خلاق","تعریف مشخصات دارایی","بازبینی کیفیت"],
+   media:["اعتبارسنجی ورودی و حقوق رسانه","ساخت سناریو یا طرح رسانه","تعریف مشخصات خروجی","اتصال provider برای رندر"],
+   content:["اعتبارسنجی مخاطب و ادعاها","ساخت بریف محتوا","تدوین پیش‌نویس","بازبینی و سنجش"],
+   knowledge:["اعتبارسنجی دسترسی منبع","ساختاردهی کار دانشی","تعریف خروجی مستند"],
+   data:["اعتبارسنجی دامنه داده","تعریف روش تحلیل","کنترل کیفیت","تهیه مشخصات گزارش"],
+   "web-builder":["اعتبارسنجی بریف سایت","ساخت نقشه اطلاعات","تعریف ساختار واکنش‌گرا","پیش‌نمایش و تأیید انتشار"],
+   automation:["اعتبارسنجی محرک و اقدام","طراحی گردش‌کار","کنترل مجوزها","تهیه برنامه اجرا"],
+   personal:["اعتبارسنجی هدف و رضایت","ساخت گردش‌کار شخصی","شناسایی وابستگی بیرونی","ارائه برنامه اقدام"],
+   business:["اعتبارسنجی زمینه کسب‌وکار","ساخت گردش‌کار تجاری","کنترل هزینه و سهمیه","تأیید انسانی معاملات"],
+   community:["اعتبارسنجی مشارکت‌کنندگان","تعریف جریان خدمت","کنترل صلاحیت ارائه‌دهنده","برنامه تطبیق"]
+  };
+  return json(res,200,{ok:true,plan:{catalogEntryId:module.catalogEntryId,capabilityContractId:module.capabilityContractId,aliasOfContractId:module.aliasOfContractId,moduleId:module.capabilityContractId,catalogModuleId:module.id,title:module.name,domain:module.domain,requestedOutcome:command,executionStatus:"COMPLETED_LOCAL_WORKFLOW",runtimeState:module.runtimeState,steps:stepsByDomain[module.domain]||[],externalExecution:{status:module.externalExecutionState,executed:false},limitations:["این endpoint فقط برنامه اجرایی محلی تولید می‌کند.","انتشار، رندر رسانه، رزرو، پرداخت، تغییر زیرساخت یا تراکنش بیرونی اجرا نمی‌شود."],createdAt:new Date().toISOString()}});
+ }
  if(url.pathname==="/api/auth/register"&&req.method==="POST"){
   const data=await readJson(req,res);if(data===null)return;
   const email=typeof data.email==="string"?data.email.trim().toLowerCase():"",password=typeof data.password==="string"?data.password:"";

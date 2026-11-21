@@ -1,3 +1,21 @@
+# وضعیت مرجع ARIA — 2026-11-19
+
+> **ساختار جاری پس از تصمیم مالک در 2026-11-19:** محصولات مستقیم VAYRO عبارت‌اند از ARIA، ARIANA، LEADORA، ARMIN MARKET، DANA و ARVAND مستقل. بسته تجارت بین‌الملل از ARIA خارج می‌شود؛ هوشمندی بازار به ARMIN MARKET و بازاریابی/رشد به LEADORA منتقل می‌شوند. baseline canonical برابر 639 حفظ می‌شود. جزئیات و وضعیت واقعی انتقال در [سند تغییر مرزبندی محصولات](docs/VAYRO_PRODUCT_BOUNDARY_CHANGE_2026-11-19_FA.md) است. این تصمیم هنوز به معنی تکمیل انتقال اجرایی یا انتشار Production نیست.
+>
+> **موجودی بدون دوباره‌شماری:** baseline برابر 639 ماژول canonical حفظ می‌شود. overlay تاریخی 111 ورودی دارد و بدون حذف در lineage نگهداری می‌شود. پس از cutover مالکیت، API/UI عمومی ARIA تعداد 72 ورودی را نشان می‌دهد: 39 مسئله، 25 ایده، 4 کنترل و 4 حوزه داخلی. 36 شناسه به ARVAND/ARMIN MARKET/LEADORA تخصیص یافته‌اند؛ دو سرویس مشترک در ARIA باقی می‌مانند. 71 موتور در کاتالوگ عمومی ARIA طراحی شده‌اند؛ 110 موتور فقط شمارش تاریخی overlay است.
+>
+> **وضعیت واقعی:** PR #3 باز و Draft است. cutover عمومی کاتالوگ در commit `a13e8cb8c98fb35d7854f1fe5562a7f086b0475f` پیاده‌سازی شده و CI وب/Node/API در run 44571041001 سبز است. این CI فقط cutover کاتالوگ و API وب را تأیید می‌کند؛ build اندروید، امضای انتشار، آزمون دستگاه، اتصال سرویس‌های زنده، MFA، پرداخت و backup/restore تأییدشده همچنان گیت‌های جداگانه‌اند. بنابراین ARIA هنوز Production-ready اعلام نمی‌شود.
+>
+> **کاتالوگ تجربه کاربری ARIA:** [ARIA_USER_EXPERIENCE_CATALOG_2026-11-19_FA.md](docs/ARIA_USER_EXPERIENCE_CATALOG_2026-11-19_FA.md)
+>
+> **سند تغییر جدید مرزبندی محصولات:** [VAYRO_PRODUCT_BOUNDARY_CHANGE_2026-11-19_FA.md](docs/VAYRO_PRODUCT_BOUNDARY_CHANGE_2026-11-19_FA.md)
+>
+> **سند بازطراحی و معیار پذیرش:** [ARIA_MASTER_REDESIGN_OPERATIONALIZATION_2026-11-19_FA.md](docs/ARIA_MASTER_REDESIGN_OPERATIONALIZATION_2026-11-19_FA.md)
+>
+> **گزارش کاتالوگ و ادغام دامنه‌های قدیمی:** [ARIA_111_MODULE_CATALOG_AND_LEGACY_APP_MERGE_REPORT_FA.md](docs/ARIA_111_MODULE_CATALOG_AND_LEGACY_APP_MERGE_REPORT_FA.md)
+
+---
+
 # ARIA — Global AI Super App
 
 ARIA is a general-purpose AI super-app project. It is **not an accounting/ERP product**; that product is separate as ARIANA.
@@ -12,7 +30,7 @@ The isolated repaired candidate is not stored in this repository yet. To run the
 
 release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip
 
-Expected SHA-256: 0c45fb175fa6d44456ce33af5c975a2d74576096fae37aa4993a213759a5dbe8
+Expected SHA-256: 9d1e40acdb197de22c69c64336f5e3e0f4951a227ab28de443d73fc111375284
 
 The workflow verifies this exact checksum, extracts the source, provisions the Gradle Wrapper, runs static/contract gates, then attempts debug APK and release bundle builds. Do not substitute the original archive; its SHA-256 is 9dcbb34ef98e4f11e661bd32bbd0573d4de7a3058743f45aa126322f44264f9f and it contains the versionCode mismatch fixed in the candidate.
 
@@ -50,7 +68,7 @@ Current source includes a Persian RTL mobile-first web interface, a Node.js API,
 - `ARIA_JWT_SECRET`: strong random secret, supplied through Railway variables, never committed to Git.
 - `OPENAI_API_KEY`: optional provider key to enable live AI; no key is included in source.
 - `OPENAI_BASE_URL` and `OPENAI_MODEL`: optional provider/model overrides.
-- `DATABASE_SSL=true`: enables TLS mode for a database that uses a self-signed certificate. Validate the provider's TLS configuration before production use.
+- `DATABASE_SSL=true`: enables PostgreSQL TLS with certificate verification (`rejectUnauthorized: true`). For a private CA, set `DATABASE_SSL_CA` to the PEM certificate through a protected hosting variable. Do not disable certificate verification in production.
 
 The PostgreSQL service has been provisioned in the Railway project, and the web service has been configured to reference its `DATABASE_URL`. Confirm the latest deployment and `/api/health` before treating database connectivity as operational. Never enter a real provider key in source code or chat.
 
@@ -75,10 +93,10 @@ Original Library source archive SHA-256 (verified 2026-11-09):
 A repaired candidate was created from the verified source archive in an isolated workspace:
 
 ```
-0c45fb175fa6d44456ce33af5c975a2d74576096fae37aa4993a213759a5dbe8
+9d1e40acdb197de22c69c64336f5e3e0f4951a227ab28de443d73fc111375284
 ```
 
-The candidate has 504 ZIP entries and 8.3 MB uncompressed. It fixes Android/Backend versionCode parity, stale project and capability verifiers, migration-sequence assertion and bounded-executor gate; the package quality-gate now runs the current 32.0.0 checks. It is not an APK/AAB and is not imported into this repository. The Android workflow pins this exact checksum and waits for the archive at release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip. The binary upload remains an external prerequisite.
+The candidate has 505 ZIP entries and 8.3 MB uncompressed. It fixes Android/Backend versionCode parity, stale project and capability verifiers, migration-sequence assertion and bounded-executor gate; the package quality-gate now runs the current 32.0.0 checks. It is not an APK/AAB and is not imported into this repository. The Android workflow pins this exact checksum and waits for the archive at release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip. The binary upload remains an external prerequisite.
 
 ## Hosting status inspected 2026-10-21
 
@@ -119,3 +137,5 @@ Railway reports the `aria-web` service and PostgreSQL service as online, with th
 | Production-grade global super-app | Not complete |
 
 Do not treat ARIA as release-ready until the full source is present, CI and live integration tests pass, and the Android release has been built, tested, signed, and reviewed.
+
+> وضعیت اجرایی به‌روز Overlayها، بلوغ Handlerها، شواهد CI و موانع Production: [گزارش وضعیت اجرایی ARIA در ۲۰۲۶-۱۱-۲۰](docs/ARIA_OVERLAY_EXECUTION_STATUS_2026-11-20_FA.md). پوشش ۲۵۴/۲۵۴ Handler اختصاصی محلی به معنی Production readiness نیست؛ ۶۳۹ قرارداد canonical هنوز در سطح Workflow خانواده‌ای‌اند.

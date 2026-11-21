@@ -1,0 +1,5367 @@
+{
+  "schemaVersion": "1.0.0",
+  "product": "ARIA",
+  "registryType": "commercial_domain_execution_manifest",
+  "sourceRegistry": "backend/data/aria_commercial_module_registry.json",
+  "recordCount": 72,
+  "executionSemantics": "LOCAL_WORK_ITEM_ONLY_UNTIL_DOMAIN_ADAPTER_AND_E2E_VERIFIED",
+  "domainProfiles": {
+    "workspace": {
+      "handlerKey": "workspace.orchestration",
+      "operations": [
+        "capture_request",
+        "clarify_goal",
+        "prioritize_work",
+        "create_action_plan",
+        "record_outcome"
+      ]
+    },
+    "learning": {
+      "handlerKey": "learning.design",
+      "operations": [
+        "define_learning_goal",
+        "build_learning_path",
+        "create_practice",
+        "assess_progress",
+        "revise_plan"
+      ]
+    },
+    "trust": {
+      "handlerKey": "trust.validation",
+      "operations": [
+        "validate_input",
+        "evaluate_policy",
+        "require_human_approval",
+        "record_audit_decision"
+      ]
+    },
+    "creative": {
+      "handlerKey": "creative.production_brief",
+      "operations": [
+        "capture_creative_brief",
+        "define_visual_direction",
+        "prepare_asset_specification",
+        "check_rights_and_consent",
+        "quality_review"
+      ]
+    },
+    "media": {
+      "handlerKey": "media.production_brief",
+      "operations": [
+        "capture_media_brief",
+        "prepare_script_or_storyboard",
+        "prepare_caption_or_transcript",
+        "define_render_specification",
+        "quality_review"
+      ]
+    },
+    "content": {
+      "handlerKey": "content.editorial",
+      "operations": [
+        "capture_content_brief",
+        "create_outline",
+        "prepare_draft",
+        "revise_content",
+        "prepare_publication_calendar"
+      ]
+    },
+    "knowledge": {
+      "handlerKey": "knowledge.management",
+      "operations": [
+        "register_source",
+        "summarize_knowledge",
+        "build_faq_or_response",
+        "check_source_quality",
+        "record_version"
+      ]
+    },
+    "data": {
+      "handlerKey": "data.analysis",
+      "operations": [
+        "validate_dataset",
+        "profile_data",
+        "clean_or_transform_data",
+        "analyze_data",
+        "prepare_report"
+      ]
+    },
+    "web-builder": {
+      "handlerKey": "web.specification",
+      "operations": [
+        "capture_site_requirements",
+        "create_sitemap",
+        "prepare_page_specification",
+        "review_responsive_accessibility",
+        "publication_readiness_check"
+      ]
+    },
+    "automation": {
+      "handlerKey": "automation.design",
+      "operations": [
+        "capture_trigger",
+        "design_workflow_graph",
+        "define_approval_gate",
+        "define_failure_handling",
+        "prepare_monitoring_spec"
+      ]
+    },
+    "business": {
+      "handlerKey": "business.strategy",
+      "operations": [
+        "define_business_model",
+        "map_opportunities",
+        "model_revenue_assumptions",
+        "review_risks",
+        "prepare_execution_plan"
+      ]
+    },
+    "personal": {
+      "handlerKey": "personal.planning",
+      "operations": [
+        "capture_personal_goal",
+        "identify_constraints",
+        "prepare_options",
+        "create_safe_action_plan",
+        "review_progress"
+      ]
+    },
+    "community": {
+      "handlerKey": "community.operations",
+      "operations": [
+        "define_community_need",
+        "design_participation_flow",
+        "prepare_listing_or_program",
+        "define_trust_rules",
+        "review_outcomes"
+      ]
+    }
+  },
+  "records": [
+    {
+      "commercialModuleId": "command-center",
+      "catalogEntryId": 651,
+      "name": "مرکز فرمان هوشمند",
+      "domain": "workspace",
+      "description": "ورودی یکپارچه برای درخواست‌ها و مسیرهای اقدام",
+      "parentCanonicalContractId": 341,
+      "revenueModel": "هستهٔ پلتفرم؛ اشتراک حرفه‌ای",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.command-center",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "workspace.orchestration",
+        "operations": [
+          "capture_request",
+          "clarify_goal",
+          "prioritize_work",
+          "create_action_plan",
+          "record_outcome"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "idea-to-value",
+      "catalogEntryId": 652,
+      "name": "ایده تا ارزش",
+      "domain": "workspace",
+      "description": "تبدیل ایده به مراحل اجرایی قابل پیگیری",
+      "parentCanonicalContractId": 78,
+      "revenueModel": "اشتراک حرفه‌ای؛ بستهٔ اعتبار",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.idea-to-value",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "workspace.orchestration",
+        "operations": [
+          "capture_request",
+          "clarify_goal",
+          "prioritize_work",
+          "create_action_plan",
+          "record_outcome"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "opportunities",
+      "catalogEntryId": 653,
+      "name": "رشد و فرصت‌ها",
+      "domain": "workspace",
+      "description": "ثبت و اولویت‌بندی فرصت‌ها",
+      "parentCanonicalContractId": 15,
+      "revenueModel": "اشتراک حرفه‌ای",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.opportunities",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "workspace.orchestration",
+        "operations": [
+          "capture_request",
+          "clarify_goal",
+          "prioritize_work",
+          "create_action_plan",
+          "record_outcome"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "learning-creator",
+      "catalogEntryId": 654,
+      "name": "یادگیری و تولید",
+      "domain": "learning",
+      "description": "ساختاردهی برنامه‌های یادگیری و تولید محتوا",
+      "parentCanonicalContractId": 232,
+      "revenueModel": "اشتراک؛ فروش قالب",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "digital_goods"
+        ],
+        "meteringUnit": "order_or_transaction",
+        "entitlementKey": "aria.module.learning-creator",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "learning.design",
+        "operations": [
+          "define_learning_goal",
+          "build_learning_path",
+          "create_practice",
+          "assess_progress",
+          "revise_plan"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "workflows",
+      "catalogEntryId": 655,
+      "name": "گردش‌کارها",
+      "domain": "workspace",
+      "description": "طراحی فرایندها و نقاط تأیید",
+      "parentCanonicalContractId": 468,
+      "revenueModel": "اشتراک تیمی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.workflows",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "workspace.orchestration",
+        "operations": [
+          "capture_request",
+          "clarify_goal",
+          "prioritize_work",
+          "create_action_plan",
+          "record_outcome"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "trust-control",
+      "catalogEntryId": 656,
+      "name": "اعتماد و کنترل",
+      "domain": "trust",
+      "description": "اعتبارسنجی ورودی‌ها و مرزبندی اجرای امن",
+      "parentCanonicalContractId": 4,
+      "revenueModel": "کنترل پایه در همهٔ طرح‌ها",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.trust-control",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "trust.validation",
+        "operations": [
+          "validate_input",
+          "evaluate_policy",
+          "require_human_approval",
+          "record_audit_decision"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "ai-instagram",
+      "catalogEntryId": 657,
+      "name": "ساخت کاور اینستاگرام با AI",
+      "domain": "creative",
+      "description": "طراحی کاور و قالب‌های برندمحور؛ خروجی نهایی نیازمند اتصال تولید تصویر",
+      "parentCanonicalContractId": 36,
+      "revenueModel": "اعتبار تصویر؛ اشتراک حرفه‌ای",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "image_output",
+        "entitlementKey": "aria.module.ai-instagram",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "creative.production_brief",
+        "operations": [
+          "capture_creative_brief",
+          "define_visual_direction",
+          "prepare_asset_specification",
+          "check_rights_and_consent",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "image-editing",
+      "catalogEntryId": 658,
+      "name": "ادیت و روتوش عکس",
+      "domain": "creative",
+      "description": "ویرایش تصویر با حفظ رضایت و حقوق صاحب تصویر",
+      "parentCanonicalContractId": 90,
+      "revenueModel": "اعتبار تصویر",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "prepaid_credits"
+        ],
+        "meteringUnit": "image_output",
+        "entitlementKey": "aria.module.image-editing",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "creative.production_brief",
+        "operations": [
+          "capture_creative_brief",
+          "define_visual_direction",
+          "prepare_asset_specification",
+          "check_rights_and_consent",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "profile-photo",
+      "catalogEntryId": 659,
+      "name": "عکس پروفایل حرفه‌ای",
+      "domain": "creative",
+      "description": "ساخت و آماده‌سازی عکس پروفایل برای کاربردهای حرفه‌ای",
+      "parentCanonicalContractId": 90,
+      "revenueModel": "پرداخت به‌ازای خروجی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "pay_per_output_or_setup"
+        ],
+        "meteringUnit": "image_output",
+        "entitlementKey": "aria.module.profile-photo",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "creative.production_brief",
+        "operations": [
+          "capture_creative_brief",
+          "define_visual_direction",
+          "prepare_asset_specification",
+          "check_rights_and_consent",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "product-photo",
+      "catalogEntryId": 660,
+      "name": "عکس محصول",
+      "domain": "creative",
+      "description": "تصویر محصول با پس‌زمینه و قاب‌بندی تجاری",
+      "parentCanonicalContractId": 156,
+      "revenueModel": "اعتبار تصویر؛ بستهٔ فروشگاهی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "prepaid_credits"
+        ],
+        "meteringUnit": "image_output",
+        "entitlementKey": "aria.module.product-photo",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "creative.production_brief",
+        "operations": [
+          "capture_creative_brief",
+          "define_visual_direction",
+          "prepare_asset_specification",
+          "check_rights_and_consent",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "image-to-image",
+      "catalogEntryId": 661,
+      "name": "تبدیل سبک تصویر با AI",
+      "domain": "creative",
+      "description": "تغییر سبک تصویر با رعایت حقوق و محدودیت‌های محتوا",
+      "parentCanonicalContractId": 90,
+      "revenueModel": "اعتبار تصویر",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "prepaid_credits"
+        ],
+        "meteringUnit": "image_output",
+        "entitlementKey": "aria.module.image-to-image",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "creative.production_brief",
+        "operations": [
+          "capture_creative_brief",
+          "define_visual_direction",
+          "prepare_asset_specification",
+          "check_rights_and_consent",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "ad-banner",
+      "catalogEntryId": 662,
+      "name": "بنر تبلیغاتی",
+      "domain": "creative",
+      "description": "طراحی بنر با اندازه‌های کانال‌های تبلیغاتی",
+      "parentCanonicalContractId": 40,
+      "revenueModel": "اعتبار؛ اشتراک",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "image_output",
+        "entitlementKey": "aria.module.ad-banner",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "creative.production_brief",
+        "operations": [
+          "capture_creative_brief",
+          "define_visual_direction",
+          "prepare_asset_specification",
+          "check_rights_and_consent",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "social-post-story",
+      "catalogEntryId": 663,
+      "name": "پست و استوری",
+      "domain": "creative",
+      "description": "ساخت پست و استوری با قالب‌های قابل ویرایش",
+      "parentCanonicalContractId": 272,
+      "revenueModel": "اشتراک؛ قالب پولی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "digital_goods"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.social-post-story",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "creative.production_brief",
+        "operations": [
+          "capture_creative_brief",
+          "define_visual_direction",
+          "prepare_asset_specification",
+          "check_rights_and_consent",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "youtube-thumbnail",
+      "catalogEntryId": 664,
+      "name": "تامبنیل یوتیوب",
+      "domain": "creative",
+      "description": "تصویر بندانگشتی و نسخه‌های آزمون‌پذیر",
+      "parentCanonicalContractId": 37,
+      "revenueModel": "اعتبار تصویر",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "prepaid_credits"
+        ],
+        "meteringUnit": "image_output",
+        "entitlementKey": "aria.module.youtube-thumbnail",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "creative.production_brief",
+        "operations": [
+          "capture_creative_brief",
+          "define_visual_direction",
+          "prepare_asset_specification",
+          "check_rights_and_consent",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "face-reel",
+      "catalogEntryId": 665,
+      "name": "ریلز و چهرهٔ سخنگو",
+      "domain": "media",
+      "description": "تولید ویدئوی سخنگو با افشای مصنوعی‌بودن و رضایت فرد",
+      "parentCanonicalContractId": 36,
+      "revenueModel": "اعتبار ویدئو",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "prepaid_credits"
+        ],
+        "meteringUnit": "video_minute_or_output",
+        "entitlementKey": "aria.module.face-reel",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "media.production_brief",
+        "operations": [
+          "capture_media_brief",
+          "prepare_script_or_storyboard",
+          "prepare_caption_or_transcript",
+          "define_render_specification",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "avatar",
+      "catalogEntryId": 666,
+      "name": "آواتار هوش مصنوعی",
+      "domain": "creative",
+      "description": "ساخت آواتار غیرگمراه‌کننده برای کاربردهای مجاز",
+      "parentCanonicalContractId": 90,
+      "revenueModel": "اعتبار تصویر",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "prepaid_credits"
+        ],
+        "meteringUnit": "image_output",
+        "entitlementKey": "aria.module.avatar",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "creative.production_brief",
+        "operations": [
+          "capture_creative_brief",
+          "define_visual_direction",
+          "prepare_asset_specification",
+          "check_rights_and_consent",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "voice-video",
+      "catalogEntryId": 667,
+      "name": "ویدئو ویدیویی",
+      "domain": "media",
+      "description": "تولید ویدئو از متن یا رسانهٔ مجاز",
+      "parentCanonicalContractId": 177,
+      "revenueModel": "اعتبار ویدئو",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "prepaid_credits"
+        ],
+        "meteringUnit": "video_minute_or_output",
+        "entitlementKey": "aria.module.voice-video",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "media.production_brief",
+        "operations": [
+          "capture_media_brief",
+          "prepare_script_or_storyboard",
+          "prepare_caption_or_transcript",
+          "define_render_specification",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "subtitles-captions",
+      "catalogEntryId": 668,
+      "name": "زیرنویس و کپشن",
+      "domain": "media",
+      "description": "رونویسی، زیرنویس و کپشن چندزبانه",
+      "parentCanonicalContractId": 183,
+      "revenueModel": "دقیقهٔ پردازش؛ اشتراک",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "metered_usage"
+        ],
+        "meteringUnit": "audio_minute",
+        "entitlementKey": "aria.module.subtitles-captions",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "media.production_brief",
+        "operations": [
+          "capture_media_brief",
+          "prepare_script_or_storyboard",
+          "prepare_caption_or_transcript",
+          "define_render_specification",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "text-to-video",
+      "catalogEntryId": 669,
+      "name": "تبدیل متن به ویدئو",
+      "domain": "media",
+      "description": "تبدیل سناریو به کلیپ با کنترل حقوق محتوا",
+      "parentCanonicalContractId": 177,
+      "revenueModel": "اعتبار ویدئو",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "prepaid_credits"
+        ],
+        "meteringUnit": "video_minute_or_output",
+        "entitlementKey": "aria.module.text-to-video",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "media.production_brief",
+        "operations": [
+          "capture_media_brief",
+          "prepare_script_or_storyboard",
+          "prepare_caption_or_transcript",
+          "define_render_specification",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "podcast-clips",
+      "catalogEntryId": 670,
+      "name": "کلیپ‌سازی از پادکست",
+      "domain": "media",
+      "description": "استخراج بخش‌های کوتاه از فایل صوتی مجاز",
+      "parentCanonicalContractId": 183,
+      "revenueModel": "دقیقهٔ پردازش",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "metered_usage"
+        ],
+        "meteringUnit": "video_minute_or_output",
+        "entitlementKey": "aria.module.podcast-clips",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "media.production_brief",
+        "operations": [
+          "capture_media_brief",
+          "prepare_script_or_storyboard",
+          "prepare_caption_or_transcript",
+          "define_render_specification",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "product-video-ad",
+      "catalogEntryId": 671,
+      "name": "ویدئوی تبلیغ محصول",
+      "domain": "media",
+      "description": "ساخت سناریو و ویدئوی معرفی محصول",
+      "parentCanonicalContractId": 177,
+      "revenueModel": "اعتبار ویدئو؛ بستهٔ فروشگاهی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "prepaid_credits"
+        ],
+        "meteringUnit": "video_minute_or_output",
+        "entitlementKey": "aria.module.product-video-ad",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "media.production_brief",
+        "operations": [
+          "capture_media_brief",
+          "prepare_script_or_storyboard",
+          "prepare_caption_or_transcript",
+          "define_render_specification",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "logo-design",
+      "catalogEntryId": 672,
+      "name": "طراحی لوگو با AI",
+      "domain": "creative",
+      "description": "تولید ایدهٔ لوگو و خروجی قابل بازبینی؛ بررسی علامت تجاری جداگانه",
+      "parentCanonicalContractId": 59,
+      "revenueModel": "بستهٔ طراحی؛ اشتراک",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "image_output",
+        "entitlementKey": "aria.module.logo-design",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "creative.production_brief",
+        "operations": [
+          "capture_creative_brief",
+          "define_visual_direction",
+          "prepare_asset_specification",
+          "check_rights_and_consent",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "product-packaging",
+      "catalogEntryId": 673,
+      "name": "بسته‌بندی محصول",
+      "domain": "creative",
+      "description": "مفهوم بصری بسته‌بندی و ماکاپ",
+      "parentCanonicalContractId": 285,
+      "revenueModel": "بستهٔ طراحی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.product-packaging",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "creative.production_brief",
+        "operations": [
+          "capture_creative_brief",
+          "define_visual_direction",
+          "prepare_asset_specification",
+          "check_rights_and_consent",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "professional-catalog",
+      "catalogEntryId": 674,
+      "name": "کاتالوگ حرفه‌ای",
+      "domain": "creative",
+      "description": "ساخت کاتالوگ از داده‌های تأییدشدهٔ محصول",
+      "parentCanonicalContractId": 529,
+      "revenueModel": "اشتراک؛ خروجی پولی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "pay_per_output_or_setup"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.professional-catalog",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "creative.production_brief",
+        "operations": [
+          "capture_creative_brief",
+          "define_visual_direction",
+          "prepare_asset_specification",
+          "check_rights_and_consent",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "mockup-maker",
+      "catalogEntryId": 675,
+      "name": "موکاپ تبلیغاتی",
+      "domain": "creative",
+      "description": "قرار دادن طرح روی موکاپ‌های کاربردی",
+      "parentCanonicalContractId": 90,
+      "revenueModel": "اعتبار تصویر",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "prepaid_credits"
+        ],
+        "meteringUnit": "image_output",
+        "entitlementKey": "aria.module.mockup-maker",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "creative.production_brief",
+        "operations": [
+          "capture_creative_brief",
+          "define_visual_direction",
+          "prepare_asset_specification",
+          "check_rights_and_consent",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "character-design",
+      "catalogEntryId": 676,
+      "name": "طراحی کاراکتر",
+      "domain": "creative",
+      "description": "ساخت شخصیت بصری برای برند یا داستان",
+      "parentCanonicalContractId": 90,
+      "revenueModel": "اعتبار تصویر؛ مجوز تجاری جداگانه",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "prepaid_credits"
+        ],
+        "meteringUnit": "image_output",
+        "entitlementKey": "aria.module.character-design",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "creative.production_brief",
+        "operations": [
+          "capture_creative_brief",
+          "define_visual_direction",
+          "prepare_asset_specification",
+          "check_rights_and_consent",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "business-prompts",
+      "catalogEntryId": 677,
+      "name": "پرامپت‌نویسی کسب‌وکار",
+      "domain": "content",
+      "description": "ساخت و مدیریت پرامپت‌های قابل استفادهٔ مجدد",
+      "parentCanonicalContractId": 54,
+      "revenueModel": "اشتراک؛ فروش قالب",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "digital_goods"
+        ],
+        "meteringUnit": "order_or_transaction",
+        "entitlementKey": "aria.module.business-prompts",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "content.editorial",
+        "operations": [
+          "capture_content_brief",
+          "create_outline",
+          "prepare_draft",
+          "revise_content",
+          "prepare_publication_calendar"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "prompt-pack",
+      "catalogEntryId": 678,
+      "name": "ساخت و فروش پک پرامپت",
+      "domain": "content",
+      "description": "بسته‌بندی، نسخه‌بندی و فروش پرامپت‌های اصیل",
+      "parentCanonicalContractId": 209,
+      "revenueModel": "کارمزد بازارگاه",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "marketplace_fee_or_commission"
+        ],
+        "meteringUnit": "order_or_transaction",
+        "entitlementKey": "aria.module.prompt-pack",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "content.editorial",
+        "operations": [
+          "capture_content_brief",
+          "create_outline",
+          "prepare_draft",
+          "revise_content",
+          "prepare_publication_calendar"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "instagram-caption",
+      "catalogEntryId": 679,
+      "name": "کپشن اینستاگرام",
+      "domain": "content",
+      "description": "نوشتن کپشن با لحن و هدف مشخص",
+      "parentCanonicalContractId": 183,
+      "revenueModel": "اشتراک؛ اعتبار متنی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.instagram-caption",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "content.editorial",
+        "operations": [
+          "capture_content_brief",
+          "create_outline",
+          "prepare_draft",
+          "revise_content",
+          "prepare_publication_calendar"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "content-ideas",
+      "catalogEntryId": 680,
+      "name": "ایده‌پردازی محتوایی",
+      "domain": "content",
+      "description": "تقویم ایده و بریف محتوایی",
+      "parentCanonicalContractId": 272,
+      "revenueModel": "اشتراک",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.content-ideas",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "content.editorial",
+        "operations": [
+          "capture_content_brief",
+          "create_outline",
+          "prepare_draft",
+          "revise_content",
+          "prepare_publication_calendar"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "content-calendar",
+      "catalogEntryId": 681,
+      "name": "تقویم محتوایی",
+      "domain": "content",
+      "description": "زمان‌بندی و سازمان‌دهی محتوا",
+      "parentCanonicalContractId": 186,
+      "revenueModel": "اشتراک تیمی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.content-calendar",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "content.editorial",
+        "operations": [
+          "capture_content_brief",
+          "create_outline",
+          "prepare_draft",
+          "revise_content",
+          "prepare_publication_calendar"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "content-management",
+      "catalogEntryId": 682,
+      "name": "مدیریت محتوا با AI",
+      "domain": "content",
+      "description": "گردش‌کار تأیید، نسخه‌بندی و بازاستفادهٔ محتوا",
+      "parentCanonicalContractId": 272,
+      "revenueModel": "اشتراک تیمی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.content-management",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "content.editorial",
+        "operations": [
+          "capture_content_brief",
+          "create_outline",
+          "prepare_draft",
+          "revise_content",
+          "prepare_publication_calendar"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "resume-portfolio",
+      "catalogEntryId": 683,
+      "name": "رزومه و پورتفولیو",
+      "domain": "content",
+      "description": "تولید رزومه و نمونه‌کار از اطلاعات واقعی کاربر",
+      "parentCanonicalContractId": 44,
+      "revenueModel": "خروجی پولی؛ اشتراک",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "pay_per_output_or_setup"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.resume-portfolio",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "content.editorial",
+        "operations": [
+          "capture_content_brief",
+          "create_outline",
+          "prepare_draft",
+          "revise_content",
+          "prepare_publication_calendar"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "translation-localization",
+      "catalogEntryId": 684,
+      "name": "ترجمه و بومی‌سازی",
+      "domain": "content",
+      "description": "ترجمهٔ متن و بومی‌سازی متناسب با بازار مقصد",
+      "parentCanonicalContractId": 52,
+      "revenueModel": "اعتبار متنی؛ طرح سازمانی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.translation-localization",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "content.editorial",
+        "operations": [
+          "capture_content_brief",
+          "create_outline",
+          "prepare_draft",
+          "revise_content",
+          "prepare_publication_calendar"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "pdf-summary",
+      "catalogEntryId": 685,
+      "name": "خلاصه‌سازی PDF و مقاله",
+      "domain": "knowledge",
+      "description": "استخراج و خلاصه‌سازی فایل‌های مجاز همراه ارجاع به بخش‌ها",
+      "parentCanonicalContractId": 77,
+      "revenueModel": "اعتبار سند؛ اشتراک",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "document_or_analysis_job",
+        "entitlementKey": "aria.module.pdf-summary",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "knowledge.management",
+        "operations": [
+          "register_source",
+          "summarize_knowledge",
+          "build_faq_or_response",
+          "check_source_quality",
+          "record_version"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "flashcards-quizzes",
+      "catalogEntryId": 686,
+      "name": "فلش‌کارت و آزمون",
+      "domain": "learning",
+      "description": "تولید پرسش، آزمون و فلش‌کارت از منابع کاربر",
+      "parentCanonicalContractId": 301,
+      "revenueModel": "اشتراک آموزشی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "course_or_learning_plan",
+        "entitlementKey": "aria.module.flashcards-quizzes",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "learning.design",
+        "operations": [
+          "define_learning_goal",
+          "build_learning_path",
+          "create_practice",
+          "assess_progress",
+          "revise_plan"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "ai-tool-tutorials",
+      "catalogEntryId": 687,
+      "name": "آموزش ابزارهای هوش مصنوعی",
+      "domain": "learning",
+      "description": "راهنمای گام‌به‌گام و به‌روز ابزارها",
+      "parentCanonicalContractId": 232,
+      "revenueModel": "اشتراک؛ دورهٔ پولی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "digital_goods"
+        ],
+        "meteringUnit": "course_or_learning_plan",
+        "entitlementKey": "aria.module.ai-tool-tutorials",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "learning.design",
+        "operations": [
+          "define_learning_goal",
+          "build_learning_path",
+          "create_practice",
+          "assess_progress",
+          "revise_plan"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "chatbot-builder",
+      "catalogEntryId": 688,
+      "name": "ساخت چت‌بات پاسخ‌گو",
+      "domain": "knowledge",
+      "description": "ساخت دستیار مبتنی بر دانش تأییدشدهٔ کسب‌وکار",
+      "parentCanonicalContractId": 56,
+      "revenueModel": "اشتراک SaaS؛ مصرف API",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "metered_usage"
+        ],
+        "meteringUnit": "task_or_api_call",
+        "entitlementKey": "aria.module.chatbot-builder",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "knowledge.management",
+        "operations": [
+          "register_source",
+          "summarize_knowledge",
+          "build_faq_or_response",
+          "check_source_quality",
+          "record_version"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "customer-support",
+      "catalogEntryId": 689,
+      "name": "اتوماسیون پشتیبانی مشتری",
+      "domain": "knowledge",
+      "description": "دسته‌بندی درخواست و پیش‌نویس پاسخ با تأیید انسانی",
+      "parentCanonicalContractId": 142,
+      "revenueModel": "اشتراک تیمی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "task_or_api_call",
+        "entitlementKey": "aria.module.customer-support",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "knowledge.management",
+        "operations": [
+          "register_source",
+          "summarize_knowledge",
+          "build_faq_or_response",
+          "check_source_quality",
+          "record_version"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "faq-builder",
+      "catalogEntryId": 690,
+      "name": "ساخت FAQ هوشمند",
+      "domain": "knowledge",
+      "description": "تولید پرسش‌های متداول از اسناد تأییدشده",
+      "parentCanonicalContractId": 380,
+      "revenueModel": "اشتراک؛ راه‌اندازی سازمانی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.faq-builder",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "knowledge.management",
+        "operations": [
+          "register_source",
+          "summarize_knowledge",
+          "build_faq_or_response",
+          "check_source_quality",
+          "record_version"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "data-analysis",
+      "catalogEntryId": 691,
+      "name": "تحلیل داده با AI",
+      "domain": "data",
+      "description": "تحلیل داده‌های بارگذاری‌شده با توضیح محدودیت و منبع",
+      "parentCanonicalContractId": 87,
+      "revenueModel": "اشتراک؛ مصرف پردازش",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "metered_usage"
+        ],
+        "meteringUnit": "task_or_api_call",
+        "entitlementKey": "aria.module.data-analysis",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "data.analysis",
+        "operations": [
+          "validate_dataset",
+          "profile_data",
+          "clean_or_transform_data",
+          "analyze_data",
+          "prepare_report"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "reports-dashboards",
+      "catalogEntryId": 692,
+      "name": "گزارش و داشبورد",
+      "domain": "data",
+      "description": "تبدیل دادهٔ معتبر به گزارش و نمودار",
+      "parentCanonicalContractId": 636,
+      "revenueModel": "اشتراک حرفه‌ای",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "document_or_analysis_job",
+        "entitlementKey": "aria.module.reports-dashboards",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "data.analysis",
+        "operations": [
+          "validate_dataset",
+          "profile_data",
+          "clean_or_transform_data",
+          "analyze_data",
+          "prepare_report"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "data-cleaning",
+      "catalogEntryId": 693,
+      "name": "پاکسازی و مرتب‌سازی داده",
+      "domain": "data",
+      "description": "تشخیص دادهٔ تکراری، ناهماهنگی و خطا با پیش‌نمایش قبل از تغییر",
+      "parentCanonicalContractId": 645,
+      "revenueModel": "پردازش؛ اشتراک",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "task_or_api_call",
+        "entitlementKey": "aria.module.data-cleaning",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "data.analysis",
+        "operations": [
+          "validate_dataset",
+          "profile_data",
+          "clean_or_transform_data",
+          "analyze_data",
+          "prepare_report"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "no-code-site",
+      "catalogEntryId": 694,
+      "name": "ساخت سایت بدون کدنویسی",
+      "domain": "web-builder",
+      "description": "تولید پیش‌نویس سایت و نشر پس از تأیید کاربر",
+      "parentCanonicalContractId": 55,
+      "revenueModel": "اشتراک؛ میزبانی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "site_or_published_page",
+        "entitlementKey": "aria.module.no-code-site",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "web.specification",
+        "operations": [
+          "capture_site_requirements",
+          "create_sitemap",
+          "prepare_page_specification",
+          "review_responsive_accessibility",
+          "publication_readiness_check"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "landing-page",
+      "catalogEntryId": 695,
+      "name": "صفحه‌ساز هوشمند",
+      "domain": "web-builder",
+      "description": "ساخت پیش‌نویس صفحهٔ فرود فارسی، ویرایش متن و پیش‌نمایش؛ انتشار عمومی هنوز فعال نیست",
+      "parentCanonicalContractId": 55,
+      "revenueModel": "اشتراک حرفه‌ای؛ قالب‌های تخصصی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "site_or_published_page",
+        "entitlementKey": "aria.module.landing-page",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "web.specification",
+        "operations": [
+          "capture_site_requirements",
+          "create_sitemap",
+          "prepare_page_specification",
+          "review_responsive_accessibility",
+          "publication_readiness_check"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "no-code-app",
+      "catalogEntryId": 696,
+      "name": "ساخت اپلیکیشن No-Code",
+      "domain": "web-builder",
+      "description": "تولید نمونهٔ اولیهٔ اپ و گردش‌کار؛ انتشار نیازمند آزمون جداگانه",
+      "parentCanonicalContractId": 55,
+      "revenueModel": "اشتراک حرفه‌ای",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.no-code-app",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "web.specification",
+        "operations": [
+          "capture_site_requirements",
+          "create_sitemap",
+          "prepare_page_specification",
+          "review_responsive_accessibility",
+          "publication_readiness_check"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "seo-content",
+      "catalogEntryId": 697,
+      "name": "سئو و بهینه‌سازی محتوا",
+      "domain": "content",
+      "description": "ممیزی محتوا و پیشنهادهای قابل بررسی برای سئو",
+      "parentCanonicalContractId": 35,
+      "revenueModel": "اشتراک",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.seo-content",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "content.editorial",
+        "operations": [
+          "capture_content_brief",
+          "create_outline",
+          "prepare_draft",
+          "revise_content",
+          "prepare_publication_calendar"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "product-copy",
+      "catalogEntryId": 698,
+      "name": "توضیحات محصول",
+      "domain": "content",
+      "description": "متن محصول با ویژگی‌های تأییدشده و بدون ادعاهای ساختگی",
+      "parentCanonicalContractId": 156,
+      "revenueModel": "اعتبار متنی؛ بستهٔ فروشگاهی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "prepaid_credits"
+        ],
+        "meteringUnit": "order_or_transaction",
+        "entitlementKey": "aria.module.product-copy",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "content.editorial",
+        "operations": [
+          "capture_content_brief",
+          "create_outline",
+          "prepare_draft",
+          "revise_content",
+          "prepare_publication_calendar"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "digital-products",
+      "catalogEntryId": 699,
+      "name": "کتاب الکترونیکی و فایل دیجیتال",
+      "domain": "content",
+      "description": "تولید و بسته‌بندی فایل دیجیتال با بررسی حقوق محتوا",
+      "parentCanonicalContractId": 209,
+      "revenueModel": "کارمزد بازارگاه؛ فروش قالب",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "marketplace_fee_or_commission",
+          "digital_goods"
+        ],
+        "meteringUnit": "order_or_transaction",
+        "entitlementKey": "aria.module.digital-products",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "content.editorial",
+        "operations": [
+          "capture_content_brief",
+          "create_outline",
+          "prepare_draft",
+          "revise_content",
+          "prepare_publication_calendar"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "photo-restoration",
+      "catalogEntryId": 700,
+      "name": "ترمیم عکس قدیمی",
+      "domain": "creative",
+      "description": "ترمیم تصویر با مشخص‌کردن ماهیت بازسازی‌شده",
+      "parentCanonicalContractId": 90,
+      "revenueModel": "اعتبار تصویر",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "prepaid_credits"
+        ],
+        "meteringUnit": "image_output",
+        "entitlementKey": "aria.module.photo-restoration",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "creative.production_brief",
+        "operations": [
+          "capture_creative_brief",
+          "define_visual_direction",
+          "prepare_asset_specification",
+          "check_rights_and_consent",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "workflow-automation",
+      "catalogEntryId": 701,
+      "name": "طراحی گردش‌کار و اتوماسیون",
+      "domain": "automation",
+      "description": "اتصال مراحل تکراری با ثبت مجوز، گزارش و تأیید انسانی",
+      "parentCanonicalContractId": 647,
+      "revenueModel": "اشتراک تیمی؛ راه‌اندازی سازمانی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "task_or_api_call",
+        "entitlementKey": "aria.module.workflow-automation",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "automation.design",
+        "operations": [
+          "capture_trigger",
+          "design_workflow_graph",
+          "define_approval_gate",
+          "define_failure_handling",
+          "prepare_monitoring_spec"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "reels-script",
+      "catalogEntryId": 702,
+      "name": "سناریونویسی ریلز",
+      "domain": "content",
+      "description": "سناریوی کوتاه با قلاب، روایت، دعوت به اقدام و کنترل ادعاها",
+      "parentCanonicalContractId": 36,
+      "revenueModel": "اعتبار متنی؛ اشتراک سازندگان",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "video_minute_or_output",
+        "entitlementKey": "aria.module.reels-script",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "content.editorial",
+        "operations": [
+          "capture_content_brief",
+          "create_outline",
+          "prepare_draft",
+          "revise_content",
+          "prepare_publication_calendar"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "ad-copywriting",
+      "catalogEntryId": 703,
+      "name": "بازنویسی متن تبلیغاتی",
+      "domain": "content",
+      "description": "نسخه‌های تبلیغاتی برای کانال‌های مختلف با کنترل ادعا و مخاطب",
+      "parentCanonicalContractId": 40,
+      "revenueModel": "اعتبار متنی؛ اشتراک کسب‌وکار",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.ad-copywriting",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "content.editorial",
+        "operations": [
+          "capture_content_brief",
+          "create_outline",
+          "prepare_draft",
+          "revise_content",
+          "prepare_publication_calendar"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "educational-content",
+      "catalogEntryId": 704,
+      "name": "ساخت محتوای آموزشی",
+      "domain": "content",
+      "description": "طرح درس، اهداف یادگیری، مثال و ارزیابی بر پایه منابع مشخص",
+      "parentCanonicalContractId": 232,
+      "revenueModel": "اشتراک آموزشی؛ فروش قالب",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "digital_goods"
+        ],
+        "meteringUnit": "order_or_transaction",
+        "entitlementKey": "aria.module.educational-content",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "content.editorial",
+        "operations": [
+          "capture_content_brief",
+          "create_outline",
+          "prepare_draft",
+          "revise_content",
+          "prepare_publication_calendar"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "ai-sales-assistant",
+      "catalogEntryId": 705,
+      "name": "دستیار فروش هوشمند",
+      "domain": "business",
+      "description": "پیش‌نویس پیگیری مشتری و پیشنهاد بعدی با تأیید انسان و ثبت سوابق",
+      "parentCanonicalContractId": 34,
+      "revenueModel": "اشتراک تیم فروش؛ هزینه راه‌اندازی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "pay_per_output_or_setup"
+        ],
+        "meteringUnit": "order_or_transaction",
+        "entitlementKey": "aria.module.ai-sales-assistant",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "business.strategy",
+        "operations": [
+          "define_business_model",
+          "map_opportunities",
+          "model_revenue_assumptions",
+          "review_risks",
+          "prepare_execution_plan"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "ai-voiceover",
+      "catalogEntryId": 706,
+      "name": "گویندگی و نریشن با AI",
+      "domain": "media",
+      "description": "تبدیل متن مجاز به نریشن با رضایت و مجوز صدای لازم",
+      "parentCanonicalContractId": 117,
+      "revenueModel": "دقیقهٔ تولید؛ اشتراک",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "metered_usage"
+        ],
+        "meteringUnit": "audio_minute",
+        "entitlementKey": "aria.module.ai-voiceover",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "media.production_brief",
+        "operations": [
+          "capture_media_brief",
+          "prepare_script_or_storyboard",
+          "prepare_caption_or_transcript",
+          "define_render_specification",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "life-home-assistant",
+      "catalogEntryId": 707,
+      "name": "دستیار خانه و زندگی",
+      "domain": "personal",
+      "description": "زیرماژول‌های تعمیر و نگهداری خانه، مدیریت کارهای روزمره، نظافت، جابه‌جایی، باغبانی، نصب و تعمیرات و برنامه‌ریزی غذای سالم؛ متصل به گردش‌کارها و بازار خدمات",
+      "parentCanonicalContractId": 237,
+      "revenueModel": "اشتراک خانوادگی؛ کارمزد معرفی متخصص پس از احراز و رضایت؛ خدمات ممتاز",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "marketplace_fee_or_commission",
+          "premium_service"
+        ],
+        "meteringUnit": "qualified_lead_or_booking",
+        "entitlementKey": "aria.module.life-home-assistant",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "personal.planning",
+        "operations": [
+          "capture_personal_goal",
+          "identify_constraints",
+          "prepare_options",
+          "create_safe_action_plan",
+          "review_progress"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "smart-shopping-household",
+      "catalogEntryId": 708,
+      "name": "خرید هوشمند و مدیریت هزینه",
+      "domain": "personal",
+      "description": "مقایسه قیمت و ارزش خرید، بررسی اصالت و کیفیت، بودجه‌بندی، فهرست خرید، بازگشت کالا، هدیه و بازیافت؛ متصل به بازارگاه و موتور داده",
+      "parentCanonicalContractId": 11,
+      "revenueModel": "اشتراک خرید هوشمند؛ کمیسیون افشاشده همکاری در فروش؛ خدمات فروشندگان",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "marketplace_fee_or_commission"
+        ],
+        "meteringUnit": "order_or_transaction",
+        "entitlementKey": "aria.module.smart-shopping-household",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "personal.planning",
+        "operations": [
+          "capture_personal_goal",
+          "identify_constraints",
+          "prepare_options",
+          "create_safe_action_plan",
+          "review_progress"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "family-health-wellbeing",
+      "catalogEntryId": 709,
+      "name": "سلامت و رفاه خانواده",
+      "domain": "personal",
+      "description": "برنامه‌ریزی وعده غذایی، عادت‌های سالم، خواب، ورزش، استرس، مراقبت کودک و حیوان خانگی و یادگیری زبان؛ ابزارهای عمومی رفاهی نه تشخیص یا درمان پزشکی",
+      "parentCanonicalContractId": 233,
+      "revenueModel": "اشتراک خانوادگی؛ محتوای آموزشی پولی؛ ارجاع شفاف به خدمات مجاز",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "digital_goods"
+        ],
+        "meteringUnit": "course_or_learning_plan",
+        "entitlementKey": "aria.module.family-health-wellbeing",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "personal.planning",
+        "operations": [
+          "capture_personal_goal",
+          "identify_constraints",
+          "prepare_options",
+          "create_safe_action_plan",
+          "review_progress"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "career-learning-productivity",
+      "catalogEntryId": 710,
+      "name": "رشد شغلی و بهره‌وری",
+      "domain": "learning",
+      "description": "مسیر شغلی و مهارتی، مدیریت زمان و تمرکز، تولید محتوای حرفه‌ای، وب‌سایت، شبکه اجتماعی، گزارش و تحلیل عملکرد، دریافت وجه و پیگیری نتیجه",
+      "parentCanonicalContractId": 169,
+      "revenueModel": "اشتراک حرفه‌ای؛ اعتبار تولید محتوا؛ فروش قالب و خدمات تخصصی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits",
+          "digital_goods"
+        ],
+        "meteringUnit": "order_or_transaction",
+        "entitlementKey": "aria.module.career-learning-productivity",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "learning.design",
+        "operations": [
+          "define_learning_goal",
+          "build_learning_path",
+          "create_practice",
+          "assess_progress",
+          "revise_plan"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "travel-leisure-planner",
+      "catalogEntryId": 711,
+      "name": "برنامه‌ریز سفر و اوقات فراغت",
+      "domain": "personal",
+      "description": "برنامه سفر، اقامت، بودجه، تجربه‌های محلی، حمل‌ونقل، مسیر، مدارک، حیوان خانگی و گروه همسفر؛ رزرو و پرداخت فقط با اتصال تأییدشده",
+      "parentCanonicalContractId": 235,
+      "revenueModel": "اشتراک سفر؛ کمیسیون رزرو افشاشده؛ بسته برنامه‌ریزی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "marketplace_fee_or_commission"
+        ],
+        "meteringUnit": "completed_task_or_seat",
+        "entitlementKey": "aria.module.travel-leisure-planner",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "personal.planning",
+        "operations": [
+          "capture_personal_goal",
+          "identify_constraints",
+          "prepare_options",
+          "create_safe_action_plan",
+          "review_progress"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "business-model-studio",
+      "catalogEntryId": 712,
+      "name": "استودیو طراحی مدل کسب‌وکار",
+      "domain": "business",
+      "description": "انتخاب و ترکیب ۲۰ مدل درآمدی، تحلیل مشتری و کانال، قیمت‌گذاری، هزینه متغیر، حاشیه سود، سناریو و آزمایش بازار؛ بدون وعده درآمد قطعی",
+      "parentCanonicalContractId": 41,
+      "revenueModel": "اشتراک کارآفرینی؛ گزارش امکان‌سنجی پولی؛ خدمات مشاوره",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "premium_service"
+        ],
+        "meteringUnit": "document_or_analysis_job",
+        "entitlementKey": "aria.module.business-model-studio",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "business.strategy",
+        "operations": [
+          "define_business_model",
+          "map_opportunities",
+          "model_revenue_assumptions",
+          "review_risks",
+          "prepare_execution_plan"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "revenue-commerce-engine",
+      "catalogEntryId": 713,
+      "name": "موتور درآمد، تجارت و تسویه",
+      "domain": "business",
+      "description": "پیکربندی اشتراک، فریمیوم، بازارگاه، تجارت الکترونیک، فروش مستقیم و عمده، تبلیغات، همکاری در فروش، مجوز، فرانچایز، خرده‌فروشی، توزیع، پرداخت مصرفی، اجاره و لیزینگ؛ نیازمند قرارداد، پرداخت و کنترل مالی",
+      "parentCanonicalContractId": 8,
+      "revenueModel": "کارمزد تراکنش شفاف؛ اشتراک فروشنده؛ هزینه راه‌اندازی؛ هزینه خدمات و تسویه",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "pay_per_output_or_setup",
+          "marketplace_fee_or_commission"
+        ],
+        "meteringUnit": "order_or_transaction",
+        "entitlementKey": "aria.module.revenue-commerce-engine",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "business.strategy",
+        "operations": [
+          "define_business_model",
+          "map_opportunities",
+          "model_revenue_assumptions",
+          "review_risks",
+          "prepare_execution_plan"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "creator-platform-community",
+      "catalogEntryId": 714,
+      "name": "موتور پلتفرم، محتوا و جامعه",
+      "domain": "community",
+      "description": "خدمات حرفه‌ای، محصولات دیجیتال، جامعه مشتریان، پلتفرم چندطرفه، مدل داده‌محور، محتوای اشتراکی و ارجاع؛ همراه مدیریت سازنده، کیفیت و حقوق محتوا",
+      "parentCanonicalContractId": 12,
+      "revenueModel": "اشتراک سازنده؛ کارمزد بازارگاه؛ فروش محصول دیجیتال؛ خدمات حرفه‌ای",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "marketplace_fee_or_commission",
+          "digital_goods"
+        ],
+        "meteringUnit": "order_or_transaction",
+        "entitlementKey": "aria.module.creator-platform-community",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "community.operations",
+        "operations": [
+          "define_community_need",
+          "design_participation_flow",
+          "prepare_listing_or_program",
+          "define_trust_rules",
+          "review_outcomes"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "on-demand-local-services",
+      "catalogEntryId": 715,
+      "name": "بازار خدمات درخواستی و محلی",
+      "domain": "community",
+      "description": "ثبت درخواست، تطبیق متخصص، دریافت پیشنهاد، زمان‌بندی، امتیازدهی و پیگیری خدمات خانه و زندگی؛ احراز ارائه‌دهنده و رسیدگی به شکایت لازم است",
+      "parentCanonicalContractId": 26,
+      "revenueModel": "کارمزد سرنخ یا سفارش با افشای شفاف؛ اشتراک متخصص؛ جایگاه تبلیغاتی مشخص",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "marketplace_fee_or_commission"
+        ],
+        "meteringUnit": "order_or_transaction",
+        "entitlementKey": "aria.module.on-demand-local-services",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "community.operations",
+        "operations": [
+          "define_community_need",
+          "design_participation_flow",
+          "prepare_listing_or_program",
+          "define_trust_rules",
+          "review_outcomes"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "international-trade-studio",
+      "catalogEntryId": 716,
+      "name": "استودیوی تجارت بین‌الملل",
+      "domain": "business",
+      "description": "تحلیل بازار و کشور مقصد، غربال فرصت‌های صادرات و واردات، چک‌لیست اسناد، مقایسه تأمین‌کننده، برآورد سناریویی هزینه و ریسک، آماده‌سازی پیش‌نویس پیشنهاد تجاری و پیگیری معامله؛ قیمت و مقررات باید از منبع معتبر و تاریخ‌دار تأیید شوند",
+      "parentCanonicalContractId": 88,
+      "revenueModel": "اشتراک حرفه‌ای تجارت؛ گزارش بازار پولی؛ اعتبار تحلیل؛ خدمات راه‌اندازی سازمانی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits",
+          "premium_service"
+        ],
+        "meteringUnit": "order_or_transaction",
+        "entitlementKey": "aria.module.international-trade-studio",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "business.strategy",
+        "operations": [
+          "define_business_model",
+          "map_opportunities",
+          "model_revenue_assumptions",
+          "review_risks",
+          "prepare_execution_plan"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "market-intelligence",
+      "catalogEntryId": 717,
+      "name": "هوشمندی بازار و کشف فرصت",
+      "domain": "community",
+      "description": "کشف نیاز و دسته‌بندی بازار، مقایسه عرضه و تقاضا، تحلیل رقبا و جایگاه‌یابی، امتیازدهی فرصت با شواهد، ساخت فهرست فروشندگان و خریداران و ارجاع کنترل‌شده به ARMIN MARKET بدون تکرار یا تصاحب بازارگاه مستقل",
+      "parentCanonicalContractId": 87,
+      "revenueModel": "اشتراک تحلیل بازار؛ گزارش رقابتی؛ سرنخ تجاری با رضایت و افشای منبع",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription"
+        ],
+        "meteringUnit": "order_or_transaction",
+        "entitlementKey": "aria.module.market-intelligence",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": false,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "community.operations",
+        "operations": [
+          "define_community_need",
+          "design_participation_flow",
+          "prepare_listing_or_program",
+          "define_trust_rules",
+          "review_outcomes"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "LOCAL_WORKFLOW_ONLY",
+        "providerState": "NOT_REQUIRED_FOR_LOCAL_WORKFLOW",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "digital-commerce-studio",
+      "catalogEntryId": 718,
+      "name": "استودیوی تجارت و فروشگاه دیجیتال",
+      "domain": "business",
+      "description": "ساخت کاتالوگ و صفحه محصول، مدیریت ویژگی و تنوع کالا، موجودی نمایشی، پیشنهاد قیمت و بسته، سبد و سفارش در صورت اتصال واقعی، محتوای محصول و تحلیل تبدیل؛ دفترکل، حسابداری و ERP خارج از ARIA و متعلق به ARIANA است",
+      "parentCanonicalContractId": 156,
+      "revenueModel": "اشتراک فروشنده؛ قالب فروشگاهی؛ هزینه راه‌اندازی؛ کارمزد شفاف سفارش در اتصال مجاز",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "pay_per_output_or_setup",
+          "marketplace_fee_or_commission"
+        ],
+        "meteringUnit": "order_or_transaction",
+        "entitlementKey": "aria.module.digital-commerce-studio",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "business.strategy",
+        "operations": [
+          "define_business_model",
+          "map_opportunities",
+          "model_revenue_assumptions",
+          "review_risks",
+          "prepare_execution_plan"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "creative-media-studio",
+      "catalogEntryId": 719,
+      "name": "استودیوی خلاقیت و رسانه",
+      "domain": "creative",
+      "description": "تبدیل بریف به ایده و هویت بصری، طراحی لوگو و اقلام برند، تصویر محصول، بنر، پست، استوری، سناریوی ریلز، ویدئو و کاتالوگ؛ مدیریت نسخه‌ها، حقوق رسانه، رضایت افراد و کنترل کیفیت خروجی",
+      "parentCanonicalContractId": 58,
+      "revenueModel": "اعتبار تصویر و ویدئو؛ بسته طراحی؛ اشتراک سازنده؛ فروش قالب اصیل",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits",
+          "digital_goods"
+        ],
+        "meteringUnit": "image_output",
+        "entitlementKey": "aria.module.creative-media-studio",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "creative.production_brief",
+        "operations": [
+          "capture_creative_brief",
+          "define_visual_direction",
+          "prepare_asset_specification",
+          "check_rights_and_consent",
+          "quality_review"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "cloud-workspace-management",
+      "catalogEntryId": 720,
+      "name": "مدیریت فضای ابری و منابع",
+      "domain": "automation",
+      "description": "مدیریت فضای فایل، پروژه‌ها، سهمیه و مصرف، پایش سلامت سرویس‌های متصل، گزارش هزینه، سیاست نگهداری و درخواست پشتیبان‌گیری؛ عملیات زیرساختی حساس فقط از طریق اتصال رسمی، مجوز حداقلی، تأیید مالک و ثبت ممیزی؛ بدون دسترسی خودکار به حساب‌های ابری",
+      "parentCanonicalContractId": 107,
+      "revenueModel": "اشتراک فضای کاری؛ سهمیه ذخیره‌سازی؛ گزارش هزینه و مدیریت سازمانی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "metered_usage"
+        ],
+        "meteringUnit": "storage_unit",
+        "entitlementKey": "aria.module.cloud-workspace-management",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "automation.design",
+        "operations": [
+          "capture_trigger",
+          "design_workflow_graph",
+          "define_approval_gate",
+          "define_failure_handling",
+          "prepare_monitoring_spec"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "website-page-builder",
+      "catalogEntryId": 721,
+      "name": "سایت‌ساز و صفحه‌ساز",
+      "domain": "web-builder",
+      "description": "تبدیل نیاز کسب‌وکار به ساختار سایت، تولید صفحه فارسی و چندزبانه، ویرایش بلوکی، قالب و مؤلفه، پیش‌نمایش موبایل، بررسی دسترس‌پذیری و SEO، نسخه‌بندی و انتشار کنترل‌شده با دامنه تأییدشده و امکان بازگشت نسخه",
+      "parentCanonicalContractId": 55,
+      "revenueModel": "اشتراک سایت‌ساز؛ فروش قالب؛ میزبانی و دامنه با هزینه شفاف؛ خدمات راه‌اندازی",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "digital_goods"
+        ],
+        "meteringUnit": "order_or_transaction",
+        "entitlementKey": "aria.module.website-page-builder",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "web.specification",
+        "operations": [
+          "capture_site_requirements",
+          "create_sitemap",
+          "prepare_page_specification",
+          "review_responsive_accessibility",
+          "publication_readiness_check"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    },
+    {
+      "commercialModuleId": "growth-marketing-engine",
+      "catalogEntryId": 722,
+      "name": "موتور بازاریابی و رشد",
+      "domain": "content",
+      "description": "تقسیم‌بندی مخاطب با داده مجاز، طراحی کمپین، تقویم محتوا، متن و پیشنهاد، فرم جذب سرنخ، مدیریت رضایت و لغو عضویت، تحلیل قیف و گزارش عملکرد؛ ارسال یا انتشار فقط از API رسمی، با مجوز کاربر و محدودیت نرخ",
+      "parentCanonicalContractId": 35,
+      "revenueModel": "اشتراک بازاریابی؛ اعتبار تحلیل؛ بسته کمپین؛ خدمات مدیریت رشد با شاخص‌های قابل سنجش",
+      "revenueEngine": {
+        "state": "DESIGNED_NOT_MONETIZED",
+        "billingModes": [
+          "subscription",
+          "prepaid_credits"
+        ],
+        "meteringUnit": "order_or_transaction",
+        "entitlementKey": "aria.module.growth-marketing-engine",
+        "price": {
+          "amount": null,
+          "currency": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "freeTier": {
+          "enabled": false,
+          "quota": null,
+          "policy": "OWNER_CONFIGURED"
+        },
+        "usageLimits": {
+          "policy": "OWNER_CONFIGURED"
+        },
+        "refundPolicy": "OWNER_CONFIGURED",
+        "taxAndFeeDisclosureRequired": true,
+        "providerRequired": true,
+        "paymentProviderState": "NOT_CONNECTED",
+        "externalProviderState": "NOT_CONNECTED",
+        "revenueRecognition": "RECORD_ONLY_AFTER_VERIFIED_PAYMENT_OR_PROVIDER_EVENT",
+        "antiAbuse": "RATE_LIMIT_QUOTA_IDEMPOTENCY_AND_AUDIT_REQUIRED"
+      },
+      "moduleState": "LOCAL_WORKFLOW_AVAILABLE",
+      "commercialState": "NOT_LIVE",
+      "executionContract": {
+        "handlerKey": "content.editorial",
+        "operations": [
+          "capture_content_brief",
+          "create_outline",
+          "prepare_draft",
+          "revise_content",
+          "prepare_publication_calendar"
+        ],
+        "acceptedInput": {
+          "goal": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 1200,
+            "required": true
+          },
+          "context": {
+            "type": "object",
+            "maxBytes": 12000,
+            "required": false
+          }
+        },
+        "resultShape": [
+          "workItemId",
+          "moduleId",
+          "handlerKey",
+          "operationPlan",
+          "acceptanceChecks"
+        ],
+        "executionBoundary": "PROVIDER_REQUIRED_FOR_FINAL_OUTPUT",
+        "providerState": "NOT_CONNECTED",
+        "status": "CONTRACT_DEFINED_NOT_E2E_VERIFIED"
+      }
+    }
+  ]
+}
