@@ -36,7 +36,10 @@ function createDomainModule(definition) {
   async function execute(input, context) {
     if (!context || !context.actorId) throw new Error("MODULE_ACTOR_REQUIRED");
     if (!context.tenantId) throw new Error("MODULE_TENANT_REQUIRED");
+    if (typeof context.actorId !== "string" || !context.actorId.trim()) throw new Error("MODULE_ACTOR_INVALID");
+    if (typeof context.tenantId !== "string" || !context.tenantId.trim()) throw new Error("MODULE_TENANT_INVALID");
     if (!input || typeof input !== "object" || Array.isArray(input)) throw new Error("MODULE_INPUT_INVALID");
+    if (Object.keys(input).some(key => RESERVED_INPUTS.has(key))) throw new Error("MODULE_RESERVED_INPUT_FORBIDDEN");
 
     const missing = manifest.requiredInputs.filter(key =>
       !Object.prototype.hasOwnProperty.call(input, key) ||
@@ -51,7 +54,6 @@ function createDomainModule(definition) {
     if ((manifest.accessPolicy?.includes("consent_and_purpose_limitation") || manifest.accessPolicy?.includes("explicit_contact_consent")) && input.consent !== true) {
       throw new Error("MODULE_CONSENT_REQUIRED");
     }
-    if (context.tenantId !== String(context.tenantId)) throw new Error("MODULE_TENANT_INVALID");
 
     const createdAt = new Date().toISOString();
     const workItemId = randomUUID();
