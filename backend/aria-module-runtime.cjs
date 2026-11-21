@@ -99,12 +99,13 @@ function createDomainModule(definition) {
     if (domainResult !== null && (!domainResult || typeof domainResult !== "object" || Array.isArray(domainResult))) {
       throw new Error("MODULE_DOMAIN_HANDLER_RESULT_INVALID");
     }
-    if (domainResult !== null && domainResult.moduleId !== manifest.moduleId) {
+    if (domainResult !== null && domainResult.moduleId !== undefined &&
+        domainResult.moduleId !== manifest.moduleId) {
       throw new Error("MODULE_DOMAIN_HANDLER_IDENTITY_MISMATCH");
     }
     if (domainResult !== null &&
-        (domainResult.tenantScope !== String(context.tenantId) ||
-         domainResult.actorScope !== String(context.actorId))) {
+        ((domainResult.tenantScope !== undefined && domainResult.tenantScope !== String(context.tenantId)) ||
+         (domainResult.actorScope !== undefined && domainResult.actorScope !== String(context.actorId)))) {
       throw new Error("MODULE_DOMAIN_HANDLER_SCOPE_MISMATCH");
     }
 
