@@ -53,7 +53,7 @@ function normalizePivandStatus(payload) {
 if (typeof module !== "undefined" && module.exports) {
   module.exports = { normalizePivandStatus };
 } else if (typeof document !== "undefined") {
-  const root = document.getElementById("pivand-status");
+  const root = document.getElementById("pivand");
   const state = document.getElementById("pivand-state");
   const enginesRoot = document.getElementById("pivand-engines");
   const platformsRoot = document.getElementById("pivand-platforms");
