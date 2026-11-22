@@ -8,6 +8,7 @@ const jwt = require("jsonwebtoken");
 const {Pool}=require("pg");
 const {databaseSslConfig}=require("./db-config");
 const {inspectRuntimeReadiness}=require("./backend/runtime-readiness.cjs");
+const {ENGINE_IDS,PLATFORM_CAPABILITIES}=require("./backend/integrations/pivand/index.cjs");
 const root=__dirname;
 const bridgeManifest=JSON.parse(fs.readFileSync(path.join(root,"backend/data/aria_web_catalog_bridge.json"),"utf8"));
 const commercialManifest=JSON.parse(fs.readFileSync(path.join(root,"backend/data/aria_commercial_module_registry.json"),"utf8"));
@@ -286,6 +287,22 @@ async function handle(req,res,url){
  if(url.pathname==="/api/modules/summary"&&req.method==="GET"){
   const counts=catalogModules.reduce((acc,module)=>{acc[module.catalogMaturity]=(acc[module.catalogMaturity]||0)+1;acc.byDomain[module.domain]=(acc.byDomain[module.domain]||0)+1;acc.runtime[module.runtimeState]=(acc.runtime[module.runtimeState]||0)+1;return acc;},{byDomain:{},runtime:{}});
   return json(res,200,{product:"ARIA",catalogVersion:"web-prototype-0.5.0",source:"639 canonical execution contracts plus 72 separately addressable commercial modules",total:catalogModules.length,linkedCatalogRecords:catalogModules.length,contractCount:639,catalogEntryCount:72,aliasCount:72,uniqueAliasTargets:47,commercialModuleCount:commercialManifest.records.length,totalProductFacingModuleCount:commercialManifest.totalProductFacingModuleCount,revenueEngineState:"DESIGNED_NOT_MONETIZED",catalogEntryIdRange:[651,722],runtimeStates:counts.runtime,executionStates:{foundation:counts.foundation||0,prototype:counts.prototype||0,planned:counts.planned||0},domains:counts.byDomain,limitations:["ACTIVE_LOCAL_WORKFLOW means structured local planning is available; it does not mean third-party publishing, media rendering, booking, payment or cloud operations are connected.","External actions remain gated until the required official provider adapter is configured, authorized and tested.","All 72 catalog entries resolve to 47 of the 639 canonical contracts; no duplicate executable contracts are added."]});
+ }
+ if(url.pathname==="/api/pivand/engines"&&req.method==="GET"){
+  return json(res,200,{
+   product:"PIVAND",
+   parentProduct:"ARIA",
+   integrationState:"DOMAIN_FOUNDATION_ONLY",
+   liveProviderConnections:0,
+   externalDeliveryEnabled:false,
+   engines:ENGINE_IDS.map(id=>({id,state:"DOMAIN_ENGINE_AVAILABLE",persistentStorage:"NOT_CONNECTED"})),
+   platforms:Object.entries(PLATFORM_CAPABILITIES).map(([platform,contract])=>({
+    platform,adapterId:contract.adapterId,operations:[...contract.supportedOperations],
+    requiredScopes:Object.fromEntries(Object.entries(contract.requiredScopes).map(([operation,scopes])=>[operation,[...scopes]])),
+    adapterState:"NOT_CONFIGURED",liveConnectionVerified:false,membershipMutation:false
+   })),
+   limitations:["این API فقط قرارداد و وضعیت پایه را نمایش می‌دهد.","ارسال زنده، ذخیره‌سازی پایدار، پرداخت، کیف پول و اجرای کمپین فعال نیستند.","هر عملیات به رضایت کاربر و مجوزهای رسمی همان پلتفرم نیاز دارد."]
+  });
  }
  if(url.pathname==="/api/modules"&&req.method==="GET")return json(res,200,{catalogVersion:"web-prototype-0.5.0",modules:catalogModules});
  if(url.pathname==="/api/revenue/catalog"&&req.method==="GET")return json(res,200,{product:"ARIA",state:"DESIGNED_NOT_MONETIZED",currency:null,pricingPolicy:"OWNER_CONFIGURED",paymentProviderState:"NOT_CONNECTED",total:commercialManifest.records.length,modules:commercialManifest.records});
