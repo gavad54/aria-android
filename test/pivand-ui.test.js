@@ -44,3 +44,10 @@ test("invalid parent product and incomplete engine registry are rejected", () =>
     message: "PIVAND_ENGINE_REGISTRY_INVALID"
   });
 });
+
+test("browser dashboard mounts against the actual PIVAND section id", () => {
+  const fs = require("node:fs");
+  const source = fs.readFileSync(require.resolve("../pivand-ui.js"), "utf8");
+  assert.match(source, /getElementById\("pivand"\)/);
+  assert.doesNotMatch(source, /getElementById\("pivand-status"\)/);
+});
