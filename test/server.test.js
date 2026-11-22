@@ -17,6 +17,16 @@ test("ARIA API health, modules, validation, planning and auth boundaries",async(
   const home=await fetch(base+"/");const homeHtml=await home.text();assert.equal(home.status,200);const csp=home.headers.get("content-security-policy")||"";assert.match(csp,/script-src 'self'/);assert.doesNotMatch(csp,/script-src[^;]*unsafe-inline/);assert.match(homeHtml,/<script src="\/app\.js" defer><\/script>/);
   const appJs=await fetch(base+"/app.js");assert.equal(appJs.status,200);assert.match(appJs.headers.get("content-type")||"",/javascript/);assert.match(await appJs.text(),/page-generate/);
   const m=await fetch(base+"/api/modules");const md=await m.json();assert.equal(m.status,200);assert.equal(md.catalogVersion,"web-prototype-0.5.0");assert.equal(md.modules.length,72);
+  const pivandResponse=await fetch(base+"/api/pivand/engines");const pivand=await pivandResponse.json();
+  assert.equal(pivandResponse.status,200);assert.equal(pivand.product,"PIVAND");assert.equal(pivand.parentProduct,"ARIA");
+  assert.equal(pivand.integrationState,"DOMAIN_FOUNDATION_ONLY");assert.equal(pivand.liveProviderConnections,0);
+  assert.equal(pivand.externalDeliveryEnabled,false);assert.equal(pivand.engines.length,5);
+  assert.equal(new Set(pivand.engines.map(x=>x.id)).size,5);
+  assert.equal(pivand.platforms.length,4);
+  assert.ok(pivand.platforms.every(x=>x.adapterState==="NOT_CONFIGURED"&&x.liveConnectionVerified===false&&x.membershipMutation===false));
+  assert.ok(pivand.platforms.every(x=>x.operations.length>0&&Object.keys(x.requiredScopes).length===x.operations.length));
+  assert.match(JSON.stringify(pivand.limitations),/رضایت کاربر/);
+
   assert.ok(md.modules.every(x=>x.revenueEngine&&x.revenueEngine.state==="DESIGNED_NOT_MONETIZED"),"each commercial module must expose a revenue engine design");
   assert.ok(md.modules.every(x=>x.revenueEngine.billingModes.length>0&&x.revenueEngine.entitlementKey.startsWith("aria.module.")),"each module must have billing modes and entitlement key");
   assert.ok(md.modules.every(x=>x.revenueEngine.price.amount===null&&x.revenueEngine.price.currency===null),"unapproved prices and currency must remain unset");
