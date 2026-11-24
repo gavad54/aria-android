@@ -12,11 +12,11 @@ test("database TLS verifies the server certificate when enabled", () => {
   assert.deepEqual(databaseSslConfig({ DATABASE_SSL: "true" }), { rejectUnauthorized: true });
 });
 
-test("custom CA is accepted without disabling certificate verification", () => {
+test("custom CA escaped line breaks are normalized without disabling verification", () => {
   const ca = "-----BEGIN CERTIFICATE-----\\nexample\\n-----END CERTIFICATE-----";
   assert.deepEqual(databaseSslConfig({ DATABASE_SSL: "true", DATABASE_SSL_CA: ca }), {
     rejectUnauthorized: true,
-    ca: "-----BEGIN CERTIFICATE-----\\nexample\\n-----END CERTIFICATE-----"
+    ca: "-----BEGIN CERTIFICATE-----\nexample\n-----END CERTIFICATE-----"
   });
 });
 
