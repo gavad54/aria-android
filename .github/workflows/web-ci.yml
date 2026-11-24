@@ -4,7 +4,9 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
+    branches:
+      - main
+      - engineering/aria-preserve-all-capabilities-2026-11-19
   workflow_dispatch:
 
 permissions:
