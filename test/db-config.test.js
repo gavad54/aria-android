@@ -16,7 +16,7 @@ test("custom CA is accepted without disabling certificate verification", () => {
   const ca = "-----BEGIN CERTIFICATE-----\\nexample\\n-----END CERTIFICATE-----";
   assert.deepEqual(databaseSslConfig({ DATABASE_SSL: "true", DATABASE_SSL_CA: ca }), {
     rejectUnauthorized: true,
-    ca
+    ca: "-----BEGIN CERTIFICATE-----\\nexample\\n-----END CERTIFICATE-----"
   });
 });
 
