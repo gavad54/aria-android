@@ -45,3 +45,11 @@ For each adapter: select a provider and region; approve a data-processing and co
 ## Product and release decision
 
 The ARIA web/backend catalog test gates are green on the reviewed SHA. This does not prove a native Android build, real provider integrations, live transactions, or production release. Preserve all catalog IDs and historical module records. ARIA must remain separate from ARIANA's accounting/ERP domain.
+
+## CI run details on the reviewed code SHA
+
+- Main ARIA CI job `138732991555`: **984 tests passed, 0 failed, 0 skipped**.
+- The workflow also ran JavaScript syntax checks and `npm audit --omit=dev --audit-level=moderate`.
+- Web catalog CI job `138732966903`: **984 tests passed, 0 failed, 0 skipped**, plus catalog/expansion manifest checks.
+- CodeQL Python/JavaScript analysis: PASS.
+- These workflows validate the web/backend source. They do not build or install a native Android package because the repository tree has no Android Gradle project.
