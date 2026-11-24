@@ -23,3 +23,18 @@ test("database TLS remains disabled unless explicitly enabled", () => {
   assert.equal(databaseSslConfig({ DATABASE_SSL: "false" }), undefined);
   assert.equal(databaseSslConfig({}), undefined);
 });
+
+test("database TLS requires the exact explicit opt-in value", () => {
+  for (const value of ["TRUE", "1", "yes", " true ", ""]) {
+    assert.equal(databaseSslConfig({ DATABASE_SSL: value }), undefined);
+  }
+});
+
+test("blank CA values are ignored while certificate verification stays enabled", () => {
+  assert.deepEqual(databaseSslConfig({
+    DATABASE_SSL: "true",
+    DATABASE_SSL_CA: "   "
+  }), {
+    rejectUnauthorized: true
+  });
+});
