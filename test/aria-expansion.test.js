@@ -1,0 +1,353 @@
+"use strict";
+const test=require("node:test");
+const assert=require("node:assert/strict");
+const {spawn}=require("node:child_process");
+
+test("ARIA expansion catalog preserves 639 and exposes 50 needs, 4 candidates and 20 revenue models",async()=>{
+ const port=33000+Math.floor(Math.random()*1000);
+ const env={...process.env,PORT:String(port)};
+ delete env.DATABASE_URL;delete env.ARIA_JWT_SECRET;delete env.OPENAI_API_KEY;
+ const child=spawn(process.execPath,["server.js"],{env,stdio:"ignore"});
+ try{
+  let ready=false;
+  for(let i=0;i<60;i++){try{const r=await fetch("http://127.0.0.1:"+port+"/health");if(r.ok){ready=true;break;}}catch{}await new Promise(resolve=>setTimeout(resolve,100));}
+  assert.equal(ready,true,"server should start");
+  const base="http://127.0.0.1:"+port;
+  const summaryResponse=await fetch(base+"/api/aria-expansion/summary");
+  const summary=await summaryResponse.json();
+  assert.equal(summaryResponse.status,200);
+  assert.equal(summary.canonicalModuleCount,639);
+  assert.equal(summary.problemRecords,39);
+  assert.equal(summary.historicalProblemModules,39);
+  assert.equal(summary.ideaModules,25);
+  assert.equal(summary.controlModules,4);
+  assert.equal(summary.legacyAppModules,4);
+  assert.equal(summary.totalModules,72);
+  assert.equal(summary.uniqueProblemCapabilities,38);
+  assert.equal(summary.parentDomains,5);
+  assert.equal(summary.historicalCandidates,4);
+  assert.equal(summary.revenueModels,20);
+  assert.equal(summary.engines,71);
+  assert.equal(summary.totalModuleInventory,932);
+  assert.equal(summary.ariaOwnedModuleCount,893);
+  assert.equal(summary.additionalAriaModules,39);
+  assert.equal(summary.localWorkflowLaunchers,893);
+  assert.equal(summary.lineageOnlyHistoricalRecords,39);
+  assert.equal(summary.moduleInventory.canonicalModules,639);
+  assert.equal(summary.moduleInventory.preservedHistoricalOverlayModules,111);
+  assert.equal(summary.moduleInventory.commercialCatalogModules,72);
+  assert.equal(summary.moduleInventory.engineSubmodules,71);
+  assert.equal(summary.moduleInventory.totalModuleAndSubmoduleRecords,932);
+  assert.equal(summary.moduleInventory.ariaOwnedModuleAndSubmoduleRecords,893);
+  assert.equal(summary.liveRevenueEnabled,false);
+
+  const executionRegistryResponse=await fetch(base+"/api/aria-expansion/execution-registry");
+  const executionRegistry=await executionRegistryResponse.json();
+  assert.equal(executionRegistryResponse.status,200);
+  assert.equal(executionRegistry.total,932);
+  assert.equal(executionRegistry.activeLocalWorkflowCount,893);
+  assert.equal(executionRegistry.lineageOnlyCount,39);
+  assert.equal(executionRegistry.records.length,932);
+  assert.equal(new Set(executionRegistry.records.map(x=>x.unitId)).size,932);
+  assert.equal(new Set(executionRegistry.records.map(x=>x.launchId)).size,932);
+  assert.ok(executionRegistry.records.every(x=>x.executionContract&&Array.isArray(x.executionContract.operations)&&x.executionContract.operations.length>0));
+  const ownedExecutionRecords=executionRegistry.records.filter(x=>x.ownerStatus==="OWNED");
+  assert.equal(ownedExecutionRecords.length,893);
+  assert.ok(ownedExecutionRecords.every(x=>x.workflowEntry&&x.implementationState&&x.executionContract.handlerKey));
+  assert.deepEqual(Object.fromEntries(["CANONICAL_FAMILY_WORKFLOW","OVERLAY_ENGINE_FAMILY_ADAPTER","COMMERCIAL_DOMAIN_ADAPTER","ENGINE_FAMILY_ADAPTER","UNIT_SPECIFIC_DOMAIN_LOGIC"].map(state=>[state,ownedExecutionRecords.filter(x=>x.implementationState===state).length])),{
+    CANONICAL_FAMILY_WORKFLOW:639,
+    OVERLAY_ENGINE_FAMILY_ADAPTER:0,
+    COMMERCIAL_DOMAIN_ADAPTER:0,
+    ENGINE_FAMILY_ADAPTER:0,
+    UNIT_SPECIFIC_DOMAIN_LOGIC:254
+  });
+  assert.ok(ownedExecutionRecords.filter(x=>x.recordType==="HISTORICAL_OVERLAY_MODULE").every(x=>x.workflowEntry==="UNIT_SPECIFIC_DOMAIN_HANDLER"&&x.executionContract.handlerKey.startsWith("aria.overlay.")));
+  assert.ok(ownedExecutionRecords.filter(x=>x.recordType==="COMMERCIAL_MODULE").every(x=>x.workflowEntry==="UNIT_SPECIFIC_DOMAIN_HANDLER"&&x.executionContract.handlerKey.startsWith("aria.catalog.")&&x.executionContract.domainRuntimeModuleId.startsWith("ARIA-CATALOG-")));
+  assert.ok(ownedExecutionRecords.filter(x=>x.recordType==="ENGINE_SUBMODULE").every(x=>x.workflowEntry==="UNIT_SPECIFIC_DOMAIN_HANDLER"&&x.executionContract.handlerKey.startsWith("aria.engine.")&&x.executionContract.domainRuntimeModuleId===x.unitId));
+  assert.ok(ownedExecutionRecords.filter(x=>x.recordType==="NEW_OWNED_DOMAIN_MODULE").every(x=>x.workflowEntry==="ADDITIONAL_UNIT_DOMAIN_HANDLER"&&x.executionContract.handlerKey.startsWith("additional.")));
+  assert.equal(executionRegistry.records.filter(x=>x.executionState==="LINEAGE_ONLY").length,39);
+  assert.equal(executionRegistry.records.filter(x=>x.executionState==="LOCAL_WORK_ITEM_ONLY").length,893);
+  const sampleSpec=await fetch(base+"/api/aria-expansion/execution-registry/ARIA-CANONICAL-MODULE-001");
+  const sampleSpecJson=await sampleSpec.json();
+  assert.equal(sampleSpec.status,200);
+  assert.equal(sampleSpecJson.record.unitId,"ARIA-CANONICAL-MODULE-001");
+  const engineEntry=executionRegistry.records.find(x=>x.recordType==="ENGINE_SUBMODULE");
+  const engineSpec=await fetch(base+"/api/aria-expansion/execution-registry/"+encodeURIComponent(engineEntry.launchId));
+  assert.equal(engineSpec.status,200);
+  assert.equal((await engineSpec.json()).record.unitId,engineEntry.unitId);
+  const transferredEntry=executionRegistry.records.find(x=>x.ownerStatus==="TRANSFERRED_LINEAGE");
+  assert.ok(["ARVAND","ARMIN_MARKET","LEADORA"].includes(transferredEntry.ownerProduct));
+  assert.equal(transferredEntry.executionState,"LINEAGE_ONLY");
+  const archivedEntry=executionRegistry.records.find(x=>x.ownerStatus==="ARCHIVED_LINEAGE");
+  assert.equal(archivedEntry.executionState,"LINEAGE_ONLY");
+  assert.equal(executionRegistry.counts.canonical,639);
+  assert.equal(executionRegistry.counts.overlay,111);
+  assert.equal(executionRegistry.counts.commercial,72);
+  assert.equal(executionRegistry.counts.engines,71);
+  assert.equal(executionRegistry.counts.additionalAriaModules,39);
+  assert.equal(executionRegistry.counts.active,893);
+  assert.equal(executionRegistry.counts.lineage,39);
+  assert.equal(executionRegistry.records.filter(x=>x.recordType==="NEW_OWNED_DOMAIN_MODULE").length,39);
+  assert.equal(executionRegistry.records.filter(x=>x.recordType==="NEW_OWNED_DOMAIN_MODULE").every(x=>x.ownerProduct==="ARIA"&&x.ownerStatus==="OWNED"),true);
+  const missingSpec=await fetch(base+"/api/aria-expansion/execution-registry/UNKNOWN-MODULE");
+  assert.equal(missingSpec.status,404);
+
+  const modulesResponse=await fetch(base+"/api/aria-expansion/modules");
+  const modules=await modulesResponse.json();
+  assert.equal(modulesResponse.status,200);
+  assert.equal(modules.parents.length,5);
+  assert.equal(modules.problems.length,39);
+  assert.equal(modules.modules.length,72);
+  assert.equal(modules.historicalProblemModules,39);
+  assert.equal(modules.ideaModules,25);
+  assert.equal(modules.controlModules,4);
+  assert.equal(modules.legacyAppModules,4);
+  assert.equal(modules.totalModules,72);
+  const matrixResponse=await fetch(base+"/api/aria-expansion/capability-matrix");
+  const matrix=await matrixResponse.json();
+  assert.equal(matrixResponse.status,200);
+  assert.equal(matrix.product,"ARIA");
+  assert.equal(matrix.canonicalBaseline,639);
+  assert.equal(matrix.preservedHistoricalOverlay,111);
+  assert.equal(matrix.publicCatalog.total,72);
+  assert.equal(matrix.publicCatalog.byType.HISTORICAL_PROBLEM_MODULE,39);
+  assert.equal(matrix.publicCatalog.byType.NEW_IDEA_PRODUCT_MODULE,25);
+  assert.equal(matrix.publicCatalog.byType.CONTROL_AND_GOVERNANCE_MODULE,4);
+  assert.equal(matrix.publicCatalog.byType.MERGED_LEGACY_APP_DOMAIN_MODULE,4);
+  assert.equal(matrix.publicCatalog.productionVerified,0);
+  assert.equal(matrix.publicCatalog.notProductionVerified,72);
+  assert.equal(matrix.engines.total,71);
+  assert.equal(matrix.moduleInventory.totalModuleAndSubmoduleRecords,932);
+  assert.equal(matrix.moduleInventory.ariaOwnedModuleAndSubmoduleRecords,893);
+  assert.equal(matrix.additionalAriaModules.length,39);
+  assert.equal(matrix.commercialModules.length,72);
+  assert.equal(matrix.engineSubmodules.length,71);
+  assert.equal(new Set(matrix.commercialModules.map(x=>x.moduleId)).size,72);
+  assert.equal(new Set(matrix.engineSubmodules.map(x=>x.moduleId)).size,71);
+  assert.ok(matrix.engineSubmodules.every(x=>x.parentModuleIds.length>0));
+  assert.equal(matrix.modules.length,72);
+  assert.ok(matrix.modules.every(x=>x.productionStatus==="NOT_PRODUCTION_VERIFIED"));
+  assert.ok(matrix.modules.every(x=>x.ownerProduct==="ARIA"));
+  assert.deepEqual(matrix.modules.filter(x=>x.moduleType==="MERGED_LEGACY_APP_DOMAIN_MODULE").map(x=>x.ownerDomain),["GANJINEH","NEGAH","SEPEHR","NAMA"]);
+  assert.ok(matrix.modules.every(x=>Array.isArray(x.inputContract)&&Array.isArray(x.outputContract)));
+  assert.equal(modules.mergedDomainPacks.length,4);
+  assert.deepEqual(modules.mergedDomainPacks.map(x=>x.id),["GANJINEH","NEGAH","SEPEHR","NAMA"]);
+  assert.ok(modules.mergedDomainPacks.every(x=>x.moduleIds.every(id=>modules.modules.some(m=>m.moduleId===id))));
+  assert.ok(modules.modules.filter(x=>x.moduleType==="NEW_IDEA_PRODUCT_MODULE").every(x=>x.linkedDomainModuleId));
+  assert.equal(new Set(modules.modules.map(x=>x.moduleId)).size,72);
+  assert.equal(modules.modules.filter(x=>x.moduleType==="HISTORICAL_PROBLEM_MODULE").length,39);
+  assert.equal(modules.modules.filter(x=>x.moduleType==="NEW_IDEA_PRODUCT_MODULE").length,25);
+  assert.equal(modules.modules.filter(x=>x.moduleType==="CONTROL_AND_GOVERNANCE_MODULE").length,4);
+  assert.equal(modules.historicalOverlayModules,111);
+  assert.equal(modules.transferredModules,36);
+  assert.equal(modules.archivedDomainPackages,3);
+  assert.equal(modules.sharedAriaServices,2);
+  assert.doesNotMatch(JSON.stringify(modules),/CHARSU|PAYAM|ARIA-LEGACY-APP-MODULE-001|ARIA-LEGACY-APP-MODULE-002|ARIA-LEGACY-APP-MODULE-007/);
+  assert.equal(modules.modules.filter(x=>x.moduleType==="MERGED_LEGACY_APP_DOMAIN_MODULE").length,4);
+  assert.deepEqual(modules.modules.filter(x=>x.moduleType==="MERGED_LEGACY_APP_DOMAIN_MODULE").map(x=>x.legacyAppName),["GANJINEH","NEGAH","SEPEHR","NAMA"]);
+  assert.ok(modules.modules.filter(x=>x.moduleType==="MERGED_LEGACY_APP_DOMAIN_MODULE").every(x=>x.submodules.length===8));
+  assert.equal(new Set(modules.problems.map(x=>x.id)).size,39);
+  assert.ok(modules.problems.every(x=>x.engine&&x.parentDomain&&x.sourceProblemNumber&&Number.isInteger(x.hostCanonicalContractId)));
+  assert.equal(new Set(modules.problems.map(x=>x.hostCanonicalContractId)).size,5);
+  const petTravel=modules.problems.find(x=>x.sourceProblemNumber===48);
+  const petHome=modules.problems.find(x=>x.sourceProblemNumber===29);
+  assert.equal(petTravel.aliasOf,petHome.id,"travel pet-care entry must reuse the home pet-care capability");
+  const petTravelModule=modules.modules.find(x=>x.sourceProblemNumber===48&&x.moduleType==="HISTORICAL_PROBLEM_MODULE");
+  const petHomeModule=modules.modules.find(x=>x.sourceProblemNumber===29&&x.moduleType==="HISTORICAL_PROBLEM_MODULE");
+  assert.notEqual(petTravelModule.moduleId,petHomeModule.moduleId,"all 50 idea entries retain distinct module IDs");
+  assert.equal(petTravelModule.moduleId,"ARIA-PROBLEM-MODULE-048");
+  assert.equal(petTravelModule.engineSharing,"SHARED_WITH_IDEA_029_DISTINCT_TRAVEL_ENTRYPOINT");
+  assert.equal(petTravelModule.hostCanonicalContractId,233);
+  assert.equal(petTravelModule.entryPointCanonicalContractId,235);
+  assert.equal(petTravel.hostCanonicalContractId,petHome.hostCanonicalContractId);
+  assert.equal(petTravel.entryPointCanonicalContractId,235);
+
+  const inventoryResponse=await fetch(base+"/api/aria-expansion/inventory");
+  const inventory=await inventoryResponse.json();
+  assert.equal(inventoryResponse.status,200);
+  assert.equal(inventory.moduleInventory.totalModuleAndSubmoduleRecords,932);
+  assert.equal(inventory.moduleInventory.ariaOwnedModuleAndSubmoduleRecords,893);
+  assert.equal(inventory.additionalAriaModules.length,39);
+  assert.equal(inventory.preservedHistoricalOverlay.length,111);
+  assert.equal(inventory.commercialModules.length,72);
+  assert.equal(inventory.engineSubmodules.length,71);
+  const preservedIds=new Set(inventory.preservedHistoricalOverlay.map(x=>x.moduleId));
+  assert.ok(inventory.engineSubmodules.every(x=>x.parentModuleIds.length>0&&x.parentModuleIds.every(id=>preservedIds.has(id))));
+  assert.equal(new Set(inventory.engineSubmodules.map(x=>x.engineId)).size,71);
+  assert.equal(inventory.canonicalRegistry.immutable,true);
+
+  const canonicalCatalogResponse=await fetch(base+"/api/aria-expansion/canonical-modules");
+  const canonicalCatalog=await canonicalCatalogResponse.json();
+  assert.equal(canonicalCatalogResponse.status,200);
+  assert.equal(canonicalCatalog.total,639);
+  assert.equal(canonicalCatalog.immutable,true);
+  assert.equal(new Set(canonicalCatalog.modules.map(x=>x.designFamily)).size,15);
+  assert.equal(new Set(canonicalCatalog.modules.map(x=>x.canonicalId)).size,639);
+  assert.ok(canonicalCatalog.modules.every(x=>x.workflowEntry&&x.implementationState));
+  const commercialCatalogResponse=await fetch(base+"/api/aria-expansion/commercial-modules");
+  const commercialCatalog=await commercialCatalogResponse.json();
+  assert.equal(commercialCatalogResponse.status,200);
+  assert.equal(commercialCatalog.total,72);
+  assert.equal(Object.keys(commercialCatalog.domainProfiles).length,13);
+  assert.equal(new Set(commercialCatalog.modules.map(x=>x.domain)).size,13);
+  assert.ok(commercialCatalog.modules.every(x=>x.executionContract&&x.executionContract.handlerKey&&x.executionContract.operations.length>0));
+  const commercialHostIds=new Set(canonicalCatalog.modules.map(x=>x.canonicalId));
+  assert.ok(commercialCatalog.modules.every(x=>commercialHostIds.has(x.parentCanonicalContractId)));
+  const unauthCanonicalRun=await fetch(base+"/api/aria-expansion/canonical-modules/1/run",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"آزمون گردش‌کار پایه"})});
+  assert.equal(unauthCanonicalRun.status,401);
+  const unauthCommercialRun=await fetch(base+"/api/aria-expansion/commercial-modules/command-center/run",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"آزمون گردش‌کار تجاری"})});
+  assert.equal(unauthCommercialRun.status,401);
+  const unauthEngineRun=await fetch(base+"/api/aria-expansion/engines/"+encodeURIComponent(inventory.engineSubmodules[0].engineId)+"/run",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"آزمون موتور"})});
+  assert.equal(unauthEngineRun.status,401);
+  const unauthOverlayRun=await fetch(base+"/api/aria-expansion/modules/ARIA-PROBLEM-MODULE-001/run",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"آزمون ماژول تاریخی فعال"})});
+  assert.equal(unauthOverlayRun.status,401);
+  const commercialRegistryResponse=await fetch(base+"/api/aria-expansion/commercialization-registry");
+  const commercialRegistry=await commercialRegistryResponse.json();
+  assert.equal(commercialRegistryResponse.status,200);
+  assert.equal(commercialRegistry.total,893);
+  assert.equal(commercialRegistry.counts.separatelyBillable,822);
+  assert.equal(commercialRegistry.counts.inheritedEntitlements,71);
+  assert.equal(commercialRegistry.liveBillingEnabled,false);
+  assert.equal(commercialRegistry.paymentExecuted,false);
+
+  const maturityResponse=await fetch(base+"/api/aria-expansion/implementation-maturity");
+  const maturity=await maturityResponse.json();
+  assert.equal(maturityResponse.status,200);
+  assert.equal(maturity.totalOwnedUnits,893);
+  assert.equal(maturity.totalInventoryRecords,932);
+  assert.deepEqual(maturity.counts,{
+    canonical:{units:639,executionMode:"CANONICAL_FAMILY_WORKFLOW",handlerFamilies:15,unitSpecificHandlers:0},
+    overlay:{units:72,executionMode:"UNIT_SPECIFIC_DOMAIN_LOGIC",handlerFamilies:72,unitSpecificHandlers:72},
+    commercial:{units:72,executionMode:"UNIT_SPECIFIC_DOMAIN_LOGIC",handlerFamilies:72,unitSpecificHandlers:72},
+    engines:{units:71,executionMode:"UNIT_SPECIFIC_DOMAIN_LOGIC",handlerFamilies:71,unitSpecificHandlers:71},
+    additional:{units:39,executionMode:"UNIT_SPECIFIC_DOMAIN_LOGIC",handlerFamilies:39,unitSpecificHandlers:39}
+  });
+  assert.equal(maturity.productionVerifiedCount,0);
+  assert.equal(maturity.externalProviderConnectedCount,0);
+  assert.equal(maturity.liveBillingEnabled,false);
+  assert.equal(maturity.paymentExecuted,false);
+  assert.equal(maturity.unitSpecificLocalLogicCount,254);
+  assert.equal(maturity.unitSpecificLocalLogicTestedCount,254);
+  assert.equal(maturity.unitSpecificLocalLogicMissingCount,639);
+  assert.equal(maturity.nextGate,"SPECIALIZED_UNIT_BEHAVIOR_AND_E2E_EVIDENCE");
+  const unauthUsagePreview=await fetch(base+"/api/aria-expansion/commercialization/usage-preview",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({moduleId:"ARIA-CANONICAL-MODULE-001",quantity:1,idempotencyKey:"unauth-test-001"})});
+  assert.equal(unauthUsagePreview.status,401);
+  const replacementCatalog=await fetch(base+"/api/aria-expansion/additional-modules");
+  const replacementData=await replacementCatalog.json();
+  assert.equal(replacementCatalog.status,200);
+  assert.equal(replacementData.total,39);
+  assert.equal(new Set(replacementData.modules.map(x=>x.moduleId)).size,39);
+  const unauthReplacementRun=await fetch(base+"/api/aria-expansion/additional-modules/ARIA-OWNED-ADDITIONAL-001/run",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"آزمون ماژول جایگزین"})});
+  assert.equal(unauthReplacementRun.status,401);
+
+  const enginesResponse=await fetch(base+"/api/aria-expansion/engines");
+  const engines=await enginesResponse.json();
+  assert.equal(enginesResponse.status,200);
+  assert.equal(engines.engines.length,71);
+  assert.equal(engines.problemEngines,38);
+  assert.equal(engines.candidateEngines,4);
+  assert.equal(engines.ideaEngines,25);
+  assert.equal(engines.legacyDomainEngines,4);
+  assert.equal(engines.ideaEngines,25);
+  assert.equal(engines.legacyDomainEngines,4);
+  assert.ok(engines.engines.every(x=>x.contract&&Array.isArray(x.contract.operations)));
+
+  const candidatesResponse=await fetch(base+"/api/aria-expansion/candidates");
+  const candidates=await candidatesResponse.json();
+  assert.equal(candidatesResponse.status,200);
+  assert.equal(candidates.candidates.length,4);
+  assert.ok(candidates.candidates.every(x=>x.engine&&x.executionBoundary));
+
+  const subscriptionSimulation=await fetch(base+"/api/aria-expansion/revenue-models/simulate",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({modelId:"revenue-model-01",assumptions:{activeSubscribers:10,monthlyPrice:5,fixedCosts:10,variableCosts:5}})});
+  const subscriptionData=await subscriptionSimulation.json();
+  assert.equal(subscriptionSimulation.status,200);
+  assert.equal(subscriptionData.simulation.grossRevenueEstimate,50);
+  assert.equal(subscriptionData.simulation.netContributionEstimate,35);
+  assert.equal(subscriptionData.simulation.paymentExecuted,false);
+  const invalidRate=await fetch(base+"/api/aria-expansion/revenue-models/simulate",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({modelId:"revenue-model-02",assumptions:{freeUsers:100,conversionRate:2,monthlyPrice:10}})});
+  assert.equal(invalidRate.status,400);
+  const unknownRevenueModel=await fetch(base+"/api/aria-expansion/revenue-models/simulate",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({modelId:"revenue-model-99",assumptions:{}})});
+  assert.equal(unknownRevenueModel.status,404);
+
+  const revenueResponse=await fetch(base+"/api/aria-expansion/revenue-models");
+  const revenue=await revenueResponse.json();
+  assert.equal(revenueResponse.status,200);
+  assert.equal(revenue.models.length,20);
+  assert.ok(revenue.models.every(x=>x.state==="DESIGNED_NOT_MONETIZED"));
+  const simulationItems=revenue.models.map(model=>{const assumptions={};for(const key of model.calculation.requiredInputs){if(key.toLowerCase().includes("rate"))assumptions[key]=0.1;else if(key==="cpm")assumptions[key]=8;else if(key==="months")assumptions[key]=1;else if(key.toLowerCase().includes("price")||key.toLowerCase().includes("fee")||key.toLowerCase().includes("commission"))assumptions[key]=10;else assumptions[key]=100;}return {modelId:model.id,assumptions};});
+  const batchResponse=await fetch(base+"/api/aria-expansion/revenue-models/simulate-batch",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({items:simulationItems})});
+  const batchResult=await batchResponse.json();
+  assert.equal(batchResponse.status,200);
+  assert.equal(batchResult.total,20);
+  assert.ok(batchResult.simulations.every(x=>x.state==="SIMULATED_NOT_ACTUAL"&&x.paymentExecuted===false&&Number.isFinite(x.grossRevenueEstimate)));
+
+
+  const planResponse=await fetch(base+"/api/aria-expansion/modules/problem-01/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"پیدا کردن تعمیرکار مناسب"})});
+  const plan=await planResponse.json();
+  assert.equal(planResponse.status,200);
+  assert.equal(plan.plan.moduleId,"problem-01");
+  assert.ok(plan.plan.steps.length>=3);
+  assert.equal(plan.plan.externalExecution.executed,false);
+
+  const legacyDomainPlanResponse=await fetch(base+"/api/aria-expansion/modules/ARIA-LEGACY-APP-MODULE-001/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"آغاز گردش‌کار تجارت بین‌الملل"})});
+  const legacyDomainPlan=await legacyDomainPlanResponse.json();
+  assert.equal(legacyDomainPlanResponse.status,404);
+  assert.equal(legacyDomainPlan.error,"ماژول پیدا نشد.");
+  const historicModulePlanResponse=await fetch(base+"/api/aria-expansion/modules/ARIA-PROBLEM-MODULE-001/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"ارزیابی تعمیرکار"})});
+  const historicModulePlan=await historicModulePlanResponse.json();
+  assert.equal(historicModulePlanResponse.status,200);
+  assert.equal(historicModulePlan.plan.moduleId,"ARIA-PROBLEM-MODULE-001");
+  const newModulePlanResponse=await fetch(base+"/api/aria-expansion/modules/ARIA-IDEA-MODULE-003/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"بررسی و انتخاب تعمیرکار مطمئن"})});
+  const newModulePlan=await newModulePlanResponse.json();
+  assert.equal(newModulePlanResponse.status,200);
+  assert.equal(newModulePlan.plan.moduleId,"ARIA-IDEA-MODULE-003");
+  assert.equal(newModulePlan.plan.hostCanonicalContractId,null);
+  assert.equal(modules.modules.find(x=>x.moduleId==="ARIA-IDEA-MODULE-003").canonicalMappingStatus,"PENDING_SEMANTIC_DEDUPLICATION_AGAINST_639");
+  const controlPlanResponse=await fetch(base+"/api/aria-expansion/modules/ARIA-CONTROL-MODULE-001/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"تطبیق نیاز و عرضه‌کننده با رضایت"})});
+  const controlPlan=await controlPlanResponse.json();
+  assert.equal(controlPlanResponse.status,200);
+  assert.equal(controlPlan.plan.moduleId,"ARIA-CONTROL-MODULE-001");
+
+  const badPlan=await fetch(base+"/api/aria-expansion/modules/problem-01/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"x"})});
+  assert.equal(badPlan.status,400);
+  const unknown=await fetch(base+"/api/aria-expansion/modules/problem-99/plan",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({goal:"یک هدف معتبر"})});
+  assert.equal(unknown.status,404);
+
+  const simResponse=await fetch(base+"/api/aria-expansion/scenarios/simulate",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({scenarios:[{name:"base",value:100},{name:"optimistic",value:120},{name:"conservative",value:80}]})});
+  const sim=await simResponse.json();
+  assert.equal(simResponse.status,200);
+  assert.equal(sim.results.length,3);
+  assert.equal(sim.results[0].value,100);
+  assert.equal(sim.disclaimer.length>0,true);
+  assert.equal(sim.liveActionExecuted,false);
+
+  const authzResponse=await fetch(base+"/api/aria-expansion/autonomy/authorize",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({agentId:"agent-1",action:"publish"})});
+  const authz=await authzResponse.json();
+  assert.equal(authzResponse.status,200);
+  assert.equal(authz.decision,"DENY");
+  assert.equal(authz.reason,"AUTH_OR_POLICY_STORE_UNAVAILABLE");
+
+  const unauthWork=await fetch(base+"/api/aria-expansion/work-items");assert.equal(unauthWork.status,401);
+  const unauthIntents=await fetch(base+"/api/aria-expansion/intents");assert.equal(unauthIntents.status,401);
+  const unauthOwner=await fetch(base+"/api/aria-expansion/owner/overview");assert.equal(unauthOwner.status,401);
+  const unauthWorkItems=await fetch(base+"/api/aria-expansion/work-items",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({moduleId:"problem-01",title:"Plan title"})});assert.equal(unauthWorkItems.status,401);
+    const unauthProvider=await fetch(base+"/api/aria-expansion/providers",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({displayName:"Provider",category:"repair",serviceArea:"Baku"})});assert.equal(unauthProvider.status,401);
+  const unauthProviderVerify=await fetch(base+"/api/aria-expansion/providers/1/verification",{method:"PATCH",headers:{"content-type":"application/json"},body:JSON.stringify({status:"verified"})});assert.equal(unauthProviderVerify.status,401);
+  const unauthMatches=await fetch(base+"/api/aria-expansion/intents/1/matches");assert.equal(unauthMatches.status,401);
+  const unauthPolicy=await fetch(base+"/api/aria-expansion/autonomy/policies",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({agentId:"agent-1",action:"draft",decision:"ALLOW"})});assert.equal(unauthPolicy.status,401);
+
+  const home=await fetch(base+"/");const homeHtml=await home.text();assert.match(homeHtml,/id="aria-expansion"/);assert.match(homeHtml,/aria-expansion.js/);
+  assert.match(homeHtml,/id="expansion-maturity"/);
+  assert.match(homeHtml,/id="expansion-control-centers"/);
+  const expansionJs=await fetch(base+"/aria-expansion.js");assert.equal(expansionJs.status,200);const expansionSource=await expansionJs.text();assert.ok(expansionSource.includes("/api/aria-expansion/capability-matrix"));assert.ok(expansionSource.includes("expansion-maturity-table"));assert.ok(expansionSource.includes("/api/aria-expansion/intents"));assert.ok(expansionSource.includes("/api/aria-expansion/autonomy/policies"));assert.ok(expansionSource.includes("/api/aria-expansion/scenarios/simulate"));assert.ok(expansionSource.includes("/api/aria-expansion/owner/overview"));assert.ok(expansionSource.includes("/api/aria-expansion/revenue-models/simulate"));assert.ok(expansionSource.includes("/api/aria-expansion/modules"));assert.ok(expansionSource.includes("/api/aria-expansion/execution-registry"));
+ }finally{
+  await new Promise(resolve=>{if(child.exitCode!==null||child.signalCode!==null)return resolve();child.once("exit",resolve);child.kill();});
+ }
+});
+
+
+test("ARIA expansion runtime parses with the supported Node.js runtime",()=>{
+ const {spawnSync}=require("node:child_process");
+ const result=spawnSync(process.execPath,["--check","backend/aria_expansion_runtime.cjs"],{encoding:"utf8"});
+ assert.equal(result.status,0,"runtime syntax check failed: "+(result.stderr||result.stdout));
+});

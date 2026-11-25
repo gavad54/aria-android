@@ -1,0 +1,74 @@
+name: ARIA web catalog CI
+
+on:
+  pull_request:
+    paths:
+      - 'server.js'
+      - 'test/server.test.js'
+      - 'test/aria-expansion.test.js'
+      - 'package.json'
+      - 'backend/data/aria_web_catalog_bridge.json'
+      - 'backend/data/aria_expansion_registry.json'
+      - 'backend/data/aria_111_module_expansion_registry.json'
+      - 'backend/aria_expansion_runtime.cjs'
+      - 'aria-expansion.js'
+      - 'index.html'
+      - 'docs/ARIA_111_MODULE_CATALOG_AND_LEGACY_APP_MERGE_REPORT_FA.md'
+      - 'docs/ARIA_FOUR_CANDIDATE_MODULES_AND_50_IDEA_INTAKE_2026-11-19_FA.md'
+      - 'docs/ARIA_UNIFIED_PRESERVATION_REVENUE_AND_OPERATIONAL_DESIGN_FA.md'
+      - 'docs/ARIA_GLOBAL_CAPABILITY_BLUEPRINT_2026-11-19_FA.md'
+      - 'docs/ARIA32_CANDIDATE_REBUILD_REPORT_2026-11-19_FA.md'
+      - 'scripts/aria_expansion_manifest_test.cjs'
+      - 'scripts/aria_web_catalog_manifest_test.js'
+      - 'scripts/aria32_apply_web_catalog_bridge.js'
+      - 'scripts/aria32_web_catalog_runtime_check.cjs'
+      - 'scripts/aria32_alias_consolidation_gate.cjs'
+      - '.github/workflows/aria-web-catalog-ci.yml'
+  push:
+    branches:
+      - 'engineering/aria-preserve-all-capabilities-2026-11-19'
+    paths:
+      - 'server.js'
+      - 'test/server.test.js'
+      - 'test/aria-expansion.test.js'
+      - 'backend/data/aria_111_module_expansion_registry.json'
+      - 'backend/aria_expansion_runtime.cjs'
+      - 'aria-expansion.js'
+      - 'index.html'
+      - 'docs/ARIA_111_MODULE_CATALOG_AND_LEGACY_APP_MERGE_REPORT_FA.md'
+      - 'docs/ARIA_FOUR_CANDIDATE_MODULES_AND_50_IDEA_INTAKE_2026-11-19_FA.md'
+      - 'docs/ARIA_UNIFIED_PRESERVATION_REVENUE_AND_OPERATIONAL_DESIGN_FA.md'
+      - 'docs/ARIA_GLOBAL_CAPABILITY_BLUEPRINT_2026-11-19_FA.md'
+      - 'docs/ARIA32_CANDIDATE_REBUILD_REPORT_2026-11-19_FA.md'
+      - 'scripts/aria_expansion_manifest_test.cjs'
+      - '.github/workflows/aria-web-catalog-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  web-catalog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22.14.0'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Validate engineering scripts
+        run: |
+          node --check scripts/aria32_apply_web_catalog_bridge.js
+          node --check scripts/aria32_web_catalog_runtime_check.cjs
+          node --check scripts/aria32_alias_consolidation_gate.cjs
+          node --check backend/aria_expansion_runtime.cjs
+          node --check aria-expansion.js
+          node --check test/aria-expansion.test.js
+          node --check scripts/aria_expansion_manifest_test.cjs
+      - name: Validate catalog-to-contract manifest
+        run: node scripts/aria_web_catalog_manifest_test.js
+      - name: Validate expansion registry integrity
+        run: node scripts/aria_expansion_manifest_test.cjs
+      - name: Run web API tests
+        run: npm test

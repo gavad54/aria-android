@@ -1,0 +1,2253 @@
+{
+  "schemaVersion": "1.0.0",
+  "product": "ARIA",
+  "canonicalBaselinePreserved": 639,
+  "independentBackendModuleCount": 201,
+  "requestedModuleCount": 197,
+  "additionalServiceEngines": 4,
+  "counts": {
+    "ideas": 50,
+    "governanceControls": 4,
+    "commercialCatalog": 72,
+    "childEngines": 71,
+    "serviceDeliveryEngines": 4
+  },
+  "productionVerifiedCount": 0,
+  "externalExecutionEnabled": false,
+  "paymentExecuted": false,
+  "records": [
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-001",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Work Memory",
+      "engine": "Consent Memory & Retrieval Engine",
+      "filePath": "backend/modules/ideas/001-work-memory.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-001",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-002",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Goal-to-Action Planner",
+      "engine": "Goal Decomposition & Scheduling Engine",
+      "filePath": "backend/modules/ideas/002-goal-to-action-planner.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-002",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-003",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Meeting Coordinator",
+      "engine": "Calendar Constraint & Agenda Engine",
+      "filePath": "backend/modules/ideas/003-meeting-coordinator.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-003",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-004",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Smart Inbox",
+      "engine": "Message Triage & Draft Engine",
+      "filePath": "backend/modules/ideas/004-smart-inbox.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-004",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-005",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Commitment Tracker",
+      "engine": "Commitment Extraction & Follow-up Engine",
+      "filePath": "backend/modules/ideas/005-commitment-tracker.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-005",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-006",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Personal Federated Search",
+      "engine": "Permission-aware Retrieval Engine",
+      "filePath": "backend/modules/ideas/006-personal-federated-search.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-006",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-007",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Context Translator",
+      "engine": "Terminology-preserving Translation Engine",
+      "filePath": "backend/modules/ideas/007-context-translator.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-007",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-008",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Skill Coach",
+      "engine": "Adaptive Learning Path Engine",
+      "filePath": "backend/modules/ideas/008-skill-coach.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-008",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-009",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Personal Document Manager",
+      "engine": "Document Classification & Expiry Engine",
+      "filePath": "backend/modules/ideas/009-personal-document-manager.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-009",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-010",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Accessibility Assistant",
+      "engine": "Accessible Format Transformation Engine",
+      "filePath": "backend/modules/ideas/010-accessibility-assistant.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-010",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-011",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Personal Knowledge Map",
+      "engine": "Knowledge Graph & Citation Engine",
+      "filePath": "backend/modules/ideas/011-personal-knowledge-map.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-011",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-012",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Learning Path Builder",
+      "engine": "Curriculum Sequencing Engine",
+      "filePath": "backend/modules/ideas/012-learning-path-builder.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-012",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-013",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Interactive Practice Lab",
+      "engine": "Exercise Generation & Feedback Engine",
+      "filePath": "backend/modules/ideas/013-interactive-practice-lab.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-013",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-014",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Source Quality Reviewer",
+      "engine": "Source Provenance & Quality Engine",
+      "filePath": "backend/modules/ideas/014-source-quality-reviewer.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-014",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-015",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Literature Review Assistant",
+      "engine": "Paper Clustering & Evidence Synthesis Engine",
+      "filePath": "backend/modules/ideas/015-literature-review-assistant.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-015",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-016",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Competency Assessment Builder",
+      "engine": "Rubric & Assessment Engine",
+      "filePath": "backend/modules/ideas/016-competency-assessment-builder.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-016",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-017",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Interview Simulator",
+      "engine": "Role-based Interview Feedback Engine",
+      "filePath": "backend/modules/ideas/017-interview-simulator.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-017",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-018",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Digital Literacy Guide",
+      "engine": "Guided Task Instruction Engine",
+      "filePath": "backend/modules/ideas/018-digital-literacy-guide.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-018",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-019",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Organizational Knowledge Archive",
+      "engine": "Governed Knowledge Index Engine",
+      "filePath": "backend/modules/ideas/019-organizational-knowledge-archive.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-019",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-020",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Skill Evidence Passport",
+      "engine": "Skill Evidence & Credential Engine",
+      "filePath": "backend/modules/ideas/020-skill-evidence-passport.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-020",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-021",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Multi-channel Content Calendar",
+      "engine": "Editorial Scheduling Engine",
+      "filePath": "backend/modules/ideas/021-multi-channel-content-calendar.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-021",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-022",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Content Repurposer",
+      "engine": "Format Adaptation Engine",
+      "filePath": "backend/modules/ideas/022-content-repurposer.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-022",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-023",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Brand Consistency Checker",
+      "engine": "Brand Voice & Terminology Engine",
+      "filePath": "backend/modules/ideas/023-brand-consistency-checker.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-023",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-024",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Campaign Pack Builder",
+      "engine": "Campaign Brief & KPI Engine",
+      "filePath": "backend/modules/ideas/024-campaign-pack-builder.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-024",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-025",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Audience Feedback Analyzer",
+      "engine": "Feedback Clustering & Trend Engine",
+      "filePath": "backend/modules/ideas/025-audience-feedback-analyzer.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-025",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-026",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Multilingual Subtitle Studio",
+      "engine": "Speech Alignment & Subtitle Engine",
+      "filePath": "backend/modules/ideas/026-multilingual-subtitle-studio.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-026",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-027",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Creative Asset Library",
+      "engine": "Asset Rights & Version Engine",
+      "filePath": "backend/modules/ideas/027-creative-asset-library.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-027",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-028",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Publishing QA",
+      "engine": "Channel Policy & Content QA Engine",
+      "filePath": "backend/modules/ideas/028-publishing-qa.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-028",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-029",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Interactive Story Studio",
+      "engine": "Branching Narrative Engine",
+      "filePath": "backend/modules/ideas/029-interactive-story-studio.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-029",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-030",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Learning Content Impact",
+      "engine": "Learning Outcome Measurement Engine",
+      "filePath": "backend/modules/ideas/030-learning-content-impact.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-030",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-031",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Service Selection Guide",
+      "engine": "Explainable Provider Ranking Engine",
+      "filePath": "backend/modules/ideas/031-service-selection-guide.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-031",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-032",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Appointment & Queue Manager",
+      "engine": "Capacity & Queue Scheduling Engine",
+      "filePath": "backend/modules/ideas/032-appointment-queue-manager.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-032",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-033",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Asset Maintenance Logbook",
+      "engine": "Maintenance Forecast & Reminder Engine",
+      "filePath": "backend/modules/ideas/033-asset-maintenance-logbook.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-033",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-034",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Local Event Planner",
+      "engine": "Event Coordination Engine",
+      "filePath": "backend/modules/ideas/034-local-event-planner.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-034",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-035",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Accessibility Places Map",
+      "engine": "Verified Accessibility Attribute Engine",
+      "filePath": "backend/modules/ideas/035-accessibility-places-map.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-035",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-036",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Volunteer Coordinator",
+      "engine": "Skill-to-Mission Matching Engine",
+      "filePath": "backend/modules/ideas/036-volunteer-coordinator.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-036",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-037",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Community Issue Tracker",
+      "engine": "Issue Intake & Resolution Workflow Engine",
+      "filePath": "backend/modules/ideas/037-community-issue-tracker.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-037",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-038",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Responsible Trip Planner",
+      "engine": "Constraint-aware Itinerary Engine",
+      "filePath": "backend/modules/ideas/038-responsible-trip-planner.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-038",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-039",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Non-medical Care Coordinator",
+      "engine": "Consent-based Task Coordination Engine",
+      "filePath": "backend/modules/ideas/039-non-medical-care-coordinator.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-039",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-040",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Local Skill Exchange",
+      "engine": "Time/Skill Matching & Agreement Engine",
+      "filePath": "backend/modules/ideas/040-local-skill-exchange.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-040",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-041",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Business Proposal Builder",
+      "engine": "Scope & Proposal Composer Engine",
+      "filePath": "backend/modules/ideas/041-business-proposal-builder.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-041",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-042",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Customer Knowledge Hub",
+      "engine": "Customer Interaction Context Engine",
+      "filePath": "backend/modules/ideas/042-customer-knowledge-hub.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-042",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-043",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Sales Readiness Assessor",
+      "engine": "Sales Asset Gap Analysis Engine",
+      "filePath": "backend/modules/ideas/043-sales-readiness-assessor.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-043",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-044",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Customer Experience Monitor",
+      "engine": "Feedback-to-Action Engine",
+      "filePath": "backend/modules/ideas/044-customer-experience-monitor.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-044",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-045",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Smart Catalog Builder",
+      "engine": "Product Data Normalization Engine",
+      "filePath": "backend/modules/ideas/045-smart-catalog-builder.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-045",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-046",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Supplier Match & Compare",
+      "engine": "Supplier Offer Normalization Engine",
+      "filePath": "backend/modules/ideas/046-supplier-match-compare.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-046",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-047",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Team Capacity Planner",
+      "engine": "Skills-based Workload Engine",
+      "filePath": "backend/modules/ideas/047-team-capacity-planner.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-047",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-048",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Market Opportunity Radar",
+      "engine": "Source-grounded Trend Signal Engine",
+      "filePath": "backend/modules/ideas/048-market-opportunity-radar.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-048",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-049",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Customer Help Center Builder",
+      "engine": "Knowledge-to-Helpcenter Engine",
+      "filePath": "backend/modules/ideas/049-customer-help-center-builder.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-049",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-IDEA-BACKLOG-050",
+      "moduleType": "IDEA_BACKLOG_MODULE",
+      "name": "Service Value Measurement",
+      "engine": "Outcome & Impact Measurement Engine",
+      "filePath": "backend/modules/ideas/050-service-value-measurement.cjs",
+      "sourceLineage": "docs/aria/ARIA_54_MODULES_ENGINES_OPERATIONALIZATION_BACKLOG_2026-11-19_FA.md#IDEA-050",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-CONTROL-MODULE-001",
+      "moduleType": "GOVERNANCE_CONTROL_MODULE",
+      "name": "بازار هوشمند نیازها و قصدها",
+      "filePath": "backend/modules/controls/001-intent-marketplace.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-CONTROL-MODULE-001",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-CONTROL-MODULE-002",
+      "moduleType": "GOVERNANCE_CONTROL_MODULE",
+      "name": "مرکز کنترل خودمختاری عامل‌ها",
+      "filePath": "backend/modules/controls/002-autonomy-control-center.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-CONTROL-MODULE-002",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-CONTROL-MODULE-003",
+      "moduleType": "GOVERNANCE_CONTROL_MODULE",
+      "name": "شبیه‌ساز سناریو و پیامد تصمیم",
+      "filePath": "backend/modules/controls/003-scenario-simulator.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-CONTROL-MODULE-003",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-CONTROL-MODULE-004",
+      "moduleType": "GOVERNANCE_CONTROL_MODULE",
+      "name": "مرکز فرمان مالک",
+      "filePath": "backend/modules/controls/004-owner-control-center.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-CONTROL-MODULE-004",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-CATALOG-651",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 651,
+      "commercialModuleId": "command-center",
+      "name": "مرکز فرمان هوشمند",
+      "filePath": "backend/modules/catalog/651-command-center.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#command-center",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 341
+    },
+    {
+      "moduleId": "ARIA-CATALOG-652",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 652,
+      "commercialModuleId": "idea-to-value",
+      "name": "ایده تا ارزش",
+      "filePath": "backend/modules/catalog/652-idea-to-value.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#idea-to-value",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 78
+    },
+    {
+      "moduleId": "ARIA-CATALOG-653",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 653,
+      "commercialModuleId": "opportunities",
+      "name": "رشد و فرصت‌ها",
+      "filePath": "backend/modules/catalog/653-opportunities.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#opportunities",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 15
+    },
+    {
+      "moduleId": "ARIA-CATALOG-654",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 654,
+      "commercialModuleId": "learning-creator",
+      "name": "یادگیری و تولید",
+      "filePath": "backend/modules/catalog/654-learning-creator.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#learning-creator",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 232
+    },
+    {
+      "moduleId": "ARIA-CATALOG-655",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 655,
+      "commercialModuleId": "workflows",
+      "name": "گردش‌کارها",
+      "filePath": "backend/modules/catalog/655-workflows.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#workflows",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 468
+    },
+    {
+      "moduleId": "ARIA-CATALOG-656",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 656,
+      "commercialModuleId": "trust-control",
+      "name": "اعتماد و کنترل",
+      "filePath": "backend/modules/catalog/656-trust-control.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#trust-control",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 4
+    },
+    {
+      "moduleId": "ARIA-CATALOG-657",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 657,
+      "commercialModuleId": "ai-instagram",
+      "name": "ساخت کاور اینستاگرام با AI",
+      "filePath": "backend/modules/catalog/657-ai-instagram.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#ai-instagram",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 36
+    },
+    {
+      "moduleId": "ARIA-CATALOG-658",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 658,
+      "commercialModuleId": "image-editing",
+      "name": "ادیت و روتوش عکس",
+      "filePath": "backend/modules/catalog/658-image-editing.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#image-editing",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 90
+    },
+    {
+      "moduleId": "ARIA-CATALOG-659",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 659,
+      "commercialModuleId": "profile-photo",
+      "name": "عکس پروفایل حرفه‌ای",
+      "filePath": "backend/modules/catalog/659-profile-photo.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#profile-photo",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 90
+    },
+    {
+      "moduleId": "ARIA-CATALOG-660",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 660,
+      "commercialModuleId": "product-photo",
+      "name": "عکس محصول",
+      "filePath": "backend/modules/catalog/660-product-photo.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#product-photo",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 156
+    },
+    {
+      "moduleId": "ARIA-CATALOG-661",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 661,
+      "commercialModuleId": "image-to-image",
+      "name": "تبدیل سبک تصویر با AI",
+      "filePath": "backend/modules/catalog/661-image-to-image.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#image-to-image",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 90
+    },
+    {
+      "moduleId": "ARIA-CATALOG-662",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 662,
+      "commercialModuleId": "ad-banner",
+      "name": "بنر تبلیغاتی",
+      "filePath": "backend/modules/catalog/662-ad-banner.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#ad-banner",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 40
+    },
+    {
+      "moduleId": "ARIA-CATALOG-663",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 663,
+      "commercialModuleId": "social-post-story",
+      "name": "پست و استوری",
+      "filePath": "backend/modules/catalog/663-social-post-story.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#social-post-story",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 272
+    },
+    {
+      "moduleId": "ARIA-CATALOG-664",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 664,
+      "commercialModuleId": "youtube-thumbnail",
+      "name": "تامبنیل یوتیوب",
+      "filePath": "backend/modules/catalog/664-youtube-thumbnail.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#youtube-thumbnail",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 37
+    },
+    {
+      "moduleId": "ARIA-CATALOG-665",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 665,
+      "commercialModuleId": "face-reel",
+      "name": "ریلز و چهرهٔ سخنگو",
+      "filePath": "backend/modules/catalog/665-face-reel.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#face-reel",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 36
+    },
+    {
+      "moduleId": "ARIA-CATALOG-666",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 666,
+      "commercialModuleId": "avatar",
+      "name": "آواتار هوش مصنوعی",
+      "filePath": "backend/modules/catalog/666-avatar.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#avatar",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 90
+    },
+    {
+      "moduleId": "ARIA-CATALOG-667",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 667,
+      "commercialModuleId": "voice-video",
+      "name": "ویدئو ویدیویی",
+      "filePath": "backend/modules/catalog/667-voice-video.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#voice-video",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 177
+    },
+    {
+      "moduleId": "ARIA-CATALOG-668",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 668,
+      "commercialModuleId": "subtitles-captions",
+      "name": "زیرنویس و کپشن",
+      "filePath": "backend/modules/catalog/668-subtitles-captions.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#subtitles-captions",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 183
+    },
+    {
+      "moduleId": "ARIA-CATALOG-669",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 669,
+      "commercialModuleId": "text-to-video",
+      "name": "تبدیل متن به ویدئو",
+      "filePath": "backend/modules/catalog/669-text-to-video.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#text-to-video",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 177
+    },
+    {
+      "moduleId": "ARIA-CATALOG-670",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 670,
+      "commercialModuleId": "podcast-clips",
+      "name": "کلیپ‌سازی از پادکست",
+      "filePath": "backend/modules/catalog/670-podcast-clips.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#podcast-clips",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 183
+    },
+    {
+      "moduleId": "ARIA-CATALOG-671",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 671,
+      "commercialModuleId": "product-video-ad",
+      "name": "ویدئوی تبلیغ محصول",
+      "filePath": "backend/modules/catalog/671-product-video-ad.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#product-video-ad",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 177
+    },
+    {
+      "moduleId": "ARIA-CATALOG-672",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 672,
+      "commercialModuleId": "logo-design",
+      "name": "طراحی لوگو با AI",
+      "filePath": "backend/modules/catalog/672-logo-design.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#logo-design",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 59
+    },
+    {
+      "moduleId": "ARIA-CATALOG-673",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 673,
+      "commercialModuleId": "product-packaging",
+      "name": "بسته‌بندی محصول",
+      "filePath": "backend/modules/catalog/673-product-packaging.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#product-packaging",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 285
+    },
+    {
+      "moduleId": "ARIA-CATALOG-674",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 674,
+      "commercialModuleId": "professional-catalog",
+      "name": "کاتالوگ حرفه‌ای",
+      "filePath": "backend/modules/catalog/674-professional-catalog.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#professional-catalog",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 529
+    },
+    {
+      "moduleId": "ARIA-CATALOG-675",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 675,
+      "commercialModuleId": "mockup-maker",
+      "name": "موکاپ تبلیغاتی",
+      "filePath": "backend/modules/catalog/675-mockup-maker.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#mockup-maker",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 90
+    },
+    {
+      "moduleId": "ARIA-CATALOG-676",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 676,
+      "commercialModuleId": "character-design",
+      "name": "طراحی کاراکتر",
+      "filePath": "backend/modules/catalog/676-character-design.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#character-design",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 90
+    },
+    {
+      "moduleId": "ARIA-CATALOG-677",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 677,
+      "commercialModuleId": "business-prompts",
+      "name": "پرامپت‌نویسی کسب‌وکار",
+      "filePath": "backend/modules/catalog/677-business-prompts.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#business-prompts",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 54
+    },
+    {
+      "moduleId": "ARIA-CATALOG-678",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 678,
+      "commercialModuleId": "prompt-pack",
+      "name": "ساخت و فروش پک پرامپت",
+      "filePath": "backend/modules/catalog/678-prompt-pack.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#prompt-pack",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 209
+    },
+    {
+      "moduleId": "ARIA-CATALOG-679",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 679,
+      "commercialModuleId": "instagram-caption",
+      "name": "کپشن اینستاگرام",
+      "filePath": "backend/modules/catalog/679-instagram-caption.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#instagram-caption",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 183
+    },
+    {
+      "moduleId": "ARIA-CATALOG-680",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 680,
+      "commercialModuleId": "content-ideas",
+      "name": "ایده‌پردازی محتوایی",
+      "filePath": "backend/modules/catalog/680-content-ideas.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#content-ideas",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 272
+    },
+    {
+      "moduleId": "ARIA-CATALOG-681",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 681,
+      "commercialModuleId": "content-calendar",
+      "name": "تقویم محتوایی",
+      "filePath": "backend/modules/catalog/681-content-calendar.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#content-calendar",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 186
+    },
+    {
+      "moduleId": "ARIA-CATALOG-682",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 682,
+      "commercialModuleId": "content-management",
+      "name": "مدیریت محتوا با AI",
+      "filePath": "backend/modules/catalog/682-content-management.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#content-management",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 272
+    },
+    {
+      "moduleId": "ARIA-CATALOG-683",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 683,
+      "commercialModuleId": "resume-portfolio",
+      "name": "رزومه و پورتفولیو",
+      "filePath": "backend/modules/catalog/683-resume-portfolio.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#resume-portfolio",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 44
+    },
+    {
+      "moduleId": "ARIA-CATALOG-684",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 684,
+      "commercialModuleId": "translation-localization",
+      "name": "ترجمه و بومی‌سازی",
+      "filePath": "backend/modules/catalog/684-translation-localization.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#translation-localization",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 52
+    },
+    {
+      "moduleId": "ARIA-CATALOG-685",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 685,
+      "commercialModuleId": "pdf-summary",
+      "name": "خلاصه‌سازی PDF و مقاله",
+      "filePath": "backend/modules/catalog/685-pdf-summary.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#pdf-summary",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 77
+    },
+    {
+      "moduleId": "ARIA-CATALOG-686",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 686,
+      "commercialModuleId": "flashcards-quizzes",
+      "name": "فلش‌کارت و آزمون",
+      "filePath": "backend/modules/catalog/686-flashcards-quizzes.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#flashcards-quizzes",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 301
+    },
+    {
+      "moduleId": "ARIA-CATALOG-687",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 687,
+      "commercialModuleId": "ai-tool-tutorials",
+      "name": "آموزش ابزارهای هوش مصنوعی",
+      "filePath": "backend/modules/catalog/687-ai-tool-tutorials.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#ai-tool-tutorials",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 232
+    },
+    {
+      "moduleId": "ARIA-CATALOG-688",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 688,
+      "commercialModuleId": "chatbot-builder",
+      "name": "ساخت چت‌بات پاسخ‌گو",
+      "filePath": "backend/modules/catalog/688-chatbot-builder.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#chatbot-builder",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 56
+    },
+    {
+      "moduleId": "ARIA-CATALOG-689",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 689,
+      "commercialModuleId": "customer-support",
+      "name": "اتوماسیون پشتیبانی مشتری",
+      "filePath": "backend/modules/catalog/689-customer-support.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#customer-support",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 142
+    },
+    {
+      "moduleId": "ARIA-CATALOG-690",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 690,
+      "commercialModuleId": "faq-builder",
+      "name": "ساخت FAQ هوشمند",
+      "filePath": "backend/modules/catalog/690-faq-builder.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#faq-builder",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 380
+    },
+    {
+      "moduleId": "ARIA-CATALOG-691",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 691,
+      "commercialModuleId": "data-analysis",
+      "name": "تحلیل داده با AI",
+      "filePath": "backend/modules/catalog/691-data-analysis.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#data-analysis",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 87
+    },
+    {
+      "moduleId": "ARIA-CATALOG-692",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 692,
+      "commercialModuleId": "reports-dashboards",
+      "name": "گزارش و داشبورد",
+      "filePath": "backend/modules/catalog/692-reports-dashboards.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#reports-dashboards",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 636
+    },
+    {
+      "moduleId": "ARIA-CATALOG-693",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 693,
+      "commercialModuleId": "data-cleaning",
+      "name": "پاکسازی و مرتب‌سازی داده",
+      "filePath": "backend/modules/catalog/693-data-cleaning.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#data-cleaning",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 645
+    },
+    {
+      "moduleId": "ARIA-CATALOG-694",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 694,
+      "commercialModuleId": "no-code-site",
+      "name": "ساخت سایت بدون کدنویسی",
+      "filePath": "backend/modules/catalog/694-no-code-site.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#no-code-site",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 55
+    },
+    {
+      "moduleId": "ARIA-CATALOG-695",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 695,
+      "commercialModuleId": "landing-page",
+      "name": "صفحه‌ساز هوشمند",
+      "filePath": "backend/modules/catalog/695-landing-page.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#landing-page",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 55
+    },
+    {
+      "moduleId": "ARIA-CATALOG-696",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 696,
+      "commercialModuleId": "no-code-app",
+      "name": "ساخت اپلیکیشن No-Code",
+      "filePath": "backend/modules/catalog/696-no-code-app.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#no-code-app",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 55
+    },
+    {
+      "moduleId": "ARIA-CATALOG-697",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 697,
+      "commercialModuleId": "seo-content",
+      "name": "سئو و بهینه‌سازی محتوا",
+      "filePath": "backend/modules/catalog/697-seo-content.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#seo-content",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 35
+    },
+    {
+      "moduleId": "ARIA-CATALOG-698",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 698,
+      "commercialModuleId": "product-copy",
+      "name": "توضیحات محصول",
+      "filePath": "backend/modules/catalog/698-product-copy.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#product-copy",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 156
+    },
+    {
+      "moduleId": "ARIA-CATALOG-699",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 699,
+      "commercialModuleId": "digital-products",
+      "name": "کتاب الکترونیکی و فایل دیجیتال",
+      "filePath": "backend/modules/catalog/699-digital-products.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#digital-products",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 209
+    },
+    {
+      "moduleId": "ARIA-CATALOG-700",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 700,
+      "commercialModuleId": "photo-restoration",
+      "name": "ترمیم عکس قدیمی",
+      "filePath": "backend/modules/catalog/700-photo-restoration.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#photo-restoration",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 90
+    },
+    {
+      "moduleId": "ARIA-CATALOG-701",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 701,
+      "commercialModuleId": "workflow-automation",
+      "name": "طراحی گردش‌کار و اتوماسیون",
+      "filePath": "backend/modules/catalog/701-workflow-automation.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#workflow-automation",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 647
+    },
+    {
+      "moduleId": "ARIA-CATALOG-702",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 702,
+      "commercialModuleId": "reels-script",
+      "name": "سناریونویسی ریلز",
+      "filePath": "backend/modules/catalog/702-reels-script.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#reels-script",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 36
+    },
+    {
+      "moduleId": "ARIA-CATALOG-703",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 703,
+      "commercialModuleId": "ad-copywriting",
+      "name": "بازنویسی متن تبلیغاتی",
+      "filePath": "backend/modules/catalog/703-ad-copywriting.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#ad-copywriting",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 40
+    },
+    {
+      "moduleId": "ARIA-CATALOG-704",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 704,
+      "commercialModuleId": "educational-content",
+      "name": "ساخت محتوای آموزشی",
+      "filePath": "backend/modules/catalog/704-educational-content.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#educational-content",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 232
+    },
+    {
+      "moduleId": "ARIA-CATALOG-705",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 705,
+      "commercialModuleId": "ai-sales-assistant",
+      "name": "دستیار فروش هوشمند",
+      "filePath": "backend/modules/catalog/705-ai-sales-assistant.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#ai-sales-assistant",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 34
+    },
+    {
+      "moduleId": "ARIA-CATALOG-706",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 706,
+      "commercialModuleId": "ai-voiceover",
+      "name": "گویندگی و نریشن با AI",
+      "filePath": "backend/modules/catalog/706-ai-voiceover.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#ai-voiceover",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 117
+    },
+    {
+      "moduleId": "ARIA-CATALOG-707",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 707,
+      "commercialModuleId": "life-home-assistant",
+      "name": "دستیار خانه و زندگی",
+      "filePath": "backend/modules/catalog/707-life-home-assistant.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#life-home-assistant",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 237
+    },
+    {
+      "moduleId": "ARIA-CATALOG-708",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 708,
+      "commercialModuleId": "smart-shopping-household",
+      "name": "خرید هوشمند و مدیریت هزینه",
+      "filePath": "backend/modules/catalog/708-smart-shopping-household.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#smart-shopping-household",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 11
+    },
+    {
+      "moduleId": "ARIA-CATALOG-709",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 709,
+      "commercialModuleId": "family-health-wellbeing",
+      "name": "سلامت و رفاه خانواده",
+      "filePath": "backend/modules/catalog/709-family-health-wellbeing.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#family-health-wellbeing",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 233
+    },
+    {
+      "moduleId": "ARIA-CATALOG-710",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 710,
+      "commercialModuleId": "career-learning-productivity",
+      "name": "رشد شغلی و بهره‌وری",
+      "filePath": "backend/modules/catalog/710-career-learning-productivity.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#career-learning-productivity",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 169
+    },
+    {
+      "moduleId": "ARIA-CATALOG-711",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 711,
+      "commercialModuleId": "travel-leisure-planner",
+      "name": "برنامه‌ریز سفر و اوقات فراغت",
+      "filePath": "backend/modules/catalog/711-travel-leisure-planner.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#travel-leisure-planner",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 235
+    },
+    {
+      "moduleId": "ARIA-CATALOG-712",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 712,
+      "commercialModuleId": "business-model-studio",
+      "name": "استودیو طراحی مدل کسب‌وکار",
+      "filePath": "backend/modules/catalog/712-business-model-studio.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#business-model-studio",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 41
+    },
+    {
+      "moduleId": "ARIA-CATALOG-713",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 713,
+      "commercialModuleId": "revenue-commerce-engine",
+      "name": "موتور درآمد، تجارت و تسویه",
+      "filePath": "backend/modules/catalog/713-revenue-commerce-engine.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#revenue-commerce-engine",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 8
+    },
+    {
+      "moduleId": "ARIA-CATALOG-714",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 714,
+      "commercialModuleId": "creator-platform-community",
+      "name": "موتور پلتفرم، محتوا و جامعه",
+      "filePath": "backend/modules/catalog/714-creator-platform-community.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#creator-platform-community",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 12
+    },
+    {
+      "moduleId": "ARIA-CATALOG-715",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 715,
+      "commercialModuleId": "on-demand-local-services",
+      "name": "بازار خدمات درخواستی و محلی",
+      "filePath": "backend/modules/catalog/715-on-demand-local-services.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#on-demand-local-services",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 26
+    },
+    {
+      "moduleId": "ARIA-CATALOG-716",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 716,
+      "commercialModuleId": "international-trade-studio",
+      "name": "استودیوی تجارت بین‌الملل",
+      "filePath": "backend/modules/catalog/716-international-trade-studio.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#international-trade-studio",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 88
+    },
+    {
+      "moduleId": "ARIA-CATALOG-717",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 717,
+      "commercialModuleId": "market-intelligence",
+      "name": "هوشمندی بازار و کشف فرصت",
+      "filePath": "backend/modules/catalog/717-market-intelligence.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#market-intelligence",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 87
+    },
+    {
+      "moduleId": "ARIA-CATALOG-718",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 718,
+      "commercialModuleId": "digital-commerce-studio",
+      "name": "استودیوی تجارت و فروشگاه دیجیتال",
+      "filePath": "backend/modules/catalog/718-digital-commerce-studio.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#digital-commerce-studio",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 156
+    },
+    {
+      "moduleId": "ARIA-CATALOG-719",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 719,
+      "commercialModuleId": "creative-media-studio",
+      "name": "استودیوی خلاقیت و رسانه",
+      "filePath": "backend/modules/catalog/719-creative-media-studio.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#creative-media-studio",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 58
+    },
+    {
+      "moduleId": "ARIA-CATALOG-720",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 720,
+      "commercialModuleId": "cloud-workspace-management",
+      "name": "مدیریت فضای ابری و منابع",
+      "filePath": "backend/modules/catalog/720-cloud-workspace-management.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#cloud-workspace-management",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 107
+    },
+    {
+      "moduleId": "ARIA-CATALOG-721",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 721,
+      "commercialModuleId": "website-page-builder",
+      "name": "سایت‌ساز و صفحه‌ساز",
+      "filePath": "backend/modules/catalog/721-website-page-builder.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#website-page-builder",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 55
+    },
+    {
+      "moduleId": "ARIA-CATALOG-722",
+      "moduleType": "COMMERCIAL_CATALOG_MODULE",
+      "catalogEntryId": 722,
+      "commercialModuleId": "growth-marketing-engine",
+      "name": "موتور بازاریابی و رشد",
+      "filePath": "backend/modules/catalog/722-growth-marketing-engine.cjs",
+      "sourceLineage": "backend/data/aria_commercial_module_registry.json#growth-marketing-engine",
+      "parentModuleIds": [],
+      "hostCanonicalContractId": 35
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-001",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-01-engine",
+      "name": "جست‌وجو، احراز و مقایسه تعمیرکار — موتور تخصصی",
+      "filePath": "backend/modules/engines/001-problem-01-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-001",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-001"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-002",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-02-engine",
+      "name": "برآورد اولیه و مدیریت تعمیرات — موتور تخصصی",
+      "filePath": "backend/modules/engines/002-problem-02-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-002",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-002"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-003",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-03-engine",
+      "name": "برنامه‌ریز و واگذاری کارها — موتور تخصصی",
+      "filePath": "backend/modules/engines/003-problem-03-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-003",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-003"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-004",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-04-engine",
+      "name": "مدیریت موجودی خوراکی و تاریخ مصرف — موتور تخصصی",
+      "filePath": "backend/modules/engines/004-problem-04-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-004",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-004"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-005",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-05-engine",
+      "name": "بهینه‌ساز فضای خانه — موتور تخصصی",
+      "filePath": "backend/modules/engines/005-problem-05-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-005",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-005"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-006",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-06-engine",
+      "name": "بازار خدمات نظافت — موتور تخصصی",
+      "filePath": "backend/modules/engines/006-problem-06-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-006",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-006"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-007",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-07-engine",
+      "name": "هماهنگی حمل و جابه‌جایی — موتور تخصصی",
+      "filePath": "backend/modules/engines/007-problem-07-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-007",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-007"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-008",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-08-engine",
+      "name": "دستیار نگهداری گیاه — موتور تخصصی",
+      "filePath": "backend/modules/engines/008-problem-08-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-008",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-008"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-009",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-09-engine",
+      "name": "راهنمای نصب و رزرو نصاب — موتور تخصصی",
+      "filePath": "backend/modules/engines/009-problem-09-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-009",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-009"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-010",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-10-engine",
+      "name": "برنامه‌ریز وعده و آماده‌سازی غذا — موتور تخصصی",
+      "filePath": "backend/modules/engines/010-problem-10-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-010",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-010"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-011",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-15-engine",
+      "name": "مدیریت مرجوعی و ضمانت — موتور تخصصی",
+      "filePath": "backend/modules/engines/011-problem-15-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-011",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-015"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-012",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-16-engine",
+      "name": "بودجه‌بند خانوار — موتور تخصصی",
+      "filePath": "backend/modules/engines/012-problem-16-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-012",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-016"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-013",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-17-engine",
+      "name": "اجاره/اشتراک ابزار — موتور تخصصی",
+      "filePath": "backend/modules/engines/013-problem-17-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-013",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-017"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-014",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-18-engine",
+      "name": "دستیار انتخاب پوشش و اجاره لباس — موتور تخصصی",
+      "filePath": "backend/modules/engines/014-problem-18-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-014",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-018"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-015",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-19-engine",
+      "name": "پیشنهاددهنده هدیه — موتور تخصصی",
+      "filePath": "backend/modules/engines/015-problem-19-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-015",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-019"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-016",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-20-engine",
+      "name": "هماهنگ‌کننده بازیافت — موتور تخصصی",
+      "filePath": "backend/modules/engines/016-problem-20-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-016",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-020"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-017",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-21-engine",
+      "name": "برنامه‌ریز مراقبت کودک و فهرست مراقبان — موتور تخصصی",
+      "filePath": "backend/modules/engines/017-problem-21-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-017",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-021"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-018",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-22-engine",
+      "name": "برنامه‌ریز تغذیه عمومی — موتور تخصصی",
+      "filePath": "backend/modules/engines/018-problem-22-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-018",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-022"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-019",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-23-engine",
+      "name": "برنامه‌ریز فعالیت و عادت حرکتی — موتور تخصصی",
+      "filePath": "backend/modules/engines/019-problem-23-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-019",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-023"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-020",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-24-engine",
+      "name": "ابزار عمومی آرام‌سازی و مدیریت فشار — موتور تخصصی",
+      "filePath": "backend/modules/engines/020-problem-24-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-020",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-024"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-021",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-25-engine",
+      "name": "دفترچه و برنامه عادت خواب — موتور تخصصی",
+      "filePath": "backend/modules/engines/021-problem-25-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-021",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-025"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-022",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-26-engine",
+      "name": "پیشنهادگر تفریح خانوادگی — موتور تخصصی",
+      "filePath": "backend/modules/engines/022-problem-26-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-022",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-026"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-023",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-27-engine",
+      "name": "مربی عادت و مسیر یادگیری — موتور تخصصی",
+      "filePath": "backend/modules/engines/023-problem-27-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-023",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-027"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-024",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-28-engine",
+      "name": "برنامه‌ریز تعادل کار و زندگی — موتور تخصصی",
+      "filePath": "backend/modules/engines/024-problem-28-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-024",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-028"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-025",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "pet-care-coordination-engine",
+      "name": "موتور هماهنگی مراقبت حیوان خانگی",
+      "filePath": "backend/modules/engines/025-pet-care-coordination-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-025",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-029",
+        "ARIA-PROBLEM-MODULE-048"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-026",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-30-engine",
+      "name": "مربی زبان کاربردی — موتور تخصصی",
+      "filePath": "backend/modules/engines/026-problem-30-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-026",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-030"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-027",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-31-engine",
+      "name": "راهنمای مسیر شغلی و جست‌وجوی فرصت — موتور تخصصی",
+      "filePath": "backend/modules/engines/027-problem-31-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-027",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-031"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-028",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-32-engine",
+      "name": "نقشه مهارت و آموزش پروژه‌محور — موتور تخصصی",
+      "filePath": "backend/modules/engines/028-problem-32-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-028",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-032"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-029",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-33-engine",
+      "name": "دستیار تمرکز و بهره‌وری — موتور تخصصی",
+      "filePath": "backend/modules/engines/029-problem-33-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-029",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-033"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-030",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-34-engine",
+      "name": "استودیوی تولید محتوای حرفه‌ای — موتور تخصصی",
+      "filePath": "backend/modules/engines/030-problem-34-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-030",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-034"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-031",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-36-engine",
+      "name": "سازنده سایت و فروشگاه — موتور تخصصی",
+      "filePath": "backend/modules/engines/031-problem-36-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-031",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-036"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-032",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-38-engine",
+      "name": "تحلیلگر و گزارش‌ساز داده — موتور تخصصی",
+      "filePath": "backend/modules/engines/032-problem-38-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-032",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-038"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-033",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-39-engine",
+      "name": "مدیریت دریافت و پیگیری پرداخت — موتور تخصصی",
+      "filePath": "backend/modules/engines/033-problem-39-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-033",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-039"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-034",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-41-engine",
+      "name": "سازنده برنامه سفر — موتور تخصصی",
+      "filePath": "backend/modules/engines/034-problem-41-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-034",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-041"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-035",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-43-engine",
+      "name": "بودجه‌بند سفر — موتور تخصصی",
+      "filePath": "backend/modules/engines/035-problem-43-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-035",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-043"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-036",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-44-engine",
+      "name": "کاوشگر تجربه محلی — موتور تخصصی",
+      "filePath": "backend/modules/engines/036-problem-44-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-036",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-044"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-037",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-46-engine",
+      "name": "راهنمای محلی هوشمند — موتور تخصصی",
+      "filePath": "backend/modules/engines/037-problem-46-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-037",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-046"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-038",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "problem-50-engine",
+      "name": "جامعه همسفران — موتور تخصصی",
+      "filePath": "backend/modules/engines/038-problem-50-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-038",
+      "parentModuleIds": [
+        "ARIA-PROBLEM-MODULE-050"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-039",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "intent-matching-engine",
+      "name": "Intent Matching & Explainability Engine",
+      "filePath": "backend/modules/engines/039-intent-matching-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-039",
+      "parentModuleIds": [
+        "ARIA-CONTROL-MODULE-001"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-040",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "policy-decision-engine",
+      "name": "Policy Decision & Capability Grant Engine",
+      "filePath": "backend/modules/engines/040-policy-decision-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-040",
+      "parentModuleIds": [
+        "ARIA-CONTROL-MODULE-002"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-041",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "scenario-sensitivity-engine",
+      "name": "Scenario Orchestration & Sensitivity Engine",
+      "filePath": "backend/modules/engines/041-scenario-sensitivity-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-041",
+      "parentModuleIds": [
+        "ARIA-CONTROL-MODULE-003"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-042",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "owner-operations-engine",
+      "name": "Owner Operations & Release-Gate Engine",
+      "filePath": "backend/modules/engines/042-owner-operations-engine.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-042",
+      "parentModuleIds": [
+        "ARIA-CONTROL-MODULE-004"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-043",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-003",
+      "name": "گردش تأیید درخواست خرید — موتور تخصصی",
+      "filePath": "backend/modules/engines/043-idea-expansion-engine-003.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-043",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-003"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-044",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-006",
+      "name": "رهگیری منشأ و بچ کالا — موتور تخصصی",
+      "filePath": "backend/modules/engines/044-idea-expansion-engine-006.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-044",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-006"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-045",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-010",
+      "name": "پرونده فنی و انطباق محصول — موتور تخصصی",
+      "filePath": "backend/modules/engines/045-idea-expansion-engine-010.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-045",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-010"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-046",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-011",
+      "name": "ثبت کیفیت سری تولید — موتور تخصصی",
+      "filePath": "backend/modules/engines/046-idea-expansion-engine-011.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-046",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-011"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-047",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-012",
+      "name": "آمادگی فراخوان محصول — موتور تخصصی",
+      "filePath": "backend/modules/engines/047-idea-expansion-engine-012.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-047",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-012"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-048",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-013",
+      "name": "مدیریت ادعای ضمانت سازمانی — موتور تخصصی",
+      "filePath": "backend/modules/engines/048-idea-expansion-engine-013.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-048",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-013"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-049",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-015",
+      "name": "مدیریت دستورکار نگهداری دارایی — موتور تخصصی",
+      "filePath": "backend/modules/engines/049-idea-expansion-engine-015.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-049",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-015"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-050",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-023",
+      "name": "ممیزی عملیات شعب و فرانچایز — موتور تخصصی",
+      "filePath": "backend/modules/engines/050-idea-expansion-engine-023.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-050",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-023"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-051",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-026",
+      "name": "کنترل وابستگی و نقاط عطف — موتور تخصصی",
+      "filePath": "backend/modules/engines/051-idea-expansion-engine-026.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-051",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-026"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-052",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-027",
+      "name": "تخصیص ظرفیت منابع تیمی — موتور تخصصی",
+      "filePath": "backend/modules/engines/052-idea-expansion-engine-027.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-052",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-027"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-053",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-028",
+      "name": "تأیید شواهد تحویل پروژه — موتور تخصصی",
+      "filePath": "backend/modules/engines/053-idea-expansion-engine-028.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-053",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-028"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-054",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-030",
+      "name": "مدیریت رخداد و گزارش پس از حادثه — موتور تخصصی",
+      "filePath": "backend/modules/engines/054-idea-expansion-engine-030.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-054",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-030"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-055",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-031",
+      "name": "کیوریشن دانش سازمانی — موتور تخصصی",
+      "filePath": "backend/modules/engines/055-idea-expansion-engine-031.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-055",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-031"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-056",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-032",
+      "name": "گردش تصویب اسناد سازمانی — موتور تخصصی",
+      "filePath": "backend/modules/engines/056-idea-expansion-engine-032.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-056",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-032"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-057",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-033",
+      "name": "سیاست نگهداری سوابق — موتور تخصصی",
+      "filePath": "backend/modules/engines/057-idea-expansion-engine-033.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-057",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-033"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-058",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-035",
+      "name": "میز رسیدگی کیفیت داده — موتور تخصصی",
+      "filePath": "backend/modules/engines/058-idea-expansion-engine-035.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-058",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-035"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-059",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-040",
+      "name": "پرونده آمادگی انتشار نسخه — موتور تخصصی",
+      "filePath": "backend/modules/engines/059-idea-expansion-engine-040.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-059",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-040"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-060",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-041",
+      "name": "میز بازبینی بومی‌سازی — موتور تخصصی",
+      "filePath": "backend/modules/engines/060-idea-expansion-engine-041.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-060",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-041"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-061",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-042",
+      "name": "ممیزی دسترس‌پذیری محصول — موتور تخصصی",
+      "filePath": "backend/modules/engines/061-idea-expansion-engine-042.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-061",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-042"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-062",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-043",
+      "name": "ممیزی مجوز و حق استفاده — موتور تخصصی",
+      "filePath": "backend/modules/engines/062-idea-expansion-engine-043.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-062",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-043"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-063",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-044",
+      "name": "دفتر منشأ و مالکیت دارایی فکری — موتور تخصصی",
+      "filePath": "backend/modules/engines/063-idea-expansion-engine-044.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-063",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-044"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-064",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-046",
+      "name": "ماتریس مهارت و شایستگی نقش — موتور تخصصی",
+      "filePath": "backend/modules/engines/064-idea-expansion-engine-046.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-064",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-046"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-065",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-047",
+      "name": "برنامه پوشش شیفت و ظرفیت نیروی کار — موتور تخصصی",
+      "filePath": "backend/modules/engines/065-idea-expansion-engine-047.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-065",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-047"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-066",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-048",
+      "name": "چک‌لیست بازرسی ایمنی عملیات — موتور تخصصی",
+      "filePath": "backend/modules/engines/066-idea-expansion-engine-048.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-066",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-048"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-067",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "idea-expansion-engine-049",
+      "name": "ارزیابی اثر حریم خصوصی — موتور تخصصی",
+      "filePath": "backend/modules/engines/067-idea-expansion-engine-049.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-067",
+      "parentModuleIds": [
+        "ARIA-IDEA-MODULE-049"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-068",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "ARIA-LEGACY-APP-MODULE-003",
+      "name": "فروشگاه، کاتالوگ و بازار خدمات — موتور دامنه",
+      "filePath": "backend/modules/engines/068-aria-legacy-app-module-003.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-068",
+      "parentModuleIds": [
+        "ARIA-LEGACY-APP-MODULE-003"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-069",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "ARIA-LEGACY-APP-MODULE-004",
+      "name": "استودیوی خلاقیت و رسانه — موتور دامنه",
+      "filePath": "backend/modules/engines/069-aria-legacy-app-module-004.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-069",
+      "parentModuleIds": [
+        "ARIA-LEGACY-APP-MODULE-004"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-070",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "ARIA-LEGACY-APP-MODULE-005",
+      "name": "زیرساخت ابری و دارایی دیجیتال — موتور دامنه",
+      "filePath": "backend/modules/engines/070-aria-legacy-app-module-005.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-070",
+      "parentModuleIds": [
+        "ARIA-LEGACY-APP-MODULE-005"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-ENGINE-MODULE-071",
+      "moduleType": "CHILD_ENGINE_MODULE",
+      "sourceId": "ARIA-LEGACY-APP-MODULE-006",
+      "name": "سایت‌ساز و صفحه‌ساز — موتور دامنه",
+      "filePath": "backend/modules/engines/071-aria-legacy-app-module-006.cjs",
+      "sourceLineage": "backend/data/aria_893_module_execution_registry.json#ARIA-ENGINE-MODULE-071",
+      "parentModuleIds": [
+        "ARIA-LEGACY-APP-MODULE-006"
+      ],
+      "hostCanonicalContractId": null
+    },
+    {
+      "moduleId": "ARIA-SVC-SUPPORT",
+      "moduleType": "SERVICE_DELIVERY_ENGINE",
+      "name": "مرکز پشتیبانی و تعهد خدمت",
+      "filePath": "backend/modules/service-engines/aria-svc-support.cjs",
+      "sourceLineage": "docs/ARIA_SERVICE_DELIVERY_IMPLEMENTATION_2026-11-19_FA.md",
+      "parentModuleIds": [
+        "ARIA-SVC-INTAKE",
+        "ARIA-SVC-PROPOSAL",
+        "ARIA-SVC-DELIVERY",
+        "ARIA-SVC-QUALITY"
+      ]
+    },
+    {
+      "moduleId": "ARIA-SVC-SUCCESS",
+      "moduleType": "SERVICE_DELIVERY_ENGINE",
+      "name": "مرکز موفقیت و تمدید مشتری",
+      "filePath": "backend/modules/service-engines/aria-svc-success.cjs",
+      "sourceLineage": "docs/ARIA_SERVICE_DELIVERY_IMPLEMENTATION_2026-11-19_FA.md",
+      "parentModuleIds": [
+        "ARIA-SVC-INTAKE",
+        "ARIA-SVC-PROPOSAL",
+        "ARIA-SVC-DELIVERY",
+        "ARIA-SVC-QUALITY"
+      ]
+    },
+    {
+      "moduleId": "ARIA-SVC-PACKAGES",
+      "moduleType": "SERVICE_DELIVERY_ENGINE",
+      "name": "استودیوی بسته‌های خدمت و گردش‌کار",
+      "filePath": "backend/modules/service-engines/aria-svc-packages.cjs",
+      "sourceLineage": "docs/ARIA_SERVICE_DELIVERY_IMPLEMENTATION_2026-11-19_FA.md",
+      "parentModuleIds": [
+        "ARIA-SVC-INTAKE",
+        "ARIA-SVC-PROPOSAL",
+        "ARIA-SVC-DELIVERY",
+        "ARIA-SVC-QUALITY"
+      ]
+    },
+    {
+      "moduleId": "ARIA-SVC-UNIT-ECONOMICS",
+      "moduleType": "SERVICE_DELIVERY_ENGINE",
+      "name": "مرکز هزینه و سودآوری خدمت",
+      "filePath": "backend/modules/service-engines/aria-svc-unit-economics.cjs",
+      "sourceLineage": "docs/ARIA_SERVICE_DELIVERY_IMPLEMENTATION_2026-11-19_FA.md",
+      "parentModuleIds": [
+        "ARIA-SVC-INTAKE",
+        "ARIA-SVC-PROPOSAL",
+        "ARIA-SVC-DELIVERY",
+        "ARIA-SVC-QUALITY"
+      ]
+    }
+  ]
+}

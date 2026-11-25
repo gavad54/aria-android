@@ -24,7 +24,7 @@ jobs:
           set -euo pipefail
           ARCHIVE="release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip"
           if [[ ! -f "$ARCHIVE" ]]; then
-            echo "::error::Missing $ARCHIVE. The full ARIA 32 archive must be uploaded to this path before building."
+            echo "::error::Missing $ARCHIVE. Upload the repaired candidate with the exact checksum recorded below."
             exit 2
           fi
 
@@ -32,7 +32,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          echo "0c45fb175fa6d44456ce33af5c975a2d74576096fae37aa4993a213759a5dbe8  release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip" | sha256sum --check -
+          echo "6ebe65d8058ef83c9b8a0845054dd4fd01068cf249cdf29492d8fa6d451e0be9  release-input/ARIA_32_RUNTIME_FIXES_RELEASE_READINESS_SOURCE.zip" | sha256sum --check -
 
       - name: Extract source archive
         shell: bash
@@ -54,6 +54,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22.14.0'
+
+      - name: Attach 72 catalog aliases to the 639 canonical contracts
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/aria32_apply_web_catalog_bridge.js --root "$RUNNER_TEMP/aria32"
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
@@ -81,7 +87,10 @@ jobs:
         run: |
           set -euo pipefail
           (cd backend && npm install --no-audit --no-fund)
+          node "$GITHUB_WORKSPACE/scripts/aria32_alias_consolidation_gate.cjs" --root "$RUNNER_TEMP/aria32"
+          node "$GITHUB_WORKSPACE/scripts/aria32_web_catalog_runtime_check.cjs" --root "$RUNNER_TEMP/aria32"
           node scripts/aria32_release_readiness.js
+          node scripts/aria32_no_loss_gate.js
           bash verify_project.sh
           bash ENGINEERING_FINAL_GATE_R9.sh
           bash scripts/verify_module_capability_matrix.sh
