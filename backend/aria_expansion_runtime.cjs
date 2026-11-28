@@ -1083,7 +1083,7 @@ async function handle(req, res, url, deps) {
       const item = current.rows[0].payload;
       if (item.status !== "QUALIFIED") return json(res, 409, { error: "برای تهیه پیشنهاد، ابتدا پرونده باید ارزیابی و تأیید شود." });
       const quote = serviceDelivery.buildQuote(data);
-      const updated = serviceDelivery.transitionServiceCase(item, "ISSUE_QUOTE", { userId: String(user.sub) });
+      const updated = serviceDelivery.transitionServiceCase(item, "ISSUE_QUOTE", { userId: String(user.sub), tenantId });
       updated.quoteState = "QUOTE_PENDING_OWNER_APPROVAL";
       updated.quote = quote;
       await pool.query("UPDATE aria_service_cases SET status=$1,payload=$2::jsonb,quote=$3::jsonb,updated_at=NOW() WHERE id=$4::uuid AND user_id=$5 AND tenant_id=$6",
@@ -1107,9 +1107,9 @@ async function handle(req, res, url, deps) {
       if (!current.rowCount) return json(res, 404, { error: "پرونده خدمت پیدا نشد." });
       let item = current.rows[0].payload;
       if (item.status !== "IN_PROGRESS") return json(res, 409, { error: "کنترل کیفیت فقط پس از شروع تحویل قابل ثبت است." });
-      item = serviceDelivery.transitionServiceCase(item, "SUBMIT_QA", { userId: String(user.sub) });
+      item = serviceDelivery.transitionServiceCase(item, "SUBMIT_QA", { userId: String(user.sub), tenantId });
       const quality = serviceDelivery.evaluateDeliveryQuality(data);
-      item = serviceDelivery.transitionServiceCase(item, quality.passed ? "PASS_QA" : "FAIL_QA", { userId: String(user.sub) });
+      item = serviceDelivery.transitionServiceCase(item, quality.passed ? "PASS_QA" : "FAIL_QA", { userId: String(user.sub), tenantId });
       item.quality = quality;
       await pool.query("UPDATE aria_service_cases SET status=$1,payload=$2::jsonb,quality=$3::jsonb,updated_at=NOW() WHERE id=$4::uuid AND user_id=$5 AND tenant_id=$6",
         [item.status, JSON.stringify(item), JSON.stringify(quality), serviceQualityMatch[1], user.sub, tenantId]);
@@ -1131,7 +1131,7 @@ async function handle(req, res, url, deps) {
       const current = await pool.query("SELECT payload FROM aria_service_cases WHERE id=$1::uuid AND user_id=$2 AND tenant_id=$3", [serviceTransitionMatch[1], user.sub, tenantId]);
       if (!current.rowCount) return json(res, 404, { error: "پرونده خدمت پیدا نشد." });
       const isOwner = Boolean(process.env.ARIA_OWNER_USER_ID && String(user.sub) === String(process.env.ARIA_OWNER_USER_ID));
-      const item = serviceDelivery.transitionServiceCase(current.rows[0].payload, data.action, { userId: String(user.sub), isOwner });
+      const item = serviceDelivery.transitionServiceCase(current.rows[0].payload, data.action, { userId: String(user.sub), tenantId, isOwner });
       await pool.query("UPDATE aria_service_cases SET status=$1,payload=$2::jsonb,updated_at=NOW() WHERE id=$3::uuid AND user_id=$4 AND tenant_id=$5",
         [item.status, JSON.stringify(item), serviceTransitionMatch[1], user.sub, tenantId]);
       return json(res, 200, { case: item, externalExecutionPerformed: false, paymentExecuted: false });
