@@ -5,6 +5,7 @@ const path = require("node:path");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const {Pool}=require("pg");
+const {initOwnerCenter,handleOwnerCenter}=require("./owner-command-center");
 const root=__dirname;
 const port=Number(process.env.PORT||3000);
 const types={".html":"text/html; charset=utf-8",".css":"text/css; charset=utf-8",".js":"text/javascript; charset=utf-8",".json":"application/json; charset=utf-8",".svg":"image/svg+xml"};
@@ -266,6 +267,7 @@ async function handle(req,res,url){
   }else plan.saved=false;
   return json(res,200,{ok:true,plan});
  }
+ const ownerHandled=await handleOwnerCenter(req,res,url,pool,authUser(req));if(ownerHandled)return;
  if(url.pathname.startsWith("/api/"))return json(res,404,{error:"مسیر API پیدا نشد."});
  if(req.method!=="GET"&&req.method!=="HEAD")return json(res,405,{error:"روش درخواست پشتیبانی نمی‌شود."});
  let requested;try{requested=decodeURIComponent(url.pathname==="/"?"/index.html":url.pathname);}catch{return json(res,400,{error:"مسیر نامعتبر است."});}
@@ -275,5 +277,5 @@ async function handle(req,res,url){
  if(req.method==="HEAD")return res.end();fs.createReadStream(file).pipe(res);
 }
 const server=http.createServer((req,res)=>{securityHeaders(res);let url;try{url=new URL(req.url||"/","http://localhost");}catch{return json(res,400,{error:"نشانی نامعتبر است."});}handle(req,res,url).catch(err=>{console.error("ARIA request failed:",err.message);if(!res.headersSent)json(res,500,{error:"خطای داخلی رخ داد."});else res.destroy();});});
-server.listen(port,"0.0.0.0",()=>{console.log("ARIA web listening on "+port);if(pool)initDb().catch(err=>console.error("ARIA database init pending:",err.message));});
+server.listen(port,"0.0.0.0",()=>{console.log("ARIA web listening on "+port);if(pool)initDb().then(()=>initOwnerCenter(pool)).catch(err=>console.error("ARIA database/owner center init pending:",err.message));});
 process.on("SIGTERM",async()=>{server.close();if(pool)await pool.end().catch(()=>{});process.exit(0);});
