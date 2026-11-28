@@ -99,3 +99,16 @@ Railway reports the `aria-web` service and PostgreSQL service as online, with th
 | Production-grade global super-app | Not complete |
 
 Do not treat ARIA as release-ready until the full source is present, CI and live integration tests pass, and the Android release has been built, tested, signed, and reviewed.
+
+
+## Owner Control Center and AI Command Center
+
+A Persian owner interface is available at `/owner-center.html`. Its APIs are owner-only and require:
+- `ARIA_OWNER_USER_IDS`: comma-separated numeric IDs of the verified owner accounts. Do not set this to an email address. Never grant access to ordinary users.
+- Existing `DATABASE_URL` and `ARIA_JWT_SECRET` configuration.
+
+The additive PostgreSQL tables are initialized after the existing schema initialization: `aria_product_modules`, `aria_revenue_engines`, `aria_owner_audit`, and `aria_ai_findings`. New modules and revenue engines are created as drafts. Activation requires an explicit owner approval flag and is audit logged. AI analysis currently checks registered module dependencies and revenue-engine links; it does not deploy code, modify production data, change schemas, or make payments.
+
+After setting `ARIA_OWNER_USER_IDS` in Railway variables, restart the service. Sign in through the existing ARIA login flow, then provide the bearer token in the owner center. The token is kept in browser session storage for the current tab. Verify the owner identity endpoint before using the management functions. Do not expose owner IDs, bearer tokens, or database credentials in public logs.
+
+Validation: `npm run check` includes syntax validation for both the HTTP server and owner-center module. Full runtime validation still requires a configured PostgreSQL instance and an authorized owner account.
