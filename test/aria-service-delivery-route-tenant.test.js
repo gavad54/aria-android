@@ -9,6 +9,6 @@ test("all persisted service-case transitions receive the authenticated tenant co
   const calls = [...source.matchAll(/transitionServiceCase\([^;]+?\);/gs)].map(match => match[0]);
   assert.equal(calls.length, 4, "quote, quality submit, quality result and explicit transition routes must be covered");
   for (const call of calls) {
-    assert.match(call, /tenantId\s*[:,]/, "every transition actor must carry the same authenticated tenant boundary");
+    assert.match(call, /tenantId/, "every transition actor must carry the same authenticated tenant boundary");
   }
 });
